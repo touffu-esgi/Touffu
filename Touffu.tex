@@ -1,0 +1,220 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{xurl}
+\usepackage[utf8]{inputenc}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+    
+\newcommand{\bibRef}[1]
+{\textsuperscript{\cite{#1}}}
+
+ 
+\begin{document}
+
+\title{
+Touffu\\
+{\footnotesize
+Projet annuel (2022) - ESGI 3e année - Architecture Logicielle}
+}
+
+\author{
+\IEEEauthorblockN{Nathan LETOURNEAU}
+\IEEEauthorblockA{
+\textit{Étudiant en Architecture Logicielle}\\
+\textit{École Supérieure de Génie Informatique}\\
+@Nathan-dev-dot\\
+nathan.letourneau@net-c.com}
+\and
+\IEEEauthorblockN{Théo OMNES}
+\IEEEauthorblockA{
+\textit{Étudiant en Architecture Logicielle}\\
+\textit{École Supérieure de Génie Informatique}\\
+@NightTheo\\
+omnes.theo@gmail.com}
+\and
+\IEEEauthorblockN{Sarah SCHLEGEL}
+\IEEEauthorblockA{
+\textit{Étudiante en Architecture Logicielle}\\
+\textit{École Supérieure de Génie Informatique}\\
+@SarahSch19\\
+sschlegel@protonmail.ch}
+}
+
+\maketitle
+
+\begin{abstract}
+Le projet annuel de la filière Architecture Logicielle de l'ESGI a pour but de rassembler en un seul projet la plupart des compétences acquises autour de l'année. En 2022, il s'articule autour des éléments suivants : réalisation d'un front-end en AngularJS, d'une application lourde en Java, d'une API en NodeJS, d'une base de données noSQL, d'une base de données relationnelle, et de la création d'un langage de scraping. Axé sur le thème de l'aide à la personne, il propose de combiner les éléments précédents afin de concevoir un service numérique complet.
+\end{abstract}
+
+\section{Introduction}
+
+\textit{Touffu} est une application d'aide à la personne, centrée sur les soins et promenades d'animaux de compagnie pour les personnes dépendantes\bibRef{Soins aux animaux}. Le service a pour but de mettre en relation les personnes dépendantes, nécessitant de l'aide, avec des volontaires déclarés qui peuvent s'occuper des animaux domestiques.\\
+
+Au niveau technique, le service se divise en sept modules majeurs :
+\begin{enumerate}
+	\item Une application client en AngularJS, destinée aux utilisateurs principaux du service : elle permettra aux utilisateurs de s'inscrire et de trouver ou de proposer leurs services en fonction de leur catégorie ;
+	\item Une application d'administration en AngularJS, destinée aux gérants de l'application, afin de gérer les comptes des utilisateurs, la base de données, les catégories principales de l'application, etc. ;
+	\item Une API en NodeJS pour faire la jonction entre les deux applications front-end et la base de données ;
+	\item Une base de données en noSQL, accessible à partir de l'API ;
+	\item Une application lourde de gestion du projet Touffu en Java destinée aux développeurs de Touffu. Cette application doit notamment inclure une messagerie interne et une gestion de plugins.
+	\item Une base de données relationnelle pour gérer les données associées au pilotage du projet, qui ne sera associée qu'à l'application Java.
+	\item Un langage de scraping en ligne de commande permettant de récupérer des informations sur les prestations procurées (soins et promenades des animaux de compagnie pour les personnes dépendantes) à partir de différentes sources Web, pour les traiter et les enregistrer dans des fichiers.
+\end{enumerate}
+Ces modules sont représentés de manière graphique dans la figure \ref{fig:architecture}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{Ressources/Architecture.png}
+    \caption{Architecture globale}
+    \label{fig:architecture}
+\end{figure}
+
+
+
+\subsection*{Objectifs}
+
+Objectifs du projet
+
+\subsection*{Projets similaires}
+
+À voir si on laisse
+\bigskip
+\subsubsection{Appli similaire}
+\hfil\\
+Description
+
+\section{Fonctionnalités}
+
+\subsection{Interface utilistaeur}
+
+\subsubsection{Connexion}
+\hfil\\
+…
+
+\subsection{Interface administrateur}
+…
+
+\subsection{Pilotage du projet}
+
+\subsubsection{Gestion des tâches}
+
+\subsubsection{Gestion des plugins}
+
+\subsubsection{Messagerie interne}
+
+\subsection{Récupération de données (Scraping)}
+…
+
+\section{Environnement de développement}
+
+\subsection{Décisions logicielles}
+…
+
+\subsection{Estimation des coûts}
+…
+
+\section{Spécifications}
+…
+
+\section{Architecture logicielle}
+
+\subsection{Architecture globale}
+
+…
+
+\subsection{Organisation des répertoires}
+
+Le projet est développé et versionné sous Git, dans une organisation appelée touffu-esgi\bibRef{touffu-esgi}, et administré par les développeurs. L'organisation comporte six "repos" majeurs, qui sont les dossiers des modules de l'application. Ces repos sont indépendants les uns des autres en termes de code propre, mais interdépendants en ce qui concerne la donnée, tel que le montre la figure \ref{fig:architecture}.\\
+
+\subsubsection*{Touffu\bibRef{Touffu} }
+
+Le répertoire Touffu contient le front-end principal, soit l'application client en AngularJS.\\
+
+\subsubsection*{TouffAdmin\bibRef{TouffAdmin} }
+
+TouffAdmin est le repository du backend administratif de l'application Touffu, lui aussi en AngularJS\\
+
+\subsubsection*{TouffApi\bibRef{TouffApi} }
+
+Le répertoire TouffApi contient les éléments de l'API en NodeJS.\\
+
+\subsubsection*{Touffu-Management\bibRef{Touffu-Management} }
+
+Ce répertoire est dédié à l'application lourde en Java.\\
+
+\subsubsection*{Touffu-noSQL\bibRef{Touffu-noSQL} }
+
+Le répertoire Touffu-noSQL contient toutes les données relatives à la base de données NoSQL.\\
+
+\subsubsection*{Touffu-Scrap\bibRef{Touffu-Scrap} }
+
+Touffu-Scrap est le répertoire destiné au langage de scraping développé par touffu-esgi afin de récupérer des données sur Internet au sujet des services à la personne.\\
+
+\subsection{Architecture des modules}
+
+\subsubsection*{Touffu}
+\hfil\\
+…\\
+
+\subsubsection*{TouffAdmin}
+\hfil\\
+…\\
+
+\subsubsection*{TouffApi}
+\hfil\\
+…\\
+
+\subsubsection*{Touffu-Management}
+\hfil\\
+…\\
+
+\subsubsection*{Touffu-noSQL}
+\hfil\\
+…\\
+
+\subsubsection*{Touffu-Scrap}
+\hfil\\
+…\\
+
+\section{Implémentation}
+
+{Cas d'utilisation…}
+
+
+\begin{thebibliography}{00}
+
+\bibitem{Soins aux animaux}
+\url{https://www.servicesalapersonne.gouv.fr/beneficier-des-sap/quelles-sont-activites-de-services-la-personne/soins-et-promenades-d-animaux-de-compagnie-pour-personnes-dependantes}
+
+\bibitem{touffu-esgi}
+\url{https://github.com/touffu-esgi}
+
+\bibitem{Touffu}
+\url{https://github.com/touffu-esgi/Touffu}
+
+\bibitem{TouffAdmin}
+\url{https://github.com/touffu-esgi/TouffAdmin}
+
+\bibitem{Touffu-Management}
+\url{https://github.com/touffu-esgi/Touffu-Management}
+
+\bibitem{TouffApi}
+\url{https://github.com/touffu-esgi/TouffApi}
+
+\bibitem{Touffu-Scrap}
+\url{https://github.com/touffu-esgi/Touffu-Scrap}
+
+\bibitem{Touffu-noSQL}
+\url{https://github.com/touffu-esgi/Touffu-noSQL}
+
+\end{thebibliography}
+
+
+\end{document}
