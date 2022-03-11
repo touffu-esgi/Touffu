@@ -71,22 +71,64 @@ Ces modules sont représentés de manière graphique dans la figure \ref{fig:arc
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\columnwidth]{Ressources/Architecture.png}
+    \includegraphics[width=\columnwidth]{Ressources/Images/Architecture.png}
     \caption{Architecture globale}
     \label{fig:architecture}
 \end{figure}
 
+\subsection{Descriptif du projet}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\columnwidth]{Ressources/Images/Touffu-logo-small.png}
+	\caption{Logo "Touffu"}
+	\label{fig:logosmall}
+\end{figure}
+
+\subsubsection{Touffu client ("Touffu")}\hfil
+
+Touffu est une application d'aide à la personne, centrée sur les soins et promenades d’animaux compagnie pour les personnes dépendantes. Le service a pour but de mettre en relation les personnes dépendantes, nécessitant de l'aide, avec des volontaires déclarés qui peuvent s’occuper des animaux domestiques.
+
+Du côté front-end, en s'inscrivant sur Touffu, les utilisateurs définissent s'ils souhaitent être aidés (bénéficiaires ou personnes tierces demandant en leur nom) ou apporter de l'aide (prestataires). L'application leur permet ensuite de définir leurs besoins (promenade, brossage, préparation de nourriture, changement de litière, accompagnement chez le vétérinaire) ou leurs disponibilités (types d'animaux, activités, possibilité d'effectuer des prestations récurrentes ou ponctuelles).\\
+
+Les bénéficiaires qui ont besoin d'aide peuvent définir si elles ont besoin d'une aide récurrente, auquel cas elles peuvent définir une récurrence quotidienne, hebdomadaire ou mensuelle par exemple, ou d'une intervention ponctuelle. Ils peuvent définir si cette demande concerne plusieurs animaux ou un seul, et à combien de temps ils estiment cette prestation.
+
+Le système montre ensuite à chacun des partis une liste de personnes qui correspondent à leurs besoins et leurs disponibilités. Un système de messagerie interne leur permet d'échanger au préalable s'ils souhaitent dialoguer. Un calendrier propre à chaque utilisateur rappelle ensuite l'évènement à l'utilisateur.
+
+Le prestataire (ou aidant) peut de son côté travailler pour plusieurs bénéficiaires à la condition que ses activités chez différentes personnes ne se chevauchent pas. Il peut en revanche exercer plusieurs activités (qui peuvent concerner des animaux différents) chez un seul bénéficiaire sur une même plage horaire.\\
+
+Un système d'évaluation permet de noter la prestation d'un prestataire par le bénéficiaire, et inversement le comportement du bénéficiaire envers le prestataire. Cette évaluation est prise en compte dans la mise en avant des prestataires et des bénéficiaires dans les recherches. Elle est également mise en évidence dans les statistiques individuelles de chaque utilisateur, qui affichent donc en plus de sa note ses performances individuelles.\\
+
+La plateforme Touffu permet de gérer les paiements des prestataires s'ils se font en ligne (via Stripe), ce qui permet également de générer les factures des prestataires. Les prestataires et les bénéficiaires peuvent se mettre d'accord sur la fréquence des facturations et des paiements (paiements à la prestation, hebdomadaires ou mensuels). En fonction du mode de paiement défini, le système affichera un rappel pour le bénéficiaire de la prestation et enverra une notification (mail) qui l'amènera au système de paiement (Stripe).
+
+Si le bénéficiaire est en retard sur ses paiements, des sanctions progressives seront appliquées (suspension des prestations en cours, blocage de nouvelles annonces, verrouillage du compte).\\
+
+\subsubsection{Front admin ("TouffAdmin")}\hfill\\
+
+Le front d'administration servira au service de Touffu pour la gestion de l'application. Cela comprend notamment la gestion des comptes utilisateur, la gestion des offres et demandes (suppression d'arnaques), de vérifier les messages qui ont été signalés par les utilisateurs comme inappropriés. Des statistiques sont générées pour évaluer les activités des prestataires et les demandes des bénéficiaires.
+
+Le backend permet également de gérer les comptes administrateurs (ajouter ou supprimer des administrateurs ou des modérateurs, définir leurs droits individuels ou de groupe.
+
+Il permet également de gérer l'apparence du front client (images sur les sliders, texte de présentation, titres, etc.) et les données dans les formulaires (contenu des listes des services disponibles, gestion et envois des factures).\\
 
 
-\subsection*{Objectifs}
+\subsubsection{Scraper ("Touffu Scrap")}\hfill\\
 
-Objectifs du projet
+Le langage compilé de Touffu permettra dans la mesure de raisonnable de scrapper toutes les données du site client Touffu et d'autres sites similaires (récupérer des types de balises, les valeurs qu'elles contiennent...).
+
+\subsection{Fonctionnalités optionnelles}
+\begin{itemize}
+	\item Application mobile (Swift, "TouffApp") avec géolocalisation pour les promenades des animaux
+	\item Système d'abonnement payant à Touffu pour les prestataires leur donnant des accès à des fonctionnalités plus pointues (liste non-exhaustive : statistiques détaillées, export des calendriers)
+\end{itemize}
+
+
 
 \subsection*{Projets similaires}
 
-À voir si on laisse
+...?
 \bigskip
-\subsubsection{Appli similaire}
+\subsubsection{Applications similaire}
 \hfil\\
 Description
 
