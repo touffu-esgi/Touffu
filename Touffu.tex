@@ -50,12 +50,12 @@ sschlegel@protonmail.ch}
 \maketitle
 
 \begin{abstract}
-Le projet annuel de la filière Architecture Logicielle de l'ESGI a pour but de rassembler en un seul projet la plupart des compétences acquises autour de l'année. En 2022, il s'articule autour des éléments suivants : réalisation d'un front-end en AngularJS, d'une application lourde en Java, d'une API en NodeJS, d'une base de données noSQL, d'une base de données relationnelle, et de la création d'un langage de scraping. Axé sur le thème de l'aide à la personne, il propose de combiner les éléments précédents afin de concevoir un service numérique complet.
+Le projet annuel de la filière Architecture Logicielle de l'ESGI a pour but de rassembler en un seul projet la plupart des compétences acquises au cours de l'année. En 2022, il s'articule autour des éléments suivants : réalisation d'un front-end en AngularJS, d'une application lourde en Java, d'une API en NodeJS, d'une base de données noSQL, d'une base de données relationnelle, et de la création d'un langage de scraping. Axé sur le thème de l'aide à la personne, il propose de combiner les éléments précédents afin de concevoir un service numérique complet.
 \end{abstract}
 
 \section{Introduction}
 
-\textit{Touffu} est une application d'aide à la personne, centrée sur les soins et promenades d'animaux de compagnie pour les personnes dépendantes\bibRef{Soins aux animaux}. Le service a pour but de mettre en relation les personnes dépendantes, nécessitant de l'aide, avec des volontaires déclarés qui peuvent s'occuper des animaux domestiques.\\
+\textit{Touffu} est une application d'aide à la personne, centrée sur les soins et promenades d'animaux de compagnie pour les personnes dépendantes\bibRef{Soins aux animaux}. Le service a pour but de mettre en relation les personnes dépendantes, nécessitant de l'aide, avec des volontaires déclarés qui peuvent s'occuper des animaux domestiques\bibRef{Animaux domestiques}.\\
 
 Au niveau technique, le service se divise en sept modules majeurs :
 \begin{enumerate}
@@ -80,37 +80,70 @@ Ces modules sont représentés de manière graphique dans la figure \ref{fig:arc
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.4\columnwidth]{Ressources/Images/Touffu-logo-small.png}
-	\caption{Logo "Touffu"}
-	\label{fig:logosmall}
+	\includegraphics[width=0.4\columnwidth]{Ressources/Icons/v1_all.png}
+	\caption{Logo Global}
+	\label{fig:logotouffuall}
 \end{figure}
 
 \subsubsection{Touffu client ("Touffu")}\hfil
 
-Touffu est une application d'aide à la personne, centrée sur les soins et promenades d’animaux compagnie pour les personnes dépendantes. Le service a pour but de mettre en relation les personnes dépendantes, nécessitant de l'aide, avec des volontaires déclarés qui peuvent s’occuper des animaux domestiques.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\columnwidth]{Ressources/Icons/v1_2@3x.png}
+	\caption{Touffu}
+	\label{fig:logotouffu}
+\end{figure}
 
 Du côté front-end, en s'inscrivant sur Touffu, les utilisateurs définissent s'ils souhaitent être aidés (bénéficiaires ou personnes tierces demandant en leur nom) ou apporter de l'aide (prestataires). L'application leur permet ensuite de définir leurs besoins (promenade, brossage, préparation de nourriture, changement de litière, accompagnement chez le vétérinaire) ou leurs disponibilités (types d'animaux, activités, possibilité d'effectuer des prestations récurrentes ou ponctuelles).\\
 
-Les bénéficiaires qui ont besoin d'aide peuvent définir si elles ont besoin d'une aide récurrente, auquel cas elles peuvent définir une récurrence quotidienne, hebdomadaire ou mensuelle par exemple, ou d'une intervention ponctuelle. Ils peuvent définir si cette demande concerne plusieurs animaux ou un seul, et à combien de temps ils estiment cette prestation.
+Les bénéficiaires qui ont besoin d'aide peuvent définir si elles ont besoin d'une aide récurrente, auquel cas elles peuvent définir une récurrence quotidienne, hebdomadaire ou mensuelle par exemple, ou d'une intervention ponctuelle. Ils peuvent définir si cette demande concerne plusieurs animaux ou un seul, et à combien de temps ils estiment cette prestation. Dans le cadre d'une intervention chez le vétérinaire, ils définissent également s'ils peuvent fournir un moyen de transport ou payer les frais de transport et comment ils couvrent les frais du vétérinaire.
 
-Le système montre ensuite à chacun des partis une liste de personnes qui correspondent à leurs besoins et leurs disponibilités. Un système de messagerie interne leur permet d'échanger au préalable s'ils souhaitent dialoguer. Un calendrier propre à chaque utilisateur rappelle ensuite l'évènement à l'utilisateur.
+Le système montre ensuite à chacun des partis une liste de personnes qui correspondent à leurs besoins et leurs disponibilités. Un système de messagerie interne leur permet d'échanger au préalable s'ils souhaitent dialoguer. Un calendrier propre à chaque utilisateur rappelle ensuite l'évènement à l'utilisateur.\\
 
-Le prestataire (ou aidant) peut de son côté travailler pour plusieurs bénéficiaires à la condition que ses activités chez différentes personnes ne se chevauchent pas. Il peut en revanche exercer plusieurs activités (qui peuvent concerner des animaux différents) chez un seul bénéficiaire sur une même plage horaire.\\
+Le prestataire (ou aidant) peut de son côté travailler pour plusieurs bénéficiaires à la condition que ses activités chez différentes personnes ne se chevauchent pas. Il peut en revanche exercer plusieurs activités (qui peuvent concerner des animaux différents) chez un seul bénéficiaire sur une même plage horaire.
 
 Un système d'évaluation permet de noter la prestation d'un prestataire par le bénéficiaire, et inversement le comportement du bénéficiaire envers le prestataire. Cette évaluation est prise en compte dans la mise en avant des prestataires et des bénéficiaires dans les recherches. Elle est également mise en évidence dans les statistiques individuelles de chaque utilisateur, qui affichent donc en plus de sa note ses performances individuelles.\\
 
-La plateforme Touffu permet de gérer les paiements des prestataires s'ils se font en ligne (via Stripe), ce qui permet également de générer les factures des prestataires. Les prestataires et les bénéficiaires peuvent se mettre d'accord sur la fréquence des facturations et des paiements (paiements à la prestation, hebdomadaires ou mensuels). En fonction du mode de paiement défini, le système affichera un rappel pour le bénéficiaire de la prestation et enverra une notification (mail) qui l'amènera au système de paiement (Stripe).
+La plateforme Touffu permet de gérer en ligne les paiements des prestataires (via Stripe ou système similaire), ce qui permet également de générer les factures des prestataires. Les prestataires et les bénéficiaires peuvent se mettre d'accord sur la fréquence des facturations et des paiements (paiements à la prestation, hebdomadaires ou mensuels). En fonction du mode de paiement défini, le système affichera un rappel pour le bénéficiaire de la prestation et enverra une notification (mail) qui l'amènera au système de paiement.
 
-Si le bénéficiaire est en retard sur ses paiements, des sanctions progressives seront appliquées (suspension des prestations en cours, blocage de nouvelles annonces, verrouillage du compte).\\
+Si le bénéficiaire est en retard sur ses paiements, des sanctions progressives seront appliquées (suspension des prestations en cours, blocage de nouvelles annonces, verrouillage du compte).
+\\
 
 \subsubsection{Front admin ("TouffAdmin")}\hfill\\
 
-Le front d'administration servira au service de Touffu pour la gestion de l'application. Cela comprend notamment la gestion des comptes utilisateur, la gestion des offres et demandes (suppression d'arnaques), de vérifier les messages qui ont été signalés par les utilisateurs comme inappropriés. Des statistiques sont générées pour évaluer les activités des prestataires et les demandes des bénéficiaires.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\columnwidth]{Ressources/Icons/v1_3@3x.png}
+	\caption{TouffAdmin}
+	\label{fig:logotouffadmin}
+\end{figure}
 
-Le backend permet également de gérer les comptes administrateurs (ajouter ou supprimer des administrateurs ou des modérateurs, définir leurs droits individuels ou de groupe.
+Le front d'administration servira au service de Touffu pour la gestion de l'application. Cela comprend notamment la gestion des comptes utilisateur, la gestion des offres et demandes (suppression d'arnaques, gestion et envois des factures), de vérifier les messages qui ont été signalés par les utilisateurs comme inappropriés.
 
-Il permet également de gérer l'apparence du front client (images sur les sliders, texte de présentation, titres, etc.) et les données dans les formulaires (contenu des listes des services disponibles, gestion et envois des factures).\\
+Ce backend permet également de gérer les comptes administrateurs (ajouter ou supprimer des administrateurs ou des modérateurs, définir leurs droits individuels ou de groupe.\\
 
+Le front client est également géré à partir du backend. Cela inclut de gérer l'apparence du front client (images sur les sliders, texte de présentation, titres, etc.) et les données dans les formulaires (contenu des listes des services disponibles).
+
+Des statistiques sont générées régulièrement (tâche automatisée) pour évaluer les tendances dans les activités des prestataires et les demandes des bénéficiaires, et pouvoir afficher les tarifs moyens pour une prestation donnée.\\
+
+Touffu prélève une commission sur le paiement en ligne, tant du côté du prestataire que du côté du bénéficiaire, afin de subvenir à ses propres besoins. Le pourcentage de cette marge est défini dans l'administration de Touffu.\\
+
+\subsubsection{Gestion de projet ("Touffu-Management")}\hfil\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\columnwidth]{Ressources/Icons/v1_1@3x.png}
+	\caption{Touffu Management}
+	\label{fig:logotouffu-management}
+\end{figure}
+
+L'application de management est destinée aux développeurs de Touffu, afin qu'ils puissent préparer les différentes étapes du projet. Le management se fait via une interface de type Trello, avec une gestion de tableaux, colonnes et de cartes. Les utilisateurs peuvent ajouter, supprimer ou modifier des tableaux, cartes ou colonnes, et déplacer les cartes entre les colonnes.
+
+Un transfert de droits sur un tableau peut avoir lieu si le propriétaire du tableau souhaite passer la main à un autre utilisateur. C'est le propriétaire d'un tableau (à l'origine son créateur donc) qui peut ajouter des membres à un tableau et gérer le tableau (suppression notamment).
+
+Un gestionnaire de plugins intégré permet d'ajouter des plugins afin de rajouter des fonctionnalités aux tableaux. Par exemple, un plugin pourrait permettre d'ajouter des images à une carte, ou bien d'envoyer des notifications par email lors de la mise à jour d'une carte, ou encore d'ajouter des commentaires sur une carte.
+
+Une messagerie interne permet aux utilisateurs de communiquer sur l'avancée du projet. Cette messagerie est propre à chaque utilisateur, et lui permet d'échanger avec un autre des utilisateurs de l'application.\\
 
 \subsubsection{Scraper ("Touffu Scrap")}\hfill\\
 
@@ -122,15 +155,6 @@ Le langage compilé de Touffu permettra dans la mesure de raisonnable de scrappe
 	\item Système d'abonnement payant à Touffu pour les prestataires leur donnant des accès à des fonctionnalités plus pointues (liste non-exhaustive : statistiques détaillées, export des calendriers)
 \end{itemize}
 
-
-
-\subsection*{Projets similaires}
-
-...?
-\bigskip
-\subsubsection{Applications similaire}
-\hfil\\
-Description
 
 \section{Fonctionnalités}
 
@@ -234,6 +258,10 @@ Touffu-Scrap est le répertoire destiné au langage de scraping développé par 
 
 \bibitem{Soins aux animaux}
 \url{https://www.servicesalapersonne.gouv.fr/beneficier-des-sap/quelles-sont-activites-de-services-la-personne/soins-et-promenades-d-animaux-de-compagnie-pour-personnes-dependantes}
+
+\bibitem{Animaux domestiques}
+\url{https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000789087
+}
 
 \bibitem{touffu-esgi}
 \url{https://github.com/touffu-esgi}
