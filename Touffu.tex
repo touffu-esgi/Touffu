@@ -137,13 +137,17 @@ Touffu prélève une commission sur le paiement en ligne, tant du côté du pres
 	\label{fig:logotouffu-management}
 \end{figure}
 
-L'application de management est destinée aux développeurs de Touffu, afin qu'ils puissent préparer les différentes étapes du projet. Le management se fait via une interface de type Trello, avec une gestion de tableaux, colonnes et de cartes. Les utilisateurs peuvent ajouter, supprimer ou modifier des tableaux, cartes ou colonnes, et déplacer les cartes entre les colonnes.
+L'application de management est destinée aux développeurs de Touffu, afin qu'ils puissent préparer les différentes étapes du projet, ainsi que les ressources humaines associées. Le management se fait via une interface de type Trello, avec une gestion de tableaux (cf. figure \ref{fig:touffumanagementhomedesign}), colonnes et de cartes, également disponible en ligne de commande. Les utilisateurs peuvent ajouter, supprimer ou modifier des tableaux, cartes ou colonnes, et déplacer les cartes entre les colonnes.
+
+Pour l'affectation des tâches, les utilisateurs peuvent s'affecter une tâche, ou l'affecter à un autre utilisateur présent sur le tableau.
 
 Un transfert de droits sur un tableau peut avoir lieu si le propriétaire du tableau souhaite passer la main à un autre utilisateur. C'est le propriétaire d'un tableau (à l'origine son créateur donc) qui peut ajouter des membres à un tableau et gérer le tableau (suppression notamment).
 
 Un gestionnaire de plugins intégré permet d'ajouter des plugins afin de rajouter des fonctionnalités aux tableaux. Par exemple, un plugin pourrait permettre d'ajouter des images à une carte, ou bien d'envoyer des notifications par email lors de la mise à jour d'une carte, ou encore d'ajouter des commentaires sur une carte.
 
-Une messagerie interne permet aux utilisateurs de communiquer sur l'avancée du projet. Cette messagerie est propre à chaque utilisateur, et lui permet d'échanger avec un autre des utilisateurs de l'application.\\
+Une messagerie interne permet aux utilisateurs de communiquer sur l'avancée du projet. Cette messagerie est propre à chaque utilisateur, et lui permet d'échanger avec un autre des utilisateurs de l'application.
+
+Enfin, un système d'export permet d'exporter un tableau au format PDF.\\
 
 \subsubsection{Scraper ("Touffu Scrap")}\hfill\\
 
@@ -158,22 +162,127 @@ Le langage compilé de Touffu permettra dans la mesure de raisonnable de scrappe
 
 \section{Fonctionnalités}
 
-\subsection{Interface utilistaeur}
+\subsection{Interface utilisateur / Touffu}
 
 \subsubsection{Connexion}
 \hfil\\
 …
 
-\subsection{Interface administrateur}
+\subsection{Interface administrateur / TouffAdmin}
 …
 
-\subsection{Pilotage du projet}
+\subsection{Pilotage du projet / Touffu Management}
 
-\subsubsection{Gestion des tâches}
+La gestion du projet Touffu se fait au travers d'une application Java avec une interface graphique similaire à celle de Trello, comme le montre la figure \ref{fig:touffumanagementhomedesign}. La vue principale d'un projet se divise en colonnes, dans lesquelles des cartes affichent les différentes tâches.\\
+Les fonctionnalités suivantes sont décrites sous la forme graphique, mais une version de l'application est également disponible en ligne de commande, auquel cas les traitements sont les mêmes, à l'exception de la gestion des fenêtres d'affichage.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\columnwidth]{Ressources/Images/Touffu-management-home}
+	\caption{Management app - home design}
+	\label{fig:touffumanagementhomedesign}
+\end{figure}
+
+\subsubsection{Gestion des utilisateurs}\hfil\\
+
+\textbf{Inscription}\\
+- Affichage d'une fenêtre d'inscription\\
+- L'utilisateur définit son email (doit être unique dans l'instance de la base de données), un mot de passe et un nom d'utilisateur\\
+- L'application vérifie l'unicité de l'email et insère les données en base de données\\
+- L'application envoie un email de confirmation d'inscription à l'utilisateur\\
+- L'utilisateur est redirigé vers la fenêtre de connexion\\
+
+\textbf{Connexion}\\
+- Affichage d'une fenêtre de connexion\\
+- L'utilisateur entre ses identifiants de connexion (email et mot de passe)\\
+- L'application vérifie la combinaison des identifiants\\
+- En cas d'erreur, la fenêtre affiche un message d'erreur\\
+- En cas de succès, l'utilisateur est redirigé vers la page d'accueil\\
+
+\textbf{Suppression de compte}\\
+- Affichage de la fenêtre des paramètres de l'utilisateur\\
+- L'utilisateur sélectionne \textit{Supprimer le compte} dans la danger zone\\
+- Le système supprime toutes les données de l'utilisateur, y compris toutes celles liées à des projets en cours\\
+
+\subsubsection{Gestion des projets et des tâches}\hfil\\
+
+\textbf{Création d'un projet}\\
+- Affichage d'une fenêtre pour créer un nouveau projet\\
+- L'utilisateur entre le nom du projet\\
+- Le système insère le projet en base de données\\
+
+\textbf{Modification d'un projet}\\
+- Affichage de la fenêtre de modification du projet\\
+- L'utilisateur modifie le champ du projet qu'il souhaite modifier (nom, couleur, etc.).\\
+- Le système enregistre les changements\\
+
+\textbf{Ajout d'un utilisateur à un projet}\\
+- Affichage de la fenêtre de modification du projet\\
+- Dans la section \textit{Membres}, l'utilisateur clique sur le bouton \textit{Ajouter un membre}\\
+- L'utilisateur entre l'email de la personne\\
+- L'application envoie un email pour informer l'utilisateur qu'il a été ajouté dans le projet\\
+
+\textbf{Suppression d'un projet}\\
+- Affichage de la fenêtre de modification du projet\\
+- L'utilisateur clique sur le champ \textit{Supprimer le projet} dans la danger zone\\
+- Le système supprime le projet et toutes les cartes, listes et tâches associées en base de données\\
+
+\textbf{Ajout d'une liste}\\
+- Affichage d'une fenêtre de création de liste\\
+- L'utilisateur entre le nom de la nouvelle liste\\
+- L'application ajoute la liste en base de données et l'affiche sur le tableau du projet\\
+
+\textbf{Modification d'une liste}\\
+- Affichage de la fenêtre de modification de la liste\\
+- L'utilisateur modifie le champ de la liste qu'il souhaite modifier (nom).\\
+- Le système enregistre les changements\\
+
+\textbf{Suppression d'une liste}\\
+- Affichage de la fenêtre de modification de la liste\\
+- L'utilisateur clique sur le champ \textit{Supprimer la liste} dans la danger zone\\
+- Le système supprime la liste ainsi que les tâches qu'elle contenait\\
+
+\textbf{Ajout d'une tâche}\\
+- Affichage d'une fenêtre d'ajout d'une carte\\
+- L'utilisateur entre le nom de la carte, ainsi qu'un utilisateur assigné à cette tâche (facultatif)\\
+- L'application ajoute la tâche en base de données et affiche la carte dans la liste associée\\
+
+\textbf{Modification d'une tâche}\\
+- Affichage de la fenêtre de modification de la tâche\\
+- L'utilisateur modifie le champ de la tâche qu'il souhaite modifier (nom, utilisateur associé, liste).\\
+- Le système enregistre les changements\\
+
+\textbf{Suppression d'une tâche}\\
+- Affichage de la fenêtre de modification de la tâche\\
+- L'utilisateur clique sur le champ \textit{Supprimer la carte} dans la danger zone\\
+- Le système supprime la carte\\
 
 \subsubsection{Gestion des plugins}
 
-\subsubsection{Messagerie interne}
+\subsubsection{Messagerie interne}\hfill\\
+
+La messagerie d'un utilisateur lui permet d'échanger avec les différents membres de son équipe. Les messages se font entre deux utilisateurs donnés.\\
+
+\textbf{Nouvelle conversation}\\
+- Affichage de la fenêtre par défaut de la messagerie\\
+- L'utilisateur clique sur le bouton \textit{+ (Nouvelle conversation)}
+- Le système affiche un champ de recherche\\
+- L'utilisateur entre le nom, le prénom ou l'email de l'utilisateur avec qui il souhaite initier une conversation\\
+- Le système recherche dans la liste des utilisateurs de l'application une correspondance\\
+- Si aucune correspondance n'est trouvée, la fenêtre affiche un message d'erreur\\
+- Si une ou plusieurs correspondances sont trouvées, l'utilisateur sélectionne le bon utilisateur\\
+- L'application ouvre une fenêtre d'envois de messages\\
+
+\textbf{Envoi d'un message}\\
+Prérequis :\\
+- L'utilisateur clique sur l'icône d'un autre utilisateur dans une carte\\
+OU\\
+- L'utilisateur ouvre la messagerie\\
+- Le système ouvre la page par défaut de la messagerie\\
+- L'utilisateur sélectionne une conversation déjà entamée dans la liste de ses conversations\\
+
+- L'utilisateur envoie un message\\
+- Le système enregistre le message\\
 
 \subsection{Récupération de données (Scraping)}
 …
