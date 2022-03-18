@@ -100,7 +100,7 @@ Les bénéficiaires qui ont besoin d'aide peuvent définir si elles ont besoin d
 
 Le système montre ensuite à chacun des partis une liste de personnes qui correspondent à leurs besoins et leurs disponibilités. Un système de messagerie interne leur permet d'échanger au préalable s'ils souhaitent dialoguer. Un calendrier propre à chaque utilisateur rappelle ensuite l'évènement à l'utilisateur.\\
 
-Le prestataire (ou aidant) peut de son côté travailler pour plusieurs bénéficiaires à la condition que ses activités chez différentes personnes ne se chevauchent pas. Il peut en revanche exercer plusieurs activités (qui peuvent concerner des animaux différents) chez un seul bénéficiaire sur une même plage horaire.
+Le prestataire (ou aidant) peut de son côté travailler pour plusieurs bénéficiaires à la condition que ses activités chez différentes personnes ne se chevauchent pas. Il peut également exercer plusieurs activités (qui peuvent concerner des animaux différents) chez un seul bénéficiaire sur une même plage horaire.
 
 Un système d'évaluation permet de noter la prestation d'un prestataire par le bénéficiaire, et inversement le comportement du bénéficiaire envers le prestataire. Cette évaluation est prise en compte dans la mise en avant des prestataires et des bénéficiaires dans les recherches. Elle est également mise en évidence dans les statistiques individuelles de chaque utilisateur, qui affichent donc en plus de sa note ses performances individuelles.\\
 
@@ -164,11 +164,147 @@ Le langage compilé de Touffu permettra dans la mesure de raisonnable de scrappe
 
 \subsection{Interface utilisateur / Touffu}
 
-\subsubsection{Connexion}
-\hfil\\
-…
+\subsubsection{Gestion des utilisateurs}\hfil\\
 
-\subsection{Interface administrateur / TouffAdmin}
+\textbf{Inscription}\\
+- Affichage de la page d'inscription\\
+- L'utilisateur renseigne son email (doit être unique dans l'instance de la base de données), un mot de passe et son nom complet (nom, prénom), et sélectionne s'il souhaite demander de l'aide ou en proposer\\
+- L'application vérifie l'unicité de l'email et la complexité du mot de passe (longueur supérieure à 8 caractères, au moins une majuscule, une minuscule, un chiffre et un caractère spécial)\\
+
+Cas 1 : L'email est déjà utilisé\\
+- Affichage d'un message d'erreur\\
+
+Cas 2 : L'email n'est pas utilisé\\
+- Affichage des champs d'inscription détaillés en fonction de la catégorie sélectionnée par l'utilisateur\\
+
+Cas 2.1 : L'utilisateur propose son aide\\
+- L'utilisateur sélectionne les animaux dont il souhaite s'occuper, ses types de prestations (récurrentes ou ponctuelles), ses disponibilités (jours et heures dans la semaine) et son rayon d'action géographique\\
+
+Cas 2.2 : L'utilisateur a besoin d'aide\\
+- L'utilisateur définit son emplacement géographique et liste son ou ses animaux\\
+- Pour chaque animal, il définit les prestations nécessaires (promenade, brossage, préparation de nourriture, changement de litière, accompagnement chez le vétérinaire) et leur fréquence (quotidienne, hebdomadaire, mensuelle, ponctuelle)\\
+- Dans le cas d'une prestation récurrente, l'utilisateur définit s'il le souhaite une date de début et de fin de la récurrence\\
+
+Cas 2.1 et 2.2 - terminaison :\\
+- Le système enregistre les données et crée le compte de l'utilisateur\\
+- Le système transfère l'utilisateur à la page de connexion en affichant un message de succès\\
+
+\textbf{Connexion}\\
+- Affichage d'une fenêtre de connexion\\
+- L'utilisateur entre ses identifiants de connexion (email et mot de passe)\\
+- L'application vérifie la combinaison des identifiants\\
+
+Cas 1 : Combinaison invalide\\
+- La fenêtre affiche un message d'erreur\\
+Cas 2 : Combinaison valide\\
+- L'utilisateur est redirigé vers la page d'accueil de l'espace utilisateurs\\
+
+\textbf{Gestion du profil}\\
+- Affichage de la page de profil de l'utilisateur\\
+
+Cas 1 : L'utilisateur est un prestataire\\
+- L'utilisateur modifie les animaux dont il souhaite s'occuper, ses types de prestations (récurrentes ou ponctuelles), ou ses disponibilités (jours et heures dans la semaine)\\
+
+Cas 2 : L'utilisateur est un bénéficiaire\\
+- Pour chaque animal, l'utilisateur définit les prestations nécessaires (promenade, brossage, préparation de nourriture, changement de litière, accompagnement chez le vétérinaire) et leur fréquence (quotidienne, hebdomadaire, mensuelle, ponctuelle)\\
+
+Cas 1 et 2 - terminaison :\\
+- Le système enregistre les données et affiche un message de confirmation\\
+
+\textbf{Suppression de compte}\\
+- Affichage de la fenêtre des paramètres de l'utilisateur\\
+- L'utilisateur sélectionne \textit{Supprimer le compte} dans la danger zone\\
+- Le système supprime toutes les données de l'utilisateur, et le retire de toutes les cartes où il était désigné en tant que personne assignée à la tâche\\
+
+
+\subsubsection{Gestion des offres}\hfil\\
+
+Le système de prestations est basé sur une acceptation mutuelle de l'offre par le prestataire et par le bénéficiaire.\\
+
+\textbf{Acceptation d'une offre}\hfil\\
+Pour le prestataire :\\
+- Affichage de la liste des besoins des bénéficiaires\\
+- Le prestataire sélectionne une offre et propose son aide\\
+- L'application met à jour l'offre avec un statut \textit{En attente de confirmation} et envoie un email au bénéficiaire pour l'informer du changement\\
+
+Pour le bénéficiaire\\
+- Affichage de la page de l'offre en attente de confirmation, avec les informations des différents prestataires ayant proposé leur aide\\
+- Le bénéficiaire accepte ou refuse l'aide du prestataire\\
+- Le système enregistre le choix du bénéficiaire\\
+
+Terminaison 1 : Le bénéficiaire accepte la proposition\\
+- Le système envoie un email au prestataire pour l'informer de l'acceptation\\
+- Le système met à jour les calendriers du prestataire et du bénéficiaire\\
+
+Terminaison 2 : Le bénéficiaire refuse la proposition\\
+- Le système envoie un email au prestataire pour l'informer du refus\\
+
+\textbf{Suspension d'une offre}\hfil\\
+- Affichage de la page des offres du bénéficiaire\\
+- Le bénéficiaire sélectionne l'offre qu'il souhaite suspendre\\
+- Le système affiche les détails de l'offre\\
+- Le bénéficiaire suspend l'offre\\
+- Le système met à jour l'offre en base de données\\
+
+\textbf{Suppression d'une offre}\hfil\\
+- Affichage de la page des offres du bénéficiaire\\
+- Le bénéficiaire sélectionne l'offre qu'il souhaite suspendre\\
+- Le système affiche les détails de l'offre\\
+- Le bénéficiaire suspend l'offre\\
+- Le système supprime l'offre en base de données\\
+
+
+\subsubsection{Gestion des prestations}\hfil\\
+
+\textbf{Annulation d'une prestation}\hfil\\
+- Affichage de la page d'une prestation en attente\\
+- Le prestataire renseigne un motif d'annulation\\
+
+Cas 1 : Prestation ponctuelle\\
+- Le système envoie un email au bénéficiaire l'informant de l'annulation\\
+
+Cas 2 : Prestation récurrente\\
+- Le prestataire spécifie s'il annule une seule prestation ou s'il annule toutes les prestations à venir\\
+
+Cas 2.1 : Annulation d'une seule prestation\\
+- Le système envoie un email au bénéficiaire l'informant de l'annulation\\
+
+Cas 2.2 : Annulation de toutes les prestations (résiliation d'un accord de prestations récurrentes)\\
+- Voir la section \textit{Résiliation d'un accord}\\
+
+\textbf{Résiliation d'un accord}\hfil\\
+Par "accord", on définit une prestation récurrente acceptée par le bénéficiaire et le prestataire. Étant donné qu'un accord engage le prestataire pour une prestation récurrente, une date de préavis de résiliation est à prévoir. Cette durée est définie au moment de l'accord, dans l'\textit{Acceptation de l'offre}.\\
+
+- Affichage de la page d'une offre\\
+- Le prestataire sélectionne \textit{Résilier l'accord} et la date de résiliation de ses services au bénéficiaire\\
+- Le système demande une confirmation et avertit des conséquences en cas de préavis non-respecté\\
+- Le prestataire confirme\\
+- Le système enregistre l'annulation du service et, en fonction de la durée du préavis, applique une amende sur la rémunération du prestataire\\
+
+\textbf{Évaluation d'une prestation}\hfil\\
+Prérequis :\\
+- À la fin d'une prestation, le système envoie un email au bénéficiaire et au prestataire contenant un lien vers un formulaire d'évaluation\\
+
+- Affichage de la page contenant le formulaire d'évaluation\\
+- L'utilisateur et le bénéficiaire saisissent leur évaluation sur la prestation de la journée (accueil, disponibilité, ponctualité, réalisation de la demande)\\
+- Le système enregistre l'évaluation en base de données et recalcule les scores de chaque utilisateur\\
+- Lorsque le prestataire et le bénéficiaire ont chacun évalué, le système rend les résultats de l'évaluation disponible aux deux\\
+
+\textbf{Rémunération d'une prestation}\\
+La rémunération des prestations est conditionnée par le type de prestation. Une prestation ponctuelle est rémunérée au moment de la prestation. Pour cela, le bénéficiaire de la prestation dispose d'un délai d'une semaine pour payer la prestation. Une prestation récurrente est rémunérée mensuellement, et un malus est appliqué en cas de non exécution de la prestation.\\
+
+- Affichage de la page d'une prestation récurrente en cours ou d'une prestation ponctuelle exécutée\\
+- L'utilisateur sélectionne \textit{Rémunérer la prestation}\\
+- Le système redirige l'utilisateur vers la page de paiement pré-remplie avec les informations du paiement de la prestation\\
+- Le bénéficiaire entre ses données de paiement\\
+- Le système vérifie et valide le paiement avec le système tiers de paiement en ligne\\
+
+\textbf{Téléchargement d'une facture}\hfil\\
+- Affichage d'une prestation qui a été rémunérée\\
+- L'utilisateur choisit de télécharger la facture\\
+- Le système génère et télécharge la facture sur le poste de l'utilisateur\\
+
+\subsection{Interface administrateur / TouffAdmin}\hfil\\
 …
 
 \subsection{Pilotage du projet / Touffu Management}
@@ -187,7 +323,7 @@ Les fonctionnalités suivantes sont décrites sous la forme graphique, mais une 
 
 \textbf{Inscription}\\
 - Affichage d'une fenêtre d'inscription\\
-- L'utilisateur définit son email (doit être unique dans l'instance de la base de données), un mot de passe et un nom d'utilisateur\\
+- L'utilisateur renseigne son email (doit être unique dans l'instance de la base de données), un mot de passe et son nom complet (nom, prénom)\\
 - L'application vérifie l'unicité de l'email et insère les données en base de données\\
 - L'application envoie un email de confirmation d'inscription à l'utilisateur\\
 - L'utilisateur est redirigé vers la fenêtre de connexion\\
@@ -202,14 +338,15 @@ Les fonctionnalités suivantes sont décrites sous la forme graphique, mais une 
 \textbf{Suppression de compte}\\
 - Affichage de la fenêtre des paramètres de l'utilisateur\\
 - L'utilisateur sélectionne \textit{Supprimer le compte} dans la danger zone\\
-- Le système supprime toutes les données de l'utilisateur, y compris toutes celles liées à des projets en cours\\
+- Le système supprime toutes les données de l'utilisateur, et le retire de toutes les cartes où il était désigné en tant que personne assignée à la tâche\\
 
 \subsubsection{Gestion des projets et des tâches}\hfil\\
 
 \textbf{Création d'un projet}\\
 - Affichage d'une fenêtre pour créer un nouveau projet\\
-- L'utilisateur entre le nom du projet\\
+- L'utilisateur entre le nom du projet, \textbf{(la deadline et ?)} choisit une image de fond\\
 - Le système insère le projet en base de données\\
+- Le système enregistre l'image dans les données de l'application \textbf{(...-> Serveur, bdd, local...?)}\\
 
 \textbf{Modification d'un projet}\\
 - Affichage de la fenêtre de modification du projet\\
@@ -257,13 +394,24 @@ Les fonctionnalités suivantes sont décrites sous la forme graphique, mais une 
 - L'utilisateur clique sur le champ \textit{Supprimer la carte} dans la danger zone\\
 - Le système supprime la carte\\
 
+\textbf{Export PDF}\\
+- To do\\
+
 \subsubsection{Gestion des plugins}
 
 \subsubsection{Messagerie interne}\hfill\\
 
 La messagerie d'un utilisateur lui permet d'échanger avec les différents membres de son équipe. Les messages se font entre deux utilisateurs donnés.\\
 
-\textbf{Nouvelle conversation}\\
+\textbf{Affichage d'une conversation}\\
+- L'utilisateur clique sur l'icône d'un autre utilisateur dans une carte\\
+- Le système ouvre la messagerie sur la conversation avec cet utilisateur\\
+OU\\
+- L'utilisateur ouvre la messagerie\\
+- Le système ouvre la page par défaut de la messagerie\\
+- L'utilisateur sélectionne une conversation déjà entamée dans la liste de ses conversations\\
+
+\textbf{Lancement d'une conversation}\\
 - Affichage de la fenêtre par défaut de la messagerie\\
 - L'utilisateur clique sur le bouton \textit{+ (Nouvelle conversation)}
 - Le système affiche un champ de recherche\\
@@ -274,14 +422,8 @@ La messagerie d'un utilisateur lui permet d'échanger avec les différents membr
 - L'application ouvre une fenêtre d'envois de messages\\
 
 \textbf{Envoi d'un message}\\
-Prérequis :\\
-- L'utilisateur clique sur l'icône d'un autre utilisateur dans une carte\\
-OU\\
-- L'utilisateur ouvre la messagerie\\
-- Le système ouvre la page par défaut de la messagerie\\
-- L'utilisateur sélectionne une conversation déjà entamée dans la liste de ses conversations\\
-
-- L'utilisateur envoie un message\\
+Prérequis : Affichage d'une conversation\\
+- L'utilisateur envoie un message par le champ d'envoi\\
 - Le système enregistre le message\\
 
 \subsection{Récupération de données (Scraping)}
