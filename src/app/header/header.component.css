@@ -31,6 +31,24 @@ li{
   border-radius: 30px;
 }
 
+#soins{
+  min-width: 316px;
+  text-align: center;
+  font-size: 20px;
+}
+
+#Inscription{
+  min-width: 142px;
+  text-align: center;
+  font-size: 20px;
+}
+
+#Connexion{
+  min-width: 156px;
+  text-align: center;
+  font-size: 20px;
+}
+
 li:hover{
   color: #FBC95C;
   cursor: pointer;

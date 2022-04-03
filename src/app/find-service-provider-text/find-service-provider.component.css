@@ -33,3 +33,44 @@
   margin-left: 151px;
   margin-top: 325px;
 }
+
+#containerOfTitleAndImage{
+  display: flex;
+  flex-direction: row;
+}
+
+#first-image{
+  min-width: 177px;
+  min-height: 602px;
+  border-radius:100px;
+  background-color: grey;
+  position: absolute;
+  left: calc(100% - 177px - 427px);
+  top: 241px;
+}
+
+#second-image{
+  min-width: 177px;
+  min-height: 602px;
+  border-radius:100px;
+  background-color: grey;
+  position: absolute;
+  left: calc(100% - 177px - 226px);
+  top: 325px;
+}
+
+#third-image{
+  min-width: 177px;
+  min-height: 602px;
+  border-radius:100px;
+  background-color: grey;
+  position: absolute;
+  left: calc(100% - 177px - 25px);
+  top: 164px;
+}
+
+@media screen and (max-width: 1436px){
+  #containerImage{
+    display: none;
+  }
+}

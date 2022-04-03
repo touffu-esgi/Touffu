@@ -1,13 +1,25 @@
-<div id="parentSelector">
-  <div id="containerSelectorIndex">
-    <div id="trySelector">
-      <input type="text" class="inputIndex" placeholder='Essayer "Chat"'>
+<div id="containerSelector">
+  <div id="parentSelector">
+    <div id="containerSelectorIndex">
+      <div id="trySelector">
+        <input type="text" (focus)="enableList()" (focusout)="disableList()" class="inputIndex" placeholder='Essayer "Chat"'>
+      </div>
+      <div id="CitySelector">
+        <input type="text"  class="inputIndex" id="cityInput" placeholder='Adresse ou ville'>
+      </div>
+      <div id="Search">
+        <button type="button"  class="inputIndex" id="SearchInput">Rechercher</button>
+      </div>
     </div>
-    <div id="CitySelector">
-      <input type="text" class="inputIndex" id="cityInput" placeholder='Adresse ou ville'>
+
+  </div>
+  <div id="animal" *ngIf="isListEnable === true">
+    <div class="hoverAnimal">
+      <p class="animals firstAnimal">chat</p>
     </div>
-    <div id="Search">
-      <button type="button" class="inputIndex" id="SearchInput">Rechercher</button>
+    <div class="hoverAnimal">
+      <p class="animals">chat</p>
     </div>
   </div>
 </div>
+
