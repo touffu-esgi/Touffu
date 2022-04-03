@@ -1,0 +1,399 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{xurl}
+\usepackage[utf8]{inputenc}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+    
+\newcommand{\bibRef}[1]
+{\textsuperscript{\cite{#1}}}
+
+ 
+\begin{document}
+
+\title{
+Touffu\\
+{\footnotesize
+Projet annuel (2022) - ESGI 3e année - Architecture Logicielle}
+}
+
+\author{
+\IEEEauthorblockN{Nathan LETOURNEAU}
+\IEEEauthorblockA{
+\textit{Étudiant en Architecture Logicielle}\\
+\textit{École Supérieure de Génie Informatique}\\
+@Nathan-dev-dot\\
+nathan.letourneau@net-c.com}
+\and
+\IEEEauthorblockN{Théo OMNES}
+\IEEEauthorblockA{
+\textit{Étudiant en Architecture Logicielle}\\
+\textit{École Supérieure de Génie Informatique}\\
+@NightTheo\\
+omnes.theo@gmail.com}
+\and
+\IEEEauthorblockN{Sarah SCHLEGEL}
+\IEEEauthorblockA{
+\textit{Étudiante en Architecture Logicielle}\\
+\textit{École Supérieure de Génie Informatique}\\
+@SarahSch19\\
+sschlegel@protonmail.ch}
+}
+
+\maketitle
+
+\begin{abstract}
+Le projet annuel de la filière Architecture Logicielle de l'ESGI a pour but de rassembler en un seul projet la plupart des compétences acquises au cours de l'année. En 2022, il s'articule autour des éléments suivants : réalisation d'un front-end en AngularJS, d'une application lourde en Java, d'une API en NodeJS, d'une base de données noSQL, d'une base de données relationnelle, et de la création d'un langage de scraping. Axé sur le thème de l'aide à la personne, il propose de combiner les éléments précédents afin de concevoir un service numérique complet.
+\end{abstract}
+
+\section{Introduction}
+
+\textit{Touffu} est une application d'aide à la personne, centrée sur les soins et promenades d'animaux de compagnie pour les personnes dépendantes\bibRef{Soins aux animaux}. Le service a pour but de mettre en relation les personnes dépendantes, nécessitant de l'aide, avec des volontaires déclarés qui peuvent s'occuper des animaux domestiques\bibRef{Animaux domestiques}.\\
+
+Au niveau technique, le service se divise en sept modules majeurs :
+\begin{enumerate}
+	\item Une application client en AngularJS, destinée aux utilisateurs principaux du service : elle permettra aux utilisateurs de s'inscrire et de trouver ou de proposer leurs services en fonction de leur catégorie ;
+	\item Une application d'administration en AngularJS, destinée aux gérants de l'application, afin de gérer les comptes des utilisateurs, la base de données, les catégories principales de l'application, etc. ;
+	\item Une API en NodeJS pour faire la jonction entre les deux applications front-end et la base de données ;
+	\item Une base de données en noSQL, accessible à partir de l'API ;
+	\item Une application lourde de gestion du projet Touffu en Java destinée aux développeurs de Touffu. Cette application doit notamment inclure une messagerie interne et une gestion de plugins.
+	\item Une base de données relationnelle pour gérer les données associées au pilotage du projet, qui ne sera associée qu'à l'application Java.
+	\item Un langage de scraping en ligne de commande permettant de récupérer des informations sur les prestations procurées (soins et promenades des animaux de compagnie pour les personnes dépendantes) à partir de différentes sources Web, pour les traiter et les enregistrer dans des fichiers.
+\end{enumerate}
+Ces modules sont représentés de manière graphique dans la figure \ref{fig:architecture}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{Ressources/Images/Architecture.png}
+    \caption{Architecture globale}
+    \label{fig:architecture}
+\end{figure}
+
+\subsection{Descriptif du projet}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\columnwidth]{Ressources/Icons/v1_all.png}
+	\caption{Logo Global}
+	\label{fig:logotouffuall}
+\end{figure}
+
+\subsubsection{Touffu client ("Touffu")}\hfil
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\columnwidth]{Ressources/Icons/v1_2@3x.png}
+	\caption{Touffu}
+	\label{fig:logotouffu}
+\end{figure}
+
+Du côté front-end, en s'inscrivant sur Touffu, les utilisateurs définissent s'ils souhaitent être aidés (bénéficiaires ou personnes tierces demandant en leur nom) ou apporter de l'aide (prestataires). L'application leur permet ensuite de définir leurs besoins (promenade, brossage, préparation de nourriture, changement de litière, accompagnement chez le vétérinaire) ou leurs disponibilités (types d'animaux, activités, possibilité d'effectuer des prestations récurrentes ou ponctuelles).\\
+
+Les bénéficiaires qui ont besoin d'aide peuvent définir si elles ont besoin d'une aide récurrente, auquel cas elles peuvent définir une récurrence quotidienne, hebdomadaire ou mensuelle par exemple, ou d'une intervention ponctuelle. Ils peuvent définir si cette demande concerne plusieurs animaux ou un seul, et à combien de temps ils estiment cette prestation. Dans le cadre d'une intervention chez le vétérinaire, ils définissent également s'ils peuvent fournir un moyen de transport ou payer les frais de transport et comment ils couvrent les frais du vétérinaire.
+
+Le système montre ensuite à chacun des partis une liste de personnes qui correspondent à leurs besoins et leurs disponibilités. Un système de messagerie interne leur permet d'échanger au préalable s'ils souhaitent dialoguer. Un calendrier propre à chaque utilisateur rappelle ensuite l'évènement à l'utilisateur.\\
+
+Le prestataire (ou aidant) peut de son côté travailler pour plusieurs bénéficiaires à la condition que ses activités chez différentes personnes ne se chevauchent pas. Il peut en revanche exercer plusieurs activités (qui peuvent concerner des animaux différents) chez un seul bénéficiaire sur une même plage horaire.
+
+Un système d'évaluation permet de noter la prestation d'un prestataire par le bénéficiaire, et inversement le comportement du bénéficiaire envers le prestataire. Cette évaluation est prise en compte dans la mise en avant des prestataires et des bénéficiaires dans les recherches. Elle est également mise en évidence dans les statistiques individuelles de chaque utilisateur, qui affichent donc en plus de sa note ses performances individuelles.\\
+
+La plateforme Touffu permet de gérer en ligne les paiements des prestataires (via Stripe ou système similaire), ce qui permet également de générer les factures des prestataires. Les prestataires et les bénéficiaires peuvent se mettre d'accord sur la fréquence des facturations et des paiements (paiements à la prestation, hebdomadaires ou mensuels). En fonction du mode de paiement défini, le système affichera un rappel pour le bénéficiaire de la prestation et enverra une notification (mail) qui l'amènera au système de paiement.
+
+Si le bénéficiaire est en retard sur ses paiements, des sanctions progressives seront appliquées (suspension des prestations en cours, blocage de nouvelles annonces, verrouillage du compte).
+\\
+
+\subsubsection{Front admin ("TouffAdmin")}\hfill\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\columnwidth]{Ressources/Icons/v1_3@3x.png}
+	\caption{TouffAdmin}
+	\label{fig:logotouffadmin}
+\end{figure}
+
+Le front d'administration servira au service de Touffu pour la gestion de l'application. Cela comprend notamment la gestion des comptes utilisateur, la gestion des offres et demandes (suppression d'arnaques, gestion et envois des factures), de vérifier les messages qui ont été signalés par les utilisateurs comme inappropriés.
+
+Ce backend permet également de gérer les comptes administrateurs (ajouter ou supprimer des administrateurs ou des modérateurs, définir leurs droits individuels ou de groupe.\\
+
+Le front client est également géré à partir du backend. Cela inclut de gérer l'apparence du front client (images sur les sliders, texte de présentation, titres, etc.) et les données dans les formulaires (contenu des listes des services disponibles).
+
+Des statistiques sont générées régulièrement (tâche automatisée) pour évaluer les tendances dans les activités des prestataires et les demandes des bénéficiaires, et pouvoir afficher les tarifs moyens pour une prestation donnée.\\
+
+Touffu prélève une commission sur le paiement en ligne, tant du côté du prestataire que du côté du bénéficiaire, afin de subvenir à ses propres besoins. Le pourcentage de cette marge est défini dans l'administration de Touffu.\\
+
+\subsubsection{Gestion de projet ("Touffu-Management")}\hfil\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\columnwidth]{Ressources/Icons/v1_1@3x.png}
+	\caption{Touffu Management}
+	\label{fig:logotouffu-management}
+\end{figure}
+
+L'application de management est destinée aux développeurs de Touffu, afin qu'ils puissent préparer les différentes étapes du projet, ainsi que les ressources humaines associées. Le management se fait via une interface de type Trello, avec une gestion de tableaux (cf. figure \ref{fig:touffumanagementhomedesign}), colonnes et de cartes, également disponible en ligne de commande. Les utilisateurs peuvent ajouter, supprimer ou modifier des tableaux, cartes ou colonnes, et déplacer les cartes entre les colonnes.
+
+Pour l'affectation des tâches, les utilisateurs peuvent s'affecter une tâche, ou l'affecter à un autre utilisateur présent sur le tableau.
+
+Un transfert de droits sur un tableau peut avoir lieu si le propriétaire du tableau souhaite passer la main à un autre utilisateur. C'est le propriétaire d'un tableau (à l'origine son créateur donc) qui peut ajouter des membres à un tableau et gérer le tableau (suppression notamment).
+
+Un gestionnaire de plugins intégré permet d'ajouter des plugins afin de rajouter des fonctionnalités aux tableaux. Par exemple, un plugin pourrait permettre d'ajouter des images à une carte, ou bien d'envoyer des notifications par email lors de la mise à jour d'une carte, ou encore d'ajouter des commentaires sur une carte.
+
+Une messagerie interne permet aux utilisateurs de communiquer sur l'avancée du projet. Cette messagerie est propre à chaque utilisateur, et lui permet d'échanger avec un autre des utilisateurs de l'application.
+
+Enfin, un système d'export permet d'exporter un tableau au format PDF.\\
+
+\subsubsection{Scraper ("Touffu Scrap")}\hfill\\
+
+Le langage compilé de Touffu permettra dans la mesure de raisonnable de scrapper toutes les données du site client Touffu et d'autres sites similaires (récupérer des types de balises, les valeurs qu'elles contiennent...).
+
+\subsection{Fonctionnalités optionnelles}
+\begin{itemize}
+	\item Application mobile (Swift, "TouffApp") avec géolocalisation pour les promenades des animaux
+	\item Système d'abonnement payant à Touffu pour les prestataires leur donnant des accès à des fonctionnalités plus pointues (liste non-exhaustive : statistiques détaillées, export des calendriers)
+\end{itemize}
+
+
+\section{Fonctionnalités}
+
+\subsection{Interface utilisateur / Touffu}
+
+\subsubsection{Connexion}
+\hfil\\
+…
+
+\subsection{Interface administrateur / TouffAdmin}
+…
+
+\subsection{Pilotage du projet / Touffu Management}
+
+La gestion du projet Touffu se fait au travers d'une application Java avec une interface graphique similaire à celle de Trello, comme le montre la figure \ref{fig:touffumanagementhomedesign}. La vue principale d'un projet se divise en colonnes, dans lesquelles des cartes affichent les différentes tâches.\\
+Les fonctionnalités suivantes sont décrites sous la forme graphique, mais une version de l'application est également disponible en ligne de commande, auquel cas les traitements sont les mêmes, à l'exception de la gestion des fenêtres d'affichage.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\columnwidth]{Ressources/Images/Touffu-management-home}
+	\caption{Management app - home design}
+	\label{fig:touffumanagementhomedesign}
+\end{figure}
+
+\subsubsection{Gestion des utilisateurs}\hfil\\
+
+\textbf{Inscription}\\
+- Affichage d'une fenêtre d'inscription\\
+- L'utilisateur définit son email (doit être unique dans l'instance de la base de données), un mot de passe et un nom d'utilisateur\\
+- L'application vérifie l'unicité de l'email et insère les données en base de données\\
+- L'application envoie un email de confirmation d'inscription à l'utilisateur\\
+- L'utilisateur est redirigé vers la fenêtre de connexion\\
+
+\textbf{Connexion}\\
+- Affichage d'une fenêtre de connexion\\
+- L'utilisateur entre ses identifiants de connexion (email et mot de passe)\\
+- L'application vérifie la combinaison des identifiants\\
+- En cas d'erreur, la fenêtre affiche un message d'erreur\\
+- En cas de succès, l'utilisateur est redirigé vers la page d'accueil\\
+
+\textbf{Suppression de compte}\\
+- Affichage de la fenêtre des paramètres de l'utilisateur\\
+- L'utilisateur sélectionne \textit{Supprimer le compte} dans la danger zone\\
+- Le système supprime toutes les données de l'utilisateur, y compris toutes celles liées à des projets en cours\\
+
+\subsubsection{Gestion des projets et des tâches}\hfil\\
+
+\textbf{Création d'un projet}\\
+- Affichage d'une fenêtre pour créer un nouveau projet\\
+- L'utilisateur entre le nom du projet\\
+- Le système insère le projet en base de données\\
+
+\textbf{Modification d'un projet}\\
+- Affichage de la fenêtre de modification du projet\\
+- L'utilisateur modifie le champ du projet qu'il souhaite modifier (nom, couleur, etc.).\\
+- Le système enregistre les changements\\
+
+\textbf{Ajout d'un utilisateur à un projet}\\
+- Affichage de la fenêtre de modification du projet\\
+- Dans la section \textit{Membres}, l'utilisateur clique sur le bouton \textit{Ajouter un membre}\\
+- L'utilisateur entre l'email de la personne\\
+- L'application envoie un email pour informer l'utilisateur qu'il a été ajouté dans le projet\\
+
+\textbf{Suppression d'un projet}\\
+- Affichage de la fenêtre de modification du projet\\
+- L'utilisateur clique sur le champ \textit{Supprimer le projet} dans la danger zone\\
+- Le système supprime le projet et toutes les cartes, listes et tâches associées en base de données\\
+
+\textbf{Ajout d'une liste}\\
+- Affichage d'une fenêtre de création de liste\\
+- L'utilisateur entre le nom de la nouvelle liste\\
+- L'application ajoute la liste en base de données et l'affiche sur le tableau du projet\\
+
+\textbf{Modification d'une liste}\\
+- Affichage de la fenêtre de modification de la liste\\
+- L'utilisateur modifie le champ de la liste qu'il souhaite modifier (nom).\\
+- Le système enregistre les changements\\
+
+\textbf{Suppression d'une liste}\\
+- Affichage de la fenêtre de modification de la liste\\
+- L'utilisateur clique sur le champ \textit{Supprimer la liste} dans la danger zone\\
+- Le système supprime la liste ainsi que les tâches qu'elle contenait\\
+
+\textbf{Ajout d'une tâche}\\
+- Affichage d'une fenêtre d'ajout d'une carte\\
+- L'utilisateur entre le nom de la carte, ainsi qu'un utilisateur assigné à cette tâche (facultatif)\\
+- L'application ajoute la tâche en base de données et affiche la carte dans la liste associée\\
+
+\textbf{Modification d'une tâche}\\
+- Affichage de la fenêtre de modification de la tâche\\
+- L'utilisateur modifie le champ de la tâche qu'il souhaite modifier (nom, utilisateur associé, liste).\\
+- Le système enregistre les changements\\
+
+\textbf{Suppression d'une tâche}\\
+- Affichage de la fenêtre de modification de la tâche\\
+- L'utilisateur clique sur le champ \textit{Supprimer la carte} dans la danger zone\\
+- Le système supprime la carte\\
+
+\subsubsection{Gestion des plugins}
+
+\subsubsection{Messagerie interne}\hfill\\
+
+La messagerie d'un utilisateur lui permet d'échanger avec les différents membres de son équipe. Les messages se font entre deux utilisateurs donnés.\\
+
+\textbf{Nouvelle conversation}\\
+- Affichage de la fenêtre par défaut de la messagerie\\
+- L'utilisateur clique sur le bouton \textit{+ (Nouvelle conversation)}
+- Le système affiche un champ de recherche\\
+- L'utilisateur entre le nom, le prénom ou l'email de l'utilisateur avec qui il souhaite initier une conversation\\
+- Le système recherche dans la liste des utilisateurs de l'application une correspondance\\
+- Si aucune correspondance n'est trouvée, la fenêtre affiche un message d'erreur\\
+- Si une ou plusieurs correspondances sont trouvées, l'utilisateur sélectionne le bon utilisateur\\
+- L'application ouvre une fenêtre d'envois de messages\\
+
+\textbf{Envoi d'un message}\\
+Prérequis :\\
+- L'utilisateur clique sur l'icône d'un autre utilisateur dans une carte\\
+OU\\
+- L'utilisateur ouvre la messagerie\\
+- Le système ouvre la page par défaut de la messagerie\\
+- L'utilisateur sélectionne une conversation déjà entamée dans la liste de ses conversations\\
+
+- L'utilisateur envoie un message\\
+- Le système enregistre le message\\
+
+\subsection{Récupération de données (Scraping)}
+…
+
+\section{Environnement de développement}
+
+\subsection{Décisions logicielles}
+…
+
+\subsection{Estimation des coûts}
+…
+
+\section{Spécifications}
+…
+
+\section{Architecture logicielle}
+
+\subsection{Architecture globale}
+
+…
+
+\subsection{Organisation des répertoires}
+
+Le projet est développé et versionné sous Git, dans une organisation appelée touffu-esgi\bibRef{touffu-esgi}, et administré par les développeurs. L'organisation comporte six "repos" majeurs, qui sont les dossiers des modules de l'application. Ces repos sont indépendants les uns des autres en termes de code propre, mais interdépendants en ce qui concerne la donnée, tel que le montre la figure \ref{fig:architecture}.\\
+
+\subsubsection*{Touffu\bibRef{Touffu} }
+
+Le répertoire Touffu contient le front-end principal, soit l'application client en AngularJS.\\
+
+\subsubsection*{TouffAdmin\bibRef{TouffAdmin} }
+
+TouffAdmin est le repository du backend administratif de l'application Touffu, lui aussi en AngularJS\\
+
+\subsubsection*{TouffApi\bibRef{TouffApi} }
+
+Le répertoire TouffApi contient les éléments de l'API en NodeJS.\\
+
+\subsubsection*{Touffu-Management\bibRef{Touffu-Management} }
+
+Ce répertoire est dédié à l'application lourde en Java.\\
+
+\subsubsection*{Touffu-noSQL\bibRef{Touffu-noSQL} }
+
+Le répertoire Touffu-noSQL contient toutes les données relatives à la base de données NoSQL.\\
+
+\subsubsection*{Touffu-Scrap\bibRef{Touffu-Scrap} }
+
+Touffu-Scrap est le répertoire destiné au langage de scraping développé par touffu-esgi afin de récupérer des données sur Internet au sujet des services à la personne.\\
+
+\subsection{Architecture des modules}
+
+\subsubsection*{Touffu}
+\hfil\\
+…\\
+
+\subsubsection*{TouffAdmin}
+\hfil\\
+…\\
+
+\subsubsection*{TouffApi}
+\hfil\\
+…\\
+
+\subsubsection*{Touffu-Management}
+\hfil\\
+…\\
+
+\subsubsection*{Touffu-noSQL}
+\hfil\\
+…\\
+
+\subsubsection*{Touffu-Scrap}
+\hfil\\
+…\\
+
+\section{Implémentation}
+
+{Cas d'utilisation…}
+
+
+\begin{thebibliography}{00}
+
+\bibitem{Soins aux animaux}
+\url{https://www.servicesalapersonne.gouv.fr/beneficier-des-sap/quelles-sont-activites-de-services-la-personne/soins-et-promenades-d-animaux-de-compagnie-pour-personnes-dependantes}
+
+\bibitem{Animaux domestiques}
+\url{https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000789087
+}
+
+\bibitem{touffu-esgi}
+\url{https://github.com/touffu-esgi}
+
+\bibitem{Touffu}
+\url{https://github.com/touffu-esgi/Touffu}
+
+\bibitem{TouffAdmin}
+\url{https://github.com/touffu-esgi/TouffAdmin}
+
+\bibitem{Touffu-Management}
+\url{https://github.com/touffu-esgi/Touffu-Management}
+
+\bibitem{TouffApi}
+\url{https://github.com/touffu-esgi/TouffApi}
+
+\bibitem{Touffu-Scrap}
+\url{https://github.com/touffu-esgi/Touffu-Scrap}
+
+\bibitem{Touffu-noSQL}
+\url{https://github.com/touffu-esgi/Touffu-noSQL}
+
+\end{thebibliography}
+
+
+\end{document}
