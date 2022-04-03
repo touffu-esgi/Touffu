@@ -12,3 +12,7 @@ html{
   min-width: 100%;
   background-color: #FFF4DE;
 }
+
+#parentSelector{
+  display: none;
+}
