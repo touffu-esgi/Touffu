@@ -94,3 +94,20 @@
 }
 
 
+.hoverAnimal{
+  margin-left: 10px;
+}
+
+#containerAnimals{
+  margin-top: 10px;
+}
+
+
+.show{
+  opacity: 1 !important;
+}
+
+.fade{
+  opacity: 0;
+  transition: .2s ease-in-out all;
+}

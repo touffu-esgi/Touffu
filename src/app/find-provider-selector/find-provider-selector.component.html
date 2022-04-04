@@ -13,13 +13,13 @@
     </div>
 
   </div>
-  <div id="animal" *ngIf="isListEnable === true">
-    <div class="hoverAnimal">
-      <p class="animals firstAnimal">chat</p>
+  <div id="animal" class="fade"  [class.show]="isListEnable === true">
+    <div id="containerAnimals">
+      <div class="hoverAnimal" *ngFor="let animal of animals">
+        <p class="animals">{{animal.name}}</p>
+      </div>
     </div>
-    <div class="hoverAnimal">
-      <p class="animals">chat</p>
-    </div>
+
   </div>
 </div>
 
