@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Animals} from "../animal/animals";
+import {Animal} from "../animal/animal";
+import {AnnimalService} from "../../../services/anmialService/annimal.service";
 
 
 
@@ -10,20 +11,12 @@ import {Animals} from "../animal/animals";
 })
 export class FindProviderSelectorComponent implements OnInit {
   isListEnable: boolean = false;
-  animals: Animals[] = []
+  animals: any;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.createAnimal();
-  }
-
-  createAnimal() {
-    let animalsName = ["chat", "chien", "Dromadère"]
-    for (let i = 0; i < 3; i++) {
-      this.animals.push(new Animals(animalsName[i]));
-    }
-    console.log(this.animals)
+    this.animals = new AnnimalService().fetchAllAnnimal();
   }
 
   enableList() {
