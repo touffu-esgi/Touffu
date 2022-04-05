@@ -10,11 +10,9 @@ import { FindProviderSelectorComponent } from './homePage/provider-selector/find
 import { DescriptifIndexComponent } from './homePage/descriptif-index/descriptif-index.component';
 import { FooterComponent } from './footer/footer.component';
 import {RouterModule, Routes} from "@angular/router";
-import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   { path: 'home', component: IndexComponent },
-  { path: 'search', component: SearchComponent },
   { path: '', component: IndexComponent },
 ];
 
@@ -27,7 +25,6 @@ const routes: Routes = [
     FindProviderSelectorComponent,
     DescriptifIndexComponent,
     FooterComponent,
-    SearchComponent
   ],
   imports: [
     BrowserModule,
