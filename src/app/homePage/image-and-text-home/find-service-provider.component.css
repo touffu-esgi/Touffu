@@ -14,6 +14,7 @@
 
 #titleContainer{
   max-width: 700px;
+  min-width: 700px;
 }
 
 #descriptif{
@@ -23,9 +24,12 @@
   color: #411013;
 }
 
-#descriptifContainer{
+#PrestataireTitleContainer{
   padding-top:26px;
   max-width: 450px;
+  min-width: 450px;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 
@@ -72,5 +76,20 @@
 @media screen and (max-width: 1436px){
   #containerImage{
     display: none;
+  }
+  #titleContainer{
+    margin-left: auto;
+    max-width: 607px;
+    margin-right: 400px;
+  }
+  #PrestataireTitleContainer{
+    padding-top:26px;
+    margin-left: auto;
+    margin-right: 650px;
+    position: relative;
+    overflow: hidden;
+  }
+  #PrestataireAutoCenter{
+    margin-left: auto;
   }
 }

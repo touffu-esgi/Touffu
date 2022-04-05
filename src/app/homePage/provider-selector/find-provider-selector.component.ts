@@ -4,7 +4,7 @@ import {Animals} from "../animal/animals";
 
 
 @Component({
-  selector: 'app-find-provider-selector',
+  selector: 'app-provider-selector',
   templateUrl: './find-provider-selector.component.html',
   styleUrls: ['./find-provider-selector.component.css']
 })

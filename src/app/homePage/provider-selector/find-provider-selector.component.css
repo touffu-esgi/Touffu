@@ -3,6 +3,7 @@
 
 #parentSelector{
   max-width: 672px;
+  min-width: 672px;
   min-height: 89px;
   background-color: white;
   border-radius: 30px;
@@ -10,7 +11,7 @@
 }
 
 #trySelector:before{
-  content: url("../../assets/paw.svg");
+  content: url("../../../assets/paw.svg");
   position: relative;
   top: 31px;
   left: 29px;
@@ -21,7 +22,7 @@
 }
 
 #CitySelector:before{
-  content: url("../../assets/position.svg");
+  content: url("../../../assets/position.svg");
   position: relative;
   top: 31px;
   left: 29px;
@@ -110,4 +111,26 @@
 .fade{
   opacity: 0;
   transition: .2s ease-in-out all;
+}
+
+
+@media screen and (max-width: 1436px){
+  #parentSelector{
+    margin-left: auto;
+    margin-right: 440px;
+  }
+  #animal{
+    min-height: 318px;
+    max-width: 273px;
+    min-width:273px ;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    margin-top: 16px;
+    flex-direction: column;
+    gap: 14px;
+    text-align: left;
+    margin-left: 600px;
+    margin-right: 830px;
+  }
 }
