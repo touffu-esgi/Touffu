@@ -9,6 +9,12 @@ import { FindServiceProviderComponent } from './homePage/image-and-text-home/fin
 import { FindProviderSelectorComponent } from './homePage/provider-selector/find-provider-selector.component';
 import { DescriptifIndexComponent } from './homePage/descriptif-index/descriptif-index.component';
 import { FooterComponent } from './footer/footer.component';
+import {RouterModule, Routes} from "@angular/router";
+
+const routes: Routes = [
+  { path: 'home', component: IndexComponent },
+  { path: '', component: IndexComponent },
+];
 
 @NgModule({
   declarations: [
@@ -18,13 +24,15 @@ import { FooterComponent } from './footer/footer.component';
     FindServiceProviderComponent,
     FindProviderSelectorComponent,
     DescriptifIndexComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
+  exports: [RouterModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
