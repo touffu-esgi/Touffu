@@ -1,0 +1,15 @@
+#searchSelector{
+  margin-left: auto !important;
+  margin-right: auto;
+}
+
+#searchSelector {
+  width: 867px !important;
+}
+
+@media screen and (max-width: 1436px){
+  #searchSelector{
+    position: relative !important;
+    margin-right: 50% !important;
+  }
+}

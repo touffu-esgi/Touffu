@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
 
 
+
 #descriptifContainerLeft{
   display: flex;
   flex-direction: column;
@@ -151,8 +152,7 @@ h1 > span{
     display: flex;
     flex-direction: column;
     margin-left: -1%;
-    background-color: white;
-    height: 600px;
+    height: 550px;
     border-radius: 30px;
   }
   #descriptifContainerRight{
@@ -160,23 +160,22 @@ h1 > span{
     flex-direction: column;
     position: relative;
     left: -1%;
-
     height: 750px;
     border-radius: 30px;
-    background-color: white;
+    margin-top: -40px;
   }
   #line{
-    border: transparent;
+    border: #C4C4C4;
     border-left: #C4C4C4;
     border-style: solid;
-    max-height: 575px;
-    margin-top: 4%;
+    max-height: 525px;
+    max-width: 47vw;
+    margin-top: 8%;
     position: relative;
     left: 6%;
   }
   #descriptifParent{
-    max-width: 55%;
-    background-color: transparent;
+    max-width: 55vw;
     min-height: 700px;
     border-radius: 54px;
     margin-left: auto;
@@ -198,11 +197,11 @@ h1 > span{
     font-family: 'Montserrat', sans-serif;
     font-weight: lighter;
     font-size: 25px;
-    margin-bottom: -8px;
+    margin-bottom: -2px;
   }
   .preparationRightDescriptionSubTitle{
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    margin-bottom: -40px;
+    margin-bottom: -30px;
   }
 }
