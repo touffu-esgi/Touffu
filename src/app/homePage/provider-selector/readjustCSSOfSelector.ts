@@ -5,15 +5,16 @@ export function resize(event: Event){
     container!.style.marginRight = "0";
     container!.style.position = "relative";
     container!.style.left = "25%";
-    container!.style.width = "1000px";
+    container!.style.width = "887px";
   }else{
     container!.style.left = "";
-    container!.style.maxWidth = "1000px";
+    container!.style.maxWidth = "887px";
   }
 }
 
 export function updateCSSOfComponentSelector() {
   document.getElementById("containerSelector")!.style.minWidth = "887px";
+  document.getElementById("containerSelector")!.style.maxWidth = "887px";
   document.getElementById("containerSelector")!.style.marginTop = "150px";
   document.getElementById("containerSelector")!.style.marginRight = "0";
   document.getElementById("parentSelector")!.style.boxShadow = "2px 1px 10px rgb(0,0,0, 0.2)";

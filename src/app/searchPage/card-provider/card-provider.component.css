@@ -2,11 +2,12 @@
 
 
 #parentContainerCard{
-  margin-left: 400px;
   display: flex;
   flex-direction: row;
   gap: 50px;
   margin-top: 25px;
+  position: relative;
+  left: 15%;
 }
 
 .card{
@@ -87,4 +88,16 @@
 
 .imageProvider > img{
   border-radius: 30px;
+}
+
+
+@media screen and (min-width: 1690px) {
+  #parentContainerCard{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    margin-top: 25px;
+    position: relative;
+    left: 19%;
+  }
 }
