@@ -1,17 +1,20 @@
-<div id="parentContainerCard">
-  <div class="card" *ngFor="let provider of providers">
-    <div class="imageProvider">
-      <img src="assets/Theo.svg">
-      <div class="nameAndPlacement">
-        <p class="name">{{provider.name}}</p>
-        <p class="placement">{{provider.placement}}</p>
+
+<div style="display: flex; flex-direction: column;">
+  <div id="parentContainerCard">
+    <div class="card" *ngFor="let provider of providers; let index = index;">
+      <div class="imageProvider">
+        <img src="assets/Theo.svg">
+        <div class="nameAndPlacement">
+          <p class="name">{{provider.name}}</p>
+          <p class="placement">{{provider.placement}}</p>
+        </div>
       </div>
-    </div>
-    <div class="descriptionOfProvider">
-      <p class="descriptionOfProviderText">{{provider.description}}</p>
-    </div>
-    <div class="priceOfProvider">
-      <p class="priceOfProviderText">{{provider.price}}€ /h</p>
+      <div class="descriptionOfProvider">
+        <p class="descriptionOfProviderText">{{provider.description}}</p>
+      </div>
+      <div class="priceOfProvider">
+        <p class="priceOfProviderText">{{provider.price}}€ /h</p>
+      </div>
     </div>
   </div>
 </div>
