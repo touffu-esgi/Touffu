@@ -2,10 +2,11 @@
 
 
 #parentContainerCard{
-  margin-left: 300px;
+  margin-left: 400px;
   display: flex;
   flex-direction: row;
-  gap: 20px
+  gap: 50px;
+  margin-top: 25px;
 }
 
 .card{
@@ -23,6 +24,7 @@
   border-radius: 30px;
   background: linear-gradient(180deg, #FFFFFF 0 50%, rgba(0,0,0,0.1) 99.9% 100%);
 }
+
 
 .descriptionOfProvider{
   position: relative;
@@ -55,4 +57,34 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   color: #F356A0 ;
+}
+
+
+.nameAndPlacement > p{
+  margin: 0;
+  color: white;
+}
+
+.nameAndPlacement{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+  bottom: 90px;
+  left: 21px;
+}
+
+.name{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: initial;
+}
+.placement{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: initial;
+}
+
+.imageProvider > img{
+  border-radius: 30px;
 }
