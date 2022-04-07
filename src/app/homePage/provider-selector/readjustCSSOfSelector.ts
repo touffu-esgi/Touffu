@@ -6,6 +6,8 @@ export function resize(event: Event){
     container!.style.position = "relative";
     container!.style.left = "25%";
     container!.style.width = "887px";
+
+    document.getElementById("SearchInput")!.style.left = "270px";
   }else{
     container!.style.left = "";
     container!.style.maxWidth = "887px";
