@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import {Animal} from "../../app/homePage/animal/animal";
+import {Animal} from "../../homePage/animal/animal";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AnnimalService {
+export class AnimalService {
 
   constructor() { }
 
-  fetchAllAnnimal() : Animal[]{
+  fetchAllAnimal() : Animal[]{
     let animals: Animal[] = [];
     let animalsName = ["chat", "chien", "Dromadère"]
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < animalsName.length; i++) {
       animals.push(new Animal(animalsName[i]));
     }
     return animals;
