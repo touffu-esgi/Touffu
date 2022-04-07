@@ -110,15 +110,18 @@
   margin-top: 10px;
 }
 
-
-.show{
-  opacity: 1 !important;
-}
-
 .fade{
   opacity: 0;
   transition: .2s ease-in-out all;
+
 }
+
+.show{
+  opacity: 1 !important;
+
+}
+
+
 
 
 @media screen and (max-width: 1436px){

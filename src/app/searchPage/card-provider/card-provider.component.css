@@ -1,0 +1,12 @@
+#parentContainerCard{
+  margin-left: 217px;
+  display: flex;
+  flex-direction: row;
+}
+
+.card{
+  height: 470px;
+  width: 346px;
+  background-color: grey;
+  border-radius: 30px;
+}
