@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Animal} from "../animal/animal";
-import {AnnimalService} from "../../../services/anmialService/annimal.service";
+import {AnnimalService} from "../../services/anmialService/annimal.service";
 
 
 

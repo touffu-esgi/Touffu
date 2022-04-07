@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Animal} from "../../app/homePage/animal/animal";
+import {Animal} from "../../homePage/animal/animal";
 
 @Injectable({
   providedIn: 'root'
