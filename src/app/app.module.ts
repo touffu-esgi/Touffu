@@ -11,6 +11,7 @@ import { DescriptifIndexComponent } from './homePage/descriptif-home/descriptif-
 import { FooterComponent } from './footer/footer.component';
 import {RouterModule, Routes} from "@angular/router";
 import { MainPageComponent } from './searchPage/main-page/main-page.component';
+import { CardProviderComponent } from './searchPage/card-provider/card-provider.component';
 
 
 
@@ -30,6 +31,7 @@ const routes: Routes = [
     DescriptifIndexComponent,
     FooterComponent,
     MainPageComponent,
+    CardProviderComponent,
   ],
   imports: [
     BrowserModule,
