@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import {resize, updateCSSOfComponentSelector} from "../../homePage/provider-selector/readjustCSSOfSelector";
 
 window.addEventListener('resize', resize);

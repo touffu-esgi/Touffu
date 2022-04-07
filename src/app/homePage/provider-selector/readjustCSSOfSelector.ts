@@ -1,6 +1,7 @@
 export function resize(event: Event){
   const container = document.getElementById("containerSelector");
-  if(window.innerWidth < 1436){
+
+  if(window.innerWidth < 1436 && document.location.href.split("/")[3] == "search"){
     document.getElementById("SearchInput")!.style.left = "380px";
     container!.style.marginRight = "0";
     container!.style.position = "relative";
@@ -8,7 +9,7 @@ export function resize(event: Event){
     container!.style.width = "887px";
 
     document.getElementById("SearchInput")!.style.left = "270px";
-  }else{
+  }else if(document.location.href.split("/")[3] == "search"){
     container!.style.left = "";
     container!.style.maxWidth = "887px";
   }
