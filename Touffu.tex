@@ -90,7 +90,7 @@ Ces modules sont représentés de manière graphique dans la figure \ref{fig:arc
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.4\columnwidth]{Ressources/Icons/v1_2@3x.png}
-	\caption{Touffu}
+	\caption{Logo Touffu}
 	\label{fig:logotouffu}
 \end{figure}
 
@@ -114,7 +114,7 @@ Si le bénéficiaire est en retard sur ses paiements, des sanctions progressives
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.4\columnwidth]{Ressources/Icons/v1_3@3x.png}
-	\caption{TouffAdmin}
+	\caption{Logo TouffAdmin}
 	\label{fig:logotouffadmin}
 \end{figure}
 
@@ -133,7 +133,7 @@ Touffu prélève une commission sur le paiement en ligne, tant du côté du pres
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.4\columnwidth]{Ressources/Icons/v1_1@3x.png}
-	\caption{Touffu Management}
+	\caption{Logo Touffu Management}
 	\label{fig:logotouffu-management}
 \end{figure}
 
@@ -168,8 +168,8 @@ Le langage compilé de Touffu permettra dans la mesure de raisonnable de scrappe
 
 \textbf{Inscription}\\
 - Affichage de la page d'inscription\\
-- L'utilisateur renseigne son email (doit être unique dans l'instance de la base de données), un mot de passe et son nom complet (nom, prénom), et sélectionne s'il souhaite demander de l'aide ou en proposer\\
-- L'application vérifie l'unicité de l'email et la complexité du mot de passe (longueur supérieure à 8 caractères, au moins une majuscule, une minuscule, un chiffre et un caractère spécial)\\
+- L'utilisateur renseigne son email (doit être unique dans l'instance de la base de données), son téléphone, un mot de passe et son nom complet (nom, prénom), et sélectionne s'il souhaite demander de l'aide ou en proposer\\
+- L'application vérifie le format du numéro de téléphone (préfixe de région + type de numéro par région), l'unicité de l'email et la complexité du mot de passe (longueur supérieure à 8 caractères, au moins une majuscule, une minuscule, un chiffre et un caractère spécial)\\
 
 Cas 1 : L'email est déjà utilisé\\
 - Affichage d'un message d'erreur\\
@@ -210,6 +210,15 @@ Cas 2 : L'utilisateur est un bénéficiaire\\
 
 Cas 1 et 2 - terminaison :\\
 - Le système enregistre les données et affiche un message de confirmation\\
+
+\textbf{Gestion du compte}\\
+- Affichage de la page des préférences de l'utilisateur
+- L'utilisateur modifie des données liées à son compte (email de contact, numéro de téléphone, mot de passe)\\
+- Dans le cas du mot de passe, le système valide la complexité du mot de passe (longueur supérieure à 8 caractères, au moins une majuscule, une minuscule, un chiffre et un caractère spécial)\\
+- Dans le cas de l'email, le système vérifie qu'il n'est pas déjà attribué à un autre utilisateur\\
+- L'utilisateur entre son mot de passe courant pour valider les changements\\
+- Le système enregistre les données, génère un log de modification, et affiche un message de confirmation\\
+- Le système envoie un email à l'utilisateur pour l'informer des modifications apportées à son compte. Cet email contient un lien afin d'annuler les changements et d'avertir le support si ce n'est pas lui qui a effectué la modification\\
 
 \textbf{Suppression de compte}\\
 - Affichage de la fenêtre des paramètres de l'utilisateur\\
@@ -305,7 +314,21 @@ La rémunération des prestations est conditionnée par le type de prestation. U
 - Le système génère et télécharge la facture sur le poste de l'utilisateur\\
 
 \subsection{Interface administrateur / TouffAdmin}\hfil\\
-…
+
+\subsubsection{Gestion des utilisateurs}\hfil\\
+
+\textbf{Connexion}\\
+- Affichage d'une page de connexion\\
+- L'utilisateur entre ses identifiants de connexion (email et mot de passe)\\
+- L'application vérifie la combinaison des identifiants
+
+Cas 1 : Combinaison invalide\\
+- La fenêtre affiche un message d'erreur\\
+Cas 2 : Combinaison valide\\
+- L'utilisateur est redirigé vers la page d'accueil de l'espace utilisateurs\\
+
+\textbf{Modification de mot de passe}\\
+- Affichage d'une page de
 
 \subsection{Pilotage du projet / Touffu Management}
 
@@ -339,6 +362,14 @@ Les fonctionnalités suivantes sont décrites sous la forme graphique, mais une 
 - Affichage de la fenêtre des paramètres de l'utilisateur\\
 - L'utilisateur sélectionne \textit{Supprimer le compte} dans la danger zone\\
 - Le système supprime toutes les données de l'utilisateur, et le retire de toutes les cartes où il était désigné en tant que personne assignée à la tâche\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\columnwidth]{Ressources/Images/Touffu-management-edit-card}
+	\caption{Management app - éditer une carte}
+	\label{fig:touffumanagementeditcard}
+\end{figure}
+
 
 \subsubsection{Gestion des projets et des tâches}\hfil\\
 
@@ -502,7 +533,38 @@ Touffu-Scrap est le répertoire destiné au langage de scraping développé par 
 
 \section{Implémentation}
 
-{Cas d'utilisation…}
+\begin{enumerate}
+	\item \textbf{Inscription bénéficiaire :} En tant que bénéficiaire je souhaite m'inscrire avec les informations suivantes :
+	\\Nom, prénom, adresse, email, téléphone, mot de passe
+	\item \textbf{Inscription prestataire :} En tant que prestataire je souhaite m'inscrire avec les informations suivantes :
+	\\Nom, prénom, adresse, email, téléphone, mot de passe, rayon d'action, prestations acceptées
+	\item \textbf{Connexion bénéficiaire :} En tant que bénéficiaire je souhaite me connecter à mon compte
+	\item \textbf{Connexion prestataire :} En tant que prestataire je souhaite me connecter à mon compte
+	\item \textbf{Ajouter un animal de compagnie :} En tant que bénéficiaire je souhaite ajouter un animal de compagnie
+	\\Nom de l'animal, type d'animal
+	\item \textbf{Connexion bénéficiaire :} En tant que bénéficiaire je souhaite éditer un animal de compagnie
+	\\Nom de l'animal, type d'animal
+	\item \textbf{Déposer une demande d'aide :} En tant que bénéficiaire, je souhaite déposer une demande d'aide pour un animal
+	\\Animal concerné, type de prestation, détails autres si nécessaire, durée de la prestation, fréquence de la prestation, horaires, rémunération
+	\item \textbf{Consulter les offres des bénéficiaires :} En tant que prestataire, je souhaite consulter les offres disponibles des bénéficiaires en fonction de mes paramètres de recherche :
+	\\Distance au domicile, type d'animal, type et fréquence de prestation
+	\item \textbf{Proposer son aide :} En tant que prestataire, je souhaite proposer mon aide sur l'offre d'un bénéficiaire
+	\item \textbf{Envoyer un message sur une offre :} En tant que bénéficiaire ou prestataire je peux envoyer un message sur une offre
+	\item \textbf{Accepter une proposition d'aide :} En tant que bénéficiaire je souhaite accepter la proposition de l'un des prestataires
+	\item \textbf{Noter une prestation :} En tant que bénéficiaire, je souhaite noter la prestation effectuée
+	\item \textbf{Noter un bénéficiaire :} En tant que prestataire je souhaite noter le bénéficiaire chez qui j'ai effectué une prestation
+	\item \textbf{Consulter son calendrier :} En tant que prestataire ou bénéficiaire, je souhaite afficher le calendrier de mes prestations ou offres courantes
+	\item \textbf{Payer une prestation ponctuelle :} En tant que bénéficiaire, je souhaite payer un prestataire pour une prestation unique
+	\item \textbf{Payer une prestation récurrente :} En tant que bénéficiaire, je souhaite payer le bénéficiaire en fin de mois pour un ensemble de prestations récurrentes
+	\item \textbf{Annuler une prestation récurrente :} En tant que prestataire, je souhaite annuler une prestation récurrente que j'effectue chez un bénéficiaire
+	\item \textbf{Annuler une occurrence d'une prestation récurrente :} En tant que prestataire, je souhaite annuler une occurrence d'une prestation récurrente que j'effectue chez un bénéficiaire
+	\item \textbf{Annuler une offre :} En tant que bénéficiaire, je souhaite annuler une offre que j'ai déposée
+	\\Si l'offre est récurrente et est déjà en cours d'exécution par un prestataire, je dois déposer un préavis de 7 jours pour ne pas être facturé
+	\item \textbf{Suspendre une offre récurrente :} En tant que bénéficiaire, je souhaite suspendre une occurrence d'une offre que je propose
+\end{enumerate}
+
+
+
 
 
 \begin{thebibliography}{00}
