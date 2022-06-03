@@ -1,0 +1,20 @@
+.inputIndex{
+  border: unset;
+  outline: unset;
+  appearance: unset;
+  position: relative;
+  top: 22px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: transparent;
+}
+
+#SearchInput{
+  position: relative;
+  color: white;
+  top: 15px;
+  background-color: #FBC95C;
+  min-width: 156px;
+  min-height: 62px;
+  border-radius: 25px;
+}

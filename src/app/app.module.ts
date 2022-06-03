@@ -10,6 +10,9 @@ import { SearchBarComponent } from './search-bar-container/search-bar/search-bar
 import { SearchBarContainerComponent } from './search-bar-container/search-bar-container.component';
 import { SelectAnimalsComponent } from './search-bar-container/select-animals/select-animals.component';
 import { SelectAnimalsItemComponent } from './search-bar-container/select-animals/select-animals-item/select-animals-item.component';
+import { SearchBarCitySelectorComponent } from './search-bar-container/search-bar/search-bar-city-selector/search-bar-city-selector.component';
+import {SearchBarAnimalSelectorComponent} from "./search-bar-container/search-bar/search-bar-animal-selector/search-bar-animal-selector.component";
+import { SearchBarFindButtonComponent } from './search-bar-container/search-bar/search-bar-find-button/search-bar-find-button.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { SelectAnimalsItemComponent } from './search-bar-container/select-animal
     SearchBarComponent,
     SearchBarContainerComponent,
     SelectAnimalsComponent,
-    SelectAnimalsItemComponent
+    SelectAnimalsItemComponent,
+    SearchBarAnimalSelectorComponent,
+    SearchBarCitySelectorComponent,
+    SearchBarFindButtonComponent
   ],
   imports: [
     BrowserModule,

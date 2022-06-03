@@ -8,6 +8,7 @@
   font-size: 20px;
   background-color: transparent;
 }
+
 .inputIndex::placeholder{
   font-family: 'Montserrat', sans-serif;
   font-weight: normal;
@@ -15,15 +16,12 @@
   color: #C4C4C4;
 }
 
-#parentSelector{
-  max-width: 100%;
-  min-width: 100%;
-  min-height: 90px;
-  background-color: white;
-  border-radius: 30px;
-  margin-top: 30px;
-  box-shadow: 0 5px 35px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  padding: 0 15px;
+#CitySelector:before{
+  content: url("../../../../assets/position.svg");
+  position: relative;
+  top: 31px;
+}
+
+#cityInput{
+  max-width: 150px;
 }
