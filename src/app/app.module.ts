@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HeaderIconComponent } from './header/header-icon/header-icon.component';
 import { HeaderActionsComponent } from './header/header-actions/header-actions.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HeaderIconComponent,
-    HeaderActionsComponent
+    HeaderActionsComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
