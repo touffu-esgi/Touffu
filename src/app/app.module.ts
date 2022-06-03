@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HeaderIconComponent } from './header/header-icon/header-icon.component';
 import { HeaderActionsComponent } from './header/header-actions/header-actions.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
+import { SearchBarComponent } from './search-bar-container/search-bar/search-bar.component';
+import { SearchBarContainerComponent } from './search-bar-container/search-bar-container.component';
+import { SelectAnimalsComponent } from './search-bar-container/select-animals/select-animals.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     HeaderComponent,
     HeaderIconComponent,
     HeaderActionsComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    SearchBarContainerComponent,
+    SelectAnimalsComponent
   ],
   imports: [
     BrowserModule,

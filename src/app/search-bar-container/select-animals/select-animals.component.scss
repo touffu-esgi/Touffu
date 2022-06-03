@@ -1,0 +1,50 @@
+#animal{
+  min-height: 318px;
+  max-width: 273px;
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  margin-top: 16px;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+
+.animals{
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  padding: 8px;
+}
+
+
+.firstAnimal{
+  padding-top: 19px;
+}
+
+.hoverAnimal:hover{
+  border-radius: 30px;
+  max-width: 254px;
+  min-height: 34px;
+  background-color: #FFF4DE;
+}
+
+
+.hoverAnimal{
+  margin-left: 10px;
+}
+
+#containerAnimals{
+  margin-top: 10px;
+}
+
+.fade{
+  opacity: 0;
+  transition: .2s ease-in-out all;
+
+}
+
+.show{
+  opacity: 1 !important;
+}

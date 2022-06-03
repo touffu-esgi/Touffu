@@ -1,0 +1,61 @@
+
+#parentSelector{
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 90px;
+  background-color: white;
+  border-radius: 30px;
+  margin-top: 30px;
+  box-shadow: 0 5px 35px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+#trySelector:before{
+  content: url("../../../assets/paw.svg");
+  position: relative;
+  top: 31px;
+  //left: 29px;
+}
+
+#CitySelector:before{
+  content: url("../../../assets/position.svg");
+  position: relative;
+  top: 31px;
+  //left: 29px;
+}
+
+
+#cityInput{
+  max-width: 150px;
+}
+
+.inputIndex{
+  border: unset;
+  outline: unset;
+  appearance: unset;
+  position: relative;
+  top: 22px;
+  //left: 3vw;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: transparent;
+}
+
+.inputIndex::placeholder{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  color: #C4C4C4;
+}
+
+#SearchInput{
+  position: relative;
+  color: white;
+  top: 15px;
+  background-color: #FBC95C;
+  min-width: 156px;
+  min-height: 62px;
+  border-radius: 25px;
+}
