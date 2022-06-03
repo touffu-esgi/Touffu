@@ -9,6 +9,7 @@ import { HeaderActionsComponent } from './header/header-actions/header-actions.c
 import { SearchBarComponent } from './search-bar-container/search-bar/search-bar.component';
 import { SearchBarContainerComponent } from './search-bar-container/search-bar-container.component';
 import { SelectAnimalsComponent } from './search-bar-container/select-animals/select-animals.component';
+import { SelectAnimalsItemComponent } from './search-bar-container/select-animals/select-animals-item/select-animals-item.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SelectAnimalsComponent } from './search-bar-container/select-animals/se
     HeaderActionsComponent,
     SearchBarComponent,
     SearchBarContainerComponent,
-    SelectAnimalsComponent
+    SelectAnimalsComponent,
+    SelectAnimalsItemComponent
   ],
   imports: [
     BrowserModule,
