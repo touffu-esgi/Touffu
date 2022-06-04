@@ -13,10 +13,4 @@
   flex-direction: column;
 }
 
-.imageProvider{
-  height: 345px;
-  border-radius: 30px;
-  background: linear-gradient(180deg, #FFFFFF 0 50%, rgba(0,0,0,0.1) 99.9% 100%);
-}
-
 

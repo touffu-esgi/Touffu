@@ -16,8 +16,9 @@ import { SearchBarFindButtonComponent } from './search-bar-container/search-bar/
 import {CardProviderComponent} from "./card-provider/card-provider.component";
 import { ProviderDescriptionComponent } from './card-provider/provider-description/provider-description.component';
 import { ProviderPriceComponent } from './card-provider/provider-price/provider-price.component';
-import { ProviderNameAndPlacementComponent } from './card-provider/provider-name-and-placement/provider-name-and-placement.component';
-import { ProviderImageComponent } from './card-provider/provider-image/provider-image.component';
+import { ProviderNameAndPlacementComponent } from './card-provider/provider-container-image/provider-name-and-placement/provider-name-and-placement.component';
+import { ProviderImageComponent } from './card-provider/provider-container-image/provider-image/provider-image.component';
+import { ProviderContainerImageComponent } from './card-provider/provider-container-image/provider-container-image.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ProviderImageComponent } from './card-provider/provider-image/provider-
     ProviderDescriptionComponent,
     ProviderPriceComponent,
     ProviderNameAndPlacementComponent,
-    ProviderImageComponent
+    ProviderImageComponent,
+    ProviderContainerImageComponent
   ],
   imports: [
     BrowserModule,
