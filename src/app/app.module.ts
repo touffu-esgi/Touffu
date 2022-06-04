@@ -15,6 +15,7 @@ import {SearchBarAnimalSelectorComponent} from "./search-bar-container/search-ba
 import { SearchBarFindButtonComponent } from './search-bar-container/search-bar/search-bar-find-button/search-bar-find-button.component';
 import {CardProviderComponent} from "./card-provider/card-provider.component";
 import { ProviderDescriptionComponent } from './card-provider/provider-description/provider-description.component';
+import { ProviderPriceComponent } from './card-provider/provider-price/provider-price.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProviderDescriptionComponent } from './card-provider/provider-descripti
     SearchBarCitySelectorComponent,
     SearchBarFindButtonComponent,
     CardProviderComponent,
-    ProviderDescriptionComponent
+    ProviderDescriptionComponent,
+    ProviderPriceComponent
   ],
   imports: [
     BrowserModule,

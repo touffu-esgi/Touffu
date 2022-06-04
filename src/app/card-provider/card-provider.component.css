@@ -19,23 +19,7 @@
   background: linear-gradient(180deg, #FFFFFF 0 50%, rgba(0,0,0,0.1) 99.9% 100%);
 }
 
-.priceOfProvider{
-  background-color: rgba(233, 173, 201, 0.2);
-  max-width: 99px;
-  height: 39px;
-  border-radius: 30px;
-  position: relative;
-  left: 8px;
-}
 
-.priceOfProviderText{
-  text-align: center;
-  position: relative;
-  bottom: 5px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  color: #F356A0 ;
-}
 
 .nameAndPlacement > p{
   margin: 0;
