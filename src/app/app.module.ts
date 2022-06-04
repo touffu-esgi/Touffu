@@ -16,6 +16,7 @@ import { SearchBarFindButtonComponent } from './search-bar-container/search-bar/
 import {CardProviderComponent} from "./card-provider/card-provider.component";
 import { ProviderDescriptionComponent } from './card-provider/provider-description/provider-description.component';
 import { ProviderPriceComponent } from './card-provider/provider-price/provider-price.component';
+import { ProviderNameAndPlacementComponent } from './card-provider/provider-name-and-placement/provider-name-and-placement.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProviderPriceComponent } from './card-provider/provider-price/provider-
     SearchBarFindButtonComponent,
     CardProviderComponent,
     ProviderDescriptionComponent,
-    ProviderPriceComponent
+    ProviderPriceComponent,
+    ProviderNameAndPlacementComponent
   ],
   imports: [
     BrowserModule,
