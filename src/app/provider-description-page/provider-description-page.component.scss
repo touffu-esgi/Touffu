@@ -11,45 +11,16 @@
   justify-content: center;
 }
 
-#providerPersonalTitleContainer{
-  width: 726px;
-  height: 229px;
-  border-radius: 30px;
-  background-color: #FBC95C;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-}
 
-#providerPersonalTitle{
-  font-family: 'Montserrat', sans-serif;
-  font-size: 38px;
-  font-weight: bold;
-  max-width: 648px;
-  display: flex;
-  flex-wrap: nowrap;
-  margin-left: 38px;
-  margin-top: 25px;
-}
+
 
 img{
   color: black;
 }
 
-#providerPersonalPlacementContainer{
-  margin-top: -25px;
-  display: flex;
-  flex-direction: row;
-  gap: 25px;
-  margin-left: 38px;
-  margin-bottom: 100px !important;
-}
 
-#providerPersonalPlacement{
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  font-size: 24px;
-}
+
+
 
 #providerPicture{
   max-width: 172px;
