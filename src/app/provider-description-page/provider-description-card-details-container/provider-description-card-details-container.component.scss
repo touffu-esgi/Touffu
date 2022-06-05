@@ -6,31 +6,16 @@
   border-radius: 30px;
 }
 
-#providerCard > *, img{
+#providerCard > *{
   display: flex;
   justify-content: center;
 }
 
-p{
-  font-family: 'Montserrat', sans-serif;
-}
-
 #providerName{
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   font-size: 32px;
   margin: 9px 0 0 0;
 }
 
-#inputIndex{
-  border: unset;
-  outline: unset;
-  appearance: unset;
-  position: relative;
-  font-weight: bold;
-  font-size: 15px;
-  color: black;
-  background-color: #FBC95C;
-  min-width: 172px;
-  min-height: 39px;
-  border-radius: 10px;
-}
+

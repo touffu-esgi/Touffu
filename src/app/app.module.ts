@@ -31,6 +31,7 @@ import { ProviderDescriptionCardDetailsContainerComponent } from './provider-des
 import { ProviderDescriptionCardDetailsImageComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-image/provider-description-card-details-image.component';
 import { ProviderDescriptionCardDetailsGradesComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-grades/provider-description-card-details-grades.component';
 import { ProviderDescriptionCardDetailsPriceComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-price/provider-description-card-details-price.component';
+import { ProviderDescriptionCardDetailsContactComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-contact/provider-description-card-details-contact.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { ProviderDescriptionCardDetailsPriceComponent } from './provider-descrip
     ProviderDescriptionCardDetailsImageComponent,
     ProviderDescriptionCardDetailsGradesComponent,
     ProviderDescriptionCardDetailsPriceComponent,
+    ProviderDescriptionCardDetailsContactComponent,
   ],
   imports: [
     BrowserModule,
