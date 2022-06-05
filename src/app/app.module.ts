@@ -32,6 +32,16 @@ import { ProviderDescriptionCardDetailsImageComponent } from './provider-descrip
 import { ProviderDescriptionCardDetailsGradesComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-grades/provider-description-card-details-grades.component';
 import { ProviderDescriptionCardDetailsPriceComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-price/provider-description-card-details-price.component';
 import { ProviderDescriptionCardDetailsContactComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-contact/provider-description-card-details-contact.component';
+import { ProviderDescriptionCardAboutContainerComponent } from './provider-description-page/provider-description-card-about-container/provider-description-card-about-container.component';
+import { ProviderDescriptionCardAboutTitleComponent } from './provider-description-page/provider-description-card-about-container/provider-description-card-about-title/provider-description-card-about-title.component';
+import { ProviderDescriptionCardAboutDescriptionComponent } from './provider-description-page/provider-description-card-about-container/provider-description-card-about-description/provider-description-card-about-description.component';
+import { ProviderDescriptionRecommendationsContainerComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-container.component';
+import { ProviderDescriptionRecommendationsTitleComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-title/provider-description-recommendations-title.component';
+import { ProviderDescriptionRecommendationsCardComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card.component';
+import { ProviderDescriptionRecommendationsCardAuthorContainerComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-container.component';
+import { ProviderDescriptionRecommendationsCardContentComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-content/provider-description-recommendations-card-content.component';
+import { ProviderDescriptionRecommendationsCardAuthorNameComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-name/provider-description-recommendations-card-author-name.component';
+import { ProviderDescriptionRecommendationsCardAuthorImageComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-image/provider-description-recommendations-card-author-image.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +75,16 @@ import { ProviderDescriptionCardDetailsContactComponent } from './provider-descr
     ProviderDescriptionCardDetailsGradesComponent,
     ProviderDescriptionCardDetailsPriceComponent,
     ProviderDescriptionCardDetailsContactComponent,
+    ProviderDescriptionCardAboutContainerComponent,
+    ProviderDescriptionCardAboutTitleComponent,
+    ProviderDescriptionCardAboutDescriptionComponent,
+    ProviderDescriptionRecommendationsContainerComponent,
+    ProviderDescriptionRecommendationsTitleComponent,
+    ProviderDescriptionRecommendationsCardComponent,
+    ProviderDescriptionRecommendationsCardAuthorContainerComponent,
+    ProviderDescriptionRecommendationsCardContentComponent,
+    ProviderDescriptionRecommendationsCardAuthorNameComponent,
+    ProviderDescriptionRecommendationsCardAuthorImageComponent,
   ],
   imports: [
     BrowserModule,

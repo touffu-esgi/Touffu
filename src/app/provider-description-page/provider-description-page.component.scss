@@ -6,3 +6,18 @@
   justify-content: center;
   gap: 59px;
 }
+
+#containerProfileCards{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+#containerRecommendations{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 80%;
+}
