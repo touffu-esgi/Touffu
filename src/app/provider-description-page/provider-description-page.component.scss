@@ -1,0 +1,116 @@
+
+#providerCard{
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+  width: 353px;
+  height: 441px;
+  border-radius: 30px;
+}
+
+#providerCard > *, img{
+  display: flex;
+  justify-content: center;
+}
+
+#providerPersonalTitleContainer{
+  width: 726px;
+  height: 229px;
+  border-radius: 30px;
+  background-color: #FBC95C;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+#providerPersonalTitle{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 38px;
+  font-weight: bold;
+  max-width: 648px;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: 38px;
+  margin-top: 25px;
+}
+
+img{
+  color: black;
+}
+
+#providerPersonalPlacementContainer{
+  margin-top: -25px;
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  margin-left: 38px;
+  margin-bottom: 100px !important;
+}
+
+#providerPersonalPlacement{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#providerPicture{
+  max-width: 172px;
+  border-radius: 30px;
+  align-items: center;
+}
+
+p{
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+#providerName{
+  font-weight: bold;
+  font-size: 32px;
+  margin: 9px 0 0 0;
+}
+
+#providerPictureContainer{
+  padding-top: 48px;
+}
+
+#starContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+#starContainer > p {
+  margin-bottom: 12px;
+}
+
+
+#priceContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 44px;
+}
+
+#price{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#inputIndex{
+  border: unset;
+  outline: unset;
+  appearance: unset;
+  position: relative;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+  background-color: #FBC95C;
+  min-width: 172px;
+  min-height: 39px;
+  border-radius: 10px;
+}
+
+#containerTitleAndCardDescription{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 59px;
+}
