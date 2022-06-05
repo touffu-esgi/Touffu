@@ -11,37 +11,15 @@
   justify-content: center;
 }
 
-#providerPicture{
-  max-width: 172px;
-  border-radius: 30px;
-  align-items: center;
-}
-
 p{
   font-family: 'Montserrat', sans-serif;
 }
-
 
 #providerName{
   font-weight: bold;
   font-size: 32px;
   margin: 9px 0 0 0;
 }
-
-#providerPictureContainer{
-  padding-top: 48px;
-}
-
-#starContainer{
-  display: flex;
-  flex-direction: row;
-  gap: 4px;
-}
-
-#starContainer > p {
-  margin-bottom: 12px;
-}
-
 
 #priceContainer{
   display: flex;

@@ -28,6 +28,8 @@ import { ProviderDescriptionTitleComponent } from './provider-description-page/p
 import { ProviderDescriptionTitleContainerComponent } from './provider-description-page/provider-description-title-container/provider-description-title-container.component';
 import { ProviderDescriptionPlacementContainerComponent } from './provider-description-page/provider-description-title-container/provider-description-placement-container/provider-description-placement-container.component';
 import { ProviderDescriptionCardDetailsContainerComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-container.component';
+import { ProviderDescriptionCardDetailsImageComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-image/provider-description-card-details-image.component';
+import { ProviderDescriptionCardDetailsGradesComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-grades/provider-description-card-details-grades.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { ProviderDescriptionCardDetailsContainerComponent } from './provider-des
     ProviderDescriptionTitleContainerComponent,
     ProviderDescriptionPlacementContainerComponent,
     ProviderDescriptionCardDetailsContainerComponent,
+    ProviderDescriptionCardDetailsImageComponent,
+    ProviderDescriptionCardDetailsGradesComponent,
   ],
   imports: [
     BrowserModule,
