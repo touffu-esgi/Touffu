@@ -22,6 +22,7 @@ import { ProviderContainerImageComponent } from './card-provider/provider-contai
 import {FooterComponent} from "./footer/footer.component";
 import { FooterAboutComponent } from './footer/footer-about/footer-about.component';
 import { FooterFollowUsComponent } from './footer/footer-follow-us/footer-follow-us.component';
+import { SearchProviderPageComponent } from './search-provider-page/search-provider-page.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { FooterFollowUsComponent } from './footer/footer-follow-us/footer-follow
     FooterComponent,
     FooterAboutComponent,
     FooterFollowUsComponent,
+    SearchProviderPageComponent,
   ],
   imports: [
     BrowserModule,
