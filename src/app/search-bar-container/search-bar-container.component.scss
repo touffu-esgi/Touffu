@@ -1,6 +1,13 @@
-#containerSelector{
+#searchSelector{
+  min-width: 890px;
   position: relative;
-  max-width: 890px;
   margin-left: 0;
   margin-right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#containerSearchSelector{
+  display: flex;
+  justify-content: center;
 }
