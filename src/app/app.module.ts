@@ -19,6 +19,9 @@ import { ProviderPriceComponent } from './card-provider/provider-price/provider-
 import { ProviderNameAndPlacementComponent } from './card-provider/provider-container-image/provider-name-and-placement/provider-name-and-placement.component';
 import { ProviderImageComponent } from './card-provider/provider-container-image/provider-image/provider-image.component';
 import { ProviderContainerImageComponent } from './card-provider/provider-container-image/provider-container-image.component';
+import {FooterComponent} from "./footer/footer.component";
+import { FooterAboutComponent } from './footer/footer-about/footer-about.component';
+import { FooterFollowUsComponent } from './footer/footer-follow-us/footer-follow-us.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { ProviderContainerImageComponent } from './card-provider/provider-contai
     ProviderPriceComponent,
     ProviderNameAndPlacementComponent,
     ProviderImageComponent,
-    ProviderContainerImageComponent
+    ProviderContainerImageComponent,
+    FooterComponent,
+    FooterAboutComponent,
+    FooterFollowUsComponent,
   ],
   imports: [
     BrowserModule,
