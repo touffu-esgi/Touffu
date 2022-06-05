@@ -24,7 +24,9 @@ import { FooterAboutComponent } from './footer/footer-about/footer-about.compone
 import { FooterFollowUsComponent } from './footer/footer-follow-us/footer-follow-us.component';
 import { SearchProviderPageComponent } from './search-provider-page/search-provider-page.component';
 import { ProviderDescriptionPageComponent } from './provider-description-page/provider-description-page.component';
-import { ProviderDescriptionTitleComponent } from './provider-description-page/provider-description-title/provider-description-title.component';
+import { ProviderDescriptionTitleComponent } from './provider-description-page/provider-description-title-container/provider-description-title/provider-description-title.component';
+import { ProviderDescriptionTitleContainerComponent } from './provider-description-page/provider-description-title-container/provider-description-title-container.component';
+import { ProviderDescriptionPlacementContainerComponent } from './provider-description-page/provider-description-title-container/provider-description-placement-container/provider-description-placement-container.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { ProviderDescriptionTitleComponent } from './provider-description-page/p
     SearchProviderPageComponent,
     ProviderDescriptionPageComponent,
     ProviderDescriptionTitleComponent,
+    ProviderDescriptionTitleContainerComponent,
+    ProviderDescriptionPlacementContainerComponent,
   ],
   imports: [
     BrowserModule,
