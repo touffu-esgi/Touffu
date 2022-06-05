@@ -13,16 +13,17 @@ import { SelectAnimalsItemComponent } from './search-bar-container/select-animal
 import { SearchBarCitySelectorComponent } from './search-bar-container/search-bar/search-bar-city-selector/search-bar-city-selector.component';
 import {SearchBarAnimalSelectorComponent} from "./search-bar-container/search-bar/search-bar-animal-selector/search-bar-animal-selector.component";
 import { SearchBarFindButtonComponent } from './search-bar-container/search-bar/search-bar-find-button/search-bar-find-button.component';
-import {CardProviderComponent} from "./card-provider/card-provider.component";
-import { ProviderDescriptionComponent } from './card-provider/provider-description/provider-description.component';
-import { ProviderPriceComponent } from './card-provider/provider-price/provider-price.component';
-import { ProviderNameAndPlacementComponent } from './card-provider/provider-container-image/provider-name-and-placement/provider-name-and-placement.component';
-import { ProviderImageComponent } from './card-provider/provider-container-image/provider-image/provider-image.component';
-import { ProviderContainerImageComponent } from './card-provider/provider-container-image/provider-container-image.component';
+import {CardProviderComponent} from "./search-provider-page/card-provider/card-provider.component";
+import { ProviderDescriptionComponent } from './search-provider-page/card-provider/provider-description/provider-description.component';
+import { ProviderPriceComponent } from './search-provider-page/card-provider/provider-price/provider-price.component';
+import { ProviderNameAndPlacementComponent } from './search-provider-page/card-provider/provider-container-image/provider-name-and-placement/provider-name-and-placement.component';
+import { ProviderImageComponent } from './search-provider-page/card-provider/provider-container-image/provider-image/provider-image.component';
+import { ProviderContainerImageComponent } from './search-provider-page/card-provider/provider-container-image/provider-container-image.component';
 import {FooterComponent} from "./footer/footer.component";
 import { FooterAboutComponent } from './footer/footer-about/footer-about.component';
 import { FooterFollowUsComponent } from './footer/footer-follow-us/footer-follow-us.component';
 import { SearchProviderPageComponent } from './search-provider-page/search-provider-page.component';
+import { ProviderDescriptionPageComponent } from './provider-description-page/provider-description-page.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { SearchProviderPageComponent } from './search-provider-page/search-provi
     FooterAboutComponent,
     FooterFollowUsComponent,
     SearchProviderPageComponent,
+    ProviderDescriptionPageComponent,
   ],
   imports: [
     BrowserModule,
