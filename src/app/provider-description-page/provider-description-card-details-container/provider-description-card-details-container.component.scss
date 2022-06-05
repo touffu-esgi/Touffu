@@ -1,0 +1,69 @@
+
+#providerCard{
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+  width: 353px;
+  height: 441px;
+  border-radius: 30px;
+}
+
+#providerCard > *, img{
+  display: flex;
+  justify-content: center;
+}
+
+#providerPicture{
+  max-width: 172px;
+  border-radius: 30px;
+  align-items: center;
+}
+
+p{
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+#providerName{
+  font-weight: bold;
+  font-size: 32px;
+  margin: 9px 0 0 0;
+}
+
+#providerPictureContainer{
+  padding-top: 48px;
+}
+
+#starContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+#starContainer > p {
+  margin-bottom: 12px;
+}
+
+
+#priceContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 44px;
+}
+
+#price{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#inputIndex{
+  border: unset;
+  outline: unset;
+  appearance: unset;
+  position: relative;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+  background-color: #FBC95C;
+  min-width: 172px;
+  min-height: 39px;
+  border-radius: 10px;
+}

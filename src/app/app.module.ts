@@ -27,6 +27,7 @@ import { ProviderDescriptionPageComponent } from './provider-description-page/pr
 import { ProviderDescriptionTitleComponent } from './provider-description-page/provider-description-title-container/provider-description-title/provider-description-title.component';
 import { ProviderDescriptionTitleContainerComponent } from './provider-description-page/provider-description-title-container/provider-description-title-container.component';
 import { ProviderDescriptionPlacementContainerComponent } from './provider-description-page/provider-description-title-container/provider-description-placement-container/provider-description-placement-container.component';
+import { ProviderDescriptionCardDetailsContainerComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-container.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ProviderDescriptionPlacementContainerComponent } from './provider-descr
     ProviderDescriptionTitleComponent,
     ProviderDescriptionTitleContainerComponent,
     ProviderDescriptionPlacementContainerComponent,
+    ProviderDescriptionCardDetailsContainerComponent,
   ],
   imports: [
     BrowserModule,
