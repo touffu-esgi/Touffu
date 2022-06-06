@@ -42,6 +42,9 @@ import { ProviderDescriptionRecommendationsCardAuthorContainerComponent } from '
 import { ProviderDescriptionRecommendationsCardContentComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-content/provider-description-recommendations-card-content.component';
 import { ProviderDescriptionRecommendationsCardAuthorNameComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-name/provider-description-recommendations-card-author-name.component';
 import { ProviderDescriptionRecommendationsCardAuthorImageComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-image/provider-description-recommendations-card-author-image.component';
+import {HomeComponent} from "./homePage/home/home.component";
+import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
+import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-service-provider.component";
 
 @NgModule({
   declarations: [
@@ -85,6 +88,9 @@ import { ProviderDescriptionRecommendationsCardAuthorImageComponent } from './pr
     ProviderDescriptionRecommendationsCardContentComponent,
     ProviderDescriptionRecommendationsCardAuthorNameComponent,
     ProviderDescriptionRecommendationsCardAuthorImageComponent,
+    HomeComponent,
+    DescriptifIndexComponent,
+    FindServiceProviderComponent,
   ],
   imports: [
     BrowserModule,
