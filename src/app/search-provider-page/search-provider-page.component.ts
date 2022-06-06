@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ProviderService} from "../services/provider/provider.service";
+import {Observable, Subscription} from "rxjs";
+import {ProviderData} from "../domaine/providerData";
 
 @Component({
   selector: 'app-search-provider-page',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-provider-page.component.scss']
 })
 export class SearchProviderPageComponent implements OnInit {
+  private providers: ProviderData[] = [];
+  constructor(private serviceProvider: ProviderService) { }
 
-  constructor() { }
+  async ngOnInit(): Promise<void> {
+    this.providers = await this.serviceProvider.getAllProviders()
 
-  ngOnInit(): void {
+    console.log(this.providers)
   }
 
 }
