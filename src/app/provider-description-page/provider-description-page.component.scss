@@ -14,10 +14,14 @@
   gap: 30px;
 }
 
-#containerRecommendations{
+#recommendations{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: auto;
-  width: 80%;
+}
+
+#containerRecommendations{
+  display: flex;
+  justify-content: center;
+  gap: 70px;
 }
