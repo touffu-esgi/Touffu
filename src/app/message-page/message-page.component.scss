@@ -1,16 +1,7 @@
-#leftBarMessage{
-  min-height: calc(100px);
-  width: 517px;
-  margin-top: 25px;
-  border-top: 2px solid #676767;
-  border-right: 2px solid #676767;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
+
 
 #messages{
-  border-top: 2px solid #676767;
+  border-top: 2px solid #E5E5E5;
   min-height: calc(100px * 8.99);
   width: calc(517px * 2.8);
   margin-top: 25px;
@@ -27,20 +18,7 @@
 img{
   width: 80px;
   height: 80px;
-  border-radius: 15px;
-}
-
-#messageCard{
-  margin-left: 23px;
-  margin-top: 22px;
-  display: flex;
-  gap: 25px;
-}
-
-#name{
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  font-size: 20px;
+  border-radius: 30px;
 }
 
 p{
@@ -48,17 +26,6 @@ p{
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
-}
-
-#nameAndMessage{
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  margin-top: 15px;
-}
-
-#lastMessage{
-  color: #676767;
 }
 
 #mySelf{

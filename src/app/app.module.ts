@@ -43,6 +43,8 @@ import { ProviderDescriptionRecommendationsCardContentComponent } from './provid
 import { ProviderDescriptionRecommendationsCardAuthorNameComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-name/provider-description-recommendations-card-author-name.component';
 import { ProviderDescriptionRecommendationsCardAuthorImageComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-image/provider-description-recommendations-card-author-image.component';
 import { MessagePageComponent } from './message-page/message-page.component';
+import { ConversationsContainerComponent } from './message-page/conversations-container/conversations-container.component';
+import { ConversationCardComponent } from './message-page/conversations-container/conversation-card/conversation-card.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +89,8 @@ import { MessagePageComponent } from './message-page/message-page.component';
     ProviderDescriptionRecommendationsCardAuthorNameComponent,
     ProviderDescriptionRecommendationsCardAuthorImageComponent,
     MessagePageComponent,
+    ConversationsContainerComponent,
+    ConversationCardComponent,
   ],
   imports: [
     BrowserModule,
