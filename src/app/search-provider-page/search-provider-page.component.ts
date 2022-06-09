@@ -11,19 +11,20 @@ import {ProviderData} from "../domaine/providerData";
 export class SearchProviderPageComponent implements OnInit {
   providers: ProviderData[] = [];
   constructor(private serviceProvider: ProviderService) { }
+  subscribeServiceProvider?: Subscription;
 
   ngOnInit(): void {
-    const subscribeServiceProvider = this.serviceProvider.getAllProviders()
+    this.subscribeServiceProvider = this.serviceProvider.getAllProviders()
       .subscribe(providers => {
         this.displayProvider(providers)
       })
-
-
   }
 
   displayProvider(providers: ProviderData[]){
-    console.log(providers)
     this.providers = providers
   }
 
+  ngOnDestroy() {
+    this.subscribeServiceProvider!.unsubscribe()
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import {ProviderData} from "../domaine/providerData";
 
 @Component({
 
@@ -9,9 +10,15 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class ProviderDescriptionPageComponent implements OnInit {
 
-  constructor(private route: Router,) { }
+
+  provider?: ProviderData;
+  constructor(private route: Router,) {
+
+
+  }
 
   ngOnInit(): void {
+    this.provider = history.state
   }
 
 }
