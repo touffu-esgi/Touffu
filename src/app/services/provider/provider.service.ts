@@ -8,7 +8,7 @@ export class ProviderService {
 
   constructor(private http: HttpClient) { }
 
-  async getAllProviders(): Promise<Observable<ProviderData[]>>{
-    return await this.http.get<ProviderData[]>("http://localhost:3000/providers/");
+  getAllProviders(): Observable<ProviderData[]>{
+    return this.http.get<ProviderData[]>("http://localhost:3000/providers/");
   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ProviderData} from "../../domaine/providerData";
 
 @Component({
   selector: 'app-card-provider',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardProviderComponent implements OnInit {
 
-
+  @Input() provider?: ProviderData;
   constructor() { }
 
   ngOnInit(): void {

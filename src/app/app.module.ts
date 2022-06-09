@@ -44,6 +44,10 @@ import { ProviderDescriptionRecommendationsCardAuthorNameComponent } from './pro
 import { ProviderDescriptionRecommendationsCardAuthorImageComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-image/provider-description-recommendations-card-author-image.component';
 import {ProviderService} from "./services/provider/provider.service";
 import {HttpClientModule} from "@angular/common/http";
+import {RouterModule, Routes} from "@angular/router";
+
+
+
 
 @NgModule({
   declarations: [

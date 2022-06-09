@@ -9,13 +9,21 @@ import {ProviderData} from "../domaine/providerData";
   styleUrls: ['./search-provider-page.component.scss']
 })
 export class SearchProviderPageComponent implements OnInit {
-  private providers: ProviderData[] = [];
+  providers: ProviderData[] = [];
   constructor(private serviceProvider: ProviderService) { }
 
-  async ngOnInit(): Promise<void> {
-    this.providers = await this.serviceProvider.getAllProviders()
+  ngOnInit(): void {
+    const subscribeServiceProvider = this.serviceProvider.getAllProviders()
+      .subscribe(providers => {
+        this.displayProvider(providers)
+      })
 
-    console.log(this.providers)
+
+  }
+
+  displayProvider(providers: ProviderData[]){
+    console.log(providers)
+    this.providers = providers
   }
 
 }
