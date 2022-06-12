@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MessageService} from "../services/messages/message.service";
+import {Conversation} from "../domaine/message/conversation";
 
 @Component({
   selector: 'app-message-page',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessagePageComponent implements OnInit {
 
-  constructor() { }
+  public conversations?: Conversation;
+  constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
+    this.messageService.getConversation("1").subscribe(conversations => {
+      console.log(conversations)
+    })
   }
 
 }

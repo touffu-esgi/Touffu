@@ -49,6 +49,7 @@ import { ConversationComponent } from './message-page/conversation/conversation.
 import { MessageComponent } from './message-page/conversation/message/message.component';
 import { MessageInputComponent } from './message-page/conversation/message-input/message-input.component';
 import { SendMessageButtonComponent } from './message-page/conversation/send-message-button/send-message-button.component';
+import {HttpClient} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -104,7 +105,7 @@ import { SendMessageButtonComponent } from './message-page/conversation/send-mes
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
