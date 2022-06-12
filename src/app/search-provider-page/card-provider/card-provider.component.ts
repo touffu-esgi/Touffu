@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ProviderData} from "../../domaine/providerData";
+import {Address} from "../../domaine/address/address";
 
 @Component({
   selector: 'app-card-provider',
@@ -9,6 +10,7 @@ import {ProviderData} from "../../domaine/providerData";
 export class CardProviderComponent implements OnInit {
 
   @Input() provider?: ProviderData;
+  @Input() address?: Address;
   constructor() { }
 
   ngOnInit(): void {

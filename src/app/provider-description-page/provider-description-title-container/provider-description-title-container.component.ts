@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ProviderDescriptionTitleContainerComponent implements OnInit {
 
   @Input() description_title: string = "";
+  @Input() placement: string = "";
   constructor() { }
 
   ngOnInit(): void {
