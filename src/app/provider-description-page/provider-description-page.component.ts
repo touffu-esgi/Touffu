@@ -20,7 +20,6 @@ export class ProviderDescriptionPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(history.state)
     this.provider = history.state[0]
     this.fetchAddress(this.provider!)
   }
