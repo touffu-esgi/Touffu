@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Conversation} from "../../../domaine/message/conversation";
 
 @Component({
   selector: 'app-conversation-card',
@@ -8,7 +9,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ConversationCardComponent implements OnInit {
 
   @Input() isSelected = false;
-
+  @Input() conversation?: Conversation;
   constructor() { }
 
   ngOnInit(): void {

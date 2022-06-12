@@ -1,11 +1,11 @@
 <div class="myMessageAndImage"
-     [ngClass]="{fromMe: message.fromMe, fromOther:!message.fromMe}"
+     [ngClass]="{fromMe: message!.senderId.split('/')[4] == '1', fromOther: message!.senderId.split('/')[4] != '1'}"
 >
   <div id="myMessage">
     <span class="senderName">Vous</span>
 
     <div class="bubble">
-      <span>{{message.value}}</span>
+      <span>{{message!.content!}}</span>
     </div>
 
   </div>

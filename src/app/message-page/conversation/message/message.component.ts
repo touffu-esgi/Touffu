@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Message} from "../conversation.component";
+import {Message} from "../../../domaine/message/message";
 
 @Component({
   selector: 'app-message',
@@ -7,8 +7,8 @@ import {Message} from "../conversation.component";
   styleUrls: ['./message.component.scss']
 })
 export class MessageComponent implements OnInit {
-  @Input() message: Message = new Message(true, '') ;
 
+  @Input() message?: Message;
   constructor() { }
 
   ngOnInit(): void {

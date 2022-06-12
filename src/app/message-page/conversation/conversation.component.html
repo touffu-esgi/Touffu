@@ -2,7 +2,7 @@
   <app-message
     *ngFor="let message of messages"
     [message]="message"
-    [ngClass]="{right: message.fromMe, left:!message.fromMe}"
+    [ngClass]="{right: message.senderId.split('/')[4] == '1', left:message.senderId.split('/')[4] != '1'}"
   ></app-message>
 </div>
 <div id="writingMessageArea">

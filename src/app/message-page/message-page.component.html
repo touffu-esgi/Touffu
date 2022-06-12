@@ -1,5 +1,5 @@
 <app-header></app-header>
 <div id="mainContainer">
-  <app-conversations-list></app-conversations-list>
-  <app-conversation></app-conversation>
+  <app-conversations-list [conversations]="conversations!" (onMessagePicked)="displayMessages($event)"></app-conversations-list>
+  <app-conversation [messages]="messages!"></app-conversation>
 </div>
