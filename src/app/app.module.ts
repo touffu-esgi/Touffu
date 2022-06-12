@@ -47,6 +47,8 @@ import { ConversationsListComponent } from './message-page/conversations-list/co
 import { ConversationCardComponent } from './message-page/conversations-list/conversation-card/conversation-card.component';
 import { ConversationComponent } from './message-page/conversation/conversation.component';
 import { MessageComponent } from './message-page/conversation/message/message.component';
+import { MessageInputComponent } from './message-page/conversation/message-input/message-input.component';
+import { SendMessageButtonComponent } from './message-page/conversation/send-message-button/send-message-button.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +97,8 @@ import { MessageComponent } from './message-page/conversation/message/message.co
     ConversationCardComponent,
     ConversationComponent,
     MessageComponent,
+    MessageInputComponent,
+    SendMessageButtonComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,17 +1,27 @@
-
-
+app-header{
+  box-sizing: border-box;
+  height: 10%;
+}
 
 #mainContainer{
   display: flex;
-  flex-direction: row;
-  height: 100%;
   width: 100%;
-  justify-content: space-between;
+  height: 90%;
 }
 
 app-conversation {
+  box-sizing: border-box;
   margin-top: 25px;
   width: 100%;
   border-top: 2px solid #E5E5E5;
   padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+app-conversations-list{
+  margin-top: 25px;
+  border-top: 2px solid #E5E5E5;
+  border-right: 2px solid #E5E5E5;
 }
