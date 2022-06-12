@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {ProviderData} from "../domaine/providerData";
 import {Address} from "../domaine/address/address";
+import {AddressService} from "../services/address/address.service";
 
 @Component({
 
@@ -14,13 +15,19 @@ export class ProviderDescriptionPageComponent implements OnInit {
 
   provider?: ProviderData;
   address?: Address;
-  constructor(private route: Router,) {
+
+  constructor(private route: Router, private addressService: AddressService) {
   }
 
   ngOnInit(): void {
     console.log(history.state)
     this.provider = history.state[0]
-    this.address = history.state[1]
+    this.fetchAddress(this.provider!)
   }
 
+  fetchAddress(provider: ProviderData) {
+    this.addressService.getOneAddress(provider!.address).subscribe(address => {
+      this.address = address
+    })
+  }
 }

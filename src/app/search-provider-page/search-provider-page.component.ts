@@ -25,17 +25,10 @@ export class SearchProviderPageComponent implements OnInit {
 
   displayProvider(providers: ProviderData[]){
     this.providers = providers
-    this.fetchAddress(providers)
 
   }
 
-  fetchAddress(providers: ProviderData[]){
-    providers.forEach(provider => {
-      this.addressService.getOneAddress(provider.address).subscribe(address => {
-        this.address = address
-      })
-    })
-  }
+
 
   ngOnDestroy() {
     this.subscribeServiceProvider!.unsubscribe()
