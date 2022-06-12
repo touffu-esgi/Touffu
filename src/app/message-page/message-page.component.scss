@@ -1,63 +1,17 @@
 
 
-#messages{
-  border-top: 2px solid #E5E5E5;
-  min-height: calc(100px * 8.99);
-  width: calc(517px * 2.8);
-  margin-top: 25px;
-  display: flex;
-  gap: 30px;
-}
 
 #mainContainer{
   display: flex;
   flex-direction: row;
   height: 100%;
+  width: 100%;
+  justify-content: space-between;
 }
 
-img{
-  width: 80px;
-  height: 80px;
-  border-radius: 30px;
-}
-
-p{
-
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
-}
-
-#mySelf{
-  font-weight: bold;
-  display: flex;
-  font-size: 18px;
-  justify-content: end;
-}
-
-#myMessageAndImage{
-  display: flex;
-  gap: 15px;
-}
-
-#selfMessage{
-  padding-top: 5px;
-  padding-right: 35px;
-  padding-left: 35px;
-  font-weight: bold;
-  font-size: 18px;
-  color: white;
-}
-
-#selfMessageContainer{
-  border-radius: 25px 3px 25px 25px;
-  max-width: 470px;
-  background-color: #FBC95C;
-  min-height: 59px;
-}
-
-#myMessage{
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+app-conversation {
+  margin-top: 25px;
+  width: 100%;
+  border-top: 2px solid #E5E5E5;
+  padding: 60px;
 }

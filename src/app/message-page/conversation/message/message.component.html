@@ -1,0 +1,15 @@
+<div class="myMessageAndImage"
+     [ngClass]="{fromMe: message.fromMe, fromOther:!message.fromMe}"
+>
+  <div id="myMessage">
+    <span class="senderName">Vous</span>
+
+    <div class="bubble">
+      <span>{{message.value}}</span>
+    </div>
+
+  </div>
+  <div id="myImage">
+    <img src="assets/theo.svg" alt="">
+  </div>
+</div>

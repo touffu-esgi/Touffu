@@ -1,0 +1,9 @@
+#messages{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  min-width: 100%;
+}
+
+.right {align-self: flex-end;}
+.left {align-self: flex-start;}

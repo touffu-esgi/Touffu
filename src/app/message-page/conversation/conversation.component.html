@@ -1,0 +1,10 @@
+<div id="messages">
+  <app-message
+    *ngFor="let message of messages"
+    [message]="message"
+    [ngClass]="{right: message.fromMe, left:!message.fromMe}"
+  ></app-message>
+</div>
+<div id="">
+
+</div>

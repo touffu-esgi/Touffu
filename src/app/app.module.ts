@@ -43,8 +43,10 @@ import { ProviderDescriptionRecommendationsCardContentComponent } from './provid
 import { ProviderDescriptionRecommendationsCardAuthorNameComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-name/provider-description-recommendations-card-author-name.component';
 import { ProviderDescriptionRecommendationsCardAuthorImageComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-image/provider-description-recommendations-card-author-image.component';
 import { MessagePageComponent } from './message-page/message-page.component';
-import { ConversationsContainerComponent } from './message-page/conversations-container/conversations-container.component';
-import { ConversationCardComponent } from './message-page/conversations-container/conversation-card/conversation-card.component';
+import { ConversationsListComponent } from './message-page/conversations-list/conversations-list.component';
+import { ConversationCardComponent } from './message-page/conversations-list/conversation-card/conversation-card.component';
+import { ConversationComponent } from './message-page/conversation/conversation.component';
+import { MessageComponent } from './message-page/conversation/message/message.component';
 
 @NgModule({
   declarations: [
@@ -89,8 +91,10 @@ import { ConversationCardComponent } from './message-page/conversations-containe
     ProviderDescriptionRecommendationsCardAuthorNameComponent,
     ProviderDescriptionRecommendationsCardAuthorImageComponent,
     MessagePageComponent,
-    ConversationsContainerComponent,
+    ConversationsListComponent,
     ConversationCardComponent,
+    ConversationComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
