@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ProviderService} from "../services/provider/provider.service";
 import {Observable, Subscription} from "rxjs";
 import {ProviderData} from "../domaine/providerData";
+import {AddressService} from "../services/address/address.service";
+import {Address} from "../domaine/address/address";
 
 @Component({
   selector: 'app-search-provider-page',
@@ -10,7 +12,8 @@ import {ProviderData} from "../domaine/providerData";
 })
 export class SearchProviderPageComponent implements OnInit {
   providers: ProviderData[] = [];
-  constructor(private serviceProvider: ProviderService) { }
+  address?: Address;
+  constructor(private serviceProvider: ProviderService, private addressService: AddressService) { }
   subscribeServiceProvider?: Subscription;
 
   ngOnInit(): void {
@@ -22,7 +25,10 @@ export class SearchProviderPageComponent implements OnInit {
 
   displayProvider(providers: ProviderData[]){
     this.providers = providers
+
   }
+
+
 
   ngOnDestroy() {
     this.subscribeServiceProvider!.unsubscribe()

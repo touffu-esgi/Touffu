@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-provider-description-placement-container',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./provider-description-placement-container.component.scss']
 })
 export class ProviderDescriptionPlacementContainerComponent implements OnInit {
-
+  @Input() placement: string = "";
   constructor() { }
 
   ngOnInit(): void {

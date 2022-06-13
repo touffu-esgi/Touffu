@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {ProviderData} from "../domaine/providerData";
+import {Address} from "../domaine/address/address";
+import {AddressService} from "../services/address/address.service";
 
 @Component({
 
@@ -12,13 +14,19 @@ export class ProviderDescriptionPageComponent implements OnInit {
 
 
   provider?: ProviderData;
-  constructor(private route: Router,) {
+  address?: Address;
 
-
+  constructor(private route: Router, private addressService: AddressService) {
   }
 
   ngOnInit(): void {
-    this.provider = history.state
+    this.provider = history.state[0]
+    this.fetchAddress(this.provider!)
   }
 
+  fetchAddress(provider: ProviderData) {
+    this.addressService.getOneAddress(provider!.address).subscribe(address => {
+      this.address = address
+    })
+  }
 }
