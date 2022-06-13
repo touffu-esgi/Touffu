@@ -1,3 +1,10 @@
+:host {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
 #cardContainer{
   display: flex;
   flex-direction: row;
@@ -6,3 +13,4 @@
   column-gap: 200px;
   margin-left: 250px;
 }
+
