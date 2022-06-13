@@ -10,7 +10,7 @@ import {Message} from "../../domaine/message/message";
   styleUrls: ['./conversations-list.component.scss']
 })
 export class ConversationsListComponent implements OnInit {
-  @Output() onMessagePicked: EventEmitter<Message[]> = new EventEmitter();
+  @Output() onMessagePicked: EventEmitter<[Message[], string, string]> = new EventEmitter();
   @Input() conversations: Conversation[] = [];
   constructor() { }
 
@@ -19,7 +19,8 @@ export class ConversationsListComponent implements OnInit {
   }
 
 
-  displayMessages(messages: Message[]) {
-    this.onMessagePicked.emit(messages);
+  displayMessages(messages: Message[], conversation: string) {
+  const messagesAndReciver: [Message[], string, string] = [messages, conversation.split("/")[5], conversation.split("/")[4]]
+    this.onMessagePicked.emit(messagesAndReciver);
   }
 }

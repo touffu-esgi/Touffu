@@ -1,1 +1,1 @@
-<input placeholder="Votre message...">
+<input id="message" type="text" placeholder="Votre message..." #message (change)="updateParentMessage(message.value)">

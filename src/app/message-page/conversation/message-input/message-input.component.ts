@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Message} from "../../../domaine/message/message";
 
 @Component({
   selector: 'app-message-input',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./message-input.component.scss']
 })
 export class MessageInputComponent implements OnInit {
+  @Output() UpdateMessage: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  updateParentMessage(value: string){
+    this.UpdateMessage.emit(value)
   }
 
 }

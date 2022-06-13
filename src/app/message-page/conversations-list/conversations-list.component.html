@@ -1,5 +1,5 @@
 <div id="conversation-container">
-  <app-conversation-card *ngFor="let conversation of conversations" [conversation]="conversation" (click)="displayMessages(conversation!.messages!)"></app-conversation-card>
+  <app-conversation-card *ngFor="let conversation of conversations" [conversation]="conversation" (click)="displayMessages(conversation!.messages!, conversation!.conversation)"></app-conversation-card>
 </div>
 
 <router-outlet></router-outlet>

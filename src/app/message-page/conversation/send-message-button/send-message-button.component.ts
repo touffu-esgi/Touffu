@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Message} from "../../../domaine/message/message";
 
 @Component({
   selector: 'app-send-message-button',
@@ -7,14 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SendMessageButtonComponent implements OnInit {
 
+  @Input() id_sender?: string;
+  @Input() id_reciver?: string;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onClick() {
-    // TODO
-    alert('send message')
+  sendMessage() {
+    console.log(this.id_sender, this.id_reciver)
   }
 
 }

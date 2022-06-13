@@ -6,6 +6,6 @@
   ></app-message>
 </div>
 <div id="writingMessageArea">
-  <app-message-input></app-message-input>
-  <app-send-message-button></app-send-message-button>
+  <app-message-input (UpdateMessage)="sendMessage($event)"></app-message-input>
+  <app-send-message-button [id_sender]="id_sender" [id_reciver]="id_reciver"></app-send-message-button>
 </div>

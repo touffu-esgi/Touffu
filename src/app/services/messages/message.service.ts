@@ -18,4 +18,11 @@ export class MessageService {
   getMessages(conversation: string): Observable<Message[]> {
     return this.http.get<Message[]>(conversation);
   }
+
+  sendMessage(message: string, id_sender: string, id_reciver: string) {
+    const body = JSON.stringify({"content" : message, "senderId" : id_sender, "recipientId": id_reciver});
+    return this.http.post("http://localhost:3000/message/",
+      body,
+      {headers: {'Content-Type': 'application/json'}})
+  }
 }
