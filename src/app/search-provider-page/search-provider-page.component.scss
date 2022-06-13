@@ -1,10 +1,12 @@
+body{
+  margin: 0;
+}
+
 #cardContainer{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: normal;
-}
-
-body{
-  margin: 0;
+  column-gap: 200px;
+  margin-left: 250px;
 }
