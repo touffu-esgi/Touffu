@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Conversation} from "../../domaine/message/conversation";
 import {MessageService} from "../../services/messages/message.service";
 import {Message} from "../../domaine/message/message";
+import {Subscription} from "rxjs";
 
 
 @Component({
@@ -12,15 +13,22 @@ import {Message} from "../../domaine/message/message";
 export class ConversationsListComponent implements OnInit {
   @Output() onMessagePicked: EventEmitter<[Message[], string, string]> = new EventEmitter();
   @Input() conversations: Conversation[] = [];
-  constructor() { }
+  private messagesSubscription?: Subscription;
+  constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
 
   }
 
 
-  displayMessages(messages: Message[], conversation: string) {
-  const messagesAndReciver: [Message[], string, string] = [messages, conversation.split("/")[5], conversation.split("/")[4]]
-    this.onMessagePicked.emit(messagesAndReciver);
+  displayMessages(conversation: string) {
+    this.messagesSubscription = this.messageService.getMessages(conversation).subscribe(messages =>{
+      const messagesAndReciver: [Message[], string, string] = [messages, conversation.split("/")[5], conversation.split("/")[4]]
+      this.onMessagePicked.emit(messagesAndReciver);
+    } );
+  }
+
+  ngOnDestroy() {
+    this.messagesSubscription?.unsubscribe();
   }
 }

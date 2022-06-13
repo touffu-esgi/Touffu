@@ -19,14 +19,7 @@ export class MessagePageComponent implements OnInit {
   ngOnInit(): void {
         this.messageService.getConversation("1").subscribe(conversations => {
       this.conversations = conversations;
-      this.setUpMessages();
-    })
-  }
-  setUpMessages() {
-    this.conversations!.forEach(conversation => {
-      this.messageService.getMessages(conversation.conversation).subscribe(messages => {
-        conversation.messages = messages;
-      })
+
     })
   }
 
