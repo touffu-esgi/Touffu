@@ -24,7 +24,6 @@ export class MessagePageComponent implements OnInit {
     this.conversations!.forEach(conversation => {
       this.messageService.getMessages(conversation.conversation).subscribe(messages => {
         conversation.messages = messages;
-        console.log(messages)
       })
     })
   }
