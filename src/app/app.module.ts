@@ -13,12 +13,41 @@ import { SelectAnimalsItemComponent } from './search-bar-container/select-animal
 import { SearchBarCitySelectorComponent } from './search-bar-container/search-bar/search-bar-city-selector/search-bar-city-selector.component';
 import {SearchBarAnimalSelectorComponent} from "./search-bar-container/search-bar/search-bar-animal-selector/search-bar-animal-selector.component";
 import { SearchBarFindButtonComponent } from './search-bar-container/search-bar/search-bar-find-button/search-bar-find-button.component';
-import {CardProviderComponent} from "./card-provider/card-provider.component";
-import { ProviderDescriptionComponent } from './card-provider/provider-description/provider-description.component';
-import { ProviderPriceComponent } from './card-provider/provider-price/provider-price.component';
-import { ProviderNameAndPlacementComponent } from './card-provider/provider-container-image/provider-name-and-placement/provider-name-and-placement.component';
-import { ProviderImageComponent } from './card-provider/provider-container-image/provider-image/provider-image.component';
-import { ProviderContainerImageComponent } from './card-provider/provider-container-image/provider-container-image.component';
+import {CardProviderComponent} from "./search-provider-page/card-provider/card-provider.component";
+import { ProviderDescriptionComponent } from './search-provider-page/card-provider/provider-description/provider-description.component';
+import { ProviderPriceComponent } from './search-provider-page/card-provider/provider-price/provider-price.component';
+import { ProviderNameAndPlacementComponent } from './search-provider-page/card-provider/provider-container-image/provider-name-and-placement/provider-name-and-placement.component';
+import { ProviderImageComponent } from './search-provider-page/card-provider/provider-container-image/provider-image/provider-image.component';
+import { ProviderContainerImageComponent } from './search-provider-page/card-provider/provider-container-image/provider-container-image.component';
+import {FooterComponent} from "./footer/footer.component";
+import { FooterAboutComponent } from './footer/footer-about/footer-about.component';
+import { FooterFollowUsComponent } from './footer/footer-follow-us/footer-follow-us.component';
+import { SearchProviderPageComponent } from './search-provider-page/search-provider-page.component';
+import { ProviderDescriptionPageComponent } from './provider-description-page/provider-description-page.component';
+import { ProviderDescriptionTitleComponent } from './provider-description-page/provider-description-title-container/provider-description-title/provider-description-title.component';
+import { ProviderDescriptionTitleContainerComponent } from './provider-description-page/provider-description-title-container/provider-description-title-container.component';
+import { ProviderDescriptionPlacementContainerComponent } from './provider-description-page/provider-description-title-container/provider-description-placement-container/provider-description-placement-container.component';
+import { ProviderDescriptionCardDetailsContainerComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-container.component';
+import { ProviderDescriptionCardDetailsImageComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-image/provider-description-card-details-image.component';
+import { ProviderDescriptionCardDetailsGradesComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-grades/provider-description-card-details-grades.component';
+import { ProviderDescriptionCardDetailsPriceComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-price/provider-description-card-details-price.component';
+import { ProviderDescriptionCardDetailsContactComponent } from './provider-description-page/provider-description-card-details-container/provider-description-card-details-contact/provider-description-card-details-contact.component';
+import { ProviderDescriptionCardAboutContainerComponent } from './provider-description-page/provider-description-card-about-container/provider-description-card-about-container.component';
+import { ProviderDescriptionCardAboutTitleComponent } from './provider-description-page/provider-description-card-about-container/provider-description-card-about-title/provider-description-card-about-title.component';
+import { ProviderDescriptionCardAboutDescriptionComponent } from './provider-description-page/provider-description-card-about-container/provider-description-card-about-description/provider-description-card-about-description.component';
+import { ProviderDescriptionRecommendationsContainerComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-container.component';
+import { ProviderDescriptionRecommendationsTitleComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-title/provider-description-recommendations-title.component';
+import { ProviderDescriptionRecommendationsCardComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card.component';
+import { ProviderDescriptionRecommendationsCardAuthorContainerComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-container.component';
+import { ProviderDescriptionRecommendationsCardContentComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-content/provider-description-recommendations-card-content.component';
+import { ProviderDescriptionRecommendationsCardAuthorNameComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-name/provider-description-recommendations-card-author-name.component';
+import { ProviderDescriptionRecommendationsCardAuthorImageComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-image/provider-description-recommendations-card-author-image.component';
+import {ProviderService} from "./services/provider/provider.service";
+import {HttpClientModule} from "@angular/common/http";
+import {RouterModule, Routes} from "@angular/router";
+
+
+
 
 @NgModule({
   declarations: [
@@ -38,13 +67,37 @@ import { ProviderContainerImageComponent } from './card-provider/provider-contai
     ProviderPriceComponent,
     ProviderNameAndPlacementComponent,
     ProviderImageComponent,
-    ProviderContainerImageComponent
+    ProviderContainerImageComponent,
+    FooterComponent,
+    FooterAboutComponent,
+    FooterFollowUsComponent,
+    SearchProviderPageComponent,
+    ProviderDescriptionPageComponent,
+    ProviderDescriptionTitleComponent,
+    ProviderDescriptionTitleContainerComponent,
+    ProviderDescriptionPlacementContainerComponent,
+    ProviderDescriptionCardDetailsContainerComponent,
+    ProviderDescriptionCardDetailsImageComponent,
+    ProviderDescriptionCardDetailsGradesComponent,
+    ProviderDescriptionCardDetailsPriceComponent,
+    ProviderDescriptionCardDetailsContactComponent,
+    ProviderDescriptionCardAboutContainerComponent,
+    ProviderDescriptionCardAboutTitleComponent,
+    ProviderDescriptionCardAboutDescriptionComponent,
+    ProviderDescriptionRecommendationsContainerComponent,
+    ProviderDescriptionRecommendationsTitleComponent,
+    ProviderDescriptionRecommendationsCardComponent,
+    ProviderDescriptionRecommendationsCardAuthorContainerComponent,
+    ProviderDescriptionRecommendationsCardContentComponent,
+    ProviderDescriptionRecommendationsCardAuthorNameComponent,
+    ProviderDescriptionRecommendationsCardAuthorImageComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [ProviderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
