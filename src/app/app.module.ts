@@ -45,6 +45,12 @@ import { ProviderDescriptionRecommendationsCardAuthorImageComponent } from './pr
 import {HomeComponent} from "./homePage/home/home.component";
 import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
 import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-service-provider.component";
+import {ProviderService} from "./services/provider/provider.service";
+import {HttpClientModule} from "@angular/common/http";
+import {RouterModule, Routes} from "@angular/router";
+
+
+
 
 @NgModule({
   declarations: [
@@ -94,9 +100,10 @@ import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [ProviderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
