@@ -50,6 +50,14 @@ import { MessageComponent } from './message-page/conversation/message/message.co
 import { MessageInputComponent } from './message-page/conversation/message-input/message-input.component';
 import { SendMessageButtonComponent } from './message-page/conversation/send-message-button/send-message-button.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {ProviderService} from "./services/provider/provider.service";
+import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-service-provider.component";
+import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
+import {HomeComponent} from "./homePage/home/home.component";
+import {RouterModule, Routes} from "@angular/router";
+
+
+
 
 @NgModule({
   declarations: [
@@ -100,13 +108,16 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     MessageComponent,
     MessageInputComponent,
     SendMessageButtonComponent,
+    HomeComponent,
+    DescriptifIndexComponent,
+    FindServiceProviderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [ProviderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

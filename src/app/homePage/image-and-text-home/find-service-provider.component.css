@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#title{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 64px;
+  color: #411013;
+}
+
+#titleContainer{
+  max-width: 700px;
+  min-width: 700px;
+}
+
+#descriptif{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
+  font-size: 24px;
+  color: #411013;
+}
+
+#PrestataireTitleContainer{
+  padding-top:26px;
+  max-width: 450px;
+  min-width: 450px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+
+#parent{
+  margin-left: 151px;
+  margin-top: 325px;
+}
+
+#containerOfTitleAndImage{
+  display: flex;
+  flex-direction: row;
+}
+
+#first-image{
+  min-width: 177px;
+  min-height: 602px;
+  border-radius:100px;
+  background-color: grey;
+  position: absolute;
+  left: calc(100% - 177px - 427px);
+  top: 241px;
+}
+
+#second-image{
+  min-width: 177px;
+  min-height: 602px;
+  border-radius:100px;
+  background-color: grey;
+  position: absolute;
+  left: calc(100% - 177px - 226px);
+  top: 325px;
+}
+
+#third-image{
+  min-width: 177px;
+  min-height: 602px;
+  border-radius:100px;
+  background-color: grey;
+  position: absolute;
+  left: calc(100% - 177px - 25px);
+  top: 164px;
+}
+
+@media screen and (max-width: 1436px){
+  #containerImage{
+    display: none;
+  }
+  #titleContainer{
+    margin-left: auto;
+    max-width: 607px;
+    margin-right: 400px;
+  }
+  #PrestataireTitleContainer{
+    padding-top:26px;
+    margin-left: auto;
+    margin-right: 650px;
+    position: relative;
+    overflow: hidden;
+  }
+  #PrestataireAutoCenter{
+    margin-left: auto;
+  }
+}

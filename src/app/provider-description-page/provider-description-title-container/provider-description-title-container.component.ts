@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-provider-description-title-container',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProviderDescriptionTitleContainerComponent implements OnInit {
 
+  @Input() description_title: string = "";
+  @Input() placement: string = "";
   constructor() { }
 
   ngOnInit(): void {

@@ -5,4 +5,12 @@
   bottom: 0;
   top: 0;
 }
+#cardContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: normal;
+  column-gap: 200px;
+  margin-left: 250px;
+}
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-provider-description-card-details-container',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProviderDescriptionCardDetailsContainerComponent implements OnInit {
 
+  @Input() base_tarif?: number;
+  @Input() name?: string;
   constructor() { }
 
   ngOnInit(): void {

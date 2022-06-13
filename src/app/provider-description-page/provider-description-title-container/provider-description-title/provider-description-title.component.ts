@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-provider-description-title',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./provider-description-title.component.scss']
 })
 export class ProviderDescriptionTitleComponent implements OnInit {
+
+  @Input() description_title: string = "";
 
   constructor() { }
 

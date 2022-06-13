@@ -3,11 +3,11 @@
 
 <div id="containerTitleAndCardDescription">
   <div id="containerProfileCards">
-    <app-provider-description-title-container></app-provider-description-title-container>
-    <app-provider-description-card-about-container></app-provider-description-card-about-container>
+    <app-provider-description-title-container [placement]="address!.addr1" [description_title]="provider!.profile_title"></app-provider-description-title-container>
+    <app-provider-description-card-about-container [name]="provider!.name" [description]="provider!.profile_desc"></app-provider-description-card-about-container>
   </div>
 
-  <app-provider-description-card-details-container></app-provider-description-card-details-container>
+  <app-provider-description-card-details-container [base_tarif]="provider!.base_tariff" [name]="provider!.name"></app-provider-description-card-details-container>
 </div>
 <div id="containerRecommendations">
   <div id="recommendations">
@@ -20,3 +20,4 @@
 
 
 <app-footer></app-footer>
+<router-outlet></router-outlet>
