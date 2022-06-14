@@ -17,7 +17,6 @@ export class ConversationsListComponent implements OnInit {
   constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
-
   }
 
 
@@ -29,7 +28,11 @@ export class ConversationsListComponent implements OnInit {
       })
       const messagesAndReciver: [Message[], string, string] = [messages, conversation.split("/")[5], conversation.split("/")[4]]
       this.onMessagePicked.emit(messagesAndReciver);
-    } );
+    },
+      error => {
+        const messagesAndReciver: [Message[], string, string] = [[], conversation.split("/")[5], conversation.split("/")[4]]
+        this.onMessagePicked.emit(messagesAndReciver);
+      });
   }
 
   ngOnDestroy() {

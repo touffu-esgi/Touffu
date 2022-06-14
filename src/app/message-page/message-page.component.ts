@@ -10,17 +10,30 @@ import {Message} from "../domaine/message/message";
 })
 export class MessagePageComponent implements OnInit {
 
-  public conversations?: Conversation[];
+  public conversations: Conversation[] = [];
   public messages: Message[] = [];
   public id_reciver: string = "";
   public id_sender: string = "";
   constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
-        this.messageService.getConversation("1").subscribe(conversations => {
-      this.conversations = conversations;
 
+    this.getConversations();
+  }
+
+  private getConversations() {
+    this.messageService.getConversation("1").subscribe(conversations => {
+      this.conversations = conversations;
+      if (history.state && history.state[0]){
+        this.id_reciver = history.state[0];
+        this.id_sender = '1';
+        this.createNewConversation()
+      }
     })
+  }
+
+  private createNewConversation() {
+    this.conversations!.push(new Conversation(`http://localhost:3000/message/${this.id_sender}/${this.id_reciver}`,"",[]))
   }
 
   displayMessages(messages: [Message[], string, string]) {

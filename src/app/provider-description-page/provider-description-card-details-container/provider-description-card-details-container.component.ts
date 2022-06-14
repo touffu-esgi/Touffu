@@ -9,6 +9,7 @@ export class ProviderDescriptionCardDetailsContainerComponent implements OnInit 
 
   @Input() base_tarif?: number;
   @Input() name?: string;
+  @Input() id?: string;
   constructor() { }
 
   ngOnInit(): void {
