@@ -10,12 +10,12 @@ export class Recipient implements RecipientProps{
   phone: string;
   surname: string;
 
-  constructor(address: AddressProps, email: string, name: string, password: string, phone: string, surname: string) {
-    this.address = new Address(address);
-    this.email = email;
-    this.name = name;
-    this.password = password;
-    this.phone = phone;
-    this.surname = surname;
+  constructor(recipient: RecipientProps) {
+    this.address = new Address(recipient.address);
+    this.email = recipient.email;
+    this.name = recipient.name;
+    this.password = recipient.password;
+    this.phone = recipient.phone;
+    this.surname = recipient.surname;
   }
 }
