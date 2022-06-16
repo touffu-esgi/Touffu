@@ -3,6 +3,7 @@ import { NgForm } from "@angular/forms";
 import {Recipient} from "../domaine/recipient/recipient";
 import {Address} from "../domaine/address/address";
 import {RecipientService} from "../services/recipient/recipient.service";
+import {AddressService} from "../services/address/address.service";
 
 @Component({
   selector: 'app-recipient-sign-up',
@@ -20,15 +21,17 @@ export class RecipientSignUpComponent implements OnInit {
     surname: ""
   });
 
-  constructor(private recipientService: RecipientService) { }
+  constructor(private recipientService: RecipientService, private addressService: AddressService) { }
 
   ngOnInit(): void {
   }
 
   onFormSubmit(): void {
-    this.recipientService.signUp(this.newRecipient).subscribe(response => {
-      console.log(response)
-    });
+    this.addressService.addAddress(this.newRecipient.address).subscribe(addressUrl => {
+      this.newRecipient.address.id = addressUrl.url.split("/")[4];
+      this.recipientService.signUp(this.newRecipient).subscribe();
+    })
+
   }
 
 }
