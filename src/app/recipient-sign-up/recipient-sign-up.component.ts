@@ -16,7 +16,7 @@ export class RecipientSignUpComponent implements OnInit {
     email: "",
     name: "",
     password: "",
-    phone: "",
+    phoneNumber: "",
     surname: ""
   });
 
@@ -26,7 +26,9 @@ export class RecipientSignUpComponent implements OnInit {
   }
 
   onFormSubmit(): void {
-    this.recipientService.signUp(this.newRecipient);
+    this.recipientService.signUp(this.newRecipient).subscribe(response => {
+      console.log(response)
+    });
   }
 
 }

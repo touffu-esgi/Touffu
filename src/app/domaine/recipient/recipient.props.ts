@@ -6,7 +6,7 @@ export interface RecipientProps{
   email: string
   name: string
   password: string
-  phone: string
+  phoneNumber: string
   surname: string
 
 }

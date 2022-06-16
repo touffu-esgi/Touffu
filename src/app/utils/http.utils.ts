@@ -5,6 +5,6 @@ import {Injectable} from "@angular/core";
 })
 export abstract class HttpUtils{
   fullUrl(port: string = "3000"): string {
-    return `${document.location.protocol}://${document.location.hostname}:${port}`;
+    return `${document.location.protocol}//${document.location.hostname}:${port}`;
   }
 }
