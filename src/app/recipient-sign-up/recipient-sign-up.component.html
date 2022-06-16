@@ -2,20 +2,20 @@
 
 <form (ngSubmit)="onFormSubmit()">
   <div id="mainContainer">
-    <div id="containerPersonalInformation">
+    <div>
       <div class="smallInputs">
-        <input id="inputName" [(ngModel)]="newRecipient.name" name="name" placeholder="Nom" type="text">
-        <input id="inputSurname" [(ngModel)]="newRecipient.surname" name="surname" placeholder="Prénom" type="text">
+        <input [(ngModel)]="newRecipient.name" name="name" placeholder="Nom" type="text">
+        <input  [(ngModel)]="newRecipient.surname" name="surname" placeholder="Prénom" type="text">
       </div>
       <div class="largeInput">
         <div id="emailContainer">
-          <input id="inputEmail" [(ngModel)]="newRecipient.email" name="email" placeholder="Email" type="text">
+          <input [(ngModel)]="newRecipient.email" name="email" placeholder="Email" type="text">
         </div>
         <div id="phoneContainer">
-          <input id="inputPhone" [(ngModel)]="newRecipient.phone" name="phone" placeholder="Tel" type="text">
+          <input [(ngModel)]="newRecipient.phone" name="phone" placeholder="Tel" type="text">
         </div>
-        <div id="passwordContainer">
-          <input id="inputPassword" [(ngModel)]="newRecipient.password" name="password" placeholder="Password" type="text">
+        <div>
+          <input [(ngModel)]="newRecipient.password" name="password" placeholder="Password" type="text">
         </div>
       </div>
     </div>
@@ -40,7 +40,9 @@
       </div>
     </div>
   </div>
-  <button>Submit</button>
+  <div id="submitButtonContainer">
+    <button id="submitButton">S'inscrire</button>
+  </div>
 </form>
 
 <app-footer></app-footer>
