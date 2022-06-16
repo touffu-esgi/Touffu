@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import {Recipient} from "../domaine/recipient/recipient";
 import {Address} from "../domaine/address/address";
+import {RecipientService} from "../services/recipient/recipient.service";
 
 @Component({
   selector: 'app-recipient-sign-up',
@@ -19,13 +20,13 @@ export class RecipientSignUpComponent implements OnInit {
     surname: ""
   });
 
-  constructor() { }
+  constructor(private recipientService: RecipientService) { }
 
   ngOnInit(): void {
   }
 
   onFormSubmit(): void {
-    console.log(this.newRecipient)
+    this.recipientService.signUp(this.newRecipient);
   }
 
 }
