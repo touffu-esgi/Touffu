@@ -1,0 +1,27 @@
+#animal{
+  min-height: 55px;
+  max-width: 273px;
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  margin-top: 16px;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+  box-shadow: 0 5px 35px rgba(0, 0, 0, 0.1);
+}
+
+
+#containerAnimals{
+  margin: 10px 0;
+}
+
+.fade{
+  opacity: 0;
+  transition: .2s ease-in-out all;
+
+}
+
+.show{
+  opacity: 1 !important;
+}

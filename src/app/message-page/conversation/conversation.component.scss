@@ -1,0 +1,16 @@
+#messages{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.right {align-self: flex-end;}
+.left {align-self: flex-start;}
+
+#writingMessageArea{
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+app-message-input{width: 80%}

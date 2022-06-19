@@ -1,0 +1,27 @@
+
+
+#containerTitleAndCardDescription{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 59px;
+}
+
+#containerProfileCards{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+#recommendations{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#containerRecommendations{
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+}

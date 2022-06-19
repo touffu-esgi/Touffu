@@ -1,0 +1,11 @@
+<div id="messages">
+  <app-message
+    *ngFor="let message of messages"
+    [message]="message"
+    [ngClass]="{right: message.senderId == id_sender, left:message.senderId != id_sender}"
+  ></app-message>
+</div>
+<div id="writingMessageArea">
+  <app-message-input (UpdateMessage)="sendMessage($event)"></app-message-input>
+  <app-send-message-button [id_sender]="id_sender" [id_reciver]="id_reciver"></app-send-message-button>
+</div>
