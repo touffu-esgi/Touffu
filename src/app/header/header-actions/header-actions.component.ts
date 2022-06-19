@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthServiceMockImplementation } from '../../services/auth/auth.service.mock.implementation';
 
 @Component({
   selector: 'app-header-actions',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderActionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthServiceMockImplementation) { }
 
   ngOnInit(): void {
   }
 
+  connected() {
+    this.authService.getUser("1");
+  }
 }

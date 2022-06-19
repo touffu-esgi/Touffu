@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MessageService} from "../services/messages/message.service";
 import {Conversation} from "../domaine/message/conversation";
 import {Message} from "../domaine/message/message";
+import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
 
 @Component({
   selector: 'app-message-page',
@@ -10,17 +11,29 @@ import {Message} from "../domaine/message/message";
 })
 export class MessagePageComponent implements OnInit {
 
-  public conversations?: Conversation[];
+  public conversations: Conversation[] = [];
   public messages: Message[] = [];
   public id_reciver: string = "";
   public id_sender: string = "";
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, private authService: AuthServiceMockImplementation) { }
 
   ngOnInit(): void {
-        this.messageService.getConversation("1").subscribe(conversations => {
-      this.conversations = conversations;
+    this.getConversations();
+  }
 
+  private getConversations() {
+    this.messageService.getConversation(this.authService.user!.id!).subscribe(conversations => {
+      this.conversations = conversations;
+      if (history.state && history.state[0]){
+        this.id_reciver = history.state[0];
+        this.id_sender = this.authService.user!.id!;
+        this.createNewConversation()
+      }
     })
+  }
+
+  private createNewConversation() {
+    this.conversations!.push(new Conversation(`http://localhost:3000/message/${this.id_sender}/${this.id_reciver}`,"",[]))
   }
 
   displayMessages(messages: [Message[], string, string]) {

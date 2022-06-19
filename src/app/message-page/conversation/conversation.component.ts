@@ -25,7 +25,8 @@ export class ConversationComponent implements OnInit {
     this.sendMessageSubscriber = this.messageService.sendMessage(message, this.id_sender!, this.id_reciver!).subscribe();
     const url_user = `http://localhost:3000/user/`;
     this.messages?.push(new Message("",
-      message, new Date(),
+      message,
+      new Date(),
       this.id_sender! ,
       this.id_reciver!
     ))
