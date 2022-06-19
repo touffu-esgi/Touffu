@@ -2,7 +2,7 @@
   <app-message
     *ngFor="let message of messages"
     [message]="message"
-    [ngClass]="{right: message.senderId == '1', left:message.senderId != '1'}"
+    [ngClass]="{right: message.senderId == id_sender, left:message.senderId != id_sender}"
   ></app-message>
 </div>
 <div id="writingMessageArea">
