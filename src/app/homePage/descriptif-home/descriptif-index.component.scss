@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+#descriptifParent{
+  margin-top: 300px;
+  max-width: 90%;
+  background-color: white;
+  min-height: 700px;
+  border-radius: 54px;
+  margin-left: 5%;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: nowrap;
+}
+
+#line{
+  border: solid transparent;
+  border-left-color: #C4C4C4;
+  height: 575px;
+  margin-top: 60px;
+}
+
+.titleDescription{
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  position: relative;
+  top: 54px;
+}
+
+h1 > span{
+  color: #FBDDA0;
+}
+
+.descriptifPlacement{
+  position: relative;
+  top: 5%;
+
+  div{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    position: relative;
+    padding-top: 3%;
+
+    & p:first-child{
+      font-family: 'Montserrat', sans-serif;
+      font-weight: lighter;
+      font-size: 25px;
+      margin-bottom: -8px;
+    }
+    & p:nth-child(2){
+      margin-bottom: -1px;
+    }
+  }
+}
+
+#descriptifPlacementRight{
+  position: relative;
+  top: 5%;
+
+  & > div{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    font-size: 24px;
+    margin-top: 1%;
+
+    p{
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      margin-bottom: -1px;
+    }
+
+    div{
+      display: flex;
+
+      p{
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: lighter;
+        font-size: 25px;
+        margin-top: 2% !important;
+        position: relative;
+        right: 14px;
+        margin-bottom: -15px !important;
+      }
+      img{
+        height: 15px;
+        width: 15px;
+        border-radius: 50px;
+        background-color: grey;
+        margin-top: 4%;
+        position: relative;
+        right: 6%;
+      }
+    }
+  }
+}
+
+
+@media screen  and (max-width: 1350px ) {
+  #descriptifPlacementRight{
+    top: 0;
+    height: 700px;
+    & > div{
+      margin-top: 8%;
+      width: 100%;
+      margin-left: 8%;
+      div{
+        display: flex;
+        p{
+          margin-top: -8px !important;
+        }
+        img{
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  .titleDescription{
+
+    top: 25px;
+  }
+
+  #descriptifParent{
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+
+    & > div{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 700px;
+      background-color: white;
+      border-radius: 50px;
+    }
+    #line{
+      display: none;
+    }
+  }
+
+  #containerRight {
+    .descriptifPlacement {
+      height: 600px;
+    }
+  }
+}
