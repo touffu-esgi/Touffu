@@ -1,5 +1,5 @@
 <div class="myMessageAndImage"
-     [ngClass]="{fromMe: message!.senderId.split('/')[4] == '1', fromOther: message!.senderId.split('/')[4] != '1'}"
+     [ngClass]="{fromMe: message!.senderId == '1', fromOther: message!.senderId != '1'}"
 >
   <div id="myMessage">
     <span class="senderName">Vous</span>
