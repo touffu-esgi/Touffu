@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#titleContainer{
+  max-width: 700px;
+  min-width: 700px;
+
+  p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 64px;
+    color: #411013;
+  }
+}
+
+#PrestataireTitleContainer{
+  padding-top:26px;
+  max-width: 450px;
+  min-width: 450px;
+  display: flex;
+  flex-wrap: nowrap;
+  p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    font-size: 24px;
+    color: #411013;
+  }
+}
+
+#parent{
+  margin-left: 151px;
+  margin-top: 325px;
+}
+
+#containerOfTitleAndImage{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#leftContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+#containerImage{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  gap: 30px;
+
+  div{
+    flex-direction:row;
+    min-width: 177px;
+    min-height: 602px;
+    border-radius:100px;
+    background-color: grey;
+    position: relative;
+  }
+  #first-image{
+    bottom: 100px;
+  }
+
+  #third-image{
+    bottom: 200px;
+  }
+}
+
+@media screen and (max-width: 1456px){
+  #containerImage{
+    display: none;
+  }
+}
