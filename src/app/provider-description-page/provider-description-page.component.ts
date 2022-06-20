@@ -4,6 +4,7 @@ import {ProviderData} from "../domaine/providerData";
 import {Address} from "../domaine/address/address";
 import {AddressService} from "../services/address/address.service";
 import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
+import { RecommandationService } from '../services/recommandation/recommandation.service';
 
 @Component({
 
@@ -13,11 +14,10 @@ import { AuthServiceMockImplementation } from '../services/auth/auth.service.moc
 })
 export class ProviderDescriptionPageComponent implements OnInit {
 
-
   provider?: ProviderData;
   address?: Address;
 
-  constructor(private route: Router, private addressService: AddressService, private authService: AuthServiceMockImplementation) {
+  constructor(private recommandationService: RecommandationService, private addressService: AddressService, private authService: AuthServiceMockImplementation) {
   }
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class ProviderDescriptionPageComponent implements OnInit {
     })
   }
 
-  sendReco() {
-
+  sendReco(recoText: string) {
+    this.recommandationService.addRecommendation(this.provider!.id, this.authService.user!.id!, recoText, 2, new Date());
   }
 }
