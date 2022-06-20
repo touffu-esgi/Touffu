@@ -14,8 +14,8 @@ export class AuthServiceMockImplementation implements authServiceInterface{
   constructor(private http: HttpClient) {
     if(!this.user){
       this.user = JSON.parse(localStorage.getItem('user')!);
-
     }
+
   }
 
   getUser(id: string): void {
