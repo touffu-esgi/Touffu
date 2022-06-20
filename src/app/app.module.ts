@@ -55,6 +55,11 @@ import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-
 import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
 import {HomeComponent} from "./homePage/home/home.component";
 import {RouterModule, Routes} from "@angular/router";
+import { AgreementPageComponent } from './agreement-page/agreement-page.component';
+import { NameAndStatusComponent } from './agreement-page/container-name-and-status/name-and-status/name-and-status.component';
+import { ContainerNameAndStatusComponent } from './agreement-page/container-name-and-status/container-name-and-status.component';
+import { SelectRecurencyComponent } from './agreement-page/select-recurency/select-recurency.component';
+import { StartDateComponent } from './agreement-page/start-date/start-date.component';
 
 
 
@@ -111,6 +116,11 @@ import {RouterModule, Routes} from "@angular/router";
     HomeComponent,
     DescriptifIndexComponent,
     FindServiceProviderComponent,
+    AgreementPageComponent,
+    NameAndStatusComponent,
+    ContainerNameAndStatusComponent,
+    SelectRecurencyComponent,
+    StartDateComponent,
   ],
   imports: [
     BrowserModule,
