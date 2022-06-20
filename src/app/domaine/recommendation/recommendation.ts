@@ -1,12 +1,12 @@
 import { RecommendationProps } from './recommendation.props';
 
 export class Recommendation{
-  id: string;
-  providerId: string;
-  recipientId: string;
-  review: string;
-  score: number;
-  dateReview: Date;
+  id?: string;
+  providerId?: string;
+  recipientId?: string;
+  review?: string;
+  score?: number;
+  dateReview?: Date;
 
   constructor(recommendationProps: RecommendationProps) {
     this.id = recommendationProps.id;

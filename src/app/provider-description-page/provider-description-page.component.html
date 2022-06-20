@@ -12,7 +12,7 @@
 <div id="containerRecommendations">
   <div id="recommendations">
     <app-provider-description-recommendations-title></app-provider-description-recommendations-title>
-    <app-provider-description-recommendations-card></app-provider-description-recommendations-card>
+    <app-provider-description-recommendations-card *ngFor='let recommendation of recommendations' [recommendation]='recommendation'></app-provider-description-recommendations-card>
   </div>
   <div style="width: 353px;"></div>
 

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Recommendation } from '../../domaine/recommendation/recommendation';
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +19,11 @@ export class RecommandationService {
       "score": 2.2,
       "dateReview": "2022/06/11"
     })
-    this.http.post("http://localhost:3000/recommendation", body, {headers: {'Content-Type': 'application/json'}}).subscribe(value => {
-      console.log(value);
-    })
+    this.http.post("http://localhost:3000/recommendation", body, {headers: {'Content-Type': 'application/json'}}).subscribe()
   }
 
-  getRecommendations(providerId: string){
-    return this.http.get(`http://localhost:3000/recommendation/${providerId}`)
+  getRecommendations(providerId: string): Observable<Recommendation[]>{
+    return this.http.get<Recommendation[]>(`http://localhost:3000/recommendation/${providerId}`)
   }
 
 }

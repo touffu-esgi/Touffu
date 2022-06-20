@@ -5,6 +5,7 @@ import {Address} from "../domaine/address/address";
 import {AddressService} from "../services/address/address.service";
 import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
 import { RecommandationService } from '../services/recommandation/recommandation.service';
+import { Recommendation } from '../domaine/recommendation/recommendation';
 
 @Component({
 
@@ -16,13 +17,16 @@ export class ProviderDescriptionPageComponent implements OnInit {
 
   provider?: ProviderData;
   address?: Address;
+  recommendations?: Recommendation[];
 
-  constructor(private recommandationService: RecommandationService, private addressService: AddressService, private authService: AuthServiceMockImplementation) {
-  }
+  constructor(private recommandationService: RecommandationService,
+              private addressService: AddressService,
+              private authService: AuthServiceMockImplementation) {}
 
   ngOnInit(): void {
     this.provider = history.state[0]
     this.fetchAddress(this.provider!)
+    this.fetchRecommendation();
   }
 
   fetchAddress(provider: ProviderData) {
@@ -33,5 +37,12 @@ export class ProviderDescriptionPageComponent implements OnInit {
 
   sendReco(recoText: string) {
     this.recommandationService.addRecommendation(this.provider!.id, this.authService.user!.id!, recoText, 2, new Date());
+  }
+
+  private fetchRecommendation() {
+    this.recommandationService.getRecommendations(this.provider!.id!).subscribe(recommendations => {
+      this.recommendations = recommendations;
+      console.log(this.recommendations);
+    });
   }
 }
