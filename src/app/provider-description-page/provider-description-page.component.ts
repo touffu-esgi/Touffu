@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {ProviderData} from "../domaine/providerData";
 import {Address} from "../domaine/address/address";
 import {AddressService} from "../services/address/address.service";
+import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
 
 @Component({
 
@@ -16,7 +17,7 @@ export class ProviderDescriptionPageComponent implements OnInit {
   provider?: ProviderData;
   address?: Address;
 
-  constructor(private route: Router, private addressService: AddressService) {
+  constructor(private route: Router, private addressService: AddressService, private authService: AuthServiceMockImplementation) {
   }
 
   ngOnInit(): void {
@@ -28,5 +29,9 @@ export class ProviderDescriptionPageComponent implements OnInit {
     this.addressService.getOneAddress(provider!.address).subscribe(address => {
       this.address = address
     })
+  }
+
+  sendReco() {
+
   }
 }
