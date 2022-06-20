@@ -25,4 +25,8 @@ export class AuthServiceMockImplementation implements authServiceInterface{
     })
   }
 
+  signOut() {
+    localStorage.clear();
+    this.user = undefined;
+  }
 }

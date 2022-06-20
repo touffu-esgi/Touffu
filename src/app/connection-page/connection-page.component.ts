@@ -15,5 +15,8 @@ export class ConnectionPageComponent implements OnInit {
 
   connected() {
     this.authService.getUser("1");
+    window.location.replace('');
   }
+
+
 }
