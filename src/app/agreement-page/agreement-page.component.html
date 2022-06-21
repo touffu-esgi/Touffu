@@ -11,18 +11,24 @@
   <div id='secondLine'>
     <div class='recurenceContainer'>
       <select name='day' class='recurence' #days (change)='getStartHour(days.value)'>
-        <option value=''>Select</option>
+        <option value=''>Day</option>
         <option *ngFor='let day of availabilities' value='{{day.day}}'>{{day.day}}</option>
       </select>
     </div>
     <div class='recurenceContainer'>
-      <select name='startHour' class='recurence'>
+      <select name='startHour' class='recurence' #startHour (change)='setMaxDuration(startHour.value)'>
+        <option value=''>Start hour</option>
         <option *ngFor='let hour of hours' value='{{hour}}'>{{computeHourDisplay(hour)}}</option>
       </select>
+   </div>
+
+    <div class='recurenceContainer'>
+      <select name='endtHour' class='recurence' #duration>
+        <option>Duration</option>
+        <option *ngFor='let duration of durations' value='{{duration}}'>{{computeHourDisplay(duration)}}</option>
+      </select>
     </div>
-
   </div>
-
 </div>
 
 <app-footer></app-footer>
