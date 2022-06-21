@@ -1,6 +1,6 @@
 <div id='recurenceContainer'>
   <img src='assets/checkBox.svg' alt=''>
-  <select id='recurence'>
+  <select id='recurence' #recurrence (focusout)='pushRecurrence(recurrence.value)'>
     <option value='None'>Aucun</option>
     <option value='Quotidien'>Quotidien</option>
     <option value='Hebdromadaire'>Hebdromadaire</option>

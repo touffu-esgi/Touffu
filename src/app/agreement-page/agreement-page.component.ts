@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Availability } from '../domaine/availability/availability';
 import { min } from 'rxjs';
+import { Agreement } from '../domaine/agreement/agreement';
 
 @Component({
   selector: 'app-agreement-page',
@@ -8,10 +9,25 @@ import { min } from 'rxjs';
   styleUrls: ['./agreement-page.component.scss']
 })
 export class AgreementPageComponent implements OnInit {
+
   public availabilities: Availability[] = [];
   public hours: number[] = [];
   public durations: number[] = [];
+
   public selectedAvailability?: Availability;
+  private agreements: Agreement = new Agreement({
+    animalsRefs: [],
+    beginningDate: '',
+    duration: 0,
+    endDate: '',
+    id: '',
+    providerRef: '',
+    recipientRef: '',
+    recurrence: '',
+    recurring: false,
+    remuneration: 0
+  });
+
   constructor() { }
 
   ngOnInit(): void {
@@ -52,5 +68,10 @@ export class AgreementPageComponent implements OnInit {
         }
       }
     })
+  }
+
+  setRecurrence(recurrence: string) {
+    this.agreements.recurrence = recurrence;
+    console.log(this.agreements);
   }
 }

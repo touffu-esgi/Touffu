@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-select-recurency',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./select-recurency.component.scss']
 })
 export class SelectRecurencyComponent implements OnInit {
-
+  @Output() recurrence = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
+
+  pushRecurrence(recurrence: string) {
+    this.recurrence.emit(recurrence)
+  }
 }
