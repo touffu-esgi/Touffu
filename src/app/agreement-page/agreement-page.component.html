@@ -6,8 +6,22 @@
     <app-select-recurency></app-select-recurency>
     <app-start-date (weekly)='setWeeklyDate($event)'></app-start-date>
     <app-select-recurency></app-select-recurency>
-  </div>
 
+  </div>
+  <div id='secondLine'>
+    <div class='recurenceContainer'>
+      <select name='day' class='recurence' #days (change)='getStartHour(days.value)'>
+        <option value=''>Select</option>
+        <option *ngFor='let day of availabilities' value='{{day.day}}'>{{day.day}}</option>
+      </select>
+    </div>
+    <div class='recurenceContainer'>
+      <select name='startHour' class='recurence'>
+        <option *ngFor='let hour of hours' value='{{hour}}'>{{computeHourDisplay(hour)}}</option>
+      </select>
+    </div>
+
+  </div>
 
 </div>
 

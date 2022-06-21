@@ -8,7 +8,7 @@ import { Availability } from '../../domaine/availability/availability';
   styleUrls: ['./start-date.component.scss']
 })
 export class StartDateComponent implements OnInit {
-  @Output() weekly = new EventEmitter<Availability>();
+  @Output() weekly = new EventEmitter<Availability[]>();
   constructor(private availabilityService: AvailabilityService) {}
 
   ngOnInit(): void {
@@ -17,6 +17,6 @@ export class StartDateComponent implements OnInit {
   getWeeklyRecurrence(startDate: HTMLInputElement) {
     this.availabilityService.getWeeklyAvailability("1", startDate.value.toString()).subscribe(weeklyAvailability => {
       this.weekly.emit(weeklyAvailability);
-    }).unsubscribe();
+    });
   }
 }

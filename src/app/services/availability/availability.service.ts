@@ -11,8 +11,8 @@ export class AvailabilityService implements AvailabilityInterface{
 
   constructor(private http: HttpClient) { }
 
-  getWeeklyAvailability(providerId: string, dateFrom: string): Observable<Availability> {
-    return this.http.get<Availability>(`http://localhost:3000/availability/${providerId}?dateFrom=${dateFrom}`);
+  getWeeklyAvailability(providerId: string, dateFrom: string): Observable<Availability[]> {
+    return this.http.get<Availability[]>(`http://localhost:3000/availability/${providerId}?dateFrom=${dateFrom}`);
   }
 
 }
