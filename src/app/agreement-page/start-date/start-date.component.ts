@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AvailabilityService } from '../../services/availability/availability.service';
 import { Availability } from '../../domaine/availability/availability';
+import { Agreement } from '../../domaine/agreement/agreement';
 
 @Component({
   selector: 'app-start-date',
@@ -9,6 +10,7 @@ import { Availability } from '../../domaine/availability/availability';
 })
 export class StartDateComponent implements OnInit {
   @Output() weekly = new EventEmitter<Availability[]>();
+  @Input() agreement?: Agreement;
   constructor(private availabilityService: AvailabilityService) {}
 
   ngOnInit(): void {

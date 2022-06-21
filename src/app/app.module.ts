@@ -60,6 +60,7 @@ import { NameAndStatusComponent } from './agreement-page/container-name-and-stat
 import { ContainerNameAndStatusComponent } from './agreement-page/container-name-and-status/container-name-and-status.component';
 import { SelectRecurencyComponent } from './agreement-page/select-recurency/select-recurency.component';
 import { StartDateComponent } from './agreement-page/start-date/start-date.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -126,6 +127,7 @@ import { StartDateComponent } from './agreement-page/start-date/start-date.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [ProviderService],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 export interface AgreementProps {
-  id: string;
+  id?: string;
   recurring: boolean;
   recurrence?: string;
   providerRef: string;

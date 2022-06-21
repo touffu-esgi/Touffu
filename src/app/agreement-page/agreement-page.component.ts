@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Availability } from '../domaine/availability/availability';
-import { min } from 'rxjs';
 import { Agreement } from '../domaine/agreement/agreement';
+import { AgreementService } from '../services/agreement/agreement.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-agreement-page',
@@ -15,20 +16,20 @@ export class AgreementPageComponent implements OnInit {
   public durations: number[] = [];
 
   public selectedAvailability?: Availability;
-  private agreements: Agreement = new Agreement({
-    animalsRefs: [],
+  agreements: Agreement = new Agreement({
+    animalsRefs: ['1'],
     beginningDate: '',
     duration: 0,
     endDate: '',
-    id: '',
-    providerRef: '',
-    recipientRef: '',
+    providerRef: '2',
+    recipientRef: '1',
     recurrence: '',
     recurring: false,
-    remuneration: 0
+    remuneration: 1
   });
+  private addAgreementSubscribe?: Subscription;
 
-  constructor() { }
+  constructor(private agreementService: AgreementService) { }
 
   ngOnInit(): void {
   }
@@ -68,10 +69,25 @@ export class AgreementPageComponent implements OnInit {
         }
       }
     })
+    this.concatHourWithBeginningDate(hour);
   }
 
   setRecurrence(recurrence: string) {
     this.agreements.recurrence = recurrence;
-    console.log(this.agreements);
+    this.agreements.recurring = true;
+  }
+
+  concatHourWithBeginningDate(hour: string): void {
+    this.agreements.beginningDate = this.agreements.beginningDate.split("T")[0];
+    this.agreements.beginningDate += `T${hour}`;
+  }
+
+  sendAgreement() {
+    this.agreements.duration = parseFloat(this.agreements.duration.toString())
+    this.addAgreementSubscribe = this.agreementService.addAgreement(this.agreements).subscribe();
+  }
+
+  ngDestroy() {
+    this.addAgreementSubscribe!.unsubscribe()
   }
 }

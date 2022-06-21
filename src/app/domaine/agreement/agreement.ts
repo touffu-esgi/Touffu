@@ -1,7 +1,7 @@
 import { AgreementProps } from './agreement.props';
 
 export class Agreement implements AgreementProps{
-  id: string;
+  id?: string;
   recurring: boolean;
   providerRef: string;
   recipientRef: string;

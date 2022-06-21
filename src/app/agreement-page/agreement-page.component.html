@@ -4,10 +4,10 @@
   <app-container-name-and-status></app-container-name-and-status>
   <div id='firstSelectLine'>
     <app-select-recurency (recurrence)='setRecurrence($event)'></app-select-recurency>
-    <app-start-date (weekly)='setWeeklyDate($event)'></app-start-date>
+    <app-start-date (weekly)='setWeeklyDate($event)'  [agreement]='this.agreements'></app-start-date>
     <div class='recurrenceContainer'>
       <img src='assets/checkBox.svg' alt=''>
-      <input class='recurrence' type='date' >
+      <input class='recurrence' type='date' name='endDate' [(ngModel)]='this.agreements.endDate'>
     </div>
 
   </div>
@@ -21,17 +21,17 @@
     <div class='recurrenceContainer'>
       <select name='startHour' class='recurrence' #startHour (change)='setMaxDuration(startHour.value)'>
         <option value=''>Start hour</option>
-        <option *ngFor='let hour of hours' value='{{hour}}'>{{computeHourDisplay(hour)}}</option>
+        <option *ngFor='let hour of hours' value='{{computeHourDisplay(hour)}}'>{{computeHourDisplay(hour)}}</option>
       </select>
    </div>
 
     <div class='recurrenceContainer'>
-      <select name='endHour' class='recurrence'>
+      <select name='duration' class='recurrence' [(ngModel)]='this.agreements.duration'>
         <option>Duration</option>
         <option *ngFor='let duration of durations' value='{{duration}}'>{{computeHourDisplay(duration)}}</option>
       </select>
     </div>
   </div>
 </div>
-
+<button (click)='sendAgreement()'>Click me</button>
 <app-footer></app-footer>
