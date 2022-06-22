@@ -13,4 +13,9 @@ export class AnimalCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  displayAnimal() {
+
+    //TODO
+    console.log(this.animal);
+  }
 }
