@@ -1,1 +1,21 @@
-<p>add-animal-page works!</p>
+<app-header></app-header>
+<div id="mainContainer">
+  <div>
+    <div class="largeInput">
+      <div>
+        <input name="name" placeholder="name" type="text" [(ngModel)]='animal.name'>
+      </div>
+      <div>
+        <select name='type' id='type' [(ngModel)]='animal.type' required>
+          <option [value]='""'>Type</option>
+          <option [value]='"dog"'>chien</option>
+          <option [value]='"cat"'>cat</option>
+        </select>
+      </div>
+      <div>
+        <button [hidden]='animal.name.length == 0 || animal.type.length == 0' class="inputIndex" id="SearchInput" (click)='addAnimal()'>Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
