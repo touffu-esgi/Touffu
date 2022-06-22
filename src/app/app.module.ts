@@ -56,6 +56,7 @@ import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-in
 import {HomeComponent} from "./homePage/home/home.component";
 import {RouterModule, Routes} from "@angular/router";
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
+import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
 
 
 
@@ -113,6 +114,7 @@ import { ConnectionPageComponent } from './connection-page/connection-page.compo
     DescriptifIndexComponent,
     FindServiceProviderComponent,
     ConnectionPageComponent,
+    AddAnimalPageComponent,
   ],
   imports: [
     BrowserModule,

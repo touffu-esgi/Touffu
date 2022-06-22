@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MessageService} from "../services/messages/message.service";
 import {Conversation} from "../domaine/message/conversation";
 import {Message} from "../domaine/message/message";
-import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-message-page',
@@ -15,7 +15,7 @@ export class MessagePageComponent implements OnInit {
   public messages: Message[] = [];
   public id_reciver: string = "";
   public id_sender: string = "";
-  constructor(private messageService: MessageService, private authService: AuthServiceMockImplementation) { }
+  constructor(private messageService: MessageService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.getConversations();

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-connection-page',
@@ -8,7 +8,7 @@ import { AuthServiceMockImplementation } from '../services/auth/auth.service.moc
 })
 export class ConnectionPageComponent implements OnInit {
 
-  constructor(private authService: AuthServiceMockImplementation) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
