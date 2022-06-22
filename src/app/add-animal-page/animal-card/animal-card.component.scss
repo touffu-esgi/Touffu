@@ -1,0 +1,15 @@
+#containerAnimalCard{
+  width: 375px;
+  height: 183px;
+  border-radius: 15px;
+  background-color: #FBC95C;
+  align-items: center;
+}
+
+#containerAnimalCard > p{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+}

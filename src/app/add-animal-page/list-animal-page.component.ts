@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { AnimalService } from '../services/animal/animal.service';
 import { AuthService } from '../services/auth/auth.service';
+import { Animal } from '../homePage/animal/animal';
 
 @Component({
   selector: 'app-add-animal-page',
-  templateUrl: './add-animal-page.component.html',
-  styleUrls: ['./add-animal-page.component.scss']
+  templateUrl: './list-animal-page.component.html',
+  styleUrls: ['./list-animal-page.component.scss']
 })
-export class AddAnimalPageComponent implements OnInit {
+export class ListAnimalPageComponent implements OnInit {
 
   constructor(private animalService: AnimalService, private authService: AuthService) { }
-
+  animals: Animal[] = [];
   ngOnInit(): void {
     this.getAllAnimalsByRecipientId();
   }
@@ -18,7 +19,7 @@ export class AddAnimalPageComponent implements OnInit {
   getAllAnimalsByRecipientId(){
     if(this.authService.user && this.authService.user.id) {
       this.animalService.getAnimalsByRecipientId(this.authService.user.id).subscribe(animals => {
-        console.log(animals);
+        this.animals = animals;
       });
     }
   }
