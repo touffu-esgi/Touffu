@@ -1,0 +1,25 @@
+#animals{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  column-gap: 150px;
+  row-gap: 25px;
+}
+
+button{
+  width: 375px;
+  height: 185px;
+  background-color: #FBC95C;
+  border: none;
+  border-radius: 15px;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+button:hover{
+  background-color: #FBDDA0;
+  cursor: pointer;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.10);
+}

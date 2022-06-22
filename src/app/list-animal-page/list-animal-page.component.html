@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div id='animals'>
   <app-animal-card *ngFor='let animal of animals' [animal]='animal'></app-animal-card>
-  <button routerLink=''>Ajouter un animal</button>
+  <button routerLink='/add-animal'>Ajouter un animal</button>
 </div>
 <app-footer></app-footer>
 <router-outlet></router-outlet>
