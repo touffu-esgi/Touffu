@@ -4,7 +4,7 @@
     <button>Inscription</button>
     <button routerLink='/connection'>Connexion</button>
   </div>
-  <div *ngIf='userId'>
+  <div *ngIf='userId' >
     <button>{{userEmail}}</button>
     <button (click)='signOut()'>SignOut</button>
   </div>
