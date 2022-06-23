@@ -7,6 +7,8 @@ import { AuthServiceMockImplementation } from '../services/auth/auth.service.moc
 import { RecommandationService } from '../services/recommandation/recommandation.service';
 import { Recommendation } from '../domaine/recommendation/recommendation';
 
+
+
 @Component({
 
   selector: 'app-provider-description-page',
@@ -36,7 +38,16 @@ export class ProviderDescriptionPageComponent implements OnInit {
   }
 
   sendReco(recoText: string) {
+    this.addRecoInCurrentState(recoText);
     this.recommandationService.addRecommendation(this.provider!.id, this.authService.user!.id!, recoText, 2, new Date());
+  }
+
+  addRecoInCurrentState(recoText: string) {
+    this.recommendations?.push(new Recommendation({
+      providerId: this.provider!.id,
+      recipientId: this.authService.user!.id!,
+      review: recoText
+    }))
   }
 
   private fetchRecommendation() {
