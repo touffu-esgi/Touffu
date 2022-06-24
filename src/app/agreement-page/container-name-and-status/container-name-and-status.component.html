@@ -1,4 +1,4 @@
 <div id='topContainer'>
-  <app-name-and-status [fullName]="'Théo Omnes'" [status]='"Prestataire"'></app-name-and-status>
-  <app-name-and-status [fullName]="'Sarah Schlegel'" [status]='"Bénéficiaire"'></app-name-and-status>
+  <app-name-and-status [fullName]="provider!.name!" [status]='"Prestataire"'></app-name-and-status>
+  <app-name-and-status [fullName]="user!.email" [status]='user!.userType'></app-name-and-status>
 </div>

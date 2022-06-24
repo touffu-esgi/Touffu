@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'search-page', component: SearchProviderPageComponent},
   {path: 'message', component: MessagePageComponent},
   {path: 'connection', component: ConnectionPageComponent},
-  {path: '', component: AgreementPageComponent},
+  {path: 'agreement', component: AgreementPageComponent},
   {path: '', component: HomeComponent},
 ];
 

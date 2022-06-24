@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <div id='mainContainerAgreement'>
-  <app-container-name-and-status></app-container-name-and-status>
+  <app-container-name-and-status [provider]='provider!' [user]='user' ></app-container-name-and-status>
   <div id='firstSelectLine'>
     <app-select-recurency (recurrence)='setRecurrence($event)'></app-select-recurency>
     <app-start-date (weekly)='setWeeklyDate($event)'  [agreement]='this.agreements'></app-start-date>

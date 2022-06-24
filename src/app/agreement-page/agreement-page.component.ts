@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Provider } from '@angular/core';
 import { Availability } from '../domaine/availability/availability';
 import { Agreement } from '../domaine/agreement/agreement';
 import { AgreementService } from '../services/agreement/agreement.service';
 import { Subscription } from 'rxjs';
 import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
+import { User } from '../domaine/user/user';
+import { ActivatedRoute } from '@angular/router';
+import { ProviderService } from '../services/provider/provider.service';
+import { ProviderData } from '../domaine/providerData';
 
 @Component({
   selector: 'app-agreement-page',
@@ -23,16 +27,34 @@ export class AgreementPageComponent implements OnInit {
     duration: 0,
     endDate: '',
     providerRef: '2',
-    recipientRef: '1',
+    recipientRef: '',
     recurrence: '',
     recurring: false,
     remuneration: 1
   });
-  private addAgreementSubscribe?: Subscription;
 
-  constructor(private agreementService: AgreementService, private authService: AuthServiceMockImplementation) { }
+  user?: User;
+
+  private addAgreementSubscribe?: Subscription;
+  provider?: ProviderData;
+
+  constructor(
+    private agreementService: AgreementService,
+    private providerService: ProviderService,
+    private authService: AuthServiceMockImplementation,
+    private activeRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    this.user = this.authService.user;
+    this.activeRoute.queryParams.subscribe(params => {
+      if (params["id"]){
+        this.providerService.getOneProviders(params["id"]).subscribe(provider => {
+          this.provider = provider;
+          this.agreements.providerRef = provider.id
+        });
+      }
+    })
   }
 
   setWeeklyDate(availability: Availability[]) {
