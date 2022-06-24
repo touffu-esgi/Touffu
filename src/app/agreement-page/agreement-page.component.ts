@@ -3,6 +3,7 @@ import { Availability } from '../domaine/availability/availability';
 import { Agreement } from '../domaine/agreement/agreement';
 import { AgreementService } from '../services/agreement/agreement.service';
 import { Subscription } from 'rxjs';
+import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
 
 @Component({
   selector: 'app-agreement-page',
@@ -29,7 +30,7 @@ export class AgreementPageComponent implements OnInit {
   });
   private addAgreementSubscribe?: Subscription;
 
-  constructor(private agreementService: AgreementService) { }
+  constructor(private agreementService: AgreementService, private authService: AuthServiceMockImplementation) { }
 
   ngOnInit(): void {
   }
@@ -84,6 +85,7 @@ export class AgreementPageComponent implements OnInit {
 
   sendAgreement() {
     this.agreements.duration = parseFloat(this.agreements.duration.toString())
+    this.agreements.recipientRef = this.authService.user!.id!;
     this.addAgreementSubscribe = this.agreementService.addAgreement(this.agreements).subscribe();
   }
 
