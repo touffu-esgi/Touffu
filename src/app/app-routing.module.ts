@@ -7,6 +7,7 @@ import {HomeComponent} from "./homePage/home/home.component";
 import {MessagePageComponent} from "./message-page/message-page.component";
 import { AgreementPageComponent } from './agreement-page/agreement-page.component';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
+import { ListAgreementComponent } from './list-agreement/list-agreement.component';
 
 const routes: Routes = [
   {path: 'description-component', component: ProviderDescriptionPageComponent, data: ProviderData},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'message', component: MessagePageComponent},
   {path: 'connection', component: ConnectionPageComponent},
   {path: 'agreement', component: AgreementPageComponent},
+  {path: 'list-agreement', component: ListAgreementComponent},
   {path: '', component: HomeComponent},
 ];
 

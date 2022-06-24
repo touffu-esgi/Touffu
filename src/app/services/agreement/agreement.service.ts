@@ -14,4 +14,8 @@ export class AgreementService{
     const body = JSON.stringify(agreement);
     return this.http.post<string>('http://localhost:3000/agreement', body, {headers: {'Content-Type': 'application/json'}});
   }
+
+  getAgreementByProviderId(providerId: string): Observable<Agreement[]>{
+    return this.http.get<Agreement[]>(`http://localhost:3000/agreement?providerRef=${providerId}`);
+  }
 }

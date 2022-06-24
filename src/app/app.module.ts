@@ -62,6 +62,7 @@ import { SelectRecurencyComponent } from './agreement-page/select-recurency/sele
 import { StartDateComponent } from './agreement-page/start-date/start-date.component';
 import { FormsModule } from '@angular/forms';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
+import { ListAgreementComponent } from './list-agreement/list-agreement.component';
 
 
 
@@ -124,6 +125,7 @@ import { ConnectionPageComponent } from './connection-page/connection-page.compo
     ContainerNameAndStatusComponent,
     SelectRecurencyComponent,
     StartDateComponent,
+    ListAgreementComponent,
   ],
   imports: [
     BrowserModule,

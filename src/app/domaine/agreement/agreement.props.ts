@@ -9,4 +9,5 @@ export interface AgreementProps {
   endDate: string;
   duration: number;
   remuneration: number;
+  status?: string;
 }

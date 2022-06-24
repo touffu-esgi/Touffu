@@ -1,0 +1,14 @@
+<app-header></app-header>
+<div id='header'>
+  <p>recurrence</p>
+  <p>remunération</p>
+  <p>status</p>
+  <p>duration</p>
+</div>
+  <div id='value' *ngFor='let agreement of recipientAgreements'>
+    <p>{{agreement.recurrence}}</p>
+    <p>{{agreement.remuneration}}</p>
+    <p>{{agreement.status}}</p>
+    <p>{{agreement.duration}}</p>
+  </div>
+<app-footer></app-footer>
