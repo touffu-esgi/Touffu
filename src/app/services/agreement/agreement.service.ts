@@ -18,4 +18,8 @@ export class AgreementService{
   getAgreementByProviderId(providerId: string): Observable<Agreement[]>{
     return this.http.get<Agreement[]>(`http://localhost:3000/agreement?providerRef=${providerId}`);
   }
+
+  getAgreementByAgreementAndProviderId(agreementId:string, providerId:string): Observable<Agreement[]> {
+    return this.http.get<Agreement[]>(`http://localhost:3000/agreement?providerRef=${providerId}&id=${agreementId}`);
+  }
 }

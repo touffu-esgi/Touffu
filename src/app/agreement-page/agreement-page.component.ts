@@ -26,8 +26,8 @@ export class AgreementPageComponent implements OnInit {
     beginningDate: '',
     duration: 0,
     endDate: '',
-    providerRef: '2',
-    recipientRef: '',
+    provider: '2',
+    recipient: '',
     recurrence: '',
     recurring: false,
     remuneration: 1
@@ -51,7 +51,7 @@ export class AgreementPageComponent implements OnInit {
       if (params["id"]){
         this.providerService.getOneProviders(params["id"]).subscribe(provider => {
           this.provider = provider;
-          this.agreements.providerRef = provider.id
+          this.agreements.provider = provider.id
         });
       }
     })
@@ -107,7 +107,7 @@ export class AgreementPageComponent implements OnInit {
 
   sendAgreement() {
     this.agreements.duration = parseFloat(this.agreements.duration.toString())
-    this.agreements.recipientRef = this.authService.user!.id!;
+    this.agreements.recipient = this.authService.user!.id!;
     this.addAgreementSubscribe = this.agreementService.addAgreement(this.agreements).subscribe();
   }
 

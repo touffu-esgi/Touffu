@@ -2,8 +2,8 @@ export interface AgreementProps {
   id?: string;
   recurring: boolean;
   recurrence?: string;
-  providerRef: string;
-  recipientRef: string;
+  provider: string;
+  recipient: string;
   animalsRefs: string[];
   beginningDate: string;
   endDate: string;
