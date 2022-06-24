@@ -55,6 +55,7 @@ import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-
 import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
 import {HomeComponent} from "./homePage/home/home.component";
 import {RouterModule, Routes} from "@angular/router";
+import { ConnectionPageComponent } from './connection-page/connection-page.component';
 
 
 
@@ -111,6 +112,7 @@ import {RouterModule, Routes} from "@angular/router";
     HomeComponent,
     DescriptifIndexComponent,
     FindServiceProviderComponent,
+    ConnectionPageComponent,
   ],
   imports: [
     BrowserModule,
