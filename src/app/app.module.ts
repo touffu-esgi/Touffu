@@ -56,6 +56,7 @@ import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-in
 import {HomeComponent} from "./homePage/home/home.component";
 import {RouterModule, Routes} from "@angular/router";
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -118,6 +119,7 @@ import { ConnectionPageComponent } from './connection-page/connection-page.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [ProviderService],
   bootstrap: [AppComponent]

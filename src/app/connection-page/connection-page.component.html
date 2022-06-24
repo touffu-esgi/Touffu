@@ -3,10 +3,10 @@
   <div>
     <div class="largeInput">
       <div id="emailContainer">
-        <input name="email" placeholder="Email" type="text">
+        <input name="email" placeholder="Email" type="text" [(ngModel)]='user.email'>
       </div>
       <div>
-        <input name="password" placeholder="Password" type="text">
+        <input name="password" placeholder="Password" type="text" [(ngModel)]='user.password'>
       </div>
       <div>
         <button class="inputIndex" id="SearchInput" (click)='connected()'>Me connecter</button>
