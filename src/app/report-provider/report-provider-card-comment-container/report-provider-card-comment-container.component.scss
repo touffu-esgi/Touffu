@@ -1,0 +1,23 @@
+#reportComment {
+  width: 726px;
+  height: 200px;
+  border-radius: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 25px;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+  font-family: 'Montserrat', sans-serif;
+}
+
+#reportCommentInput {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  border-style: none;
+  height: 150px;
+  text-align: justify;
+  &:focus {
+    outline: none;
+  }
+}
