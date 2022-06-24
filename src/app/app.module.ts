@@ -61,6 +61,7 @@ import { ContainerNameAndStatusComponent } from './agreement-page/container-name
 import { SelectRecurencyComponent } from './agreement-page/select-recurency/select-recurency.component';
 import { StartDateComponent } from './agreement-page/start-date/start-date.component';
 import { FormsModule } from '@angular/forms';
+import { ConnectionPageComponent } from './connection-page/connection-page.component';
 
 
 
@@ -117,6 +118,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     DescriptifIndexComponent,
     FindServiceProviderComponent,
+    ConnectionPageComponent,
     AgreementPageComponent,
     NameAndStatusComponent,
     ContainerNameAndStatusComponent,
