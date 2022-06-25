@@ -19,7 +19,7 @@ export class AgreementService{
     return this.http.get<Agreement[]>(`http://localhost:3000/agreement?recipientRef=${recipientId}`);
   }
 
-  getAgreementByAgreementAndRecipientId(agreementId:string, providerId:string): Observable<Agreement[]> {
-    return this.http.get<Agreement[]>(`http://localhost:3000/agreement?recipientRef=${providerId}&id=${agreementId}`);
+  getAgreementByAgreementAndRecipientId(agreementId:string, recipientId:string): Observable<Agreement[]> {
+    return this.http.get<Agreement[]>(`http://localhost:3000/agreement?recipientRef=${recipientId}&id=${agreementId}`);
   }
 }

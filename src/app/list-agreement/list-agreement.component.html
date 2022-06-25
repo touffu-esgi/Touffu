@@ -4,12 +4,15 @@
   <p>remunération</p>
   <p>status</p>
   <p>duration</p>
+  <p>actions</p>
 </div>
-  <div id='value' *ngFor='let agreement of recipientAgreements' routerLink='/agreement-detail' [queryParams]='{"agreementId": agreement.id}'>
+  <div id='value' *ngFor='let agreement of recipientAgreements'>
     <p>{{agreement.recurrence}}</p>
     <p>{{agreement.remuneration}}</p>
     <p>{{agreement.status}}</p>
     <p>{{agreement.duration}}</p>
+    <a *ngIf='agreement.status === "InDiscussion"' routerLink='/agreement-update' [queryParams]='{"agreementId": agreement.id}'>Mettre à jour</a>
+    <a *ngIf='agreement.status === "Agreed"' routerLink='/agreement-detail' [queryParams]='{"agreementId": agreement.id}'>Détail</a>
   </div>
 <app-footer></app-footer>
 

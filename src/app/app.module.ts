@@ -64,6 +64,7 @@ import { FormsModule } from '@angular/forms';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
 import { ListAgreementComponent } from './list-agreement/list-agreement.component';
 import { AgreementDetailComponent } from './agreement-detail/agreement-detail.component';
+import { AgreementUpdatePageComponent } from './agreement-update-page/agreement-update-page.component';
 
 
 
@@ -128,6 +129,7 @@ import { AgreementDetailComponent } from './agreement-detail/agreement-detail.co
     StartDateComponent,
     ListAgreementComponent,
     AgreementDetailComponent,
+    AgreementUpdatePageComponent,
   ],
   imports: [
     BrowserModule,
