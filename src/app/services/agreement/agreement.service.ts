@@ -25,7 +25,6 @@ export class AgreementService{
 
   update(agreement: Agreement) {
     const body = JSON.stringify(agreement);
-    console.log(body);
     return this.http.put(`http://localhost:3000/agreement/${agreement!.id}`, body, {headers: {'Content-Type': 'application/json'}});
   }
 }
