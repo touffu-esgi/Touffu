@@ -49,6 +49,6 @@ export class AgreementUpdatePageComponent implements OnInit {
   }
 
   send() {
-    console.log(this.agreement);
+    this.agreementService.update(this.agreement!).subscribe()
   }
 }

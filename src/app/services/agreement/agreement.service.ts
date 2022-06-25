@@ -22,4 +22,10 @@ export class AgreementService{
   getAgreementByAgreementAndRecipientId(agreementId:string, recipientId:string): Observable<Agreement[]> {
     return this.http.get<Agreement[]>(`http://localhost:3000/agreement?recipientRef=${recipientId}&id=${agreementId}`);
   }
+
+  update(agreement: Agreement) {
+    const body = JSON.stringify(agreement);
+    console.log(body);
+    return this.http.put(`http://localhost:3000/agreement/${agreement!.id}`, body, {headers: {'Content-Type': 'application/json'}});
+  }
 }
