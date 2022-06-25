@@ -8,6 +8,7 @@ import { User } from '../domaine/user/user';
 import { ActivatedRoute } from '@angular/router';
 import { ProviderService } from '../services/provider/provider.service';
 import { ProviderData } from '../domaine/providerData';
+import { MessageService } from '../services/messages/message.service';
 
 @Component({
   selector: 'app-agreement-page',
@@ -26,8 +27,8 @@ export class AgreementPageComponent implements OnInit {
     beginningDate: '',
     duration: 0,
     endDate: '',
-    provider: '2',
-    recipient: '',
+    providerRef: '2',
+    recipientRef: '',
     recurrence: '',
     recurring: false,
     remuneration: 1
@@ -42,7 +43,8 @@ export class AgreementPageComponent implements OnInit {
     private agreementService: AgreementService,
     private providerService: ProviderService,
     private authService: AuthServiceMockImplementation,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private messageService: MessageService,
   ) {}
 
   ngOnInit(): void {
@@ -51,7 +53,7 @@ export class AgreementPageComponent implements OnInit {
       if (params["id"]){
         this.providerService.getOneProviders(params["id"]).subscribe(provider => {
           this.provider = provider;
-          this.agreements.provider = provider.id
+          this.agreements.providerRef = provider.id
         });
       }
     })
@@ -107,8 +109,9 @@ export class AgreementPageComponent implements OnInit {
 
   sendAgreement() {
     this.agreements.duration = parseFloat(this.agreements.duration.toString())
-    this.agreements.recipient = this.authService.user!.id!;
+    this.agreements.recipientRef = this.authService.user!.id!;
     this.addAgreementSubscribe = this.agreementService.addAgreement(this.agreements).subscribe();
+    this.messageService.sendMessage("Le contrat a été mis à jour", this.authService.user!.id!, this.provider!.id).subscribe();
   }
 
   ngDestroy() {

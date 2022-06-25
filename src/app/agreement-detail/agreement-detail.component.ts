@@ -22,17 +22,24 @@ export class AgreementDetailComponent implements OnInit {
   agreement?: Agreement;
   provider?: ProviderData;
   ngOnInit(): void {
+    this.getAgreement();
+  }
+
+  private getAgreement() {
     this.activeRoute.queryParams.subscribe(params => {
       if (params["agreementId"]){
         this.agreementService.getAgreementByAgreementAndProviderId(params["agreementId"], this.authService.user!.id!).subscribe(agreement => {
           this.agreement = agreement[0];
-          const providerId = this.agreement.provider.split("/")[4]
-          this.providerService.getOneProviders(providerId).subscribe(provider => {
-            this.provider = provider;
-          })
+          const providerId = this.agreement.providerRef.split("/")[4]
+          this.getProvider(providerId);
         })
       }
     })
   }
 
+  private getProvider(providerId: string) {
+    this.providerService.getOneProviders(providerId).subscribe(provider => {
+      this.provider = provider;
+    })
+  }
 }
