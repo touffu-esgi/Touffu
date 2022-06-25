@@ -28,18 +28,20 @@ export class AgreementDetailComponent implements OnInit {
   private getAgreement() {
     this.activeRoute.queryParams.subscribe(params => {
       if (params["agreementId"]){
-        this.agreementService.getAgreementByAgreementAndProviderId(params["agreementId"], this.authService.user!.id!).subscribe(agreement => {
+        this.agreementService.getAgreementByAgreementAndRecipientId(params["agreementId"], this.authService.user!.id!).subscribe(agreement => {
           this.agreement = agreement[0];
+          console.log(this.agreement.providerRef);
           const providerId = this.agreement.providerRef.split("/")[4]
-          this.getProvider(providerId);
+          this.providerService.getOneProviders(providerId).subscribe(provider => {
+            this.provider = provider;
+            console.log(this.provider);
+          })
         })
       }
     })
   }
 
   private getProvider(providerId: string) {
-    this.providerService.getOneProviders(providerId).subscribe(provider => {
-      this.provider = provider;
-    })
+
   }
 }

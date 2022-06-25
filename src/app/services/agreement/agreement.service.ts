@@ -15,11 +15,11 @@ export class AgreementService{
     return this.http.post<string>('http://localhost:3000/agreement', body, {headers: {'Content-Type': 'application/json'}});
   }
 
-  getAgreementByProviderId(providerId: string): Observable<Agreement[]>{
-    return this.http.get<Agreement[]>(`http://localhost:3000/agreement?providerRef=${providerId}`);
+  getAgreementByRecipientId(recipientId: string): Observable<Agreement[]>{
+    return this.http.get<Agreement[]>(`http://localhost:3000/agreement?recipientRef=${recipientId}`);
   }
 
-  getAgreementByAgreementAndProviderId(agreementId:string, providerId:string): Observable<Agreement[]> {
-    return this.http.get<Agreement[]>(`http://localhost:3000/agreement?providerRef=${providerId}&id=${agreementId}`);
+  getAgreementByAgreementAndRecipientId(agreementId:string, providerId:string): Observable<Agreement[]> {
+    return this.http.get<Agreement[]>(`http://localhost:3000/agreement?recipientRef=${providerId}&id=${agreementId}`);
   }
 }

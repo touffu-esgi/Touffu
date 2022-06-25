@@ -13,7 +13,7 @@ export class ListAgreementComponent implements OnInit {
   constructor(private agreementService: AgreementService, private authService: AuthServiceMockImplementation) { }
   recipientAgreements?: Agreement[];
   ngOnInit(): void {
-    this.agreementService.getAgreementByProviderId(this.authService.user!.id!).subscribe(data => {
+    this.agreementService.getAgreementByRecipientId(this.authService.user!.id!).subscribe(data => {
       this.recipientAgreements = data;
     })
   }
