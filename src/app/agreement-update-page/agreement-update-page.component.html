@@ -1,3 +1,32 @@
 <app-header></app-header>
 <app-container-name-and-status [user]='user' [provider]='provider'></app-container-name-and-status>
+
+  <div id='containerUpdate'>
+    <div id='firstLine'>
+      <input class='recurrence' name='remuneration' type='number' [value]='+agreement!.remuneration' [(ngModel)]='+agreement!.remuneration'>
+      <input class='recurrence' name='beginningDate' type='date' [value]='agreement!.beginningDate' [(ngModel)]='agreement!.beginningDate'>
+      <input class='recurrence' name='endDate' type='date' [value]='agreement!.endDate' [(ngModel)]='agreement!.endDate'>
+    </div>
+
+    <div id='secondLine'>
+      <select class='recurrence' name='recurrence' [(ngModel)]='agreement!.recurrence'>
+        <option value='None'>Aucun</option>
+        <option value='Daily'>Quotidien</option>
+        <option value='Weekly'>Hebdromadaire</option>
+        <option value='Monthly'>Mensuel</option>
+      </select>
+      <input class='recurrence' name='' type='number' [value]='+agreement!.remuneration' [(ngModel)]='agreement!.remuneration'>
+      <select class='recurrence' [(ngModel)]='agreement!.status'>
+        <option value='InDiscussion'>En négociation</option>
+        <option value='Agreed'>Accepté</option>
+      </select>
+    </div>
+  </div>
+  <button (click)='send()'>Mettre a jour la proposition</button>
+
+
+
+
+
+
 <app-footer></app-footer>

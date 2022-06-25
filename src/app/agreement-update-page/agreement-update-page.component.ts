@@ -29,7 +29,6 @@ export class AgreementUpdatePageComponent implements OnInit {
     this.user = this.authService.user;
     this.activatedRoute.queryParams.subscribe(params => {
       if (params["agreementId"]){
-
         this.getAgreement(params["agreementId"]);
       }
     })
@@ -39,10 +38,17 @@ export class AgreementUpdatePageComponent implements OnInit {
   private getAgreement(agreementId: string) {
     this.agreementService.getAgreementByAgreementAndRecipientId(agreementId, this.user!.id!).subscribe(agreement => {
       this.agreement = agreement[0];
+      this.agreement.endDate = this.agreement.endDate.split("T")[0]
+      if(this.agreement.beginningDate)
+        this.agreement.beginningDate = this.agreement.beginningDate.split("T")[0]
+      console.log(agreement);
       this.providerService.getOneByUrl(agreement[0].providerRef).subscribe(provider => {
         this.provider = provider;
-        console.log(provider);
       });
     });
+  }
+
+  send() {
+    console.log(this.agreement);
   }
 }
