@@ -15,7 +15,6 @@ export class RecipientService implements RecipientServiceInterface{
   signUp(recipient: Recipient): Observable<Object> {
 
     const body = JSON.stringify(recipient);
-    console.log(body)
     const url = this.httpUtils.fullUrl() + "/recipient";
     return this.http.post(url, body, {headers: {'Content-Type': 'application/json'}})
   }
