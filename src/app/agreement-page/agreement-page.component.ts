@@ -95,7 +95,6 @@ export class AgreementPageComponent implements OnInit {
         }
       }
     })
-    this.concatHourWithBeginningDate(hour);
   }
 
   setRecurrence(recurrence: string) {
@@ -108,7 +107,9 @@ export class AgreementPageComponent implements OnInit {
     this.agreements.beginningDate += `T${hour}`;
   }
 
-  sendAgreement() {
+  sendAgreement(hour: string) {
+    this.concatHourWithBeginningDate(hour);
+
     this.agreements.duration = parseFloat(this.agreements.duration.toString())
     this.agreements.recipientRef = this.authService.user!.id!;
     this.addAgreementSubscribe = this.agreementService.addAgreement(this.agreements).subscribe();
