@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthServiceMockImplementation} from "../../../services/auth/auth.service.mock.implementation";
 
 @Component({
   selector: 'app-provider-description-title-report-image',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProviderDescriptionTitleReportImageComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private authService: AuthServiceMockImplementation) { }
 
   ngOnInit(): void {
+  }
+
+  getUserId(): string | undefined {
+    return this.authService.user?.id
   }
 
 }
