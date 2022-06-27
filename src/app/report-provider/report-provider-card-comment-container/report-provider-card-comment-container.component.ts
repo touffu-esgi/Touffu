@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-report-provider-card-comment-container',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportProviderCardCommentContainerComponent implements OnInit {
 
+  @Output() pushReportValue: EventEmitter<string> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  sendReportComment(content: string) {
+    this.pushReportValue.emit(content)
   }
 
 }

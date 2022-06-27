@@ -3,8 +3,8 @@
 <div id="reportUserContainer">
   <div id="reportCommentForm">
     <app-report-provider-card-title-container></app-report-provider-card-title-container>
-    <app-report-provider-card-comment-container></app-report-provider-card-comment-container>
-    <app-report-provider-button-send></app-report-provider-button-send>
+    <app-report-provider-card-comment-container (pushReportValue)="setReportComment($event)"></app-report-provider-card-comment-container>
+    <app-report-provider-button-send (sendReport)="sendReport()"></app-report-provider-button-send>
   </div>
   <app-provider-description-card-details-container></app-provider-description-card-details-container>
 </div>

@@ -1,4 +1,4 @@
 <div id="reportComment">
   <h3>Un commentaire ?</h3>
-  <textarea id="reportCommentInput" placeholder="Décrivez-nous le comportement de cet utilisateur…"></textarea>
+  <textarea #commentInput (change)="sendReportComment(commentInput.value)" id="reportCommentInput" placeholder="Décrivez-nous le comportement de cet utilisateur…"></textarea>
 </div>

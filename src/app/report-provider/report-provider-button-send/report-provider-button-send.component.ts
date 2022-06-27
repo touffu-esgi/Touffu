@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-report-provider-button-send',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportProviderButtonSendComponent implements OnInit {
 
+  @Output() sendReport: EventEmitter<void> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  reportUser() {
+    this.sendReport.emit()
   }
 
 }

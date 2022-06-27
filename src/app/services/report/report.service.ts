@@ -10,7 +10,12 @@ export class ReportService {
 
   constructor(private http: HttpClient) { }
 
-  // sendReport(): Observable<{url: string}> {
-  //   const report = new Report()
-  // }
+  sendReport(report: Report): Observable<{ url: string }> {
+    const body = JSON.stringify(report)
+    return this.http.post<{ url: string }>(
+      'http://localhost:3000/report',
+      body,
+      {headers: {'Content-Type': 'application/json'}}
+    )
+  }
 }
