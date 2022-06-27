@@ -11,13 +11,13 @@ export class RecommandationService {
   constructor(private http: HttpClient) { }
 
 
-  addRecommendation(providerId: string, userId: string, recoText: string, number: number, date: Date): void{
+  addRecommendation(recommendation:Recommendation): void{
     const body = JSON.stringify({
-      "providerId": providerId,
-      "recipientId": userId,
-      "review": recoText,
-      "score": 2.2,
-      "dateReview": "2022/06/11"
+      "providerId": recommendation.providerId,
+      "recipientId": recommendation.recipientId,
+      "review": recommendation.review,
+      "score": recommendation.score,
+      "dateReview": new Date()
     })
     this.http.post("http://localhost:3000/recommendation", body, {headers: {'Content-Type': 'application/json'}}).subscribe()
   }

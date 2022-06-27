@@ -20,6 +20,7 @@ export class ProviderDescriptionPageComponent implements OnInit {
   provider?: ProviderData;
   address?: Address;
   recommendations?: Recommendation[];
+  sendRecommandation: Recommendation = new Recommendation({})
 
   constructor(private recommandationService: RecommandationService,
               private addressService: AddressService,
@@ -29,6 +30,9 @@ export class ProviderDescriptionPageComponent implements OnInit {
     this.provider = history.state[0]
     this.fetchAddress(this.provider!)
     this.fetchRecommendation();
+    this.sendRecommandation.providerId = this.provider!.id;
+    this.sendRecommandation.recipientId = this.authService.user!.id!;
+    console.log(this.sendRecommandation);
   }
 
   fetchAddress(provider: ProviderData) {
@@ -37,9 +41,9 @@ export class ProviderDescriptionPageComponent implements OnInit {
     })
   }
 
-  sendReco(recoText: string) {
-    this.addRecoInCurrentState(recoText);
-    this.recommandationService.addRecommendation(this.provider!.id, this.authService.user!.id!, recoText, 2, new Date());
+  sendReco() {
+    this.addRecoInCurrentState(this.sendRecommandation.review!);
+    this.recommandationService.addRecommendation(this.sendRecommandation);
   }
 
   addRecoInCurrentState(recoText: string) {
