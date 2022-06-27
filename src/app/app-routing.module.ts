@@ -11,7 +11,8 @@ const routes: Routes = [
   {path: 'description-component', component: ProviderDescriptionPageComponent, data: ProviderData},
   {path: 'search-page', component: SearchProviderPageComponent},
   {path: 'message', component: MessagePageComponent},
-  {path: '', component: RecipientSignUpComponent},
+  {path: 'signup-recipient', component: RecipientSignUpComponent},
+  {path: '', component: HomeComponent},
 ];
 
 @NgModule({
