@@ -59,8 +59,9 @@ export class AgreementPageComponent implements OnInit {
     })
   }
 
-  setWeeklyDate(availability: Availability[]) {
-    this.availabilities = availability;
+  setWeeklyDate(availability: [Availability[], string]) {
+    this.availabilities = availability[0];
+    this.agreements.beginningDate = availability[1]
   }
 
   getStartHour(value: string): void {

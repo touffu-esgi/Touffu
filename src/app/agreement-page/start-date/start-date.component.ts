@@ -10,7 +10,7 @@ import { ProviderData } from '../../domaine/providerData';
   styleUrls: ['./start-date.component.scss']
 })
 export class StartDateComponent implements OnInit {
-  @Output() weekly = new EventEmitter<Availability[]>();
+  @Output() weekly = new EventEmitter<[Availability[], string]>();
   @Input() agreement?: Agreement;
   @Input() providerId?: string;
   constructor(private availabilityService: AvailabilityService) {}
@@ -20,7 +20,7 @@ export class StartDateComponent implements OnInit {
 
   getWeeklyRecurrence(startDate: HTMLInputElement) {
     this.availabilityService.getWeeklyAvailability(this.providerId!, startDate.value.toString()).subscribe(weeklyAvailability => {
-      this.weekly.emit(weeklyAvailability);
+      this.weekly.emit([weeklyAvailability, startDate.value]);
     });
   }
 }
