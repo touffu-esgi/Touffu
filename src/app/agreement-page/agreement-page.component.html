@@ -4,7 +4,7 @@
   <app-container-name-and-status [provider]='provider!' [user]='user' ></app-container-name-and-status>
   <div id='firstSelectLine'>
     <app-select-recurency (recurrence)='setRecurrence($event)'></app-select-recurency>
-    <app-start-date (weekly)='setWeeklyDate($event)'  [agreement]='this.agreements'></app-start-date>
+    <app-start-date (weekly)='setWeeklyDate($event)' [providerId]='provider!.id'  [agreement]='this.agreements'></app-start-date>
     <div class='recurrenceContainer'>
       <img src='assets/checkBox.svg' alt=''>
       <input class='recurrence' type='date' name='endDate' [(ngModel)]='this.agreements.endDate'>
