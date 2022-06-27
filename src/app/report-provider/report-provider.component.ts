@@ -11,6 +11,8 @@ import {AuthServiceMockImplementation} from "../services/auth/auth.service.mock.
 })
 export class ReportProviderComponent implements OnInit {
   report: Report = new Report("", "", "")
+  reportSendOk: boolean | null = null
+  errorMsg: string = "An error occurred";
   constructor(
     private reportService: ReportService,
     private activatedRoute: ActivatedRoute,
@@ -29,6 +31,13 @@ export class ReportProviderComponent implements OnInit {
   }
 
   sendReport() {
-    this.reportService.sendReport(this.report).subscribe()
+    this.reportService.sendReport(this.report).subscribe(() => {
+    }, (e) => {
+      if (e.error.message) this.errorMsg = e.error.message
+      this.reportSendOk = false;
+    }, () => {
+      this.reportSendOk = true;
+    })
+
   }
 }
