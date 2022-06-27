@@ -58,6 +58,7 @@ export class AgreementUpdatePageComponent implements OnInit {
   private getAgreement(agreementId: string) {
     this.agreementService.getAgreementByAgreementAndRecipientId(agreementId, this.user!.id!).subscribe(agreement => {
       this.agreement = agreement[0];
+      console.log(agreement);
       this.agreement.duration = this.agreement.duration / 60;
       this.startHourComponent = this.agreement.beginningDate.split("T")[1].split(".")[0].substr(0,5)
       this.agreement.endDate = this.agreement.endDate.split("T")[0];
@@ -65,7 +66,6 @@ export class AgreementUpdatePageComponent implements OnInit {
         this.agreement.beginningDate = this.agreement.beginningDate.split("T")[0]
       this.providerService.getOneByUrl(agreement[0].providerRef).subscribe(provider => {
         this.provider = provider;
-        console.log(this.provider);
         this.setWeeklyDate(this.agreement!.beginningDate!);
       });
     });
@@ -112,7 +112,7 @@ export class AgreementUpdatePageComponent implements OnInit {
         }
       }
     })
-    this.concatHourWithBeginningDate(this.startHourComponent!)
+
 
   }
 

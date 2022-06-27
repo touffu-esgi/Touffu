@@ -80,8 +80,9 @@ export class AgreementPageComponent implements OnInit {
 
   computeHourDisplay (hour: number): string {
     const hDisplay = parseInt(hour.toString()) % 24
+    const hDisplayString = (hDisplay < 10 ? "0" : "") + hDisplay.toString()
     const minDisplay = (hour - hDisplay) * 60
-    return `${hDisplay}:${minDisplay === 0 ? '00' : minDisplay}`
+    return `${hDisplayString}:${minDisplay === 0 ? '00' : minDisplay}`
   }
 
   setMaxDuration(hour: string) {
