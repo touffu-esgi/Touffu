@@ -9,4 +9,8 @@
   </ul>
 </div>
   <app-provider-description-card-details-container [base_tarif]='agreement!.remuneration' [name]='provider!.name' [id]='provider!.id'></app-provider-description-card-details-container>
+
+<agm-map style='height: 300px' [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
 <app-footer></app-footer>
