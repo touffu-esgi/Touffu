@@ -55,9 +55,18 @@ import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-
 import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
 import {HomeComponent} from "./homePage/home/home.component";
 import {RouterModule, Routes} from "@angular/router";
-import { ConnectionPageComponent } from './connection-page/connection-page.component';
+import { AgreementPageComponent } from './agreement-page/agreement-page.component';
+import { NameAndStatusComponent } from './agreement-page/container-name-and-status/name-and-status/name-and-status.component';
+import { ContainerNameAndStatusComponent } from './agreement-page/container-name-and-status/container-name-and-status.component';
+import { SelectRecurencyComponent } from './agreement-page/select-recurency/select-recurency.component';
+import { StartDateComponent } from './agreement-page/start-date/start-date.component';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { ConnectionPageComponent } from './connection-page/connection-page.component';
+import { ListAgreementComponent } from './list-agreement/list-agreement.component';
+import { AgreementDetailComponent } from './agreement-detail/agreement-detail.component';
+import { AgreementUpdatePageComponent } from './agreement-update-page/agreement-update-page.component';
+
 
 
 
@@ -115,6 +124,14 @@ import { AgmCoreModule } from '@agm/core';
     DescriptifIndexComponent,
     FindServiceProviderComponent,
     ConnectionPageComponent,
+    AgreementPageComponent,
+    NameAndStatusComponent,
+    ContainerNameAndStatusComponent,
+    SelectRecurencyComponent,
+    StartDateComponent,
+    ListAgreementComponent,
+    AgreementDetailComponent,
+    AgreementUpdatePageComponent,
   ],
   imports: [
     BrowserModule,
