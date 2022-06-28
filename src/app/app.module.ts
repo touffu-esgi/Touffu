@@ -57,6 +57,7 @@ import {HomeComponent} from "./homePage/home/home.component";
 import {RouterModule, Routes} from "@angular/router";
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
 import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -120,6 +121,9 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyCyUVFfH-E8Hy3R60mIpzslNkEDuUlaV9s"
+    }),
   ],
   providers: [ProviderService],
   bootstrap: [AppComponent]
