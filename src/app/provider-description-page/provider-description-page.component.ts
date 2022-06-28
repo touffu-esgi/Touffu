@@ -32,7 +32,6 @@ export class ProviderDescriptionPageComponent implements OnInit {
     this.fetchRecommendation();
     this.sendRecommandation.providerId = this.provider!.id;
     this.sendRecommandation.recipientId = this.authService.user!.id!;
-    console.log(this.sendRecommandation);
   }
 
   fetchAddress(provider: ProviderData) {
@@ -57,7 +56,6 @@ export class ProviderDescriptionPageComponent implements OnInit {
   private fetchRecommendation() {
     this.recommandationService.getRecommendations(this.provider!.id!).subscribe(recommendations => {
       this.recommendations = recommendations;
-      console.log(this.recommendations);
     });
   }
 }
