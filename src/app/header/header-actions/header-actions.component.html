@@ -1,6 +1,9 @@
 <div id="actionsContainer">
-  <button id="becomeProvider">Devenir prestataire</button>
-  <button>Inscription</button>
-  <button (click)='connected()'>Connexion</button>
+  <button *ngIf='!userId' id="becomeProvider">Devenir prestataire</button>
+  <button *ngIf='!userId'>Inscription</button>
+  <button *ngIf='!userId' routerLink='connection'>Connexion</button>
+  <button *ngIf='userId' routerLink='connection'>{{userEmail}}</button>
+  <button *ngIf='userId' (click)='signOut()'>SignOut</button>
 </div>
 
+<router-outlet></router-outlet>
