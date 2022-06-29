@@ -11,7 +11,7 @@ export class PositionService {
   constructor(private http: HttpClient) { }
 
   getLastPosition(agreementId: string): Observable<Position> {
-    return this.http.get<Position>(`http://localhost:3000/position/${agreementId}`);
+    return this.http.get<Position>(`http://152.228.219.241:3000/position/${agreementId}`);
   }
 
   pushPosition(agreementId: Position): Observable<void>{
