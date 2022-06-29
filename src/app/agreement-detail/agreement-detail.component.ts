@@ -70,8 +70,8 @@ export class AgreementDetailComponent implements OnInit {
     this.positionService.getLastPosition(agreementId).subscribe(position => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position)=>{
-          this.lat = position.coords.longitude;
-          this.lng = position.coords.latitude;
+          this.lat = position.coords.latitude;
+          this.lng = position.coords.longitude;
           const currentPos = new Position(agreementId, this.lat, this.lng)
 
           this.positionService.pushPosition(currentPos).subscribe(url => {
