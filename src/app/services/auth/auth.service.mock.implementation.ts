@@ -19,7 +19,7 @@ export class AuthServiceMockImplementation implements authServiceInterface{
 
   getUser(user: User): void {
     const body = JSON.stringify(user);
-    this.http.post<User>(`http://localhost:3000/user/login`, body, {headers: {'Content-Type': 'application/json'}}).subscribe(user => {
+    this.http.post<User>(`http://152.228.219.241:3000/user/login`, body, {headers: {'Content-Type': 'application/json'}}).subscribe(user => {
       this.user = user;
       localStorage.setItem('user', JSON.stringify(user));
       window.location.replace('/');

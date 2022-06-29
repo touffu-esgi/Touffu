@@ -9,11 +9,11 @@ export class ProviderService {
   constructor(private http: HttpClient) { }
 
   getAllProviders(): Observable<ProviderData[]>{
-    return this.http.get<ProviderData[]>("http://localhost:3000/provider/");
+    return this.http.get<ProviderData[]>("http://152.228.219.241:3000/provider/");
   }
 
   getOneProviders(providerId: string): Observable<ProviderData>{
-    return this.http.get<ProviderData>(`http://localhost:3000/provider/${providerId}`);
+    return this.http.get<ProviderData>(`http://152.228.219.241:3000/provider/${providerId}`);
   }
 
   getOneByUrl(url: string): Observable<ProviderData>{
