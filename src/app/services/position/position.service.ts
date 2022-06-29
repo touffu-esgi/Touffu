@@ -13,4 +13,9 @@ export class PositionService {
   getLastPosition(agreementId: string): Observable<Position> {
     return this.http.get<Position>(`http://localhost:3000/position/${agreementId}`);
   }
+
+  pushPosition(agreementId: Position): Observable<void>{
+    const body = JSON.stringify(agreementId);
+    return this.http.post<void>(`http://152.228.219.241:3000/position`, body, {headers: {'Content-Type': 'application/json'}});
+  }
 }

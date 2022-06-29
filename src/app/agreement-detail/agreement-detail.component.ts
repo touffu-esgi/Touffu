@@ -6,6 +6,7 @@ import { Agreement } from '../domaine/agreement/agreement';
 import { ProviderService } from '../services/provider/provider.service';
 import { ProviderData } from '../domaine/providerData';
 import { PositionService } from '../services/position/position.service';
+import { Position } from '../domaine/position/position';
 
 @Component({
   selector: 'app-agreement-detail',
@@ -16,6 +17,7 @@ export class AgreementDetailComponent implements OnInit {
   title = 'My first AGM project';
   lat = 51.678418;
   lng = 7.809007;
+  interval?: number;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -28,6 +30,9 @@ export class AgreementDetailComponent implements OnInit {
   provider?: ProviderData;
   ngOnInit(): void {
     this.getAgreement();
+    this.interval = setInterval(() => {
+      this.postPosition(this.agreement!.id!);
+    }, 5000);
   }
 
   private getAgreement() {
@@ -51,10 +56,27 @@ export class AgreementDetailComponent implements OnInit {
   }
 
   private getPosition(agreementId: string) {
-
     this.positionService.getLastPosition(agreementId).subscribe(position => {
       this.lat = position.xCoordinate;
       this.lng = position.yCoordinate;
     });
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.interval);
+  }
+
+  private postPosition(agreementId: string) {
+    this.positionService.getLastPosition(agreementId).subscribe(position => {
+      this.lat = position.xCoordinate;
+      this.lng = position.yCoordinate;
+
+      const currentPos = new Position(agreementId, this.lat, this.lng)
+
+      this.positionService.pushPosition(currentPos).subscribe(url => {
+        console.log(url);
+      })
+    });
+
   }
 }
