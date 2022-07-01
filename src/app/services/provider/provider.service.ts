@@ -23,6 +23,6 @@ export class ProviderService {
   }
 
   getAgreementOfOneProvider(providerId: string): Observable<Agreement[]>{
-    return this.http.get<Agreement[]>(`http://152.228.219.241:3000/agreement?providerRef=${providerId}`, {headers: {'Content': 'application/json'}})
+    return this.http.get<Agreement[]>(`http://localhost:3000/agreement?providerRef=${providerId}`, {headers: {'Content': 'application/json'}})
   }
 }

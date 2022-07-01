@@ -10,15 +10,16 @@ import { Recipient } from '../../domaine/recipient/recipient';
 })
 export class AgreementCardComponent implements OnInit {
   @Input() agreement?: Agreement;
-  recipient?: Recipient = new Recipient('','','','','','','');
+  recipient: Recipient = new Recipient('','','','','','','');
   @Output() displayAgreement: EventEmitter<Agreement> = new EventEmitter();
 
   constructor(private providerService: ProviderService) { }
 
   ngOnInit(): void {
-    this.providerService.getOneByUrl(this.agreement!.providerRef).subscribe(recipient => {
-      if(recipient instanceof  Recipient)
-        this.recipient = recipient;
+    // @ts-ignore
+    this.providerService.getOneByUrl(this.agreement!.recipient).subscribe(recipient => {
+      // @ts-ignore
+      this.recipient = recipient;
     })
   }
 
@@ -27,5 +28,4 @@ export class AgreementCardComponent implements OnInit {
       this.displayAgreement.emit(this.agreement)
     }
   }
-
 }

@@ -36,10 +36,9 @@ export class ProviderDetailPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     this.providerService.getOneProviders(this.authService.user!.userReference!.split("/")[4]).subscribe(provider => {
       this.provider = provider;
-      this.providerService.getAgreementOfOneProvider(this.authService.user!.userReference!.split("/")[4]).subscribe(agreement => {
+      this.providerService.getAgreementOfOneProvider(provider.id).subscribe(agreement => {
         this.agreements = agreement;
       })
     }, error => {
