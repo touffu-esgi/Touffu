@@ -54,7 +54,15 @@ import {ProviderService} from "./services/provider/provider.service";
 import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-service-provider.component";
 import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
 import {HomeComponent} from "./homePage/home/home.component";
+import { AgreementPageComponent } from './agreement-page/agreement-page.component';
+import { NameAndStatusComponent } from './agreement-page/container-name-and-status/name-and-status/name-and-status.component';
+import { ContainerNameAndStatusComponent } from './agreement-page/container-name-and-status/container-name-and-status.component';
+import { SelectRecurencyComponent } from './agreement-page/select-recurency/select-recurency.component';
+import { StartDateComponent } from './agreement-page/start-date/start-date.component';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
+import { ListAgreementComponent } from './list-agreement/list-agreement.component';
+import { AgreementDetailComponent } from './agreement-detail/agreement-detail.component';
+import { AgreementUpdatePageComponent } from './agreement-update-page/agreement-update-page.component';
 import { ListAnimalPageComponent } from './list-animal-page/list-animal-page.component';
 import { AnimalCardComponent } from './list-animal-page/animal-card/animal-card.component';
 import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
@@ -119,6 +127,14 @@ import { FormsModule } from '@angular/forms';
     ListAnimalPageComponent,
     AnimalCardComponent,
     AddAnimalPageComponent,
+    AgreementPageComponent,
+    NameAndStatusComponent,
+    ContainerNameAndStatusComponent,
+    SelectRecurencyComponent,
+    StartDateComponent,
+    ListAgreementComponent,
+    AgreementDetailComponent,
+    AgreementUpdatePageComponent,
   ],
   imports: [
     BrowserModule,
