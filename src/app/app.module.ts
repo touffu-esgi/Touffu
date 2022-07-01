@@ -65,6 +65,11 @@ import { ConnectionPageComponent } from './connection-page/connection-page.compo
 import { ListAgreementComponent } from './list-agreement/list-agreement.component';
 import { AgreementDetailComponent } from './agreement-detail/agreement-detail.component';
 import { AgreementUpdatePageComponent } from './agreement-update-page/agreement-update-page.component';
+import { ProviderDetailPageComponent } from './provider-detail-page/provider-detail-page.component';
+import { AgreementCardComponent } from './provider-detail-page/agreement-card/agreement-card.component';
+import {
+  AgreementDetailComponentProvider
+} from './provider-detail-page/agreement-detail/agreement-detail-component-provider.component';
 
 
 
@@ -130,6 +135,9 @@ import { AgreementUpdatePageComponent } from './agreement-update-page/agreement-
     ListAgreementComponent,
     AgreementDetailComponent,
     AgreementUpdatePageComponent,
+    ProviderDetailPageComponent,
+    AgreementCardComponent,
+    AgreementDetailComponentProvider
   ],
   imports: [
     BrowserModule,

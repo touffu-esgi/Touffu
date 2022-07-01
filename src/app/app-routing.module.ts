@@ -10,6 +10,7 @@ import { ConnectionPageComponent } from './connection-page/connection-page.compo
 import { ListAgreementComponent } from './list-agreement/list-agreement.component';
 import { AgreementDetailComponent } from './agreement-detail/agreement-detail.component';
 import { AgreementUpdatePageComponent } from './agreement-update-page/agreement-update-page.component';
+import { ProviderDetailPageComponent } from './provider-detail-page/provider-detail-page.component';
 
 const routes: Routes = [
   {path: 'description-component', component: ProviderDescriptionPageComponent, data: ProviderData},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'list-agreement', component: ListAgreementComponent},
   {path: 'agreement-detail', component: AgreementDetailComponent},
   {path: 'agreement-update', component: AgreementUpdatePageComponent},
+  {path: 'provider-detail', component: ProviderDetailPageComponent},
   {path: '', component: HomeComponent},
 ];
 

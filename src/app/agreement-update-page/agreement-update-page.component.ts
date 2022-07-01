@@ -65,7 +65,8 @@ export class AgreementUpdatePageComponent implements OnInit {
       if(this.agreement.beginningDate)
         this.agreement.beginningDate = this.agreement.beginningDate.split("T")[0]
       this.providerService.getOneByUrl(agreement[0].providerRef).subscribe(provider => {
-        this.provider = provider;
+        if(provider instanceof ProviderData)
+          this.provider = provider;
         this.setWeeklyDate(this.agreement!.beginningDate!);
       });
     });
