@@ -4,6 +4,17 @@ import { AvailabilityInterface } from './Availability.interface';
 import { Observable } from 'rxjs';
 import { Availability } from '../../domaine/availability/availability';
 
+
+enum WeekDays {
+  SUNDAY,
+  MONDAY,
+  TUESDAY ,
+  WEDNESDAY ,
+  THURSDAY ,
+  FRIDAY ,
+  SATURDAY,
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,4 +26,9 @@ export class AvailabilityService implements AvailabilityInterface{
     return this.http.get<Availability[]>(`http://localhost:3000/availability/${providerId}?dateFrom=${dateFrom}`);
   }
 
+  getDayFromDate(date: Date): string {
+    const dayInt = date.getDay();
+    if (WeekDays[dayInt]) return WeekDays[dayInt].toString();
+    throw new Error('Incoherent weekday');
+  }
 }

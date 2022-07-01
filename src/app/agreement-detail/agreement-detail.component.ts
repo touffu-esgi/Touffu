@@ -30,18 +30,12 @@ export class AgreementDetailComponent implements OnInit {
       if (params["agreementId"]){
         this.agreementService.getAgreementByAgreementAndRecipientId(params["agreementId"], this.authService.user!.id!).subscribe(agreement => {
           this.agreement = agreement[0];
-          console.log(this.agreement.providerRef);
           const providerId = this.agreement.providerRef.split("/")[4]
           this.providerService.getOneProviders(providerId).subscribe(provider => {
             this.provider = provider;
-            console.log(this.provider);
           })
         })
       }
     })
-  }
-
-  private getProvider(providerId: string) {
-
   }
 }
