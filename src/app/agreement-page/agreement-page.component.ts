@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProviderService } from '../services/provider/provider.service';
 import { ProviderData } from '../domaine/providerData';
 import { MessageService } from '../services/messages/message.service';
+import {AvailabilityService} from "../services/availability/availability.service";
 
 @Component({
   selector: 'app-agreement-page',
@@ -45,6 +46,7 @@ export class AgreementPageComponent implements OnInit {
     private authService: AuthServiceMockImplementation,
     private activeRoute: ActivatedRoute,
     private messageService: MessageService,
+    private availabilityService: AvailabilityService,
   ) {}
 
   ngOnInit(): void {
@@ -61,13 +63,15 @@ export class AgreementPageComponent implements OnInit {
 
   setWeeklyDate(availability: [Availability[], string]) {
     this.availabilities = availability[0];
-    this.agreements.beginningDate = availability[1]
+    this.agreements.beginningDate = availability[1];
+    const beginningDayString = this.availabilityService.getDayFromDate(new Date(this.agreements.beginningDate))
+    this.getStartHour(beginningDayString)
   }
 
-  getStartHour(value: string): void {
+  getStartHour(day: string): void {
     this.hours = []
     this.availabilities?.forEach(availability => {
-      if(availability.day == value){
+      if(availability.day === day){
         this.selectedAvailability = availability
         availability.dailyAvailability?.forEach((timeframe) => {
           for (let hour = timeframe.beginAt ; hour < timeframe.endAt ; hour += 0.25) {

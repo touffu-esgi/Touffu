@@ -10,15 +10,6 @@ import { Availability } from '../domaine/availability/availability';
 import { AvailabilityService } from '../services/availability/availability.service';
 
 
-enum WeekDays {
-  SUNDAY,
-  MONDAY,
-  TUESDAY ,
-  WEDNESDAY ,
-  THURSDAY ,
-  FRIDAY ,
-  SATURDAY,
-}
 
 @Component({
   selector: 'app-agreement-update-page',
@@ -58,7 +49,6 @@ export class AgreementUpdatePageComponent implements OnInit {
   private getAgreement(agreementId: string) {
     this.agreementService.getAgreementByAgreementAndRecipientId(agreementId, this.user!.id!).subscribe(agreement => {
       this.agreement = agreement[0];
-      console.log(agreement);
       this.agreement.duration = this.agreement.duration / 60;
       this.startHourComponent = this.agreement.beginningDate.split("T")[1].split(".")[0].substr(0,5)
       this.agreement.endDate = this.agreement.endDate.split("T")[0];
