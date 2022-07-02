@@ -4,12 +4,29 @@
   border-radius: 15px;
   background-color: #FBC95C;
   align-items: center;
-}
-
-#containerAnimalCard > p{
+  box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   font-size: 32px;
   display: flex;
   justify-content: center;
 }
+
+.isOnWalk {
+  border: #411013 solid 2px;
+}
+
+a {
+  color: #411013;
+  text-decoration: none;
+}
+
+.isOnWalk > a:hover {
+  color: #FFF4DE;
+}
+
+.isOnWalk:hover{
+  color: #411013;
+  background-color: #FFF4DE;
+}
+

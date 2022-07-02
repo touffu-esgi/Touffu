@@ -11,7 +11,6 @@ export class ConnectionPageComponent implements OnInit {
   user: User = new User("", "", "", "", "");
 
   constructor(private authService: AuthService) { }
-
   ngOnInit(): void {
   }
 

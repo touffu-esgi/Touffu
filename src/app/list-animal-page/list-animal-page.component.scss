@@ -1,6 +1,7 @@
 #animals{
   display: flex;
   justify-content: space-around;
+  align-items: center;
   flex-wrap: wrap;
   column-gap: 150px;
   row-gap: 25px;
