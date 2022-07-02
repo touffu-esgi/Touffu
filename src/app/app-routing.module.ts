@@ -6,12 +6,14 @@ import {ProviderData} from "./domaine/providerData";
 import {HomeComponent} from "./homePage/home/home.component";
 import {MessagePageComponent} from "./message-page/message-page.component";
 import {RecipientSignUpComponent} from "./recipient-sign-up/recipient-sign-up.component";
+import { ConnectionPageComponent } from './connection-page/connection-page.component';
 
 const routes: Routes = [
   {path: 'description-component', component: ProviderDescriptionPageComponent, data: ProviderData},
   {path: 'search-page', component: SearchProviderPageComponent},
   {path: 'message', component: MessagePageComponent},
   {path: 'signup-recipient', component: RecipientSignUpComponent},
+  {path: 'connection', component: ConnectionPageComponent},
   {path: '', component: HomeComponent},
 ];
 

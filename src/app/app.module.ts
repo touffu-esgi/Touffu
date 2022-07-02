@@ -56,7 +56,8 @@ import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-in
 import {HomeComponent} from "./homePage/home/home.component";
 import {RouterModule, Routes} from "@angular/router";
 import { RecipientSignUpComponent } from './recipient-sign-up/recipient-sign-up.component';
-import {FormsModule} from "@angular/forms";
+import { ConnectionPageComponent } from './connection-page/connection-page.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -114,12 +115,13 @@ import {FormsModule} from "@angular/forms";
     DescriptifIndexComponent,
     FindServiceProviderComponent,
     RecipientSignUpComponent,
+    ConnectionPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [ProviderService],
   bootstrap: [AppComponent]
