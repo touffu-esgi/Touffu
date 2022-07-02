@@ -1,0 +1,46 @@
+#cardBill{
+  width: 871px;
+  height: 89px;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-around;
+  div{
+    padding-top: 20px;
+  }
+}
+
+#billParentContainer{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 120px;
+}
+
+#cardContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  box-sizing: border-box;
+}
+
+img{
+  width: 50px;
+}
+
+
+p{
+  font-family: 'Montserrat', sans-serif;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.field{
+  display: flex;
+  gap: 48px;
+  img{
+    width: 35px;
+    height: 35px;
+  }
+  margin-top: 5px;
+}

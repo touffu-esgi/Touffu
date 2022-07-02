@@ -7,6 +7,7 @@ import {HomeComponent} from "./homePage/home/home.component";
 import {MessagePageComponent} from "./message-page/message-page.component";
 import {RecipientSignUpComponent} from "./recipient-sign-up/recipient-sign-up.component";
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
+import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
 
 const routes: Routes = [
   {path: 'description-component', component: ProviderDescriptionPageComponent, data: ProviderData},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'message', component: MessagePageComponent},
   {path: 'signup-recipient', component: RecipientSignUpComponent},
   {path: 'connection', component: ConnectionPageComponent},
+  {path: 'provider-profile', component: ProviderProfileComponent},
   {path: '', component: HomeComponent},
 ];
 

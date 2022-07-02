@@ -58,6 +58,7 @@ import {RouterModule, Routes} from "@angular/router";
 import { RecipientSignUpComponent } from './recipient-sign-up/recipient-sign-up.component';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
 import { FormsModule } from '@angular/forms';
+import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
 
 
 
@@ -116,6 +117,7 @@ import { FormsModule } from '@angular/forms';
     FindServiceProviderComponent,
     RecipientSignUpComponent,
     ConnectionPageComponent,
+    ProviderProfileComponent,
   ],
   imports: [
     BrowserModule,
