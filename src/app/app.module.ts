@@ -60,6 +60,7 @@ import { ConnectionPageComponent } from './connection-page/connection-page.compo
 import { FormsModule } from '@angular/forms';
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
+import { PaidBillComponent } from './feature/paid-bill/paid-bill.component';
 
 
 
@@ -120,6 +121,7 @@ import { RecipientProfileComponent } from './recipient-profile/recipient-profile
     ConnectionPageComponent,
     ProviderProfileComponent,
     RecipientProfileComponent,
+    PaidBillComponent,
   ],
   imports: [
     BrowserModule,
