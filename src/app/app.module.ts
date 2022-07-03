@@ -59,6 +59,7 @@ import { RecipientSignUpComponent } from './recipient-sign-up/recipient-sign-up.
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
 import { FormsModule } from '@angular/forms';
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
+import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
 
 
 
@@ -118,6 +119,7 @@ import { ProviderProfileComponent } from './provider-profile/provider-profile.co
     RecipientSignUpComponent,
     ConnectionPageComponent,
     ProviderProfileComponent,
+    RecipientProfileComponent,
   ],
   imports: [
     BrowserModule,
