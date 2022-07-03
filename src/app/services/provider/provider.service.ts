@@ -12,4 +12,8 @@ export class ProviderService {
   getAllProviders(): Observable<ProviderData[]>{
     return this.http.get<ProviderData[]>(this.httpUtils.fullUrl() + "/provider");
   }
+
+  getOneProviderByUrl(providerUrl: string): Observable<ProviderData> {
+    return this.http.get<ProviderData>(providerUrl)
+  }
 }
