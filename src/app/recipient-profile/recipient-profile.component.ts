@@ -17,11 +17,9 @@ export class RecipientProfileComponent implements OnInit {
   constructor(
     private billService: BillService,
     private authService: AuthServiceMockImplementation,
-    private providerService: ProviderService
   ) { }
 
   ngOnInit(): void {
-    this.getProvider();
     this.getBills();
   }
 
@@ -34,12 +32,6 @@ export class RecipientProfileComponent implements OnInit {
         })
       })
     }
-  }
-
-  private getProvider() {
-    this.providerService.getOneProviderByUrl(this.authService?.user?.userReference!).subscribe(provider => {
-      this.provider = provider
-    })
   }
 
 }
