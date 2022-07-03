@@ -36,7 +36,6 @@ export class ProviderProfileComponent implements OnInit {
   }
 
   private getProvider() {
-    console.log(this.authService?.user!.userReference!);
     this.providerService.getOneProviderByUrl(this.authService?.user?.userReference!).subscribe(provider => {
       this.provider = provider
     })
