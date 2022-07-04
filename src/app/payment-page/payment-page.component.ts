@@ -13,6 +13,7 @@ import { Card } from '../domaine/card/card';
 export class PaymentPageComponent implements OnInit {
   bill?: Bill;
   card: Card = new Card('', '', '', '', '')
+  reportSendOk: boolean | null = null;
   constructor(private router: Router, private route: ActivatedRoute, private authService: AuthServiceMockImplementation, private billService: BillService) { }
 
   ngOnInit(): void {
@@ -51,6 +52,8 @@ export class PaymentPageComponent implements OnInit {
     this.billService.PayABill(this.bill?.id!).subscribe(value => {
 
     }, completed => {
+      this.reportSendOk
+    }, error => {
 
     })
   }
