@@ -34,11 +34,6 @@ export class PaymentPageComponent implements OnInit {
     return month + year ;
   }
 
-  updateBill() {
-    console.log("bonjour");
-
-  }
-
   formatEndDate(endDateInput: HTMLInputElement) {
     const endDate = this.card.endDate;
     if (endDate.length == 2 && endDate.split("/").length == 1){
@@ -46,5 +41,13 @@ export class PaymentPageComponent implements OnInit {
     }else if(endDate.split("/")[0].length != 2){
       endDateInput.value = endDateInput.value.slice(0,1);
     }
+  }
+
+  formatCardNumber(cardNumber: HTMLInputElement) {
+    cardNumber.value = cardNumber.value.replace(/\W/gi, '').replace(/(.{4})/g, '$1 ');
+  }
+
+  updateBill() {
+    console.log(this.card)
   }
 }

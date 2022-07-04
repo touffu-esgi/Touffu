@@ -5,14 +5,14 @@
       <div class="largeInput">
         <div class='littleInputs'>
           <div>
-            <input name="nom" placeholder="nom" required [(ngModel)]='card.name' type="text">
+            <input name="nom" minlength='1' placeholder="nom" required [(ngModel)]='card.name' type="text">
           </div>
           <div>
-            <input name="prenom" required placeholder="prenom" [(ngModel)]='card.surname' type="text">
+            <input name="prenom" minlength='1' required placeholder="prenom" [(ngModel)]='card.surname' type="text">
           </div>
         </div>
         <div id="blueCardNumber">
-          <input name="cardNumber" [(ngModel)]='card.cardNumber' required placeholder="numéro de la carte" type="text">
+          <input name="cardNumber" #cardNumber [(ngModel)]='card.cardNumber' minlength='19' maxlength='19' (input)='formatCardNumber(cardNumber)' required placeholder="numéro de la carte" type="text">
         </div>
         <div class='littleInputs'>
           <div>
