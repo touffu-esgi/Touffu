@@ -6,7 +6,7 @@
     <div id='cardBill' *ngFor='let bill of bills'>
       <div>
         <img *ngIf='bill.datePaid' src='assets/paid.png' alt=''>
-        <button id='paid' *ngIf='!bill.datePaid'>Payer</button>
+        <button id='paid' *ngIf='!bill.datePaid' routerLink='/recipient-profile' [queryParams]='{"id" : bill.id!}'>Payer</button>
       </div>
       <div id='dateBill' class='field'>
         <img src='assets/calendar.png' alt=''>
@@ -31,3 +31,4 @@
 
 
 <app-footer></app-footer>
+<router-outlet></router-outlet>
