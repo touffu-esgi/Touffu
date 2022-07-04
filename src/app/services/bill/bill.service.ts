@@ -17,12 +17,16 @@ export class BillService {
     return this.http.get<Bill[]>(this.httpUtils.fullUrl() + `/bill?providerRef=${providerId}`);
   }
 
-  getRecipientBills(recipientId: string) {
+  getRecipientBills(recipientId: string): Observable<Bill[]> {
     return this.http.get<Bill[]>(this.httpUtils.fullUrl() + `/bill?recipientRef=${recipientId}`);
   }
 
   PayABill(billId: string) {
-    const body = JSON.stringify({"id": billId});
+    const body = JSON.stringify({"billId": billId});
     return this.http.put(this.httpUtils.fullUrl() + `/bill`, body, {headers: {'Content-Type': 'application/json'}});
+  }
+
+  getOneBill(billId: string, userId: string): Observable<Bill>{
+    return this.http.get<Bill>(this.httpUtils.fullUrl() + `/bill?id=${billId}&recipientRef=${userId}`);
   }
 }
