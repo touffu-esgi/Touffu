@@ -1,10 +1,13 @@
 #mainContainer{
   padding-top: 45px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+  flex-direction: column;
+  gap: 50px;
 
-  & > div{
+  & > div:first-child{
     width: 500px;
     height: 600px;
     background-color: #FFF4DE;
@@ -128,4 +131,14 @@ input{
       border-radius: 30px;
     }
   }
+}
+
+#secondLineOfLittleInput{
+  padding-top: 0 !important;
+}
+
+#paymentDone{
+  width: 250px;
+  height: 100px;
+  background-color: green;
 }

@@ -48,6 +48,10 @@ export class PaymentPageComponent implements OnInit {
   }
 
   updateBill() {
-    console.log(this.card)
+    this.billService.PayABill(this.bill?.id!).subscribe(value => {
+
+    }, completed => {
+
+    })
   }
 }

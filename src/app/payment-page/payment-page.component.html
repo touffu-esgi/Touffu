@@ -14,7 +14,7 @@
         <div id="blueCardNumber">
           <input name="cardNumber" #cardNumber [(ngModel)]='card.cardNumber' minlength='19' maxlength='19' (input)='formatCardNumber(cardNumber)' required placeholder="numéro de la carte" type="text">
         </div>
-        <div class='littleInputs'>
+        <div class='littleInputs' id='secondLineOfLittleInput'>
           <div>
             <input name="endDate" #endDate (input)='formatEndDate(endDate)' pattern='((0[1-9])|([0-1][0-2]))\/(([0-2][0-9])|3[0-1])' maxlength='5' required [(ngModel)]='card.endDate' [placeholder]="date()" type="text">
           </div>
@@ -27,6 +27,8 @@
         </div>
       </div>
     </div>
+
+    <div id='paymentDone'></div>
   </div>
 </form>
 <app-footer></app-footer>
