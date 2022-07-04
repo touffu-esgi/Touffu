@@ -14,13 +14,14 @@ export class PaymentPageComponent implements OnInit {
   bill?: Bill;
   card: Card = new Card('', '', '', '', '')
   reportSendOk: boolean | null = null;
+  errorMsg: string = "";
   constructor(private router: Router, private route: ActivatedRoute, private authService: AuthServiceMockImplementation, private billService: BillService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(param => {
       if(param["id"]){
         this.billService.getOneBill(param["id"], this.authService.user!.id!).subscribe(bill => {
-          this.bill = bill;
+          this.bill = bill[0];
         }, error => {
           this.router.navigate(["/recipient-profile"])
         })
@@ -49,12 +50,12 @@ export class PaymentPageComponent implements OnInit {
   }
 
   updateBill() {
-    this.billService.PayABill(this.bill?.id!).subscribe(value => {
-
-    }, completed => {
-      this.reportSendOk
-    }, error => {
-
+    this.billService.PayABill(this.bill!.id!).subscribe(value => {
+      console.log(value);}, (e) => {
+      if (e.error.message) this.errorMsg = e.error.message
+      this.reportSendOk = false;
+    }, () => {
+      this.reportSendOk = true;
     })
   }
 }

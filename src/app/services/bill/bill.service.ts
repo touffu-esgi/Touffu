@@ -23,10 +23,11 @@ export class BillService {
 
   PayABill(billId: string) {
     const body = JSON.stringify({"billId": billId});
+    console.log(body);
     return this.http.put(this.httpUtils.fullUrl() + `/bill`, body, {headers: {'Content-Type': 'application/json'}});
   }
 
-  getOneBill(billId: string, userId: string): Observable<Bill>{
-    return this.http.get<Bill>(this.httpUtils.fullUrl() + `/bill?id=${billId}&recipientRef=${userId}`);
+  getOneBill(billId: string, userId: string): Observable<Bill[]>{
+    return this.http.get<Bill[]>(this.httpUtils.fullUrl() + `/bill?id=${billId}&recipientRef=${userId}`);
   }
 }

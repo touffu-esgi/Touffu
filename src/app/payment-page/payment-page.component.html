@@ -1,7 +1,7 @@
 <app-header></app-header>
-<form (submit)='updateBill()' novalidate #cardForm="ngForm">
+<form (submit)='updateBill()' novalidate #cardForm="ngForm" >
   <div id="mainContainer">
-    <div>
+    <div *ngIf="(this.reportSendOk == null || this.reportSendOk == false)">
       <div class="largeInput">
         <div class='littleInputs'>
           <div>
@@ -23,7 +23,7 @@
           </div>
         </div>
         <div>
-          <button [hidden]='cardForm.invalid' type='submit' class="inputIndex" id="SearchInput">Payer</button>
+          <button type='submit' class="inputIndex" id="SearchInput">Payer</button>
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@
       <p>{{this.errorMsg}}</p>
     </div>
     <div class="alertMsg" id="successMsg" *ngIf="this.reportSendOk === true">
-      <p>L'utilisateur a été signalé !</p>
+      <p>Le paiement a bien été effectué</p>
     </div>
   </div>
 </form>
