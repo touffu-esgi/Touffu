@@ -112,3 +112,20 @@ input{
   font-weight: bolder;
   font-size: 20px;
 }
+
+
+.littleInputs{
+  div {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-top: 45px;
+
+    input {
+      border: transparent;
+      width: 180px;
+      height: 82px;
+      border-radius: 30px;
+    }
+  }
+}

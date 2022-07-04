@@ -1,17 +1,32 @@
 <app-header></app-header>
-<div id="mainContainer">
-  <div>
-    <div class="largeInput">
-      <div id="emailContainer">
-        <input name="nom" placeholder="nom" type="text">
-      </div>
-      <div>
-        <input name="prenom" placeholder="prenom" type="text">
-      </div>
-      <div>
-        <button class="inputIndex" id="SearchInput">Payer</button>
+<form (submit)='updateBill()' novalidate #cardForm="ngForm">
+  <div id="mainContainer">
+    <div>
+      <div class="largeInput">
+        <div class='littleInputs'>
+          <div>
+            <input name="nom" placeholder="nom" required [(ngModel)]='card.name' type="text">
+          </div>
+          <div>
+            <input name="prenom" required placeholder="prenom" [(ngModel)]='card.surname' type="text">
+          </div>
+        </div>
+        <div id="blueCardNumber">
+          <input name="cardNumber" [(ngModel)]='card.cardNumber' required placeholder="numéro de la carte" type="text">
+        </div>
+        <div class='littleInputs'>
+          <div>
+            <input name="endDate" #endDate (input)='formatEndDate(endDate)' pattern='((0[1-9])|([0-1][0-2]))\/(([0-2][0-9])|3[0-1])' maxlength='5' required [(ngModel)]='card.endDate' [placeholder]="date()" type="text">
+          </div>
+          <div>
+            <input name="CVV" required pattern='[0-9][0-9][0-9]' minlength='3' maxlength='3' [(ngModel)]='card.cvv' placeholder="000" type="text">
+          </div>
+        </div>
+        <div>
+          <button [hidden]='cardForm.invalid' type='submit' class="inputIndex" id="SearchInput">Payer</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</form>
 <app-footer></app-footer>
