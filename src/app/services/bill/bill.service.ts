@@ -20,4 +20,9 @@ export class BillService {
   getRecipientBills(recipientId: string) {
     return this.http.get<Bill[]>(this.httpUtils.fullUrl() + `/bill?recipientRef=${recipientId}`);
   }
+
+  PayABill(billId: string) {
+    const body = JSON.stringify({"id": billId});
+    return this.http.put(this.httpUtils.fullUrl() + `/bill`, body, {headers: {'Content-Type': 'application/json'}});
+  }
 }

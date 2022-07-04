@@ -9,6 +9,7 @@ import {RecipientSignUpComponent} from "./recipient-sign-up/recipient-sign-up.co
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
 
 const routes: Routes = [
   {path: 'description-component', component: ProviderDescriptionPageComponent, data: ProviderData},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'connection', component: ConnectionPageComponent},
   {path: 'provider-profile', component: ProviderProfileComponent},
   {path: 'recipient-profile', component: RecipientProfileComponent},
+  {path: 'bill-payment', component: PaymentPageComponent},
   {path: '', component: HomeComponent},
 ];
 
