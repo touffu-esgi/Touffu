@@ -55,6 +55,7 @@ import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-
 import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
 import {HomeComponent} from "./homePage/home/home.component";
 import {RouterModule, Routes} from "@angular/router";
+import { RecipientSignUpComponent } from './recipient-sign-up/recipient-sign-up.component';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
 import { FormsModule } from '@angular/forms';
 
@@ -113,6 +114,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     DescriptifIndexComponent,
     FindServiceProviderComponent,
+    RecipientSignUpComponent,
     ConnectionPageComponent,
   ],
   imports: [
