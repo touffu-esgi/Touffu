@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
+import { User } from '../domaine/user/user';
 
 @Component({
   selector: 'app-connection-page',
@@ -9,13 +10,12 @@ import { AuthServiceMockImplementation } from '../services/auth/auth.service.moc
 export class ConnectionPageComponent implements OnInit {
 
   constructor(private authService: AuthServiceMockImplementation) { }
-
+  user: User = new User("", "", "", "", "");
   ngOnInit(): void {
   }
 
   connected() {
-    this.authService.getUser("1");
-    window.location.replace('');
+    this.authService.getUser(this.user);
   }
 
 
