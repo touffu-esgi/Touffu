@@ -58,6 +58,10 @@ import {RouterModule, Routes} from "@angular/router";
 import { RecipientSignUpComponent } from './recipient-sign-up/recipient-sign-up.component';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
 import { FormsModule } from '@angular/forms';
+import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
+import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
+import { PaidBillComponent } from './feature/paid-bill/paid-bill.component';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
 
 
 
@@ -116,6 +120,10 @@ import { FormsModule } from '@angular/forms';
     FindServiceProviderComponent,
     RecipientSignUpComponent,
     ConnectionPageComponent,
+    ProviderProfileComponent,
+    RecipientProfileComponent,
+    PaidBillComponent,
+    PaymentPageComponent,
   ],
   imports: [
     BrowserModule,
