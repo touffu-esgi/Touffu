@@ -1,3 +1,5 @@
-<button id='containerAnimalCard' [ngClass]="!animal!.isOnWalk ? '' : 'isOnWalk'">
-  <a [href]="!animal!.isOnWalk ? '' : '/walk/' + animal!.isOnWalk">{{animal!.name}}</a>
-</button>
+<a [href]="!animal!.isOnWalk ? '' : '/walk/' + animal!.isOnWalk">
+  <button id='containerAnimalCard' [ngClass]="!animal!.isOnWalk ? '' : 'isOnWalk'">
+    {{animal!.name}}
+  </button>
+</a>

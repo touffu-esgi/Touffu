@@ -16,7 +16,7 @@ export class ProviderService {
     return this.http.get<ProviderData>(`http://localhost:3000/provider/${providerId}`);
   }
 
-  getOneByUrl(url: string): Observable<ProviderData>{
+  getOneProviderByUrl(url: string): Observable<ProviderData>{
     return this.http.get<ProviderData>(url);
   }
 }

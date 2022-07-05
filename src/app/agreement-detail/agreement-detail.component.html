@@ -9,4 +9,11 @@
   </ul>
 </div>
   <app-provider-description-card-details-container [base_tarif]='agreement!.remuneration' [name]='provider!.name' [id]='provider!.id'></app-provider-description-card-details-container>
+
+<agm-map *ngIf='isPosition' style='height: 300px' [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<div id='positionError' *ngIf='!isPosition'>
+  <span>les coordonnées du prestataire ne sont pas connu</span>
+</div>
 <app-footer></app-footer>
