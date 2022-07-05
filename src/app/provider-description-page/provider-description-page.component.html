@@ -12,8 +12,21 @@
 <div id="containerRecommendations">
   <div id="recommendations">
     <app-provider-description-recommendations-title></app-provider-description-recommendations-title>
-    <app-provider-description-recommendations-card></app-provider-description-recommendations-card>
-    <app-provider-description-recommendations-card></app-provider-description-recommendations-card>
+    <app-provider-description-recommendations-card *ngFor='let recommendation of recommendations' [recommendation]='recommendation'></app-provider-description-recommendations-card>
+  </div>
+  <div style="width: 353px;"></div>
+
+</div>
+<div id='containerInputReco'>
+  <div id='inputAndButtonReco'>
+    <textarea [(ngModel)]='sendRecommandation.review' required type='text' id='recoInput'></textarea>
+    <input type='number' [(ngModel)]='sendRecommandation.score' max='5' step='0.1' name='score' id='score' required placeholder='Score'>
+    <button *ngIf='sendRecommandation!.review &&
+            sendRecommandation!.review!.length >= 0 &&
+            sendRecommandation!.score &&
+            sendRecommandation!.score! >= 0 &&
+            sendRecommandation!.score! <= 5'
+            (click)='sendReco()'>Envoyer</button>
   </div>
   <div style="width: 353px;"></div>
 </div>
