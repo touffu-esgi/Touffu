@@ -13,7 +13,7 @@
 <agm-map *ngIf='isPosition' style='height: 300px' [latitude]="lat" [longitude]="lng">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>
-<div id='positionError' *ngIf='!isPosition'>
+<div id='errorMsg' class='alertMsg' *ngIf='!isPosition'>
   <span>les coordonnées du prestataire ne sont pas connu</span>
 </div>
 <app-footer></app-footer>
