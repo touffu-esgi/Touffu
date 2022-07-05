@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AnimalService } from '../services/animal/animal.service';
-import { AuthService } from '../services/auth/auth.service';
-import { Animal } from '../homePage/animal/animal';
+import {Component, OnInit} from '@angular/core';
+import {AnimalService} from '../services/animal/animal.service';
+import {AuthService} from '../services/auth/auth.service';
+import {Animal} from '../homePage/animal/animal';
 
 @Component({
   selector: 'app-list-animal-page',
@@ -20,7 +20,20 @@ export class ListAnimalPageComponent implements OnInit {
     if(this.authService.user && this.authService.user.id) {
       this.animalService.getAnimalsByRecipientId(this.authService.user.id).subscribe(animals => {
         this.animals = animals;
+        this.checkOnWalk();
+        console.log(this.animals)
       });
+    }
+  }
+
+  private checkOnWalk() {
+    for (let animal of this.animals) {
+      if (animal.id) {
+        this.animalService.checkAnimalOnWalk(animal.id).subscribe(agreement => {
+          if (agreement)
+            animal.isOnWalk = agreement.id;
+        })
+      }
     }
   }
 }

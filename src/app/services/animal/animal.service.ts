@@ -4,6 +4,7 @@ import { Animal } from '../../homePage/animal/animal';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 import { HttpUtils } from '../../utils/http.utils';
+import {Agreement} from "../../domaine/agreement/agreement";
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,9 @@ export class AnimalService {
     animal.recipientId = this.auth.user!.id!;
     const body = JSON.stringify(animal);
     return this.http.post<string>(this.httpUtils.fullUrl() +  `/animals`, body, {headers: {'Content-Type': 'application/json'}});
+  }
+
+  checkAnimalOnWalk(animalId: string): Observable<Agreement | null> {
+    return this.http.get<Agreement | null>(this.httpUtils.fullUrl() + `/agreement/datetime?animal=${animalId}`, {headers: {'Content-Type': 'application/json'}})
   }
 }

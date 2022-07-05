@@ -5,7 +5,11 @@ import {SearchProviderPageComponent} from "./search-provider-page/search-provide
 import {ProviderData} from "./domaine/providerData";
 import {HomeComponent} from "./homePage/home/home.component";
 import {MessagePageComponent} from "./message-page/message-page.component";
+import { AgreementPageComponent } from './agreement-page/agreement-page.component';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
+import { ListAgreementComponent } from './list-agreement/list-agreement.component';
+import { AgreementDetailComponent } from './agreement-detail/agreement-detail.component';
+import { AgreementUpdatePageComponent } from './agreement-update-page/agreement-update-page.component';
 import { ListAnimalPageComponent } from './list-animal-page/list-animal-page.component';
 import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
 import { AuthGuard } from './auth-guard';
@@ -36,6 +40,10 @@ const routes: Routes = [
     component: AddAnimalPageComponent,
     canActivate: [AuthGuard]
   },
+  {path: 'agreement', component: AgreementPageComponent},
+  {path: 'list-agreement', component: ListAgreementComponent},
+  {path: 'agreement-detail', component: AgreementDetailComponent},
+  {path: 'agreement-update', component: AgreementUpdatePageComponent},
   {path: '', component: HomeComponent},
   {path: '**', component: HomeComponent},
 ];
