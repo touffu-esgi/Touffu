@@ -28,8 +28,6 @@ export class SearchProviderPageComponent implements OnInit {
 
   }
 
-
-
   ngOnDestroy() {
     this.subscribeServiceProvider!.unsubscribe()
   }

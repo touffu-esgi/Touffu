@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+
+<div id='billParentContainer'>
+  <app-provider-description-card-details-container [base_tarif]="provider?.base_tariff" [id]="provider?.id" [name]="provider?.name"></app-provider-description-card-details-container>
+
+  <div id='cardContainer'>
+    <div id='cardBill' *ngFor='let bill of bills'>
+      <div>
+        <img *ngIf='bill.datePaid' src='assets/paid.png' alt=''>
+        <img *ngIf='!bill.datePaid' src='assets/clock.png' alt=''>
+      </div>
+      <div id='dateBill' class='field'>
+        <img src='assets/calendar.png' alt=''>
+        <p>{{bill.dateBill}}</p>
+      </div>
+      <div id='hand'  class='field'>
+        <img src='assets/hand.png' alt=''>
+        <p>{{bill.total}} €</p>
+      </div>
+      <div id='contract' class='field'>
+        <img src='assets/contract.png' alt=''>
+        <p>{{bill.agreementRef}}</p>
+      </div>
+      <div id='file' class='field'>
+        <img src='assets/file.png' alt=''>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+<app-footer></app-footer>

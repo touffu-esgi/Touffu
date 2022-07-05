@@ -54,6 +54,8 @@ import {ProviderService} from "./services/provider/provider.service";
 import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-service-provider.component";
 import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
 import {HomeComponent} from "./homePage/home/home.component";
+import {RouterModule, Routes} from "@angular/router";
+import { RecipientSignUpComponent } from './recipient-sign-up/recipient-sign-up.component';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
 import { FormsModule } from '@angular/forms';
 import { ReportProviderComponent } from './report-provider/report-provider.component';
@@ -62,6 +64,10 @@ import { ReportProviderCardDetailsContainerComponent } from './report-provider/r
 import { ReportProviderCardCommentContainerComponent } from './report-provider/report-provider-card-comment-container/report-provider-card-comment-container.component';
 import { ReportProviderButtonSendComponent } from './report-provider/report-provider-button-send/report-provider-button-send.component';
 import { ProviderDescriptionTitleReportImageComponent } from './provider-description-page/provider-description-title-container/provider-description-title-report-image/provider-description-title-report-image.component';
+import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
+import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
+import { PaidBillComponent } from './feature/paid-bill/paid-bill.component';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
 
 
 
@@ -118,6 +124,7 @@ import { ProviderDescriptionTitleReportImageComponent } from './provider-descrip
     HomeComponent,
     DescriptifIndexComponent,
     FindServiceProviderComponent,
+    RecipientSignUpComponent,
     ConnectionPageComponent,
     ReportProviderComponent,
     ReportProviderCardTitleContainerComponent,
@@ -125,6 +132,10 @@ import { ProviderDescriptionTitleReportImageComponent } from './provider-descrip
     ReportProviderCardCommentContainerComponent,
     ReportProviderButtonSendComponent,
     ProviderDescriptionTitleReportImageComponent,
+    ProviderProfileComponent,
+    RecipientProfileComponent,
+    PaidBillComponent,
+    PaymentPageComponent,
   ],
   imports: [
     BrowserModule,
