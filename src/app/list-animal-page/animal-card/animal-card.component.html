@@ -1,4 +1,4 @@
-<a [href]="!animal!.isOnWalk ? '' : '/walk/' + animal!.isOnWalk">
+<a [href]="!animal!.isOnWalk ? '' : '/agreement-detail?agreementId=' + animal!.isOnWalk">
   <button id='containerAnimalCard' [ngClass]="!animal!.isOnWalk ? '' : 'isOnWalk'">
     {{animal!.name}}
   </button>

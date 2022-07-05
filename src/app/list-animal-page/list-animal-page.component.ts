@@ -21,7 +21,6 @@ export class ListAnimalPageComponent implements OnInit {
       this.animalService.getAnimalsByRecipientId(this.authService.user.id).subscribe(animals => {
         this.animals = animals;
         this.checkOnWalk();
-        console.log(this.animals)
       });
     }
   }
