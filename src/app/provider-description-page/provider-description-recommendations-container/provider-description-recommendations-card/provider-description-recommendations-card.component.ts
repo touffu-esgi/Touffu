@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Recommendation } from '../../../domaine/recommendation/recommendation';
 
 @Component({
   selector: 'app-provider-description-recommendations-card',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./provider-description-recommendations-card.component.scss']
 })
 export class ProviderDescriptionRecommendationsCardComponent implements OnInit {
-
+  @Input() recommendation?: Recommendation
   constructor() { }
 
   ngOnInit(): void {

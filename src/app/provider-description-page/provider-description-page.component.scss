@@ -25,3 +25,32 @@
   justify-content: center;
   gap: 70px;
 }
+
+#containerInputReco{
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+}
+
+#recoInput{
+  border-radius: 30px;
+  width: 650px;
+  padding: 30px;
+  resize: none;
+}
+
+#inputAndButtonReco{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+  height: calc(250px);
+  width: 725px;
+  border-radius: 30px;
+}
+
+#inputAndButtonReco > button{
+  width: 150px;
+}
