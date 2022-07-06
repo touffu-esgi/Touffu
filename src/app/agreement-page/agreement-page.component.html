@@ -34,8 +34,9 @@
 
 <div class='line'>
   <div class='recurrenceContainer'>
-    <select name='duration' class='recurrence'>
-      <option>Animaux</option>
+    <select name='duration' class='recurrence' (change)='formatAnimalsRef()' [(ngModel)]='this.agreements.animalsRefs'>
+      <option value=''>Animaux</option>
+      <option *ngFor='let animal of recipientAnimal' [value]='[animal.id]'>{{animal.name}}</option>
     </select>
   </div>
 </div>

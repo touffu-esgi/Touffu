@@ -8,6 +8,8 @@ import { User } from '../domaine/user/user';
 import { Availability } from '../domaine/availability/availability';
 import { AvailabilityService } from '../services/availability/availability.service';
 import {AuthService} from "../services/auth/auth.service";
+import { Animal } from '../homePage/animal/animal';
+import { AnimalService } from '../services/animal/animal.service';
 
 
 
@@ -24,6 +26,7 @@ export class AgreementUpdatePageComponent implements OnInit {
     private agreementService: AgreementService,
     private providerService: ProviderService,
     private activatedRoute: ActivatedRoute,
+    private animalService: AnimalService,
     private availabilityService: AvailabilityService
   ){}
 
@@ -48,6 +51,7 @@ export class AgreementUpdatePageComponent implements OnInit {
 
   private getAgreement(agreementId: string) {
     this.agreementService.getAgreementByAgreementAndRecipientId(agreementId, this.user!.id!).subscribe(agreement => {
+      console.log(agreement);
       this.agreement = agreement[0];
       this.agreement.duration = this.agreement.duration / 60;
       this.startHourComponent = this.agreement.beginningDate.split("T")[1].split(".")[0].substr(0,5)
@@ -102,8 +106,6 @@ export class AgreementUpdatePageComponent implements OnInit {
         }
       }
     })
-
-
   }
 
   setRecurrence(recurrence: string) {

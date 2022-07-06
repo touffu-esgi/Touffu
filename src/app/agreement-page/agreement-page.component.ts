@@ -134,4 +134,9 @@ export class AgreementPageComponent implements OnInit {
   ngDestroy() {
     this.addAgreementSubscribe!.unsubscribe()
   }
+
+  formatAnimalsRef() {
+    // @ts-ignore
+    this.agreements.animalsRefs = [this.agreements.animalsRefs]
+  }
 }
