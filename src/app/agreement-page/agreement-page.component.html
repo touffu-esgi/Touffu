@@ -2,7 +2,7 @@
 
 <div id='mainContainerAgreement'>
   <app-container-name-and-status [provider]='provider!' [user]='user' ></app-container-name-and-status>
-  <div id='firstSelectLine'>
+  <div class='line'>
     <app-select-recurency (recurrence)='setRecurrence($event)'></app-select-recurency>
     <app-start-date (weekly)='setWeeklyDate($event)' [providerId]='provider!.id'  [agreement]='this.agreements'></app-start-date>
     <div class='recurrenceContainer'>
@@ -11,7 +11,7 @@
     </div>
 
   </div>
-  <div id='secondLine'>
+  <div class='line'>
     <div class='recurrenceContainer'>
       <select name='startHour' class='recurrence' #startHour (change)='setMaxDuration(startHour.value)'>
         <option value=''>Start hour</option>
@@ -27,8 +27,16 @@
     </div>
 
     <div class='recurrenceContainer'>
-      <input type='number' name='remuneration' class='remuneration' [(ngModel)]='this.agreements.remuneration'>
+      <input type='number' name='remuneration' class='recurrence' [(ngModel)]='this.agreements.remuneration'>
     </div>
+  </div>
+</div>
+
+<div class='line'>
+  <div class='recurrenceContainer'>
+    <select name='duration' class='recurrence'>
+      <option>Animaux</option>
+    </select>
   </div>
 </div>
 <button (click)='sendAgreement(startHour.value)'>Click me</button>
