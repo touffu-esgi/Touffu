@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Bill } from '../domaine/bill/bill';
 import { ProviderData } from '../domaine/providerData';
 import { BillService } from '../services/bill/bill.service';
-import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
-import { ProviderService } from '../services/provider/provider.service';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-recipient-profile',
@@ -16,7 +15,7 @@ export class RecipientProfileComponent implements OnInit {
   provider?: ProviderData;
   constructor(
     private billService: BillService,
-    private authService: AuthServiceMockImplementation,
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {

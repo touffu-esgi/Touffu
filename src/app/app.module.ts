@@ -64,7 +64,6 @@ import { StartDateComponent } from './agreement-page/start-date/start-date.compo
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
-import { FormsModule } from '@angular/forms';
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
 import { PaidBillComponent } from './feature/paid-bill/paid-bill.component';

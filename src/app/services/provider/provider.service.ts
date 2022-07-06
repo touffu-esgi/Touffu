@@ -13,10 +13,6 @@ export class ProviderService {
     return this.http.get<ProviderData[]>(this.httpUtils.fullUrl() + "/provider");
   }
 
-  getOneProviderByUrl(providerUrl: string): Observable<ProviderData> {
-    return this.http.get<ProviderData>(providerUrl)
-  }
-
   getOneProviders(providerId: string): Observable<ProviderData>{
     return this.http.get<ProviderData>(`http://localhost:3000/provider/${providerId}`);
   }
