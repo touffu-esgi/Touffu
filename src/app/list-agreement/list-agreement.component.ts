@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AgreementService } from '../services/agreement/agreement.service';
 import { Agreement } from '../domaine/agreement/agreement';
-import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-list-agreement',
@@ -10,7 +10,7 @@ import { AuthServiceMockImplementation } from '../services/auth/auth.service.moc
 })
 export class ListAgreementComponent implements OnInit {
 
-  constructor(private agreementService: AgreementService, private authService: AuthServiceMockImplementation) { }
+  constructor(private agreementService: AgreementService, private authService: AuthService) { }
   recipientAgreements?: Agreement[];
   ngOnInit(): void {
     this.agreementService.getAgreementByRecipientId(this.authService.user!.id!).subscribe(data => {

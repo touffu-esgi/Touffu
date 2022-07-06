@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
 import { AgreementService } from '../services/agreement/agreement.service';
 import { ProviderService } from '../services/provider/provider.service';
 import { ActivatedRoute } from '@angular/router';
@@ -8,6 +7,7 @@ import { ProviderData } from '../domaine/providerData';
 import { User } from '../domaine/user/user';
 import { Availability } from '../domaine/availability/availability';
 import { AvailabilityService } from '../services/availability/availability.service';
+import {AuthService} from "../services/auth/auth.service";
 
 
 
@@ -20,7 +20,7 @@ export class AgreementUpdatePageComponent implements OnInit {
   startHourComponent?: string;
 
   constructor(
-    private authService: AuthServiceMockImplementation,
+    private authService: AuthService,
     private agreementService: AgreementService,
     private providerService: ProviderService,
     private activatedRoute: ActivatedRoute,
@@ -54,9 +54,8 @@ export class AgreementUpdatePageComponent implements OnInit {
       this.agreement.endDate = this.agreement.endDate.split("T")[0];
       if(this.agreement.beginningDate)
         this.agreement.beginningDate = this.agreement.beginningDate.split("T")[0]
-      this.providerService.getOneByUrl(agreement[0].providerRef).subscribe(provider => {
-        if(provider instanceof ProviderData)
-          this.provider = provider;
+      this.providerService.getOneProviderByUrl(agreement[0].providerRef).subscribe(provider => {
+        this.provider = provider;
         this.setWeeklyDate(this.agreement!.beginningDate!);
       });
     });

@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Agreement} from "../domaine/agreement/agreement";
 import { ProviderService } from '../services/provider/provider.service';
 import { ProviderData } from '../domaine/providerData';
-import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-provider-detail-page',
@@ -32,7 +32,7 @@ export class ProviderDetailPageComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private providerService: ProviderService,
     private router: Router,
-    private authService: AuthServiceMockImplementation,
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {

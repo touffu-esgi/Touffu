@@ -1,15 +1,17 @@
-import { Component, OnInit, Provider } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Availability } from '../domaine/availability/availability';
 import { Agreement } from '../domaine/agreement/agreement';
 import { AgreementService } from '../services/agreement/agreement.service';
 import { Subscription } from 'rxjs';
-import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
 import { User } from '../domaine/user/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProviderService } from '../services/provider/provider.service';
 import { ProviderData } from '../domaine/providerData';
 import { MessageService } from '../services/messages/message.service';
 import {AvailabilityService} from "../services/availability/availability.service";
+import {AuthService} from "../services/auth/auth.service";
+import { Animal } from '../homePage/animal/animal';
+import { AnimalService } from '../services/animal/animal.service';
 
 @Component({
   selector: 'app-agreement-page',
@@ -35,6 +37,7 @@ export class AgreementPageComponent implements OnInit {
     remuneration: 1
   });
 
+  recipientAnimal?: Animal[];
   user?: User;
 
   private addAgreementSubscribe?: Subscription;
@@ -43,10 +46,11 @@ export class AgreementPageComponent implements OnInit {
   constructor(
     private agreementService: AgreementService,
     private providerService: ProviderService,
-    private authService: AuthServiceMockImplementation,
+    private authService: AuthService,
     private activeRoute: ActivatedRoute,
     private messageService: MessageService,
     private availabilityService: AvailabilityService,
+    private animalService: AnimalService,
     private router: Router,
   ) {}
 
@@ -54,6 +58,9 @@ export class AgreementPageComponent implements OnInit {
     this.user = this.authService.user;
     this.activeRoute.queryParams.subscribe(params => {
       if (params["id"]){
+        this.animalService.getAnimalsByRecipientId(this.user!.id!).subscribe(animals => {
+          this.recipientAnimal = animals;
+        })
         this.providerService.getOneProviders(params["id"]).subscribe(provider => {
           this.provider = provider;
           this.agreements.providerRef = provider.id

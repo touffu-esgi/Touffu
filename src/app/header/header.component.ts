@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
+import { AuthService } from '../services/auth/auth.service';
 import { User } from '../domaine/user/user';
 
 @Component({
@@ -10,7 +10,7 @@ import { User } from '../domaine/user/user';
 export class HeaderComponent implements OnInit {
 
   user: User = new User("", "", "", "", "");
-  constructor(private authService: AuthServiceMockImplementation) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     if(this.authService.user) {
