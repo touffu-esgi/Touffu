@@ -1,3 +1,8 @@
+#body{
+  max-width: 60%;
+  margin: auto;
+}
+
 #cardBill{
   width: 871px;
   height: 89px;
@@ -10,10 +15,14 @@
   }
 }
 
+h2 {
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
 #billParentContainer{
   display: flex;
   justify-content: space-around;
-  padding-top: 120px;
 }
 
 #cardContainer{

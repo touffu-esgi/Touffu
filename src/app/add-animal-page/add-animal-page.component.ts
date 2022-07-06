@@ -18,7 +18,7 @@ export class AddAnimalPageComponent implements OnInit {
   }
 
   addAnimal() {
-    this.animalAddSubscribe = this.animalService.addAnimal(this.animal).subscribe(() => this.router.navigate(['/list-animal']));
+    this.animalAddSubscribe = this.animalService.addAnimal(this.animal).subscribe(() => this.router.navigate(['/recipient-profile']));
   }
 
   ngDestroy(){
