@@ -6,6 +6,7 @@ import {ProviderData} from "./domaine/providerData";
 import {HomeComponent} from "./homePage/home/home.component";
 import {MessagePageComponent} from "./message-page/message-page.component";
 import { AgreementPageComponent } from './agreement-page/agreement-page.component';
+import {RecipientSignUpComponent} from "./recipient-sign-up/recipient-sign-up.component";
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
 import { ListAgreementComponent } from './list-agreement/list-agreement.component';
 import { AgreementDetailComponent } from './agreement-detail/agreement-detail.component';
@@ -14,6 +15,10 @@ import { ProviderDetailPageComponent } from './provider-detail-page/provider-det
 import { ListAnimalPageComponent } from './list-animal-page/list-animal-page.component';
 import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
 import { AuthGuard } from './auth-guard';
+import {ReportProviderComponent} from "./report-provider/report-provider.component";
+import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
+import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
 
 const routes: Routes = [
   {
@@ -46,6 +51,11 @@ const routes: Routes = [
   {path: 'agreement-detail', component: AgreementDetailComponent},
   {path: 'agreement-update', component: AgreementUpdatePageComponent},
   {path: 'provider-detail', component: ProviderDetailPageComponent},
+  {path: 'signup-recipient', component: RecipientSignUpComponent},
+  {path: 'report', component: ReportProviderComponent},
+  {path: 'provider-profile', component: ProviderProfileComponent},
+  {path: 'recipient-profile', component: RecipientProfileComponent},
+  {path: 'bill-payment', component: PaymentPageComponent},
   {path: '', component: HomeComponent},
   {path: '**', component: HomeComponent},
 ];

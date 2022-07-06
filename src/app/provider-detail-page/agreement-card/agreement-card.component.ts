@@ -10,7 +10,13 @@ import { Recipient } from '../../domaine/recipient/recipient';
 })
 export class AgreementCardComponent implements OnInit {
   @Input() agreement?: Agreement;
-  recipient: Recipient = new Recipient('','','','','','','');
+  recipient: Recipient = new Recipient({
+    email: '',
+    name: '',
+    password: '',
+    phoneNumber: '',
+    surname: ''
+  });
   @Output() displayAgreement: EventEmitter<Agreement> = new EventEmitter();
 
   constructor(private providerService: ProviderService) { }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-provider-description-recommendations-card-content',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./provider-description-recommendations-card-content.component.scss']
 })
 export class ProviderDescriptionRecommendationsCardContentComponent implements OnInit {
-
+  @Input() contents?: string;
   constructor() { }
 
   ngOnInit(): void {

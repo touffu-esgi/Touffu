@@ -6,4 +6,6 @@
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
+  box-sizing: border-box;
+  padding: 10px;
 }
