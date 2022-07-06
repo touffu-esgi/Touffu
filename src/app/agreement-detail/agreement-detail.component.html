@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div>
+  <ul>
+    <li>{{agreement!.remuneration}}</li>
+    <li>{{agreement!.status}}</li>
+    <li>{{agreement!.duration}}</li>
+    <li>{{agreement!.beginningDate}}</li>
+    <li>{{agreement!.endDate}}</li>
+  </ul>
+</div>
+  <app-provider-description-card-details-container [base_tarif]='agreement!.remuneration' [name]='provider!.name' [id]='provider!.id'></app-provider-description-card-details-container>
+
+<agm-map *ngIf='isPosition' style='height: 300px' [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<div id='errorMsg' class='alertMsg' *ngIf='!isPosition'>
+  <span>les coordonnées du prestataire ne sont pas connu</span>
+</div>
+<app-footer></app-footer>
