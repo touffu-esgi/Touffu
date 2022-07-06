@@ -23,7 +23,7 @@ export class SearchProviderPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(param => {
-      if(param["t"].split(",").length > 0){
+      if(param["t"] && param["t"].split(",").length > 0){
         this.getProviders(param["t"].split(","))
       }else{
         this.getProviders()

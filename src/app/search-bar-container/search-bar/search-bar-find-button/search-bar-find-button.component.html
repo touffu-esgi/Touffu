@@ -1,4 +1,4 @@
 <div id="Search">
-  <a><button type="button" class="inputIndex" id="SearchInput" routerLink="/search-page" [queryParams]='{"t": animalType}'>Rechercher</button></a>
+  <a><button type="button" class="inputIndex" id="SearchInput" routerLink="/search-page" [queryParams]='animalType.length > 0 ? {"t": animalType} : {}'>Rechercher</button></a>
 </div>
 <router-outlet></router-outlet>
