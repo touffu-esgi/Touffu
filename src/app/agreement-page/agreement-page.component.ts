@@ -5,7 +5,7 @@ import { AgreementService } from '../services/agreement/agreement.service';
 import { Subscription } from 'rxjs';
 import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
 import { User } from '../domaine/user/user';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProviderService } from '../services/provider/provider.service';
 import { ProviderData } from '../domaine/providerData';
 import { MessageService } from '../services/messages/message.service';
@@ -47,6 +47,7 @@ export class AgreementPageComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private messageService: MessageService,
     private availabilityService: AvailabilityService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -57,6 +58,8 @@ export class AgreementPageComponent implements OnInit {
           this.provider = provider;
           this.agreements.providerRef = provider.id
         });
+      }else{
+        this.router.navigate(['/'])
       }
     })
   }
