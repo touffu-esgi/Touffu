@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar-find-button',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-bar-find-button.component.scss']
 })
 export class SearchBarFindButtonComponent implements OnInit {
-
+  @Input() animalType: string = "";
   constructor() { }
 
   ngOnInit(): void {
