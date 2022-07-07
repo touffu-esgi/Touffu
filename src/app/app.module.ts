@@ -49,18 +49,16 @@ import { ConversationComponent } from './message-page/conversation/conversation.
 import { MessageComponent } from './message-page/conversation/message/message.component';
 import { MessageInputComponent } from './message-page/conversation/message-input/message-input.component';
 import { SendMessageButtonComponent } from './message-page/conversation/send-message-button/send-message-button.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from "@angular/common/http";
 import {ProviderService} from "./services/provider/provider.service";
 import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-service-provider.component";
 import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
 import {HomeComponent} from "./homePage/home/home.component";
-import {RouterModule, Routes} from "@angular/router";
 import { RecipientSignUpComponent } from './recipient-sign-up/recipient-sign-up.component';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
 import { FormsModule } from '@angular/forms';
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
 import { ProviderDescriptionCardDetailsAvailabilityComponent } from './provider-description-page/provider-description-card-details-availability/provider-description-card-details-availability.component';
-import { ProviderAvailibilityPageComponent } from './provider-availibility-page/provider-availibility-page.component';
 import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
 
 
@@ -122,7 +120,6 @@ import { ProviderAvailabilityPageComponent } from './provider-availability-page/
     ConnectionPageComponent,
     ProviderProfileComponent,
     ProviderDescriptionCardDetailsAvailabilityComponent,
-    ProviderAvailibilityPageComponent,
     ProviderAvailabilityPageComponent,
   ],
   imports: [

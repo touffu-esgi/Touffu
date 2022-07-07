@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ProviderData} from "../../domaine/providerData";
 import { HttpUtils } from '../../utils/http.utils';
+import { Availability } from '../../domaine/availability/availability';
 
 @Injectable()
 export class ProviderService {
@@ -17,7 +18,7 @@ export class ProviderService {
     return this.http.get<ProviderData>(providerUrl)
   }
 
-  getProviderAvailability(providerId: string){
-
+  getProviderAvailability(providerId: string): Observable<Availability>{
+    return this.http.get<Availability>(`${this.httpUtils.fullUrl()}/availability/${providerId}`);
   }
 }
