@@ -7,15 +7,28 @@
   margin-top: 100px;
 
   & > span{
-    padding: 0;
     display: flex;
     justify-content: center;
     font-weight:bold;
     font-size: 20px;
   }
+}
 
-  & > *{
-    padding-left: 20px;
+#containerAvailabilities{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+  width: 75vw;
+}
+
+#hour{
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+
+  :first-child{
+    padding-right: 5vw;
   }
 }
 

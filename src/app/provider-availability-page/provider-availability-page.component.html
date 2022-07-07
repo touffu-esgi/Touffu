@@ -1,10 +1,11 @@
 <app-header></app-header>
-<div id='card' *ngFor='let availability of availabilities'>
-  <span>{{availability.day}}</span>
-
-  <div *ngFor='let daily of availability.dailyAvailability'>
-    {{daily.beginAt}}
-    {{daily.endAt}}
+<div id='containerAvailabilities'>
+  <div id='card' *ngFor='let availability of availabilities'>
+    <span>{{availability.day}}</span>
+    <div id='hour' *ngFor='let daily of availability.dailyAvailability'>
+      <span>{{daily.beginAt}} h</span>
+      <span>{{daily.endAt}} h</span>
+    </div>
   </div>
 </div>
 <app-footer></app-footer>
