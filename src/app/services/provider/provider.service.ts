@@ -18,7 +18,7 @@ export class ProviderService {
     return this.http.get<ProviderData>(providerUrl)
   }
 
-  getProviderAvailability(providerId: string): Observable<Availability>{
-    return this.http.get<Availability>(`${this.httpUtils.fullUrl()}/availability/${providerId}`);
+  getProviderAvailability(providerId: string): Observable<Availability[]>{
+    return this.http.get<Availability[]>(`${this.httpUtils.fullUrl()}/availability/${providerId}`);
   }
 }

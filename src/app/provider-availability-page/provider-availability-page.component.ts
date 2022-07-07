@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProviderService } from '../services/provider/provider.service';
 import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
+import { Availability } from '../domaine/availability/availability';
 
 @Component({
   selector: 'app-provider-availability-page',
@@ -9,6 +10,7 @@ import { AuthServiceMockImplementation } from '../services/auth/auth.service.moc
 })
 export class ProviderAvailabilityPageComponent implements OnInit {
 
+  availabilities: Availability[] = [];
   constructor(private providerService: ProviderService, private authService: AuthServiceMockImplementation) { }
 
   ngOnInit(): void {
@@ -17,7 +19,7 @@ export class ProviderAvailabilityPageComponent implements OnInit {
 
   private getAvailability() {
     this.providerService.getProviderAvailability(this.authService.user!.id!).subscribe(availabilities => {
-      console.log(availabilities);
+      this.availabilities = availabilities;
     })
   }
 }
