@@ -59,6 +59,7 @@ import { RecipientSignUpComponent } from './recipient-sign-up/recipient-sign-up.
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
 import { FormsModule } from '@angular/forms';
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
+import { ProviderDescriptionCardDetailsAvailabilityComponent } from './provider-description-page/provider-description-card-details-availability/provider-description-card-details-availability.component';
 
 
 
@@ -118,6 +119,7 @@ import { ProviderProfileComponent } from './provider-profile/provider-profile.co
     RecipientSignUpComponent,
     ConnectionPageComponent,
     ProviderProfileComponent,
+    ProviderDescriptionCardDetailsAvailabilityComponent,
   ],
   imports: [
     BrowserModule,
