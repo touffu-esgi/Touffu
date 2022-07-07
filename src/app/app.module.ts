@@ -60,6 +60,8 @@ import { ConnectionPageComponent } from './connection-page/connection-page.compo
 import { FormsModule } from '@angular/forms';
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
 import { ProviderDescriptionCardDetailsAvailabilityComponent } from './provider-description-page/provider-description-card-details-availability/provider-description-card-details-availability.component';
+import { ProviderAvailibilityPageComponent } from './provider-availibility-page/provider-availibility-page.component';
+import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
 
 
 
@@ -120,6 +122,8 @@ import { ProviderDescriptionCardDetailsAvailabilityComponent } from './provider-
     ConnectionPageComponent,
     ProviderProfileComponent,
     ProviderDescriptionCardDetailsAvailabilityComponent,
+    ProviderAvailibilityPageComponent,
+    ProviderAvailabilityPageComponent,
   ],
   imports: [
     BrowserModule,
