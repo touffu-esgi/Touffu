@@ -16,4 +16,8 @@ export class ProviderService {
   getOneProviderByUrl(providerUrl: string): Observable<ProviderData> {
     return this.http.get<ProviderData>(providerUrl)
   }
+
+  getProviderAvailability(providerId: string){
+
+  }
 }
