@@ -12,14 +12,31 @@ export class ProviderAvailabilityPageComponent implements OnInit {
 
   availabilities: Availability[] = [];
   constructor(private providerService: ProviderService, private authService: AuthServiceMockImplementation) { }
+  morningHour: number[] = [];
+  afternoonHour: number[] = [];
 
   ngOnInit(): void {
     this.getAvailability();
+    this.initHour();
   }
 
   private getAvailability() {
     this.providerService.getProviderAvailability(this.authService.user!.id!).subscribe(availabilities => {
       this.availabilities = availabilities;
     })
+  }
+
+  private initHour() {
+    for (let i = 9.0; i < 12.25; i += 0.25){
+      this.morningHour.push(i);
+    }
+
+    for (let i = 12.25; i < 20.25; i+= 0.25){
+      this.afternoonHour.push(i);
+    }
+  }
+
+  displayHour() {
+    console.log(this.availabilities);
   }
 }

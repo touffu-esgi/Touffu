@@ -2,9 +2,14 @@
 <div id='containerAvailabilities'>
   <div id='card' *ngFor='let availability of availabilities'>
     <span>{{availability.day}}</span>
-    <div id='hour' *ngFor='let daily of availability.dailyAvailability'>
-      <span>{{daily.beginAt}} h</span>
-      <span>{{daily.endAt}} h</span>
+    <div id='hour'  *ngFor='let daily of availability.dailyAvailability'>
+      <select name='morningHour' (change)='displayHour()' [(ngModel)]='daily.beginAt'>
+        <option *ngFor='let hour of morningHour'  [ngValue]='hour'>{{hour}} h</option>
+      </select>
+
+      <select name='afternoonHour' [(ngModel)]='daily.endAt'>
+        <option *ngFor='let hour of afternoonHour'  [ngValue]='hour'>{{hour}} h</option>
+      </select>
     </div>
   </div>
 </div>
