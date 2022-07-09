@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProviderService } from '../services/provider/provider.service';
 import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
 import { Availability } from '../domaine/availability/availability';
+import { convertNumericTimeToDisplay } from '../utils/date-time.utils';
 
 @Component({
   selector: 'app-provider-availability-page',
@@ -36,7 +37,13 @@ export class ProviderAvailabilityPageComponent implements OnInit {
     }
   }
 
+
+
   displayHour() {
     console.log(this.availabilities);
+  }
+
+  computeDisplayHour(time: number) {
+    return convertNumericTimeToDisplay(time)
   }
 }
