@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AvailabilityInterface } from './Availability.interface';
 import { Observable } from 'rxjs';
 import { Availability } from '../../domaine/availability/availability';
+import {HttpUtils} from "../../utils/http.utils";
 
 
 enum WeekDays {
@@ -30,5 +31,13 @@ export class AvailabilityService implements AvailabilityInterface{
     const dayInt = date.getDay();
     if (WeekDays[dayInt]) return WeekDays[dayInt].toString();
     throw new Error('Incoherent weekday');
+  }
+
+  addAvailability(availability: Availability): Observable<Availability> {
+    return this.http.post<Availability>(`http://localhost:3000/availability`, availability)
+  }
+
+  updateAvailability(availability: Availability): Observable<Availability> {
+    return this.http.put<Availability>(`http://localhost:3000/availability`, availability)
   }
 }
