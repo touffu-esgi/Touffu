@@ -3,3 +3,24 @@ export function convertNumericTimeToDisplay (time: number): string {
   const min = (time - hour) * 60;
   return `${hour}:${min === 0 ? '00' : min}`
 }
+
+
+export function translateDay (englishDay: string): string {
+  switch (englishDay.toUpperCase()) {
+    case 'SUNDAY':
+      return 'DIMANCHE';
+    case 'MONDAY':
+      return 'LUNDI';
+    case 'TUESDAY':
+      return 'MARDI';
+    case 'WEDNESDAY':
+      return 'MERCREDI';
+    case 'THURSDAY':
+      return 'JEUDI';
+    case 'FRIDAY':
+      return 'VENDREDI';
+    case 'SATURDAY':
+      return 'SAMEDI';
+  }
+  return '';
+}

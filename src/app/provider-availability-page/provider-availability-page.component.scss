@@ -1,36 +1,42 @@
-#card{
-  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
-  width: 20vw;
-  height: 20vh;
-  border-radius: 30px;
-  padding-top: 20px;
-  margin-top: 100px;
-
-  & > span{
-    display: flex;
-    justify-content: center;
-    font-weight:bold;
-    font-size: 20px;
-  }
-}
-
 #containerAvailabilities{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   margin: auto;
   width: 75vw;
 }
 
-#hour{
-  padding-top: 30px;
-  display: flex;
-  justify-content: center;
-
-  :first-child{
-    padding-right: 5vw;
-  }
+table {
+  border-collapse: collapse;
+  border: dotted grey 1px;
 }
+
+th, td {
+  border: dotted grey 1px;
+  min-width: 9vw;
+  text-align: center;
+}
+
+.selected {
+  background-color: #FBDDA0;
+}
+
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  margin: auto;
+}
+
+#saveAvailability {
+  width: 8vw;
+  height: 5vh;
+  background-color: #FBC95C;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  min-height: 30px;
+}
+
 
 *{
   font-family: 'Montserrat', sans-serif;

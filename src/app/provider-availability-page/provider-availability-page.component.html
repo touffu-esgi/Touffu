@@ -1,18 +1,23 @@
 <app-header></app-header>
 <div id='containerAvailabilities'>
-  <div id='card' *ngFor='let availability of availabilities'>
-    <span>{{availability.day}}</span>
-    <div id='hour'  *ngFor='let daily of availability.dailyAvailability'>
-      <select name='beginHour' (change)='displayHour()' [(ngModel)]='daily.beginAt'>
-        <option *ngFor='let hour of morningHour'  [ngValue]='hour'>{{computeDisplayHour(hour)}}</option>
-      </select>
-
-      <select name='endHour' [(ngModel)]='daily.endAt'>
-        <option *ngFor='let hour of afternoonHour'  [ngValue]='hour'>{{computeDisplayHour(hour)}}</option>
-      </select>
-
-      <div>X</div>
-    </div>
+  <div id='header'>
+    <h1>Mes disponibilités hebdomadaires</h1>
+    <button id='saveAvailability' (click)='updateAvailabilies()'>Sauvegarder</button>
   </div>
+
+  <table id='availabilitiesTable'>
+    <thead>
+    <tr>
+      <th>Heures</th>
+      <th *ngFor="let day of WEEKDAYS">{{translateDay(day)}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let hour of dailyHours">
+      <td>{{computeDisplayHour(hour)}}</td>
+      <td *ngFor="let day of WEEKDAYS" (click)='updateTimeframes(day, hour)' [ngClass]="getIndex(day, hour) !== -1 ? 'selected' : ''"></td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 <app-footer></app-footer>
