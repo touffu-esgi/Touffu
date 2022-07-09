@@ -49,7 +49,7 @@ import { ConversationComponent } from './message-page/conversation/conversation.
 import { MessageComponent } from './message-page/conversation/message/message.component';
 import { MessageInputComponent } from './message-page/conversation/message-input/message-input.component';
 import { SendMessageButtonComponent } from './message-page/conversation/send-message-button/send-message-button.component';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from "@angular/common/http";
 import {ProviderService} from "./services/provider/provider.service";
 import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-service-provider.component";
 import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
@@ -85,6 +85,8 @@ import {
 import { ListAnimalPageComponent } from './list-animal-page/list-animal-page.component';
 import { AnimalCardComponent } from './list-animal-page/animal-card/animal-card.component';
 import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
+import { ProviderDescriptionCardDetailsAvailabilityComponent } from './provider-description-page/provider-description-card-details-availability/provider-description-card-details-availability.component';
+import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
 
 
 
@@ -165,6 +167,8 @@ import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.compon
     ReportProviderButtonSendComponent,
     ProviderDescriptionTitleReportImageComponent,
     ProviderProfileComponent,
+    ProviderDescriptionCardDetailsAvailabilityComponent,
+    ProviderAvailabilityPageComponent,
     RecipientProfileComponent,
     PaidBillComponent,
     PaymentPageComponent,

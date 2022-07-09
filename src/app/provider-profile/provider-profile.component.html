@@ -2,7 +2,7 @@
 
 
 <div id='billParentContainer'>
-  <app-provider-description-card-details-container [base_tarif]="provider?.base_tariff" [id]="provider?.id" [name]="provider?.name"></app-provider-description-card-details-container>
+  <app-provider-description-card-details-container [isNotInProfile]='false' [base_tarif]="provider?.base_tariff" [id]="provider?.id" [name]="provider?.name"></app-provider-description-card-details-container>
 
   <div id='cardContainer'>
     <div id='cardBill' *ngFor='let bill of bills'>

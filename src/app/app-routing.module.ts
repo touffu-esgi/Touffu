@@ -17,6 +17,7 @@ import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.compon
 import { AuthGuard } from './auth-guard';
 import {ReportProviderComponent} from "./report-provider/report-provider.component";
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
+import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 
@@ -54,6 +55,7 @@ const routes: Routes = [
   {path: 'signup-recipient', component: RecipientSignUpComponent},
   {path: 'report', component: ReportProviderComponent},
   {path: 'provider-profile', component: ProviderProfileComponent},
+  {path: 'availabilities', component: ProviderAvailabilityPageComponent},
   {path: 'recipient-profile', component: RecipientProfileComponent},
   {path: 'bill-payment', component: PaymentPageComponent},
   {path: '', component: HomeComponent},

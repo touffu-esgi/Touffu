@@ -1,0 +1,37 @@
+#card{
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+  width: 20vw;
+  height: 20vh;
+  border-radius: 30px;
+  padding-top: 20px;
+  margin-top: 100px;
+
+  & > span{
+    display: flex;
+    justify-content: center;
+    font-weight:bold;
+    font-size: 20px;
+  }
+}
+
+#containerAvailabilities{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+  width: 75vw;
+}
+
+#hour{
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+
+  :first-child{
+    padding-right: 5vw;
+  }
+}
+
+*{
+  font-family: 'Montserrat', sans-serif;
+}

@@ -1,0 +1,51 @@
+import { Component, OnInit } from '@angular/core';
+import { ProviderService } from '../services/provider/provider.service';
+import { AuthService } from '../services/auth/auth.service';
+import { Availability } from '../domaine/availability/availability';
+import { convertNumericTimeToDisplay } from '../utils/date-time.utils';
+
+@Component({
+  selector: 'app-provider-availability-page',
+  templateUrl: './provider-availability-page.component.html',
+  styleUrls: ['./provider-availability-page.component.scss']
+})
+export class ProviderAvailabilityPageComponent implements OnInit {
+
+  availabilities: Availability[] = [];
+  constructor(private providerService: ProviderService, private authService: AuthService) { }
+  morningHour: number[] = [];
+  afternoonHour: number[] = [];
+  availabilityTimeframe: {minBegin: number, maxEnd: number}[] = []
+
+  ngOnInit(): void {
+    this.getAvailability();
+    this.initHour();
+  }
+
+  private getAvailability() {
+    this.providerService.getProviderAvailability(this.authService.user!.id!).subscribe(availabilities => {
+      this.availabilities = availabilities;
+    })
+  }
+
+  private initHour(beginHour: number = 9, endHour: number = 23.75) {
+    for (let i = beginHour; i < endHour; i += 0.25){
+      this.morningHour.push(i);
+
+    }
+
+    for (let i = 12.25; i < 20.25; i+= 0.25){
+      this.afternoonHour.push(i);
+    }
+  }
+
+
+
+  displayHour() {
+    console.log(this.availabilities);
+  }
+
+  computeDisplayHour(time: number) {
+    return convertNumericTimeToDisplay(time)
+  }
+}
