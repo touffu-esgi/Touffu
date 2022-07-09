@@ -4,6 +4,17 @@ export function convertNumericTimeToDisplay (time: number): string {
   return `${hour}:${min === 0 ? '00' : min}`
 }
 
+export function setWeekdays (): string[] {
+  return [
+    'SUNDAY',
+    'MONDAY',
+    'TUESDAY',
+    'WEDNESDAY',
+    'THURSDAY',
+    'FRIDAY',
+    'SATURDAY'
+  ];
+}
 
 export function translateDay (englishDay: string): string {
   switch (englishDay.toUpperCase()) {

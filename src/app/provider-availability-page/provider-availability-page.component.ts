@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProviderService } from '../services/provider/provider.service';
-import { AuthService } from '../services/auth/auth.service';
 import { Availability } from '../domaine/availability/availability';
-import {convertNumericTimeToDisplay, translateDay} from '../utils/date-time.utils';
 import {Timeframe} from "../domaine/availability/timeframe";
-import {AvailabilityService} from "../services/availability/availability.service";
+import {CalendarComponent} from "../calendar-component/calendar.component";
 
 @Component({
   selector: 'app-provider-availability-page',
@@ -13,29 +10,12 @@ import {AvailabilityService} from "../services/availability/availability.service
 })
 
 
-export class ProviderAvailabilityPageComponent implements OnInit {
+export class ProviderAvailabilityPageComponent extends CalendarComponent {
 
-  WEEKDAYS: string[] = [
-    'SUNDAY',
-    'MONDAY',
-    'TUESDAY',
-    'WEDNESDAY',
-    'THURSDAY',
-    'FRIDAY',
-    'SATURDAY'
-  ];
   availabilities: Availability[] = [];
   newAvailabilities: Availability[] = [];
-  dailyHours: number[] = [];
-  constructor(
-    private providerService: ProviderService,
-    private authService: AuthService,
-    private availabilityService: AvailabilityService
-  ) { }
-  selectedTimeframes: Timeframe[] = []
-  Weekdays: any;
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
     this.getAvailability();
     this.initHour();
   }
@@ -54,32 +34,13 @@ export class ProviderAvailabilityPageComponent implements OnInit {
     })
   }
 
-  private initHour(beginHour: number = 6, endHour: number = 22) {
-    for (let i = beginHour; i < endHour; i += 0.25){
-      this.dailyHours.push(i);
-    }
-  }
-
-
-  updateTimeframes(day: string, hour: number) {
+  override updateTimeframes(day: string, hour: number) {
     const index = this.getIndex(day, hour)
     if (index !== -1) {
       this.selectedTimeframes.splice(index, 1)
     } else {
       this.selectedTimeframes.push(new Timeframe(day, hour))
     }
-  }
-
-  getIndex (day: string, hour: number): number {
-    return this.selectedTimeframes.findIndex(tf => tf.day === day && tf.hour === hour)
-  }
-
-  computeDisplayHour(time: number) {
-    return convertNumericTimeToDisplay(time)
-  }
-
-  translateDay (day: string) {
-    return translateDay(day);
   }
 
   updateAvailabilies() {
@@ -96,9 +57,7 @@ export class ProviderAvailabilityPageComponent implements OnInit {
         availability = new Availability(a[0].id!, a[0].day!, [], this.authService.user!.id!)
       }
       availability.dailyAvailability = Timeframe.buildTimeBlock(selectedTimeframes)
-      if (availability.dailyAvailability.length !== 0) {
-        this.newAvailabilities.push(availability)
-      }
+      this.newAvailabilities.push(availability)
     })
     this.newAvailabilities.forEach(a => {
       if (a.id === '') {
@@ -109,4 +68,7 @@ export class ProviderAvailabilityPageComponent implements OnInit {
       }
     })
   }
+}
+
+class ProviderAvailabilityPageComponentImpl extends ProviderAvailabilityPageComponent {
 }
