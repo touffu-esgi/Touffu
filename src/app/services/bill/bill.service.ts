@@ -5,13 +5,14 @@ import { Observable } from 'rxjs';
 import { Bill } from '../../domaine/bill/bill';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import { RecipientService } from '../recipient/recipient.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BillService {
 
-  constructor(private http: HttpClient, private httpUtils: HttpUtils) {
+  constructor(private http: HttpClient, private httpUtils: HttpUtils, private recipientService: RecipientService) {
 
   }
 
@@ -38,17 +39,26 @@ export class BillService {
   }
 
   generateBill(id: string, userId: string) {
-    const head = [['date', 'Cout unitaire', 'total']]
-    const billTab: [[string, string, string]] = [["", "", ""]]
+    const billdata: [[string, string, string]] = [["", "", ""]]
+    const recipientData: [[string, string, string, string]] = [["", "", "", ""]]
     this.getOneBillByProviderId(id, userId).subscribe(bill => {
-      billTab.push([bill[0].dateBill, bill[0].onePaymentValue.toString(), bill[0].total.toString()])
-      var doc = new jsPDF();
-      (doc as any).autoTable({
-        head: head,
-        body: billTab,
-        theme: 'plain'
+      this.recipientService.getOne(bill[0].recipientRef).subscribe(recipient => {
+        billdata.push([bill[0].dateBill, bill[0].onePaymentValue.toString(), bill[0].total.toString()])
+        recipientData.push([recipient.name, recipient.surname, recipient.phoneNumber, recipient.email])
+        var doc = new jsPDF();
+        (doc as any).autoTable({
+          head: [['date', 'Cout unitaire', 'total']],
+          body: billdata,
+          theme: 'plain'
+        });
+
+        (doc as any).autoTable({
+          head: [['nom', 'prénom', 'numéro de téléphone', 'email']],
+          body: recipientData,
+          theme: 'plain'
+        })
+        doc.save(`${bill[0].dateBill}-${bill[0].id}.pdf`);
       })
-      doc.save(`${bill[0].dateBill}-${bill[0].id}.pdf`);
     });
   }
 }

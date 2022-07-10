@@ -18,4 +18,8 @@ export class RecipientService implements RecipientServiceInterface{
     const url = this.httpUtils.fullUrl() + "/recipient";
     return this.http.post(url, body, {headers: {'Content-Type': 'application/json'}})
   }
+
+  getOne(url: string): Observable<Recipient>{
+    return this.http.get<Recipient>(url);
+  }
 }
