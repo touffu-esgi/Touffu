@@ -35,6 +35,10 @@ export class PersonalRecipientInformationComponent implements OnInit {
   }
 
   updateInformation() {
-    console.log(this.recipient);
+    this.recipientService.update(this.recipient!).subscribe(response => {
+      console.log('ok');
+    }, error => {
+      console.log("capout");
+    })
   }
 }

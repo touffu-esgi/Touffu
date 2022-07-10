@@ -13,6 +13,7 @@ import {AddressService} from "../services/address/address.service";
 export class RecipientSignUpComponent implements OnInit {
 
   public newRecipient: Recipient = new Recipient({
+    id: "",
     address: new Address({addr1: "", city: "", country: "", id: "", zipcode: ""}),
     email: "",
     name: "",

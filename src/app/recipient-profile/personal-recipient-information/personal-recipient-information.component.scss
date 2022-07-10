@@ -1,0 +1,40 @@
+form{
+  display: flex;
+}
+
+#mainContainerInformation{
+  box-sizing: border-box;
+  width: 871px;
+  height: 89px;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+input{
+  border: unset;
+  outline: unset;
+  appearance: unset;
+  font-weight: bold;
+  background-color: transparent;
+  height: 50px;
+}
+
+#modifyButton{
+  width: 125px;
+  background-color: #FBC95C;
+  border-color: transparent;
+  height: 50px;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#modifyButton:hover{
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.10);
+  cursor: pointer;
+}
+

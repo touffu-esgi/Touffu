@@ -21,4 +21,9 @@ export class RecipientService implements RecipientServiceInterface{
   getRecipient(url: string): Observable<Recipient>{
     return this.http.get<Recipient>(url);
   }
+
+  update(recipient: Recipient) {
+    const body = JSON.stringify(recipient)
+    return this.http.put(`${this.httpUtils.fullUrl()}/recipient/${recipient.id}`, body, {headers: {'Content-Type': 'application/json'}})
+  }
 }
