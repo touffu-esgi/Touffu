@@ -1,5 +1,9 @@
 <div id='mainContainerInformation'>
-  <input type='text' name='name' value='{{recipient?.name}}'>
-  <input type='text' name='surnmae' value='{{recipient?.surname}}'>
-  <input type='text' name='email' value='{{recipient?.email}}'>
+  <form (submit)='updateInformation()' novalidate #informationForm="ngForm">
+    <input type='text' minlength='1' required name='name' value='{{recipient?.name}}' [(ngModel)]='recipient!.name'>
+    <input type='text' minlength='1' required name='surnmae' value='{{recipient?.surname}}' [(ngModel)]='recipient!.surname'>
+    <input type='text' minlength='1' required name='email' value='{{recipient?.email}}' [(ngModel)]='recipient!.email'>
+    <input type='text' minlength='1' pattern='[0-9]{10}' required name='phoneNumber' value='{{recipient?.phoneNumber}}' [(ngModel)]='recipient!.phoneNumber'>
+    <button [hidden]='informationForm.invalid' type='submit'>Mettre à jour</button>
+  </form>
 </div>

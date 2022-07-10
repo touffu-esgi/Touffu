@@ -34,4 +34,7 @@ export class PersonalRecipientInformationComponent implements OnInit {
     }
   }
 
+  updateInformation() {
+    console.log(this.recipient);
+  }
 }
