@@ -13,9 +13,12 @@ export class RecipientService implements RecipientServiceInterface{
   constructor(private http: HttpClient, private httpUtils: HttpUtils) { }
 
   signUp(recipient: Recipient): Observable<Object> {
-
     const body = JSON.stringify(recipient);
     const url = this.httpUtils.fullUrl() + "/recipient";
     return this.http.post(url, body, {headers: {'Content-Type': 'application/json'}})
+  }
+
+  getRecipient(url: string): Observable<Recipient>{
+    return this.http.get<Recipient>(url);
   }
 }

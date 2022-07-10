@@ -74,6 +74,7 @@ import { AgreementUpdatePageComponent } from './agreement-update-page/agreement-
 import { ListAnimalPageComponent } from './list-animal-page/list-animal-page.component';
 import { AnimalCardComponent } from './list-animal-page/animal-card/animal-card.component';
 import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
+import { PersonalRecipientInformationComponent } from './recipient-profile/personal-recipient-information/personal-recipient-information.component';
 
 
 
@@ -148,6 +149,7 @@ import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.compon
     RecipientProfileComponent,
     PaidBillComponent,
     PaymentPageComponent,
+    PersonalRecipientInformationComponent,
   ],
   imports: [
     BrowserModule,

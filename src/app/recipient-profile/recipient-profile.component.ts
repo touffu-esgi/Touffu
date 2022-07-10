@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Bill } from '../domaine/bill/bill';
-import { ProviderData } from '../domaine/providerData';
 import { BillService } from '../services/bill/bill.service';
 import { AuthService } from '../services/auth/auth.service';
+import { RecipientService } from '../services/recipient/recipient.service';
+import { Recipient } from '../domaine/recipient/recipient';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipient-profile',
@@ -12,7 +14,7 @@ import { AuthService } from '../services/auth/auth.service';
 export class RecipientProfileComponent implements OnInit {
 
   bills: Bill[] = []
-  provider?: ProviderData;
+
   constructor(
     private billService: BillService,
     private authService: AuthService,
