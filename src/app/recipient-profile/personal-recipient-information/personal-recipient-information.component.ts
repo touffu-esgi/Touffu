@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { RecipientService } from '../../services/recipient/recipient.service';
 import { Router } from '@angular/router';
 import { Recipient } from '../../domaine/recipient/recipient';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-personal-recipient-information',
@@ -17,6 +18,7 @@ export class PersonalRecipientInformationComponent implements OnInit {
     private authService: AuthService,
     private recipientService: RecipientService,
     private router: Router,
+    private userService: UserService,
     ) { }
 
   ngOnInit(): void {
@@ -36,7 +38,11 @@ export class PersonalRecipientInformationComponent implements OnInit {
 
   updateInformation() {
     this.recipientService.update(this.recipient!).subscribe(response => {
-      console.log('ok');
+      this.userService.update(this.recipient!.id, this.recipient!.email).subscribe(user => {
+        console.log("is ok");
+      }, error => {
+        console.log("user ?");
+      })
     }, error => {
       console.log("capout");
     })
