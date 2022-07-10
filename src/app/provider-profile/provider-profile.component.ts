@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BillService } from '../services/bill/bill.service';
 import { Bill } from '../domaine/bill/bill';
 import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
 import { ProviderData } from '../domaine/providerData';
 import { ProviderService } from '../services/provider/provider.service';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-provider-profile',
@@ -13,6 +15,7 @@ import { ProviderService } from '../services/provider/provider.service';
 export class ProviderProfileComponent implements OnInit {
   bills: Bill[] = []
   provider?: ProviderData;
+
   constructor(
     private billService: BillService,
     private authService: AuthServiceMockImplementation,
@@ -39,5 +42,9 @@ export class ProviderProfileComponent implements OnInit {
     this.providerService.getOneProviderByUrl(this.authService?.user?.userReference!).subscribe(provider => {
       this.provider = provider
     })
+  }
+
+  private generateBills(id: string) {
+    this.billService.generateBill(id)
   }
 }
