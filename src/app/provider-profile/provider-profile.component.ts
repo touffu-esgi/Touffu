@@ -1,11 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BillService } from '../services/bill/bill.service';
 import { Bill } from '../domaine/bill/bill';
 import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
 import { ProviderData } from '../domaine/providerData';
 import { ProviderService } from '../services/provider/provider.service';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+
 
 @Component({
   selector: 'app-provider-profile',
@@ -44,7 +43,7 @@ export class ProviderProfileComponent implements OnInit {
     })
   }
 
-  private generateBills(id: string) {
-    this.billService.generateBill(id)
+  generateBills(id: string) {
+    this.billService.generateBill(id, this.authService.user?.id!)
   }
 }

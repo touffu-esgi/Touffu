@@ -33,12 +33,14 @@ export class BillService {
     return this.http.get<Bill[]>(this.httpUtils.fullUrl() + `/bill?id=${billId}&recipientRef=${userId}`);
   }
 
+  getOneBillByProviderId(billId: string, providerId: string): Observable<Bill[]>{
+    return this.http.get<Bill[]>(this.httpUtils.fullUrl() + `/bill?id=${billId}&providerRef=${providerId}`);
+  }
 
-
-  generateBill(id: string) {
+  generateBill(id: string, userId: string) {
     const head = [['date', 'Cout unitaire', 'total']]
     const billTab: [[string, string, string]] = [["", "", ""]]
-    this.getOneBill(id, '1').subscribe(bill => {
+    this.getOneBillByProviderId(id, userId).subscribe(bill => {
       billTab.push([bill[0].dateBill, bill[0].onePaymentValue.toString(), bill[0].total.toString()])
       var doc = new jsPDF();
       (doc as any).autoTable({
@@ -46,7 +48,7 @@ export class BillService {
         body: billTab,
         theme: 'plain'
       })
-      doc.save('Test.pdf');
+      doc.save(`${bill[0].dateBill}-${bill[0].id}.pdf`);
     });
   }
 }
