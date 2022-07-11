@@ -39,19 +39,22 @@ export class AgreementUpdatePageComponent implements OnInit {
   provider?: ProviderData;
   user?: User;
   day?: number | string;
+  animals: Animal[] = [];
+
+  recipientAnimal?: Animal[];
 
   ngOnInit(): void {
     this.user = this.authService.user;
     this.activatedRoute.queryParams.subscribe(params => {
       if (params["agreementId"]){
         this.getAgreement(params["agreementId"]);
+
       }
     })
   }
 
   private getAgreement(agreementId: string) {
     this.agreementService.getAgreementByAgreementAndRecipientId(agreementId, this.user!.id!).subscribe(agreement => {
-      console.log(agreement);
       this.agreement = agreement[0];
       this.agreement.duration = this.agreement.duration / 60;
       this.startHourComponent = this.agreement.beginningDate.split("T")[1].split(".")[0].substr(0,5)
@@ -61,6 +64,7 @@ export class AgreementUpdatePageComponent implements OnInit {
       this.providerService.getOneProviderByUrl(agreement[0].providerRef).subscribe(provider => {
         this.provider = provider;
         this.setWeeklyDate(this.agreement!.beginningDate!);
+        this.getAnimals();
       });
     });
   }
@@ -69,9 +73,9 @@ export class AgreementUpdatePageComponent implements OnInit {
   setWeeklyDate(date: string) {
     this.availabilityService.getWeeklyAvailability(this.provider!.id!, date).subscribe(weeklyAvailability => {
       this.availabilities = weeklyAvailability;
-      this.day = "MONDAY"
-      this.getStartHour(this.day);
-      this.setMaxDuration(this.startHourComponent!)
+      const beginningDayString = this.availabilityService.getDayFromDate(new Date(this.agreement!.beginningDate))
+      this.getStartHour(beginningDayString)
+      this.setMaxDuration(beginningDayString)
     });
   }
 
@@ -121,5 +125,24 @@ export class AgreementUpdatePageComponent implements OnInit {
   send() {
     this.concatHourWithBeginningDate(this.startHourComponent!)
     this.agreementService.update(this.agreement!).subscribe()
+  }
+
+  formatAnimalsRef() {
+    // @ts-ignore
+    this.agreements.animalsRefs = [this.agreements.animalsRefs]
+  }
+
+  private getAnimals() {
+    if(this.authService.user?.userType == "recipient"){
+      this.animalService.getAnimalsByRecipientId(this.user!.id!).subscribe(animals => {
+        this.recipientAnimal = animals;
+      })
+    }else{
+      // @ts-ignore
+      this.animalService.getAnimalsByUrl(this.agreement!.animals[0]).subscribe(animal => {
+        this.animals.push(animal)
+        console.log(animal);
+      })
+    }
   }
 }

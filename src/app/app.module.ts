@@ -59,8 +59,8 @@ import { NameAndStatusComponent } from './agreement-page/container-name-and-stat
 import { ContainerNameAndStatusComponent } from './agreement-page/container-name-and-status/container-name-and-status.component';
 import { SelectRecurencyComponent } from './agreement-page/select-recurency/select-recurency.component';
 import { StartDateComponent } from './agreement-page/start-date/start-date.component';
-import { AgmCoreModule } from '@agm/core';
-import {RouterModule, Routes} from "@angular/router";
+
+
 import { RecipientSignUpComponent } from './recipient-sign-up/recipient-sign-up.component';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
 import { FormsModule } from '@angular/forms';
@@ -85,6 +85,7 @@ import {
 import { ListAnimalPageComponent } from './list-animal-page/list-animal-page.component';
 import { AnimalCardComponent } from './list-animal-page/animal-card/animal-card.component';
 import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 
