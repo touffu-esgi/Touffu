@@ -20,6 +20,7 @@ import { ProviderProfileComponent } from './provider-profile/provider-profile.co
 import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
+import {UserCalendarPageComponent} from "./user-calendar-page/user-calendar-page.component";
 
 const routes: Routes = [
   {
@@ -58,6 +59,7 @@ const routes: Routes = [
   {path: 'availabilities', component: ProviderAvailabilityPageComponent},
   {path: 'recipient-profile', component: RecipientProfileComponent},
   {path: 'bill-payment', component: PaymentPageComponent},
+  {path: 'user-calendar', component: UserCalendarPageComponent},
   {path: '', component: HomeComponent},
   {path: '**', component: HomeComponent},
 ];

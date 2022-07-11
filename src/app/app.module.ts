@@ -88,6 +88,7 @@ import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.compon
 import { ProviderDescriptionCardDetailsAvailabilityComponent } from './provider-description-page/provider-description-card-details-availability/provider-description-card-details-availability.component';
 import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
 import { CalendarComponent } from './calendar-component/calendar.component';
+import {UserCalendarPageComponent} from "./user-calendar-page/user-calendar-page.component";
 
 
 
@@ -174,6 +175,7 @@ import { CalendarComponent } from './calendar-component/calendar.component';
     PaidBillComponent,
     PaymentPageComponent,
     CalendarComponent,
+    UserCalendarPageComponent,
   ],
   imports: [
     BrowserModule,

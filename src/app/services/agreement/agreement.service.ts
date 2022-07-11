@@ -10,23 +10,29 @@ import { Observable } from 'rxjs';
 })
 export class AgreementService{
 
+  private baseAgreementUrl: string = `http://localhost:3000/agreement`
+
   constructor(private http: HttpClient) { }
 
   addAgreement(agreement:Agreement): Observable<string>{
     const body = JSON.stringify(agreement);
-    return this.http.post<string>('http://localhost:3000/agreement', body, {headers: {'Content-Type': 'application/json'}});
+    return this.http.post<string>(this.baseAgreementUrl, body, {headers: {'Content-Type': 'application/json'}});
   }
 
   getAgreementByRecipientId(recipientId: string): Observable<Agreement[]>{
-    return this.http.get<Agreement[]>(`http://localhost:3000/agreement?recipientRef=${recipientId}`);
+    return this.http.get<Agreement[]>(`${this.baseAgreementUrl}?recipientRef=${recipientId}`);
   }
 
   getAgreementByAgreementAndRecipientId(agreementId:string, recipientId:string): Observable<Agreement[]> {
-    return this.http.get<Agreement[]>(`http://localhost:3000/agreement?recipientRef=${recipientId}&id=${agreementId}`);
+    return this.http.get<Agreement[]>(`${this.baseAgreementUrl}?recipientRef=${recipientId}&id=${agreementId}`);
+  }
+
+  getAgreementWithFilters(filters: string[]): Observable<Agreement[]>{
+    return this.http.get<Agreement[]>(`${this.baseAgreementUrl}?${filters.join('&')}`);
   }
 
   update(agreement: Agreement) {
     const body = JSON.stringify(agreement);
-    return this.http.put(`http://localhost:3000/agreement/${agreement!.id}`, body, {headers: {'Content-Type': 'application/json'}});
+    return this.http.put(`${this.baseAgreementUrl}/${agreement!.id}`, body, {headers: {'Content-Type': 'application/json'}});
   }
 }

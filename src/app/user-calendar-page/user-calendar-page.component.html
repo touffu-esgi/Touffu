@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div id='userCalendar'>
+  <div id='header'>
+    <h1>Calendrier</h1>
+    <button id="goBefore" class='moveButton'>< Précédent</button>
+    <span>Now</span>
+    <button id="goNow" class='moveButton'></button>
+    <button id="goAfter" class='moveButton'>Suivant ></button>
+  </div>
+
+  <table id='availabilitiesTable'>
+    <thead>
+    <tr>
+      <th>Heures</th>
+      <th *ngFor="let day of WEEKDAYS">{{translateDay(day)}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let hour of dailyHours">
+      <td>{{computeDisplayHour(hour)}}</td>
+      <td *ngFor="let day of WEEKDAYS" [ngClass]="getIndex(day, hour) !== -1 ? 'selected' : ''"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<app-footer></app-footer>

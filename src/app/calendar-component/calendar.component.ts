@@ -7,7 +7,7 @@ import {AuthService} from "../services/auth/auth.service";
 import {Timeframe} from "../domaine/availability/timeframe";
 
 @Component({
-  selector: 'app-calendar-component',
+  selector: 'app-user-calendar-page-component',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss']
 })
