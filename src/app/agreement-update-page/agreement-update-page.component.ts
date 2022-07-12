@@ -139,9 +139,11 @@ export class AgreementUpdatePageComponent implements OnInit {
       })
     }else{
       // @ts-ignore
+      console.log(this.agreement!.animals[0]);
+      // @ts-ignore
       this.animalService.getAnimalsByUrl(this.agreement!.animals[0]).subscribe(animal => {
         this.animals.push(animal)
-        console.log(animal);
+
       })
     }
   }

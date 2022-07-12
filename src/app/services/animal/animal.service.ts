@@ -28,6 +28,6 @@ export class AnimalService {
   }
 
   getAnimalsByUrl(url: string): Observable<Animal>{
-    return this.http.get<Animal>(url);
+    return this.http.get<Animal>(`${url}/one`);
   }
 }
