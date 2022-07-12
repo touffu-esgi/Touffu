@@ -51,16 +51,23 @@ export function addToDate(
   return newDate
 }
 
-export function getWeekMondayDate(date: Date): Date {
+export function getWeekSundayDate(date: Date): Date {
   let monday = new Date(date)
-  if (date.getDay() !== 1) {
-    monday = addToDate(date, date.getDay() - 1)
+  if (date.getDay() !== 0) {
+    monday = addToDate(date, -1 * date.getDay())
   }
   return monday
 }
 
 export function dateEqualsDate(date1: Date, date2: Date): boolean {
-  date1.setHours(0, 0, 0, 0)
-  date2.setHours(0, 0, 0, 0)
-  return date1 === date2
+  return date1.getDate() === date2.getDate() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getFullYear() === date2.getFullYear()
+}
+
+export function newUTCDate(dateStr: string, endDay: boolean = false): Date {
+  const splitDate = dateStr.split('T')
+  const date = new Date( splitDate[0] + 'T02:00')
+  if (endDay) date.setHours(23, 59)
+  return date
 }

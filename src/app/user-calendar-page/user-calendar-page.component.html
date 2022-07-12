@@ -11,11 +11,15 @@
   <table id='availabilitiesTable'>
     <thead>
     <tr>
-      <th>Heures</th>
+      <th></th>
       <th *ngFor="let day of WEEKDAYS">{{translateDay(day)}}</th>
     </tr>
     </thead>
     <tbody>
+    <tr>
+      <th>Heures</th>
+      <td *ngFor="let day of calendarWeekDates">{{day}}</td>
+    </tr>
     <tr *ngFor="let hour of dailyHours">
       <td>{{computeDisplayHour(hour)}}</td>
       <td *ngFor="let day of WEEKDAYS" [ngClass]="getIndex(day, hour) !== -1 ? 'selected' : ''"></td>

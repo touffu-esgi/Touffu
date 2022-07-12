@@ -4,7 +4,7 @@ import {ProviderAvailabilityPageComponent} from "../provider-availability-page/p
 import {CalendarComponent} from "../calendar-component/calendar.component";
 import {Availability} from "../domaine/availability/availability";
 import {Timeframe} from "../domaine/availability/timeframe";
-import {addToDate, dateEqualsDate, getWeekMondayDate} from "../utils/date-time.utils";
+import {addToDate, dateEqualsDate, getWeekSundayDate, newUTCDate} from "../utils/date-time.utils";
 
 @Component({
   selector: 'app-user-calendar-page',
@@ -18,6 +18,7 @@ export class UserCalendarPageComponent extends CalendarComponent {
   newAvailabilities: Availability[] = [];
   calendarDateFrom: Date = new Date();
   calendarDateTo: Date = new Date()
+  calendarWeekDates: string[] = []
 
   override ngOnInit(): void {
     this.getAgreements();
@@ -32,7 +33,7 @@ export class UserCalendarPageComponent extends CalendarComponent {
     ]
     this.agreementService.getAgreementWithFilters(filters).subscribe(agreements => {
       this.agreements = agreements
-      this.updateCalendar(getWeekMondayDate(new Date()))
+      this.updateCalendar(getWeekSundayDate(new Date()))
     })
   }
 
@@ -47,11 +48,15 @@ export class UserCalendarPageComponent extends CalendarComponent {
 
   updateCalendar(weekStart: Date) {
     this.calendarDateFrom = weekStart;
-    this.calendarDateTo = addToDate(weekStart, 0, 1);
+    this.calendarDateTo = addToDate(weekStart, 6);
     this.selectedTimeframes = []
-    for (let day = this.calendarDateFrom ; day < this.calendarDateTo ; day = addToDate(day, 1)) {
-      let fittingAgreements = this.checkIfDateFitsAgreement(day)
-      fittingAgreements = fittingAgreements.filter(agreement => this.checkIfRecurrenceFitsWeekday(agreement, day))
+    this.calendarWeekDates = []
+    for (let day = this.calendarDateFrom ; day <= this.calendarDateTo ; day = addToDate(day, 1)) {
+      this.calendarWeekDates.push(this.displayDate(day))
+      let fittingAgreements = this.getValidAgreementsAtDate(day)
+      fittingAgreements = fittingAgreements.filter(
+        agreement => this.checkIfRecurrenceFitsWeekday(agreement, day)
+      )
       fittingAgreements.forEach(agreement =>
         this.pushBlockToTimeframes(
           new Date(agreement.beginningDate), agreement.duration,
@@ -69,17 +74,16 @@ export class UserCalendarPageComponent extends CalendarComponent {
     }
   }
 
-  checkIfDateFitsAgreement(date: Date): Agreement[] {
-    const agreements = this.agreements.filter(agreement => {
-      if (agreement.recurrence !== 'None') {
-        const dateBetweenBounds = new Date(agreement.beginningDate.split('T')[0]) <= date
-          && date <= new Date(agreement.endDate.split('T')[0] + 'T23:59')
-        return dateBetweenBounds
+  getValidAgreementsAtDate(date: Date): Agreement[] {
+    return this.agreements.filter(agreement => {
+      if (agreement.recurring) {
+        const dateBegin = newUTCDate(agreement.beginningDate)
+        const dateEnd = newUTCDate(agreement.endDate, true)
+        return dateBegin <= date && date <= dateEnd
       } else {
         return dateEqualsDate(new Date(agreement.beginningDate), date)
       }
     })
-    return agreements
   }
 
   checkIfRecurrenceFitsWeekday(agreement: Agreement, weekday: Date): boolean {
@@ -97,19 +101,19 @@ export class UserCalendarPageComponent extends CalendarComponent {
   }
 
   toWeekBefore() {
-    this.updateCalendar(addToDate(this.calendarDateFrom, -1, -1))
+    this.updateCalendar(addToDate(this.calendarDateFrom, 0, -1))
   }
 
   toNow() {
-    this.updateCalendar(getWeekMondayDate(new Date()))
+    this.updateCalendar(getWeekSundayDate(new Date()))
   }
 
   toWeekAfter() {
-    this.updateCalendar(addToDate(this.calendarDateFrom, 1, 1))
+    this.updateCalendar(addToDate(this.calendarDateFrom, 0, 1))
   }
 
   displayDate(date: Date): string {
-    return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
+    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
   }
 }
 
