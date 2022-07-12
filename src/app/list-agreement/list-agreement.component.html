@@ -11,7 +11,7 @@
     <p>{{agreement.remuneration}}</p>
     <p>{{agreement.status}}</p>
     <p>{{agreement.duration}}</p>
-    <a *ngIf='agreement.status === "InDiscussion"' routerLink='/agreement-update' [queryParams]='{"agreementId": agreement.id}'>Mettre à jour</a>
+    <a *ngIf='agreement.status === "InDiscussion"' routerLink='/agreement-update' [queryParams]='{"agreementId": agreement.id, "recipientId": agreement.recipientRef.split("/")[4]}'>Mettre à jour</a>
     <a *ngIf='agreement.status === "Agreed"' routerLink='/agreement-detail' [queryParams]='{"agreementId": agreement.id}'>Détail</a>
   </div>
 <app-footer></app-footer>

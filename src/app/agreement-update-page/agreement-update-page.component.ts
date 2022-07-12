@@ -46,16 +46,17 @@ export class AgreementUpdatePageComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.authService.user;
     this.activatedRoute.queryParams.subscribe(params => {
-      if (params["agreementId"]){
-        this.getAgreement(params["agreementId"]);
+      if (params["agreementId"] && params["recipientId"]){
+        this.getAgreement(params["agreementId"], params["recipientId"]);
 
       }
     })
   }
 
-  private getAgreement(agreementId: string) {
-    this.agreementService.getAgreementByAgreementAndRecipientId(agreementId, this.user!.id!).subscribe(agreement => {
+  private getAgreement(agreementId: string, recipientId: string) {
+    this.agreementService.getAgreementByAgreementAndRecipientId(agreementId, recipientId).subscribe(agreement => {
       this.agreement = agreement[0];
+      console.log(this.agreement);
       this.agreement.duration = this.agreement.duration / 60;
       this.startHourComponent = this.agreement.beginningDate.split("T")[1].split(".")[0].substr(0,5)
       this.agreement.endDate = this.agreement.endDate.split("T")[0];
@@ -129,17 +130,17 @@ export class AgreementUpdatePageComponent implements OnInit {
 
   formatAnimalsRef() {
     // @ts-ignore
-    this.agreements.animalsRefs = [this.agreements.animalsRefs]
+    this.agreement!.animals.pop();
+    // @ts-ignore
+    this.agreement.animals.push(this.agreement?.animalsRefs)
   }
 
   private getAnimals() {
     if(this.authService.user?.userType == "recipient"){
-      this.animalService.getAnimalsByRecipientId(this.user!.id!).subscribe(animals => {
+      this.animalService.getAnimalsByRecipientId(this.user!.userReference!.split("/")[4]).subscribe(animals => {
         this.recipientAnimal = animals;
       })
     }else{
-      // @ts-ignore
-      console.log(this.agreement!.animals[0]);
       // @ts-ignore
       this.animalService.getAnimalsByUrl(this.agreement!.animals[0]).subscribe(animal => {
         this.animals.push(animal)

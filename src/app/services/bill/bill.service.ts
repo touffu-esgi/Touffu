@@ -18,6 +18,7 @@ export class BillService {
   }
 
   getRecipientBills(recipientId: string): Observable<Bill[]> {
+    recipientId = recipientId.split("/")[4];
     return this.http.get<Bill[]>(this.httpUtils.fullUrl() + `/bill?recipientRef=${recipientId}`);
   }
 

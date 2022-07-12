@@ -24,12 +24,14 @@ export class RecipientProfileComponent implements OnInit {
   }
 
   private getBills(){
-    if (this.authService.user?.id) {
-      this.billService.getRecipientBills(this.authService.user?.id).subscribe(bills => {
+    if (this.authService.user?.userReference) {
+      this.billService.getRecipientBills(this.authService.user?.userReference).subscribe(bills => {
         this.bills = bills;
         this.bills.forEach(bill => {
           bill.dateBill = bill.dateBill.split('T')[0]
         })
+      }, error => {
+        console.log(error);
       })
     }
   }
