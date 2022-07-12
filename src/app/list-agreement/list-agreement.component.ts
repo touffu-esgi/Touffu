@@ -14,11 +14,11 @@ export class ListAgreementComponent implements OnInit {
   Agreements?: Agreement[];
   ngOnInit(): void {
     if(this.authService.user?.userType == "recipient"){
-      this.agreementService.getAgreementByRecipientId(this.authService.user!.id!).subscribe(data => {
+      this.agreementService.getAgreementByRecipientId(this.authService.user!.userReference!.split('/')[4]).subscribe(data => {
         this.Agreements = data;
       })
     }else{
-      this.agreementService.getAgreementByProviderId(this.authService.user!.id!).subscribe(data => {
+      this.agreementService.getAgreementByProviderId(this.authService.user!.userReference!.split('/')[4]).subscribe(data => {
         this.Agreements = data;
       })
     }
