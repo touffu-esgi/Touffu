@@ -30,10 +30,8 @@ export class UserCalendarPageComponent extends CalendarComponent {
       `${this.authService.user!.userType!}Ref=${userRef.pop()}`,
       "status=Agreed"
     ]
-    console.log(filters)
     this.agreementService.getAgreementWithFilters(filters).subscribe(agreements => {
       this.agreements = agreements
-      console.log(this.agreements)
       this.updateCalendar(getWeekMondayDate(new Date()))
     })
   }
@@ -51,7 +49,6 @@ export class UserCalendarPageComponent extends CalendarComponent {
     this.calendarDateFrom = weekStart;
     this.calendarDateTo = addToDate(weekStart, 0, 1);
     this.selectedTimeframes = []
-    console.log(this.calendarDateFrom, this.calendarDateTo)
     for (let day = this.calendarDateFrom ; day < this.calendarDateTo ; day = addToDate(day, 1)) {
       let fittingAgreements = this.checkIfDateFitsAgreement(day)
       fittingAgreements = fittingAgreements.filter(agreement => this.checkIfRecurrenceFitsWeekday(agreement, day))
@@ -62,14 +59,11 @@ export class UserCalendarPageComponent extends CalendarComponent {
         )
       )
     }
-    console.log(this.selectedTimeframes)
   }
 
   pushBlockToTimeframes (start: Date, duration: number, day: string) {
-    console.log(start, duration)
     const startTime = start.getHours() + start.getMinutes() / 60;
     const endTime = startTime + duration / 60;
-    console.log(startTime, endTime)
     for (let time = startTime ; time < endTime ; time += 0.25) {
       this.selectedTimeframes.push(new Timeframe(day, time))
     }
@@ -100,6 +94,22 @@ export class UserCalendarPageComponent extends CalendarComponent {
       default:
         return dateEqualsDate(recurrenceDate, weekday)
     }
+  }
+
+  toWeekBefore() {
+    this.updateCalendar(addToDate(this.calendarDateFrom, -1, -1))
+  }
+
+  toNow() {
+    this.updateCalendar(getWeekMondayDate(new Date()))
+  }
+
+  toWeekAfter() {
+    this.updateCalendar(addToDate(this.calendarDateFrom, 1, 1))
+  }
+
+  displayDate(date: Date): string {
+    return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
   }
 }
 

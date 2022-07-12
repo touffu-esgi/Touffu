@@ -2,10 +2,10 @@
 <div id='userCalendar'>
   <div id='header'>
     <h1>Calendrier</h1>
-    <button id="goBefore" class='moveButton'>< Précédent</button>
-    <span>Now</span>
-    <button id="goNow" class='moveButton'></button>
-    <button id="goAfter" class='moveButton'>Suivant ></button>
+    <button id="goBefore" class='moveButton' (click)='toWeekBefore()'>< Précédent</button>
+    <span>{{displayDate(this.calendarDateFrom)}} à {{displayDate(this.calendarDateTo)}}</span>
+    <button id="goNow" class='moveButton' (click)='toNow()'>Aujourd'hui</button>
+    <button id="goAfter" class='moveButton' (click)='toWeekAfter()'>Suivant ></button>
   </div>
 
   <table id='availabilitiesTable'>
