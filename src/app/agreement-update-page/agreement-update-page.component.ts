@@ -76,7 +76,7 @@ export class AgreementUpdatePageComponent implements OnInit {
       this.availabilities = weeklyAvailability;
       const beginningDayString = this.availabilityService.getDayFromDate(new Date(this.agreement!.beginningDate))
       this.getStartHour(beginningDayString)
-      this.setMaxDuration(beginningDayString)
+      this.setMaxDuration(this.startHourComponent!)
     });
   }
 
