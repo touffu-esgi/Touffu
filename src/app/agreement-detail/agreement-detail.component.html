@@ -1,4 +1,5 @@
 <app-header></app-header>
+
 <div id='agreementContainer'>
   <app-provider-description-card-details-container [base_tarif]='agreement!.remuneration' [name]='provider!.name' [id]='provider!.id'></app-provider-description-card-details-container>
   <div id='agreementDetail'>
@@ -19,22 +20,26 @@
       </div>
       <div class='item'>
         <label>Date de début</label>
-        <li>{{agreement!.beginningDate}}</li>
+        <li>{{agreement!.beginningDate.split("T")[0]}}</li>
       </div>
     </ul>
     <ul>
       <div class='item'>
         <label>Date de fin</label>
-        <li>{{agreement!.endDate}}</li>
+        <li>{{agreement!.endDate.split("T")[0]}}</li>
       </div>
     </ul>
   </div>
 </div>
 
-<agm-map *ngIf='isPosition' style='height: 300px' [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
-<div id='errorMsg' class='alertMsg' *ngIf='!isPosition'>
-  <span>les coordonnées du prestataire ne sont pas connu</span>
+<div id='parent'>
+  <agm-map *ngIf='isPosition' style='height: 300px' [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+  <div id='errorMsg' class='alertMsg' *ngIf='!isPosition'>
+    <span>les coordonnées du prestataire ne sont pas connu</span>
+  </div>
 </div>
+
+
 <app-footer></app-footer>
