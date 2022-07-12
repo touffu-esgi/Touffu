@@ -17,8 +17,8 @@ export class ListAnimalPageComponent implements OnInit {
   }
 
   getAllAnimalsByRecipientId(){
-    if(this.authService.user && this.authService.user.id) {
-      this.animalService.getAnimalsByRecipientId(this.authService.user.id).subscribe(animals => {
+    if(this.authService.user && this.authService.user.userReference) {
+      this.animalService.getAnimalsByRecipientId(this.authService.user.userReference.split("/")[4]).subscribe(animals => {
         this.animals = animals;
         this.checkOnWalk();
       });

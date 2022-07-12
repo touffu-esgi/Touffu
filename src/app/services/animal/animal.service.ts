@@ -18,7 +18,7 @@ export class AnimalService {
   }
 
   addAnimal(animal: Animal): Observable<string>{
-    animal.recipientId = this.auth.user!.id!;
+    animal.recipientId = this.auth.user!.userReference!.split("/")[4];
     const body = JSON.stringify(animal);
     return this.http.post<string>(this.httpUtils.fullUrl() +  `/animals`, body, {headers: {'Content-Type': 'application/json'}});
   }
