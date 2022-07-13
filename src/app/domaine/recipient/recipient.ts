@@ -12,6 +12,7 @@ export class Recipient implements RecipientProps{
   address?: Address;
 
   constructor(recipient: RecipientProps) {
+    this.id = recipient.id;
     this.name = recipient.name;
     this.surname = recipient.surname;
     this.email = recipient.email;
