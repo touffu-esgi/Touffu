@@ -6,7 +6,7 @@
     <app-provider-description-title-container [placement]="address!.addr1" [description_title]="provider!.profile_title"></app-provider-description-title-container>
     <app-provider-description-card-about-container [name]="provider!.name" [description]="provider!.profile_desc"></app-provider-description-card-about-container>
   </div>
-
+  <div></div>
   <app-provider-description-card-details-container [base_tarif]="provider!.base_tariff" [id]="provider!.id" [name]="provider!.name"></app-provider-description-card-details-container>
 </div>
 <div id="containerRecommendations">
@@ -19,8 +19,14 @@
 </div>
 <div id='containerInputReco'>
   <div id='inputAndButtonReco'>
-    <textarea #recoText type='text' id='recoInput'></textarea>
-    <button (click)='sendReco(recoText.value)'>Envoyer</button>
+    <textarea [(ngModel)]='sendRecommandation.review' required type='text' id='recoInput'></textarea>
+    <input type='number' [(ngModel)]='sendRecommandation.score' max='5' step='0.1' name='score' id='score' required placeholder='Score'>
+    <button *ngIf='sendRecommandation!.review &&
+            sendRecommandation!.review!.length >= 0 &&
+            sendRecommandation!.score &&
+            sendRecommandation!.score! >= 0 &&
+            sendRecommandation!.score! <= 5'
+            (click)='sendReco()'>Envoyer</button>
   </div>
   <div style="width: 353px;"></div>
 </div>

@@ -1,0 +1,17 @@
+#reportUserTitleContainer {
+  width: 726px;
+  height: 100px;
+  border-radius: 30px;
+  background-color: #FBDDA0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+#reportUserTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  padding-left: 25px;
+}

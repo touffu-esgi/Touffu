@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {ProviderData} from "../domaine/providerData";
 import {Address} from "../domaine/address/address";
 import {AddressService} from "../services/address/address.service";
-import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
+import { AuthService } from '../services/auth/auth.service';
 import { RecommandationService } from '../services/recommandation/recommandation.service';
 import { Recommendation } from '../domaine/recommendation/recommendation';
 
@@ -20,15 +20,18 @@ export class ProviderDescriptionPageComponent implements OnInit {
   provider?: ProviderData;
   address?: Address;
   recommendations?: Recommendation[];
+  sendRecommandation: Recommendation = new Recommendation({})
 
   constructor(private recommandationService: RecommandationService,
               private addressService: AddressService,
-              private authService: AuthServiceMockImplementation) {}
+              private authService: AuthService) {}
 
   ngOnInit(): void {
     this.provider = history.state[0]
     this.fetchAddress(this.provider!)
     this.fetchRecommendation();
+    this.sendRecommandation.providerId = this.provider!.id;
+    this.sendRecommandation.recipientId = this.authService.user!.id!;
   }
 
   fetchAddress(provider: ProviderData) {
@@ -37,9 +40,9 @@ export class ProviderDescriptionPageComponent implements OnInit {
     })
   }
 
-  sendReco(recoText: string) {
-    this.addRecoInCurrentState(recoText);
-    this.recommandationService.addRecommendation(this.provider!.id, this.authService.user!.id!, recoText, 2, new Date());
+  sendReco() {
+    this.addRecoInCurrentState(this.sendRecommandation.review!);
+    this.recommandationService.addRecommendation(this.sendRecommandation);
   }
 
   addRecoInCurrentState(recoText: string) {
@@ -53,7 +56,6 @@ export class ProviderDescriptionPageComponent implements OnInit {
   private fetchRecommendation() {
     this.recommandationService.getRecommendations(this.provider!.id!).subscribe(recommendations => {
       this.recommendations = recommendations;
-      console.log(this.recommendations);
     });
   }
 }

@@ -1,3 +1,5 @@
+import { User } from '../../domaine/user/user';
+
 export interface authServiceInterface{
-  getUser(id: string): void;
+  getUser(user: User): void;
 }
