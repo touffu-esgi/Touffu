@@ -24,6 +24,7 @@ export class RecipientService implements RecipientServiceInterface{
 
   update(recipient: Recipient) {
     const body = JSON.stringify(recipient)
+    console.log(body);
     return this.http.put(`${this.httpUtils.fullUrl()}/recipient/${recipient.id}`, body, {headers: {'Content-Type': 'application/json'}})
   }
 }

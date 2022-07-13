@@ -50,8 +50,7 @@ export class PaymentPageComponent implements OnInit {
   }
 
   updateBill() {
-    this.billService.PayABill(this.bill!.id!).subscribe(value => {
-      console.log(value);}, (e) => {
+    this.billService.PayABill(this.bill!.id!).subscribe(value => {}, (e) => {
       if (e.error.message) this.errorMsg = e.error.message
       this.reportSendOk = false;
     }, () => {

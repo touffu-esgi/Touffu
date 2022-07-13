@@ -13,7 +13,8 @@ import { UserService } from '../../services/user/user.service';
 export class PersonalRecipientInformationComponent implements OnInit {
 
   recipient?: Recipient;
-
+  message = "";
+  reportSendOk: boolean | null = null;
   constructor(
     private authService: AuthService,
     private recipientService: RecipientService,
@@ -26,25 +27,28 @@ export class PersonalRecipientInformationComponent implements OnInit {
   }
 
   private getRecipient() {
+    console.log(this.authService.user);
     if(this.authService.user?.userType === 'recipient'){
       this.recipientService.getRecipient(this.authService.user?.userReference!).subscribe(recipient => {
         this.recipient = recipient;
-        console.log(this.recipient);
       })
     }else{
-      this.router.navigate(["/"])
+      //this.router.navigate(["/"])
     }
   }
 
   updateInformation() {
     this.recipientService.update(this.recipient!).subscribe(response => {
-      this.userService.update(this.recipient!.id, this.recipient!.email).subscribe(user => {
-        console.log("is ok");
-      }, error => {
-        console.log("user ?");
+      // @ts-ignore
+      this.userService.update(this.recipient!.userId, this.recipient!.email).subscribe(user => {}, error => {
+        if (error.message) {
+          this.message = error.message;
+          this.reportSendOk = false;
+        }
       })
-    }, error => {
-      console.log("capout");
+    }, complete => {
+      this.message = "Mise à jour réussie";
+      this.reportSendOk = true;
     })
   }
 }
