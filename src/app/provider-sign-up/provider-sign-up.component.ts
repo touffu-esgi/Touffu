@@ -23,7 +23,8 @@ export class ProviderSignUpComponent implements OnInit {
     profile_desc: '',
     profile_title: '',
     radius: -1,
-    surname: ''
+    surname: '',
+    userId: ''
   });
   newAddress: Address = new Address({
     addr1: '',

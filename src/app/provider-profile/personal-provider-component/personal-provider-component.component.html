@@ -13,8 +13,8 @@
       <input type='text' id='email' minlength='1' required name='email' value='{{provider?.email}}' [(ngModel)]='provider!.email'>
     </div>
     <div>
-      <label>phoneNumber</label>
-      <input type='text' id='phoneNumber' minlength='1' pattern='[0-9]{10}' required name='phoneNumber' value='{{provider?.phoneNumber}}' [(ngModel)]='provider!.phoneNumber'>
+      <label>Mot de passe</label>
+      <input type='password' id='mdp' minlength='1' required name='mdp' value='{{provider?.password}}' [(ngModel)]='provider!.password'>
     </div>
     <button id='modifyButton' [hidden]='informationForm.invalid' type='submit'>Mettre à jour</button>
   </form>

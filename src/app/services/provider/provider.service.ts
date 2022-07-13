@@ -29,4 +29,9 @@ export class ProviderService {
       {headers: {'Content-Type': 'application/json'}}
     )
   }
+
+  update(provider: ProviderData): Observable<void> {
+    const body = JSON.stringify(provider);
+    return this.http.put<void>(`${this.httpUtils.fullUrl()}/provider/${provider.id}`, body, {headers: {'Content-Type': 'application/json'}})
+  }
 }
