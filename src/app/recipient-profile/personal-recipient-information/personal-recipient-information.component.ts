@@ -27,7 +27,6 @@ export class PersonalRecipientInformationComponent implements OnInit {
   }
 
   private getRecipient() {
-    console.log(this.authService.user);
     if(this.authService.user?.userType === 'recipient'){
       this.recipientService.getRecipient(this.authService.user?.userReference!).subscribe(recipient => {
         this.recipient = recipient;
@@ -41,7 +40,6 @@ export class PersonalRecipientInformationComponent implements OnInit {
     this.recipientService.update(this.recipient!).subscribe(response => {
       // @ts-ignore
       this.userService.update(this.recipient!.userId, this.recipient!.email).subscribe(response => {
-        console.log("is ok");
         this.message = "Mise à jour réussie";
         this.reportSendOk = true;
       }, error => {

@@ -21,14 +21,14 @@ export class ConversationsListComponent implements OnInit {
   displayMessages(conversation: string) {
     this.messagesSubscription = this.messageService.getMessages(conversation).subscribe(messages =>{
       messages.forEach(message => {
-        message.senderId = message.senderId.split("/")[4]
-        message.recipientId = message.recipientId.split("/")[4]
+        message.senderId = message.senderId.split("/").pop()!;
+        message.recipientId = message.recipientId.split("/").pop()!;
       })
-      const messagesAndReciver: [Message[], string, string] = [messages, conversation.split("/")[5], conversation.split("/")[4]]
+      const messagesAndReciver: [Message[], string, string] = [messages, conversation.split("/").pop()!, conversation.split("/").pop()!]
       this.onMessagePicked.emit(messagesAndReciver);
     },
       error => {
-        const messagesAndReciver: [Message[], string, string] = [[], conversation.split("/")[5], conversation.split("/")[4]]
+        const messagesAndReciver: [Message[], string, string] = [[], conversation.split("/").pop()!, conversation.split("/").pop()!]
         this.onMessagePicked.emit(messagesAndReciver);
       });
   }

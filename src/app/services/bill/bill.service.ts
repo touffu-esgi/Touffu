@@ -23,7 +23,6 @@ export class BillService {
 
   PayABill(billId: string) {
     const body = JSON.stringify({"billId": billId});
-    console.log(body);
     return this.http.put(this.httpUtils.fullUrl() + `/bill`, body, {headers: {'Content-Type': 'application/json'}});
   }
 
