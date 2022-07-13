@@ -59,3 +59,10 @@ input{
   color: rgba(35,180,27, 0.5);
   border: 2px rgba(35,180,27, 0.5) solid;
 }
+
+#messageContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+}

@@ -40,15 +40,16 @@ export class PersonalRecipientInformationComponent implements OnInit {
   updateInformation() {
     this.recipientService.update(this.recipient!).subscribe(response => {
       // @ts-ignore
-      this.userService.update(this.recipient!.userId, this.recipient!.email).subscribe(user => {}, error => {
+      this.userService.update(this.recipient!.userId, this.recipient!.email).subscribe(response => {
+        console.log("is ok");
+        this.message = "Mise à jour réussie";
+        this.reportSendOk = true;
+      }, error => {
         if (error.message) {
           this.message = error.message;
           this.reportSendOk = false;
         }
       })
-    }, complete => {
-      this.message = "Mise à jour réussie";
-      this.reportSendOk = true;
     })
   }
 }
