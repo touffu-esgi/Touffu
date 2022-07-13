@@ -3,12 +3,13 @@ import {Address} from "../address/address";
 import {AddressProps} from "../address/address.props";
 
 export class Recipient implements RecipientProps{
+  id?: string;
   name: string;
   surname: string;
   email: string;
   phoneNumber: string;
   password: string;
-  address: Address;
+  address?: Address;
 
   constructor(recipient: RecipientProps) {
     this.name = recipient.name;
@@ -16,6 +17,8 @@ export class Recipient implements RecipientProps{
     this.email = recipient.email;
     this.phoneNumber = recipient.phoneNumber;
     this.password = recipient.password;
-    this.address = new Address(recipient.address);
+    if (recipient.address) {
+      this.address = new Address(recipient!.address);
+    }
   }
 }

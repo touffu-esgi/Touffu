@@ -27,11 +27,10 @@ export class RecipientSignUpComponent implements OnInit {
   }
 
   onFormSubmit(): void {
-    this.addressService.addAddress(this.newRecipient.address).subscribe(addressUrl => {
-      this.newRecipient.address.id = addressUrl.url.split("/")[4];
+    this.addressService.addAddress(this.newRecipient!.address!).subscribe(addressUrl => {
+      this.newRecipient!.address!.id = addressUrl.url.split("/")[4];
       this.recipientService.signUp(this.newRecipient).subscribe();
     })
-
   }
 
 }

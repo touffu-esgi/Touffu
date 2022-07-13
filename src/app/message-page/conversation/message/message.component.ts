@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Message} from "../../../domaine/message/message";
-import { AuthServiceMockImplementation } from '../../../services/auth/auth.service.mock.implementation';
 import { User } from '../../../domaine/user/user';
+import {AuthService} from "../../../services/auth/auth.service";
 
 @Component({
   selector: 'app-message',
@@ -14,7 +14,7 @@ export class MessageComponent implements OnInit {
   @Input() sender?: string;
   user?: User;
 
-  constructor(private authService: AuthServiceMockImplementation) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.user = this.authService.user;

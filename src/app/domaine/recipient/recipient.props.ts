@@ -1,8 +1,8 @@
 import {AddressProps} from "../address/address.props";
 
 export interface RecipientProps{
-
-  address: AddressProps;
+  id?: string;
+  address?: AddressProps;
   email: string
   name: string
   password: string

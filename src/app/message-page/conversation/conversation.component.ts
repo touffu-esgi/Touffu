@@ -14,7 +14,7 @@ export class ConversationComponent implements OnInit {
 
   @Input() messages?: Message[];
   @Input() id_sender?: string;
-  @Input() id_reciver?: string;
+  @Input() id_receiver?: string;
   @Input() sender?: string;
 
   sendMessageSubscriber?: Subscription;
@@ -24,12 +24,12 @@ export class ConversationComponent implements OnInit {
   }
 
   sendMessage(message: string) {
-    this.sendMessageSubscriber = this.messageService.sendMessage(message, this.id_sender!, this.id_reciver!).subscribe();
+    this.sendMessageSubscriber = this.messageService.sendMessage(message, this.id_sender!, this.id_receiver!).subscribe();
     this.messages?.push(new Message("",
       message,
       new Date(),
       this.id_sender! ,
-      this.id_reciver!
+      this.id_receiver!
     ))
   }
 

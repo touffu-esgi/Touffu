@@ -3,7 +3,7 @@
 
 <div id='billParentContainer'>
   <div id='cardContainer'>
-    <div id='cardBill' *ngFor='let bill of bills'>
+    <div class='cardBill' *ngFor='let bill of bills'>
       <div>
         <img *ngIf='bill.datePaid' src='assets/paid.png'>
         <button id='paid' *ngIf='!bill.datePaid' routerLink='/bill-payment' [queryParams]='{"id" : bill.id!}'>Payer</button>
@@ -24,6 +24,8 @@
         <img src='assets/file.png' alt=''>
       </div>
     </div>
+
+    <div class='cardBill' *ngIf='message'><span>{{message}}</span></div>
   </div>
 
 

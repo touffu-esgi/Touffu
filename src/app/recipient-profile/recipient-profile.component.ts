@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Bill } from '../domaine/bill/bill';
 import { ProviderData } from '../domaine/providerData';
 import { BillService } from '../services/bill/bill.service';
-import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
+import { AuthService } from '../services/auth/auth.service';
 import { ProviderService } from '../services/provider/provider.service';
 
 @Component({
@@ -14,9 +14,10 @@ export class RecipientProfileComponent implements OnInit {
 
   bills: Bill[] = []
   provider?: ProviderData;
+  message: string | null = 'Aucune facture';
   constructor(
     private billService: BillService,
-    private authService: AuthServiceMockImplementation,
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
@@ -24,12 +25,14 @@ export class RecipientProfileComponent implements OnInit {
   }
 
   private getBills(){
-    if (this.authService.user?.id) {
-      this.billService.getRecipientBills(this.authService.user?.id).subscribe(bills => {
+    if (this.authService.user?.userReference) {
+      this.billService.getRecipientBills(this.authService.user?.userReference).subscribe(bills => {
         this.bills = bills;
         this.bills.forEach(bill => {
           bill.dateBill = bill.dateBill.split('T')[0]
         })
+      }, error => {
+        this.message = 'Aucune facture'
       })
     }
   }

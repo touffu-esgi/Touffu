@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MessageComponent } from './message.component';
+import { SelectRecurencyComponent } from './select-recurency.component';
 
-describe('MessageComponent', () => {
-  let component: MessageComponent;
-  let fixture: ComponentFixture<MessageComponent>;
+describe('SelectRecurencyComponent', () => {
+  let component: SelectRecurencyComponent;
+  let fixture: ComponentFixture<SelectRecurencyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MessageComponent ]
+      declarations: [ SelectRecurencyComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MessageComponent);
+    fixture = TestBed.createComponent(SelectRecurencyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

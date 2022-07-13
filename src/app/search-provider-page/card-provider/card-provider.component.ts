@@ -19,7 +19,6 @@ export class CardProviderComponent implements OnInit {
   }
 
   fetchAddress(provider: ProviderData){
-    console.log(provider!.address)
     this.addressService.getOneAddress(provider!.address).subscribe(address => {
       this.address = address
     })

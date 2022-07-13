@@ -1,0 +1,44 @@
+#containerAnimalCard{
+  width: 375px;
+  height: 183px;
+  border-radius: 15px;
+  background-color: #FBC95C;
+  align-items: center;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.isOnWalk {
+  border: #411013 solid 2px;
+  animation-duration: 2s;
+  animation-name: clignoter;
+  animation-iteration-count: infinite;
+  transition: none;
+
+  @keyframes clignoter {
+    0%   { border: #411013 solid 4px; }
+    25%   { border: #411013 solid 4px; }
+    50% { border: #FF0000 solid 4px; }
+    75% { border: #411013 solid 4px; }
+    100% { border: #411013 solid 4px; }
+  }
+}
+
+a {
+  color: #411013;
+  text-decoration: none;
+}
+
+.isOnWalk > a:hover {
+  color: #FFF4DE;
+}
+
+.isOnWalk:hover{
+  color: #411013;
+  background-color: #FFF4DE;
+}
+
