@@ -19,6 +19,22 @@
     <button id='modifyButton' [hidden]='informationForm.invalid' type='submit'>Mettre à jour</button>
   </form>
 </div>
+<div id='animalSelector'>
+  <h1>Animaux que je promène</h1>
+  <select #addAnimalType (change)='setAnimal(addAnimalType.value)'>
+    <option>Sélectionner</option>
+    <option *ngFor='let possibleAnimal of allAnimals'>
+      {{possibleAnimal}}
+    </option>
+  </select>
+  <ul id='"listOfAnimals'>
+    <li *ngFor='let animal of provider!.animalType'>
+      {{animal}}
+      <button (click)='unsetAnimal(animal)'>X</button>
+    </li>
+  </ul>
+</div>
+
 <div id='messageContainer'>
   <div class="alertMsg" id="errorMsg" *ngIf="this.reportSendOk === false">
     <p>{{this.message}}</p>
