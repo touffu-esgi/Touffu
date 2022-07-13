@@ -4,6 +4,7 @@ import { Bill } from '../domaine/bill/bill';
 import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
 import { ProviderData } from '../domaine/providerData';
 import { ProviderService } from '../services/provider/provider.service';
+import { RecipientService } from '../services/recipient/recipient.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class ProviderProfileComponent implements OnInit {
   constructor(
     private billService: BillService,
     private authService: AuthServiceMockImplementation,
-    private providerService: ProviderService
+    private providerService: ProviderService,
+    private recipientService: RecipientService
 ) { }
 
   ngOnInit(): void {
@@ -44,6 +46,12 @@ export class ProviderProfileComponent implements OnInit {
   }
 
   generateBills(id: string) {
-    this.billService.generateBill(id, this.authService.user?.id!)
+    const providerId = this.authService.user?.userReference!.split('/').pop()!
+    this.billService.getOneBillByProviderId(id, providerId).subscribe(bill => {
+      const currentBill = bill[0];
+      this.recipientService.getOne(currentBill.recipientRef).subscribe(recipient => {
+        this.billService.generateBill(id, providerId, bill, recipient)
+      })
+    })
   }
 }
