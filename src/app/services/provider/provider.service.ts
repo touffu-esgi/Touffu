@@ -11,8 +11,12 @@ export class ProviderService {
 
   constructor(private http: HttpClient, private httpUtils: HttpUtils) { }
 
-  getAllProviders(): Observable<ProviderData[]>{
-    return this.http.get<ProviderData[]>(this.httpUtils.fullUrl() + "/provider");
+  getAllProviders(filter?: string[]): Observable<ProviderData[]>{
+    if (filter && filter.length > 0){
+      return this.http.get<ProviderData[]>(this.httpUtils.fullUrl() + "/provider?animalType=" + filter[0]);
+    }else{
+      return this.http.get<ProviderData[]>(this.httpUtils.fullUrl() + "/provider");
+    }
   }
 
   getOneProviders(providerId: string): Observable<ProviderData>{

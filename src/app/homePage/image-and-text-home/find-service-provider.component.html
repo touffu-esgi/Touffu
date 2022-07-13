@@ -8,8 +8,8 @@
         <p>Choisissez la personne <br> qui vous assistera avec votre animal</p>
       </div>
       <div style="max-width: 672px">
-        <app-search-bar></app-search-bar>
-        <app-select-animals></app-select-animals>
+        <app-search-bar [animalType]='animalType'></app-search-bar>
+        <app-select-animals (animalType)='saveCurrentAnimalType($event)'></app-select-animals>
       </div>
     </div>
     <div id="containerImage">
