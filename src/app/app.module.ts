@@ -66,8 +66,9 @@ import { ReportProviderButtonSendComponent } from './report-provider/report-prov
 import { ProviderDescriptionTitleReportImageComponent } from './provider-description-page/provider-description-title-container/provider-description-title-report-image/provider-description-title-report-image.component';
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
-import { PaidBillComponent } from './feature/paid-bill/paid-bill.component';
+import { PaidBillComponent } from './paid-bill/paid-bill.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { ProviderSignUpComponent } from './provider-sign-up/provider-sign-up.component';
 
 
 
@@ -136,6 +137,7 @@ import { PaymentPageComponent } from './payment-page/payment-page.component';
     RecipientProfileComponent,
     PaidBillComponent,
     PaymentPageComponent,
+    ProviderSignUpComponent,
   ],
   imports: [
     BrowserModule,

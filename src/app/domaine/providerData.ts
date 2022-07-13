@@ -13,6 +13,7 @@ export class ProviderData {
   profile_title: string;
   profile_desc: string;
 
+
   constructor(providerProps: ProviderProps) {
     this.id = providerProps.id;
     this.name = providerProps.name;

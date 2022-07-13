@@ -16,4 +16,13 @@ export class ProviderService {
   getOneProviderByUrl(providerUrl: string): Observable<ProviderData> {
     return this.http.get<ProviderData>(providerUrl)
   }
+
+  signUp(newProvider: ProviderData): Observable<{ url: string }> {
+    const body = JSON.stringify(newProvider);
+    return this.http.post<{ url: string }>(
+      `${this.httpUtils.fullUrl()}/provider`,
+      body,
+      {headers: {'Content-Type': 'application/json'}}
+    )
+  }
 }

@@ -11,12 +11,14 @@ import {ReportProviderComponent} from "./report-provider/report-provider.compone
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { ProviderSignUpComponent } from './provider-sign-up/provider-sign-up.component';
 
 const routes: Routes = [
   {path: 'description-component', component: ProviderDescriptionPageComponent, data: ProviderData},
   {path: 'search-page', component: SearchProviderPageComponent},
   {path: 'message', component: MessagePageComponent},
   {path: 'signup-recipient', component: RecipientSignUpComponent},
+  {path: 'signup-provider', component: ProviderSignUpComponent},
   {path: 'connection', component: ConnectionPageComponent},
   {path: 'report', component: ReportProviderComponent},
   {path: 'provider-profile', component: ProviderProfileComponent},

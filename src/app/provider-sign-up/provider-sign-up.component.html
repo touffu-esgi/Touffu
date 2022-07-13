@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<form (ngSubmit)="onFormSubmit()">
+  <div id="mainContainer">
+    <div>
+      <div class="smallInputs">
+        <input [(ngModel)]="newProvider.name" name="name" placeholder="Nom" type="text">
+        <input  [(ngModel)]="newProvider.surname" name="surname" placeholder="Prénom" type="text">
+      </div>
+      <div class="largeInput">
+        <div id="emailContainer">
+          <input [(ngModel)]="newProvider.email" name="email" placeholder="Email" type="text">
+        </div>
+        <div id="phoneContainer">
+          <input [(ngModel)]="newProvider.phone" name="phoneNumber" placeholder="Tel" type="text">
+        </div>
+        <div>
+          <input [(ngModel)]="newProvider.password" name="password" placeholder="Password" type="text">
+        </div>
+        <div>
+          <input [(ngModel)]="newProvider.radius" name="radius" min='1' placeholder="radius" type="number">
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="containerAddress">
+      <div class="largeInput">
+        <div>
+          <input name="addr1" [(ngModel)]="newAddress.addr1" placeholder="Addr 1" type="text">
+        </div>
+        <div>
+          <input name="Addr2" [(ngModel)]="newAddress.addr2" placeholder="Addr 2" type="text">
+        </div>
+      </div>
+      <div class="smallInputs">
+        <input name="zipCode" [(ngModel)]="newAddress.zipcode" placeholder="Code postal" type="text">
+        <input name="city" [(ngModel)]="newAddress.city" placeholder="Ville" type="text">
+      </div>
+      <div class='largeInput'>
+        <div>
+          <input [(ngModel)]="newProvider.base_tariff" name="base_tariff" min='1' placeholder="text" type="number">
+        </div>
+      </div>
+      <div class="largeInput">
+        <div>
+          <input name="country" [(ngModel)]="newAddress.country" placeholder="Pays" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="submitButtonContainer">
+    <button id="submitButton">S'inscrire</button>
+  </div>
+</form>
+
+<app-footer></app-footer>

@@ -1,3 +1,5 @@
+import { Address } from './address/address';
+
 export interface ProviderProps {
   readonly id: string;
   readonly name: string;

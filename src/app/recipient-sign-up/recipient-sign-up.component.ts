@@ -31,7 +31,6 @@ export class RecipientSignUpComponent implements OnInit {
       this.newRecipient.address.id = addressUrl.url.split("/")[4];
       this.recipientService.signUp(this.newRecipient).subscribe();
     })
-
   }
 
 }
