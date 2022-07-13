@@ -1,0 +1,33 @@
+#recurence{
+  width: 227px;
+  height: 89px;
+
+  border: transparent;
+  border-radius: 30px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  padding-left: 25px;
+}
+
+#recurenceContainer{
+  width: 227px;
+  height: 89px;
+  background: #FFFFFF;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
+  border: transparent;
+  border-radius: 30px;
+
+  display: flex;
+  flex-direction: row;
+  user-select: none;
+}
+
+img{
+  width: 29px;
+  margin-left: 29px;
+}
+
+select:focus{
+  outline: transparent;
+}

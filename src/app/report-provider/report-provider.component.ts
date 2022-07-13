@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ReportService} from "../services/report/report.service";
 import {Report} from "../domaine/report/report";
 import {ActivatedRoute} from "@angular/router";
-import {AuthServiceMockImplementation} from "../services/auth/auth.service.mock.implementation";
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-report-provider',
@@ -16,7 +16,7 @@ export class ReportProviderComponent implements OnInit {
   constructor(
     private reportService: ReportService,
     private activatedRoute: ActivatedRoute,
-    private authService: AuthServiceMockImplementation) { }
+    private authService: AuthService) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {

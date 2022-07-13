@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BillService } from '../services/bill/bill.service';
 import { Bill } from '../domaine/bill/bill';
-import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
 import { ProviderData } from '../domaine/providerData';
 import { ProviderService } from '../services/provider/provider.service';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-provider-profile',
@@ -15,7 +15,7 @@ export class ProviderProfileComponent implements OnInit {
   provider?: ProviderData;
   constructor(
     private billService: BillService,
-    private authService: AuthServiceMockImplementation,
+    private authService: AuthService,
     private providerService: ProviderService
 ) { }
 

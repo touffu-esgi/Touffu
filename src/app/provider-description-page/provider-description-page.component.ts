@@ -3,9 +3,9 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {ProviderData} from "../domaine/providerData";
 import {Address} from "../domaine/address/address";
 import {AddressService} from "../services/address/address.service";
-import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
 import { RecommandationService } from '../services/recommandation/recommandation.service';
 import { Recommendation } from '../domaine/recommendation/recommendation';
+import { AuthService } from '../services/auth/auth.service';
 
 
 
@@ -24,7 +24,7 @@ export class ProviderDescriptionPageComponent implements OnInit {
 
   constructor(private recommandationService: RecommandationService,
               private addressService: AddressService,
-              private authService: AuthServiceMockImplementation) {}
+              private authService: AuthService) {}
 
   ngOnInit(): void {
     this.provider = history.state[0]

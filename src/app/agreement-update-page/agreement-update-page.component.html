@@ -1,0 +1,36 @@
+<app-header></app-header>
+<app-container-name-and-status [user]='user' [provider]='provider'></app-container-name-and-status>
+
+  <div id='containerUpdate'>
+    <div id='firstLine'>
+      <select class='recurrence' name='recurrence' [(ngModel)]='agreement!.recurrence'>
+        <option value='None'>Aucun</option>
+        <option value='Daily'>Quotidien</option>
+        <option value='Weekly'>Hebdromadaire</option>
+        <option value='Monthly'>Mensuel</option>
+      </select>
+      <input class='recurrence' #date (focusout)='setWeeklyDate(date.value.toString())' name='beginningDate' type='date' [value]='agreement!.beginningDate' [(ngModel)]='agreement!.beginningDate'>
+      <input class='recurrence' name='endDate' type='date' [value]='agreement!.endDate' [(ngModel)]='agreement!.endDate'>
+
+    </div>
+
+    <div id='secondLine'>
+
+      <select name='day' class='recurrence' #days (change)='getStartHour(days.value)' [(ngModel)]='day' [value]='day'>
+        <option value=''>Day</option>
+        <option *ngFor='let day of availabilities' value='{{day.day}}'>{{day.day}}</option>
+      </select>
+      <select name='startHour' class='recurrence' #startHour (change)='setMaxDuration(startHour.value)' [(ngModel)]='this.startHourComponent'>
+        <option value=''>Start hour</option>
+        <option *ngFor='let hour of hours' value='{{computeHourDisplay(hour)}}'>{{computeHourDisplay(hour)}}</option>
+      </select>
+      <div class='recurrenceContainer'>
+        <select name='duration' class='recurrence' [(ngModel)]='this.agreement!.duration'>
+          <option>Duration</option>
+          <option *ngFor='let duration of durations' value='{{duration}}'>{{computeHourDisplay(duration)}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <button (click)='send()'>Mettre a jour la proposition</button>
+<app-footer></app-footer>

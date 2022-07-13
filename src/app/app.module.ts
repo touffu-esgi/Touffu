@@ -49,15 +49,20 @@ import { ConversationComponent } from './message-page/conversation/conversation.
 import { MessageComponent } from './message-page/conversation/message/message.component';
 import { MessageInputComponent } from './message-page/conversation/message-input/message-input.component';
 import { SendMessageButtonComponent } from './message-page/conversation/send-message-button/send-message-button.component';
-import { HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import {ProviderService} from "./services/provider/provider.service";
 import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-service-provider.component";
 import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
 import {HomeComponent} from "./homePage/home/home.component";
-import {RouterModule, Routes} from "@angular/router";
 import { RecipientSignUpComponent } from './recipient-sign-up/recipient-sign-up.component';
-import { ConnectionPageComponent } from './connection-page/connection-page.component';
+import { AgreementPageComponent } from './agreement-page/agreement-page.component';
+import { NameAndStatusComponent } from './agreement-page/container-name-and-status/name-and-status/name-and-status.component';
+import { ContainerNameAndStatusComponent } from './agreement-page/container-name-and-status/container-name-and-status.component';
+import { SelectRecurencyComponent } from './agreement-page/select-recurency/select-recurency.component';
+import { StartDateComponent } from './agreement-page/start-date/start-date.component';
 import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
+import { ConnectionPageComponent } from './connection-page/connection-page.component';
 import { ReportProviderComponent } from './report-provider/report-provider.component';
 import { ReportProviderCardTitleContainerComponent } from './report-provider/report-provider-card-title-container/report-provider-card-title-container.component';
 import { ReportProviderCardDetailsContainerComponent } from './report-provider/report-provider-card-details-container/report-provider-card-details-container.component';
@@ -68,7 +73,15 @@ import { ProviderProfileComponent } from './provider-profile/provider-profile.co
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
 import { PaidBillComponent } from './paid-bill/paid-bill.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { ListAgreementComponent } from './list-agreement/list-agreement.component';
+import { AgreementDetailComponent } from './agreement-detail/agreement-detail.component';
+import { AgreementUpdatePageComponent } from './agreement-update-page/agreement-update-page.component';
+import { ListAnimalPageComponent } from './list-animal-page/list-animal-page.component';
+import { AnimalCardComponent } from './list-animal-page/animal-card/animal-card.component';
+import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
+import { PersonalRecipientInformationComponent } from './recipient-profile/personal-recipient-information/personal-recipient-information.component';
 import { ProviderSignUpComponent } from './provider-sign-up/provider-sign-up.component';
+
 
 
 
@@ -127,6 +140,17 @@ import { ProviderSignUpComponent } from './provider-sign-up/provider-sign-up.com
     FindServiceProviderComponent,
     RecipientSignUpComponent,
     ConnectionPageComponent,
+    ListAnimalPageComponent,
+    AnimalCardComponent,
+    AddAnimalPageComponent,
+    AgreementPageComponent,
+    NameAndStatusComponent,
+    ContainerNameAndStatusComponent,
+    SelectRecurencyComponent,
+    StartDateComponent,
+    ListAgreementComponent,
+    AgreementDetailComponent,
+    AgreementUpdatePageComponent,
     ReportProviderComponent,
     ReportProviderCardTitleContainerComponent,
     ReportProviderCardDetailsContainerComponent,
@@ -137,6 +161,7 @@ import { ProviderSignUpComponent } from './provider-sign-up/provider-sign-up.com
     RecipientProfileComponent,
     PaidBillComponent,
     PaymentPageComponent,
+    PersonalRecipientInformationComponent,
     ProviderSignUpComponent,
   ],
   imports: [
@@ -144,6 +169,9 @@ import { ProviderSignUpComponent } from './provider-sign-up/provider-sign-up.com
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyCyUVFfH-E8Hy3R60mIpzslNkEDuUlaV9s"
+    }),
   ],
   providers: [ProviderService],
   bootstrap: [AppComponent]

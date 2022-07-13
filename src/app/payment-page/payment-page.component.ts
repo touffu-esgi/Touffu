@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
 import { BillService } from '../services/bill/bill.service';
 import { Bill } from '../domaine/bill/bill';
 import { Card } from '../domaine/card/card';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-payment-page',
@@ -15,7 +15,7 @@ export class PaymentPageComponent implements OnInit {
   card: Card = new Card('', '', '', '', '')
   reportSendOk: boolean | null = null;
   errorMsg: string = "";
-  constructor(private router: Router, private route: ActivatedRoute, private authService: AuthServiceMockImplementation, private billService: BillService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private authService: AuthService, private billService: BillService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(param => {
@@ -50,8 +50,7 @@ export class PaymentPageComponent implements OnInit {
   }
 
   updateBill() {
-    this.billService.PayABill(this.bill!.id!).subscribe(value => {
-      console.log(value);}, (e) => {
+    this.billService.PayABill(this.bill!.id!).subscribe(value => {}, (e) => {
       if (e.error.message) this.errorMsg = e.error.message
       this.reportSendOk = false;
     }, () => {

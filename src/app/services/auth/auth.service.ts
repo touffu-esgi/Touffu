@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthServiceMockImplementation implements authServiceInterface{
+export class AuthService implements authServiceInterface{
 
   public user?: User;
 

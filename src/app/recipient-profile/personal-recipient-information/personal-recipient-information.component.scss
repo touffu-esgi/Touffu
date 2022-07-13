@@ -1,0 +1,78 @@
+form{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 25px;
+  div{
+    display: flex;
+    flex-direction: column;
+
+  }
+}
+
+#mainContainerInformation{
+  box-sizing: border-box;
+  width: 65vw ;
+  height: 10vh;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+input{
+  border: unset;
+  outline: unset;
+  appearance: unset;
+  font-weight: bold;
+  background-color: transparent;
+  height: 50px;
+  display: inline-block;
+}
+
+#modifyButton{
+  width: 125px;
+  background-color: #FBC95C;
+  border-color: transparent;
+  height: 50px;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#modifyButton:hover{
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.10);
+  cursor: pointer;
+}
+
+.alertMsg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 330px;
+  height: 50px;
+  border-radius: 15px;
+
+}
+
+#errorMsg {
+  background: rgba(255, 0, 0, 0.1);
+  color: rgba(255, 0, 0, 0.5);
+  border: 2px rgba(255, 0, 0, 0.5) solid;
+}
+
+#successMsg {
+  background: rgba(35,180,27, 0.1);
+  color: rgba(35,180,27, 0.5);
+  border: 2px rgba(35,180,27, 0.5) solid;
+}
+
+#messageContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+}
