@@ -3,6 +3,7 @@ import {MessageService} from "../services/messages/message.service";
 import {Conversation} from "../domaine/message/conversation";
 import {Message} from "../domaine/message/message";
 import { AuthServiceMockImplementation } from '../services/auth/auth.service.mock.implementation';
+import { HttpUtils } from '../utils/http.utils';
 
 @Component({
   selector: 'app-message-page',
@@ -17,7 +18,7 @@ export class MessagePageComponent implements OnInit {
   public id_sender: string = "";
   public sender: string = "";
 
-  constructor(private messageService: MessageService, private authService: AuthServiceMockImplementation) { }
+  constructor(private messageService: MessageService, private httpUtils: HttpUtils, private authService: AuthServiceMockImplementation) { }
 
   ngOnInit(): void {
     this.getConversations();
@@ -35,7 +36,7 @@ export class MessagePageComponent implements OnInit {
   }
 
   private createNewConversation() {
-    this.conversations!.push(new Conversation(`http://localhost:3000/message/${this.id_sender}/${this.id_reciver}`,"","",[]))
+    this.conversations!.push(new Conversation(`${this.httpUtils.fullUrl()}/message/${this.id_sender}/${this.id_reciver}`,"","",[]))
   }
 
   displayMessages(messages: [Message[], string, string, string]) {

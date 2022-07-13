@@ -21,8 +21,8 @@ export class ConversationsListComponent implements OnInit {
   displayMessages(conversation: string, sender: string) {
     this.messagesSubscription = this.messageService.getMessages(conversation).subscribe(messages =>{
       messages.forEach(message => {
-        message.senderId = message.senderId.split("/")[4]
-        message.recipientId = message.recipientId.split("/")[4]
+        message.senderId = message.senderId.split("/").pop()!
+        message.recipientId = message.recipientId.split("/").pop()!
       })
       const messagesAndReciver: [Message[], string, string, string] = [messages, conversation.split("/")[5], conversation.split("/")[4], sender]
       this.onMessagePicked.emit(messagesAndReciver);
