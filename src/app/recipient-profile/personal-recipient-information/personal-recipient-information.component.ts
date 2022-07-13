@@ -33,7 +33,7 @@ export class PersonalRecipientInformationComponent implements OnInit {
         this.recipient = recipient;
       })
     }else{
-      //this.router.navigate(["/"])
+      this.router.navigate(["/"])
     }
   }
 
