@@ -42,7 +42,6 @@ import { ProviderDescriptionRecommendationsCardAuthorContainerComponent } from '
 import { ProviderDescriptionRecommendationsCardContentComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-content/provider-description-recommendations-card-content.component';
 import { ProviderDescriptionRecommendationsCardAuthorNameComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-name/provider-description-recommendations-card-author-name.component';
 import { ProviderDescriptionRecommendationsCardAuthorImageComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-image/provider-description-recommendations-card-author-image.component';
-import { MessagePageComponent } from './message-page/message-page.component';
 import { ConversationsListComponent } from './message-page/conversations-list/conversations-list.component';
 import { ConversationCardComponent } from './message-page/conversations-list/conversation-card/conversation-card.component';
 import { ConversationComponent } from './message-page/conversation/conversation.component';
@@ -86,6 +85,7 @@ import { ListAnimalPageComponent } from './list-animal-page/list-animal-page.com
 import { AnimalCardComponent } from './list-animal-page/animal-card/animal-card.component';
 import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
 import { AgmCoreModule } from '@agm/core';
+import {MessagePageComponent} from "./message-page/message-page.component";
 
 
 
@@ -134,10 +134,10 @@ import { AgmCoreModule } from '@agm/core';
     ProviderDescriptionRecommendationsCardAuthorNameComponent,
     ProviderDescriptionRecommendationsCardAuthorImageComponent,
     MessagePageComponent,
+    MessageComponent,
     ConversationsListComponent,
     ConversationCardComponent,
     ConversationComponent,
-    MessageComponent,
     MessageInputComponent,
     SendMessageButtonComponent,
     HomeComponent,
