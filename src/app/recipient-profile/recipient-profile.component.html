@@ -1,34 +1,41 @@
 <app-header></app-header>
 
+<div id='body'>
+  <h2>Mes animaux</h2>
+  <app-list-animal-page></app-list-animal-page>
 
-<div id='billParentContainer'>
-  <div id='cardContainer'>
-    <div id='cardBill' *ngFor='let bill of bills'>
-      <div>
-        <img *ngIf='bill.datePaid' src='assets/paid.png'>
-        <button id='paid' *ngIf='!bill.datePaid' routerLink='/bill-payment' [queryParams]='{"id" : bill.id!}'>Payer</button>
-      </div>
-      <div id='dateBill' class='field'>
-        <img src='assets/calendar.png' alt=''>
-        <p>{{bill.dateBill}}</p>
-      </div>
-      <div id='hand'  class='field'>
-        <img src='assets/hand.png' alt=''>
-        <p>{{bill.total}} €</p>
-      </div>
-      <div id='contract' class='field'>
-        <img src='assets/contract.png' alt=''>
-        <p>{{bill.agreementRef}}</p>
-      </div>
-      <div id='file' class='field'>
-        <img src='assets/file.png' alt=''>
+  <h2>Mes factures</h2>
+  <div id='billParentContainer'>
+    <div id='cardContainer'>
+      <div id='cardBill' *ngFor='let bill of bills'>
+        <div>
+          <img *ngIf='bill.datePaid' src='assets/paid.png'>
+          <button id='paid' *ngIf='!bill.datePaid' routerLink='/bill-payment' [queryParams]='{"id" : bill.id!}'>Payer</button>
+        </div>
+        <div id='dateBill' class='field'>
+          <img src='assets/calendar.png' alt=''>
+          <p>{{bill.dateBill}}</p>
+        </div>
+        <div id='hand'  class='field'>
+          <img src='assets/hand.png' alt=''>
+          <p>{{bill.total}} €</p>
+        </div>
+        <div id='contract' class='field'>
+          <img src='assets/contract.png' alt=''>
+          <p>{{bill.agreementRef}}</p>
+        </div>
+        <div id='file' class='field'>
+          <img src='assets/file.png' alt=''>
+        </div>
       </div>
     </div>
+
+    <div class='cardBill' *ngIf='message'><span>{{message}}</span></div>
   </div>
-
-
+  <h2>Mes Informations</h2>
+  <div id='informationContainer'>
+    <app-personal-recipient-information></app-personal-recipient-information>
+  </div>
 </div>
-
-
 <app-footer></app-footer>
 <router-outlet></router-outlet>

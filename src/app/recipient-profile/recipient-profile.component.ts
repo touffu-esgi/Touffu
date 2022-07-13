@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Bill } from '../domaine/bill/bill';
-import { ProviderData } from '../domaine/providerData';
 import { BillService } from '../services/bill/bill.service';
 import { AuthService } from '../services/auth/auth.service';
-import { ProviderService } from '../services/provider/provider.service';
+import { RecipientService } from '../services/recipient/recipient.service';
+import { Recipient } from '../domaine/recipient/recipient';
+import { Router } from '@angular/router';
+import {ProviderData} from "../domaine/providerData";
 
 @Component({
   selector: 'app-recipient-profile',
@@ -14,6 +16,7 @@ export class RecipientProfileComponent implements OnInit {
 
   bills: Bill[] = []
   provider?: ProviderData;
+  message: string | null = 'Aucune facture';
   constructor(
     private billService: BillService,
     private authService: AuthService,
@@ -24,12 +27,14 @@ export class RecipientProfileComponent implements OnInit {
   }
 
   private getBills(){
-    if (this.authService.user?.id) {
-      this.billService.getRecipientBills(this.authService.user?.id).subscribe(bills => {
+    if (this.authService.user?.userReference) {
+      this.billService.getRecipientBills(this.authService.user?.userReference).subscribe(bills => {
         this.bills = bills;
         this.bills.forEach(bill => {
           bill.dateBill = bill.dateBill.split('T')[0]
         })
+      }, error => {
+        this.message = 'Aucune facture'
       })
     }
   }

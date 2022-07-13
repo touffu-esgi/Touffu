@@ -13,6 +13,7 @@ import {AddressService} from "../services/address/address.service";
 export class RecipientSignUpComponent implements OnInit {
 
   public newRecipient: Recipient = new Recipient({
+    id: "",
     address: new Address({addr1: "", city: "", country: "", id: "", zipcode: ""}),
     email: "",
     name: "",
@@ -27,8 +28,8 @@ export class RecipientSignUpComponent implements OnInit {
   }
 
   onFormSubmit(): void {
-    this.addressService.addAddress(this.newRecipient!.address!).subscribe(addressUrl => {
-      this.newRecipient!.address!.id = addressUrl.url.split("/")[4];
+    this.addressService.addAddress(this.newRecipient.address!).subscribe(addressUrl => {
+      this.newRecipient.address!.id = addressUrl.url.split("/").pop()!;
       this.recipientService.signUp(this.newRecipient).subscribe();
     })
   }

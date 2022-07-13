@@ -36,13 +36,13 @@ export class ProviderDetailPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.providerService.getOneProviders(this.authService.user!.userReference!.split("/")[4]).subscribe(provider => {
+    this.providerService.getOneProviders(this.authService.user!.userReference!.split("/").pop()!).subscribe(provider => {
       this.provider = provider;
       this.providerService.getAgreementOfOneProvider(provider.id).subscribe(agreement => {
         this.agreements = agreement;
       })
     }, error => {
-      console.log("ptdr t ki ?");
+      this.router.navigate(["/search-page"])
     });
 
   }

@@ -58,7 +58,7 @@ export class AgreementPageComponent implements OnInit {
     this.user = this.authService.user;
     this.activeRoute.queryParams.subscribe(params => {
       if (params["id"]){
-        this.animalService.getAnimalsByRecipientId(this.user!.id!).subscribe(animals => {
+        this.animalService.getAnimalsByRecipientId(this.user!.userReference!.split("/")[4]).subscribe(animals => {
           this.recipientAnimal = animals;
         })
         this.providerService.getOneProviders(params["id"]).subscribe(provider => {
