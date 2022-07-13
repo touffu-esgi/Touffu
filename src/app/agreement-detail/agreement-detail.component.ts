@@ -34,7 +34,7 @@ export class AgreementDetailComponent implements OnInit {
   private getAgreement() {
     this.activeRoute.queryParams.subscribe(params => {
       if (params["agreementId"]){
-        this.agreementService.getAgreementByAgreementAndRecipientId(params["agreementId"], this.authService.user!.id!).subscribe(agreement => {
+        this.agreementService.getAgreementByAgreementAndRecipientId(params["agreementId"], this.authService.user!.userReference!.split("/")[4]).subscribe(agreement => {
           this.agreement = agreement[0];
           this.getProvider(this.agreement.providerRef)
           this.getPosition(params["agreementId"]);
@@ -51,7 +51,6 @@ export class AgreementDetailComponent implements OnInit {
   }
 
   private getPosition(agreementId: string) {
-
     this.positionService.getLastPosition(agreementId).subscribe(position => {
       this.lat = position.xCoordinate;
       this.lng = position.yCoordinate;

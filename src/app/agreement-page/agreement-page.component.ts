@@ -4,12 +4,14 @@ import { Agreement } from '../domaine/agreement/agreement';
 import { AgreementService } from '../services/agreement/agreement.service';
 import { Subscription } from 'rxjs';
 import { User } from '../domaine/user/user';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProviderService } from '../services/provider/provider.service';
 import { ProviderData } from '../domaine/providerData';
 import { MessageService } from '../services/messages/message.service';
 import {AvailabilityService} from "../services/availability/availability.service";
 import {AuthService} from "../services/auth/auth.service";
+import { Animal } from '../homePage/animal/animal';
+import { AnimalService } from '../services/animal/animal.service';
 
 @Component({
   selector: 'app-agreement-page',
@@ -35,6 +37,7 @@ export class AgreementPageComponent implements OnInit {
     remuneration: 1
   });
 
+  recipientAnimal?: Animal[];
   user?: User;
 
   private addAgreementSubscribe?: Subscription;
@@ -47,16 +50,23 @@ export class AgreementPageComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private messageService: MessageService,
     private availabilityService: AvailabilityService,
+    private animalService: AnimalService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
     this.user = this.authService.user;
     this.activeRoute.queryParams.subscribe(params => {
       if (params["id"]){
+        this.animalService.getAnimalsByRecipientId(this.user!.userReference!.split("/")[4]).subscribe(animals => {
+          this.recipientAnimal = animals;
+        })
         this.providerService.getOneProviders(params["id"]).subscribe(provider => {
           this.provider = provider;
           this.agreements.providerRef = provider.id
         });
+      }else{
+        this.router.navigate(['/'])
       }
     })
   }
@@ -123,5 +133,10 @@ export class AgreementPageComponent implements OnInit {
 
   ngDestroy() {
     this.addAgreementSubscribe!.unsubscribe()
+  }
+
+  formatAnimalsRef() {
+    // @ts-ignore
+    this.agreements.animalsRefs = [this.agreements.animalsRefs]
   }
 }

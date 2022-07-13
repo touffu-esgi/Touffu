@@ -30,4 +30,8 @@ export class AgreementService{
     const body = JSON.stringify(agreement);
     return this.http.put(`${this.httpUtils.fullUrl()}/agreement/${agreement!.id}`, body, {headers: {'Content-Type': 'application/json'}});
   }
+
+  getAgreementByProviderId(providerId: string) {
+    return this.http.get<Agreement[]>(`${this.httpUtils.fullUrl()}/agreement?providerRef=${providerId}`);
+  }
 }

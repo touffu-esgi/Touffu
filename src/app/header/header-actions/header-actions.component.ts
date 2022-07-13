@@ -9,6 +9,7 @@ import { AuthService } from '../../services/auth/auth.service';
 export class HeaderActionsComponent implements OnInit {
   @Input() userId: string | null = null;
   @Input() userEmail: string | null = null;
+  @Input() userType: string | null = null;
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -18,5 +19,6 @@ export class HeaderActionsComponent implements OnInit {
     this.authService.signOut();
     this.userId = null;
     this.userEmail = null;
+    this.userType = null;
   }
 }

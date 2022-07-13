@@ -6,6 +6,14 @@
   flex-wrap: wrap;
 }
 
+.line{
+  display: flex;
+  gap: 65px;
+  margin-left: 161px;
+  margin-top: 80px;
+  flex-wrap: wrap;
+}
+
 input:focus{
   outline: transparent;
 }

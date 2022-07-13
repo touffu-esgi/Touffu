@@ -8,6 +8,8 @@ import { User } from '../domaine/user/user';
 import { Availability } from '../domaine/availability/availability';
 import { AvailabilityService } from '../services/availability/availability.service';
 import {AuthService} from "../services/auth/auth.service";
+import { Animal } from '../homePage/animal/animal';
+import { AnimalService } from '../services/animal/animal.service';
 
 
 
@@ -24,6 +26,7 @@ export class AgreementUpdatePageComponent implements OnInit {
     private agreementService: AgreementService,
     private providerService: ProviderService,
     private activatedRoute: ActivatedRoute,
+    private animalService: AnimalService,
     private availabilityService: AvailabilityService
   ){}
 
@@ -36,18 +39,22 @@ export class AgreementUpdatePageComponent implements OnInit {
   provider?: ProviderData;
   user?: User;
   day?: number | string;
+  animals: Animal[] = [];
+
+  recipientAnimal?: Animal[];
 
   ngOnInit(): void {
     this.user = this.authService.user;
     this.activatedRoute.queryParams.subscribe(params => {
-      if (params["agreementId"]){
-        this.getAgreement(params["agreementId"]);
+      if (params["agreementId"] && params["recipientId"]){
+        this.getAgreement(params["agreementId"], params["recipientId"]);
+
       }
     })
   }
 
-  private getAgreement(agreementId: string) {
-    this.agreementService.getAgreementByAgreementAndRecipientId(agreementId, this.user!.id!).subscribe(agreement => {
+  private getAgreement(agreementId: string, recipientId: string) {
+    this.agreementService.getAgreementByAgreementAndRecipientId(agreementId, recipientId).subscribe(agreement => {
       this.agreement = agreement[0];
       this.agreement.duration = this.agreement.duration / 60;
       this.startHourComponent = this.agreement.beginningDate.split("T")[1].split(".")[0].substr(0,5)
@@ -57,6 +64,7 @@ export class AgreementUpdatePageComponent implements OnInit {
       this.providerService.getOneProviderByUrl(agreement[0].providerRef).subscribe(provider => {
         this.provider = provider;
         this.setWeeklyDate(this.agreement!.beginningDate!);
+        this.getAnimals();
       });
     });
   }
@@ -65,8 +73,8 @@ export class AgreementUpdatePageComponent implements OnInit {
   setWeeklyDate(date: string) {
     this.availabilityService.getWeeklyAvailability(this.provider!.id!, date).subscribe(weeklyAvailability => {
       this.availabilities = weeklyAvailability;
-      this.day = "MONDAY"
-      this.getStartHour(this.day);
+      const beginningDayString = this.availabilityService.getDayFromDate(new Date(this.agreement!.beginningDate))
+      this.getStartHour(beginningDayString)
       this.setMaxDuration(this.startHourComponent!)
     });
   }
@@ -102,8 +110,6 @@ export class AgreementUpdatePageComponent implements OnInit {
         }
       }
     })
-
-
   }
 
   setRecurrence(recurrence: string) {
@@ -119,5 +125,26 @@ export class AgreementUpdatePageComponent implements OnInit {
   send() {
     this.concatHourWithBeginningDate(this.startHourComponent!)
     this.agreementService.update(this.agreement!).subscribe()
+  }
+
+  formatAnimalsRef() {
+    // @ts-ignore
+    this.agreement!.animals.pop();
+    // @ts-ignore
+    this.agreement.animals.push(this.agreement?.animalsRefs)
+  }
+
+  private getAnimals() {
+    if(this.authService.user?.userType == "recipient"){
+      this.animalService.getAnimalsByRecipientId(this.user!.userReference!.split("/")[4]).subscribe(animals => {
+        this.recipientAnimal = animals;
+      })
+    }else{
+      // @ts-ignore
+      this.animalService.getAnimalsByUrl(this.agreement!.animals[0]).subscribe(animal => {
+        this.animals.push(animal)
+
+      })
+    }
   }
 }

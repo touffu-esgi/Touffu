@@ -101,11 +101,13 @@
             "styles": [
               "src/styles.scss"
             ],
+
             "scripts": []
           }
         }
       }
     }
   },
+
   "defaultProject": "touffu"
 }

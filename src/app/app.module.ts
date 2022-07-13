@@ -42,7 +42,6 @@ import { ProviderDescriptionRecommendationsCardAuthorContainerComponent } from '
 import { ProviderDescriptionRecommendationsCardContentComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-content/provider-description-recommendations-card-content.component';
 import { ProviderDescriptionRecommendationsCardAuthorNameComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-name/provider-description-recommendations-card-author-name.component';
 import { ProviderDescriptionRecommendationsCardAuthorImageComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-image/provider-description-recommendations-card-author-image.component';
-import { MessagePageComponent } from './message-page/message-page.component';
 import { ConversationsListComponent } from './message-page/conversations-list/conversations-list.component';
 import { ConversationCardComponent } from './message-page/conversations-list/conversation-card/conversation-card.component';
 import { ConversationComponent } from './message-page/conversation/conversation.component';
@@ -59,15 +58,34 @@ import { NameAndStatusComponent } from './agreement-page/container-name-and-stat
 import { ContainerNameAndStatusComponent } from './agreement-page/container-name-and-status/container-name-and-status.component';
 import { SelectRecurencyComponent } from './agreement-page/select-recurency/select-recurency.component';
 import { StartDateComponent } from './agreement-page/start-date/start-date.component';
-import { FormsModule } from '@angular/forms';
-import { AgmCoreModule } from '@agm/core';
+
+
+import { RecipientSignUpComponent } from './recipient-sign-up/recipient-sign-up.component';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
+import { FormsModule } from '@angular/forms';
+import { ReportProviderComponent } from './report-provider/report-provider.component';
+import { ReportProviderCardTitleContainerComponent } from './report-provider/report-provider-card-title-container/report-provider-card-title-container.component';
+import { ReportProviderCardDetailsContainerComponent } from './report-provider/report-provider-card-details-container/report-provider-card-details-container.component';
+import { ReportProviderCardCommentContainerComponent } from './report-provider/report-provider-card-comment-container/report-provider-card-comment-container.component';
+import { ReportProviderButtonSendComponent } from './report-provider/report-provider-button-send/report-provider-button-send.component';
+import { ProviderDescriptionTitleReportImageComponent } from './provider-description-page/provider-description-title-container/provider-description-title-report-image/provider-description-title-report-image.component';
+import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
+import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
+import { PaidBillComponent } from './feature/paid-bill/paid-bill.component';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { ListAgreementComponent } from './list-agreement/list-agreement.component';
 import { AgreementDetailComponent } from './agreement-detail/agreement-detail.component';
 import { AgreementUpdatePageComponent } from './agreement-update-page/agreement-update-page.component';
+import { ProviderDetailPageComponent } from './provider-detail-page/provider-detail-page.component';
+import { AgreementCardComponent } from './provider-detail-page/agreement-card/agreement-card.component';
+import {
+  AgreementDetailComponentProvider
+} from './provider-detail-page/agreement-detail/agreement-detail-component-provider.component';
 import { ListAnimalPageComponent } from './list-animal-page/list-animal-page.component';
 import { AnimalCardComponent } from './list-animal-page/animal-card/animal-card.component';
 import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
+import { AgmCoreModule } from '@agm/core';
+import {MessagePageComponent} from "./message-page/message-page.component";
 
 
 
@@ -116,15 +134,16 @@ import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.compon
     ProviderDescriptionRecommendationsCardAuthorNameComponent,
     ProviderDescriptionRecommendationsCardAuthorImageComponent,
     MessagePageComponent,
+    MessageComponent,
     ConversationsListComponent,
     ConversationCardComponent,
     ConversationComponent,
-    MessageComponent,
     MessageInputComponent,
     SendMessageButtonComponent,
     HomeComponent,
     DescriptifIndexComponent,
     FindServiceProviderComponent,
+    RecipientSignUpComponent,
     ConnectionPageComponent,
     ListAnimalPageComponent,
     AnimalCardComponent,
@@ -137,6 +156,19 @@ import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.compon
     ListAgreementComponent,
     AgreementDetailComponent,
     AgreementUpdatePageComponent,
+    ProviderDetailPageComponent,
+    AgreementCardComponent,
+    AgreementDetailComponentProvider,
+    ReportProviderComponent,
+    ReportProviderCardTitleContainerComponent,
+    ReportProviderCardDetailsContainerComponent,
+    ReportProviderCardCommentContainerComponent,
+    ReportProviderButtonSendComponent,
+    ProviderDescriptionTitleReportImageComponent,
+    ProviderProfileComponent,
+    RecipientProfileComponent,
+    PaidBillComponent,
+    PaymentPageComponent,
   ],
   imports: [
     BrowserModule,
