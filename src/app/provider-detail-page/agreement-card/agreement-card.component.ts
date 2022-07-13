@@ -22,8 +22,8 @@ export class AgreementCardComponent implements OnInit {
   constructor(private providerService: ProviderService) { }
 
   ngOnInit(): void {
-    // @ts-ignore
-    this.providerService.getOneByUrl(this.agreement!.recipient).subscribe(recipient => {
+    console.log(this.agreement);
+    this.providerService.getOneByUrl(this.agreement!.recipientRef).subscribe(recipient => {
       // @ts-ignore
       this.recipient = recipient;
     })
