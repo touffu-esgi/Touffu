@@ -6,7 +6,7 @@ export class ProviderData {
   surname: string;
   email: string;
   password: string;
-  phone?: string;
+  phoneNumber?: string;
   address: string;
   base_tariff: number;
   radius: number;
@@ -20,7 +20,7 @@ export class ProviderData {
     this.surname = providerProps.surname;
     this.email = providerProps.email;
     this.password = providerProps.password;
-    this.phone = providerProps.phone ? providerProps.phone : '';
+    this.phoneNumber = providerProps.phone ? providerProps.phone : '';
     this.address = providerProps.address;
     this.base_tariff = providerProps.base_tariff;
     this.radius = providerProps.radius;

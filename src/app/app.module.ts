@@ -81,6 +81,7 @@ import { AnimalCardComponent } from './list-animal-page/animal-card/animal-card.
 import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
 import { PersonalRecipientInformationComponent } from './recipient-profile/personal-recipient-information/personal-recipient-information.component';
 import { ProviderSignUpComponent } from './provider-sign-up/provider-sign-up.component';
+import { PersonalProviderComponentComponent } from './provider-profile/personal-provider-component/personal-provider-component.component';
 
 
 
@@ -163,6 +164,7 @@ import { ProviderSignUpComponent } from './provider-sign-up/provider-sign-up.com
     PaymentPageComponent,
     PersonalRecipientInformationComponent,
     ProviderSignUpComponent,
+    PersonalProviderComponentComponent,
   ],
   imports: [
     BrowserModule,

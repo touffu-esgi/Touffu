@@ -1,0 +1,30 @@
+<div id='mainContainerInformation'>
+  <form (submit)='updateInformation()' novalidate #informationForm="ngForm">
+    <div>
+      <label>prénom</label>
+      <input type='text' id='name' minlength='1' required name='name' value='{{provider?.name}}' [(ngModel)]='provider!.name'>
+    </div>
+    <div>
+      <label>Nom</label>
+      <input type='text' id='surname' minlength='1' required name='surnmae' value='{{provider?.surname}}' [(ngModel)]='provider!.surname'>
+    </div>
+    <div>
+      <label>email</label>
+      <input type='text' id='email' minlength='1' required name='email' value='{{provider?.email}}' [(ngModel)]='provider!.email'>
+    </div>
+    <div>
+      <label>phoneNumber</label>
+      <input type='text' id='phoneNumber' minlength='1' pattern='[0-9]{10}' required name='phoneNumber' value='{{provider?.phoneNumber}}' [(ngModel)]='provider!.phoneNumber'>
+    </div>
+    <button id='modifyButton' [hidden]='informationForm.invalid' type='submit'>Mettre à jour</button>
+  </form>
+</div>
+<div id='messageContainer'>
+  <div class="alertMsg" id="errorMsg" *ngIf="this.reportSendOk === false">
+    <p>{{this.message}}</p>
+  </div>
+  <div class="alertMsg" id="successMsg" *ngIf="this.reportSendOk === true">
+    <p>{{this.message}}</p>
+  </div>
+</div>
+
