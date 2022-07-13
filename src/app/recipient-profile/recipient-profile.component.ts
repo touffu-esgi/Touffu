@@ -14,6 +14,7 @@ export class RecipientProfileComponent implements OnInit {
 
   bills: Bill[] = []
   provider?: ProviderData;
+  message: string | null = 'Aucune facture';
   constructor(
     private billService: BillService,
     private authService: AuthService,
@@ -31,7 +32,7 @@ export class RecipientProfileComponent implements OnInit {
           bill.dateBill = bill.dateBill.split('T')[0]
         })
       }, error => {
-        console.log(error);
+        this.message = 'Aucune facture'
       })
     }
   }

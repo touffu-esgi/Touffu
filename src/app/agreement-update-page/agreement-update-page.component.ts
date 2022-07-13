@@ -56,7 +56,6 @@ export class AgreementUpdatePageComponent implements OnInit {
   private getAgreement(agreementId: string, recipientId: string) {
     this.agreementService.getAgreementByAgreementAndRecipientId(agreementId, recipientId).subscribe(agreement => {
       this.agreement = agreement[0];
-      console.log(this.agreement);
       this.agreement.duration = this.agreement.duration / 60;
       this.startHourComponent = this.agreement.beginningDate.split("T")[1].split(".")[0].substr(0,5)
       this.agreement.endDate = this.agreement.endDate.split("T")[0];

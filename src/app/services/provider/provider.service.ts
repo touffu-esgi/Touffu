@@ -16,7 +16,7 @@ export class ProviderService {
   }
 
   getOneProviders(providerId: string): Observable<ProviderData>{
-    return this.http.get<ProviderData>(`http://localhost:3000/provider/${providerId}`);
+    return this.http.get<ProviderData>(`${this.httpUtils.fullUrl()}/provider/${providerId}`);
   }
 
   getOneProviderByUrl(url: string): Observable<ProviderData> {
@@ -28,6 +28,6 @@ export class ProviderService {
   }
 
   getAgreementOfOneProvider(providerId: string): Observable<Agreement[]>{
-    return this.http.get<Agreement[]>(`http://localhost:3000/agreement?providerRef=${providerId}`, {headers: {'Content': 'application/json'}})
+    return this.http.get<Agreement[]>(`${this.httpUtils.fullUrl()}/agreement?providerRef=${providerId}`, {headers: {'Content': 'application/json'}})
   }
 }
