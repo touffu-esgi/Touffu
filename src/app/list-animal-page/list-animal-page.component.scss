@@ -1,15 +1,17 @@
 #animals{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   column-gap: 150px;
   row-gap: 25px;
+  width: 60vw ;
+  margin: auto;
 }
 
 button{
-  width: 375px;
-  height: 185px;
+  width: 300px;
+  height: 120px;
   background-color: #FBC95C;
   border: none;
   border-radius: 15px;

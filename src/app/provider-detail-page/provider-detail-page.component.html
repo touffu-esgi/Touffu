@@ -1,7 +1,5 @@
-<app-header></app-header>
 
 <div id="mainContainerProvider">
-  <app-provider-description-card-details-container [base_tarif]='provider!.base_tariff' [name]='provider!.name' [id]='provider!.id' ></app-provider-description-card-details-container>
   <div id="containerDetailAgreement">
     <h1>Contrats</h1>
     <div id="contractList" *ngFor="let agreement of agreements" [hidden]="!this.displayList">
@@ -11,10 +9,7 @@
       <app-agreement-detail-provider (backToList)="this.displayList = true" [agreement]="agreementToDisplay"></app-agreement-detail-provider>
     </div>
   </div>
-
-
 </div>
 
 
 
-<app-footer></app-footer>

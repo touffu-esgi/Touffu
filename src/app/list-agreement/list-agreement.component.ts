@@ -11,11 +11,18 @@ import { AuthService } from '../services/auth/auth.service';
 export class ListAgreementComponent implements OnInit {
 
   constructor(private agreementService: AgreementService, private authService: AuthService) { }
-  recipientAgreements?: Agreement[];
+  Agreements?: Agreement[];
   ngOnInit(): void {
-    this.agreementService.getAgreementByRecipientId(this.authService.user!.id!).subscribe(data => {
-      this.recipientAgreements = data;
-    })
+    if(this.authService.user?.userType == "recipient"){
+      this.agreementService.getAgreementByRecipientId(this.authService.user!.userReference!.split('/')[4]).subscribe(data => {
+        this.Agreements = data;
+      })
+    }else{
+      this.agreementService.getAgreementByProviderId(this.authService.user!.userReference!.split('/')[4]).subscribe(data => {
+        this.Agreements = data;
+      })
+    }
+
   }
 
 }

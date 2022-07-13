@@ -1,8 +1,10 @@
 <div class="myMessageAndImage"
-     [ngClass]="{fromMe: message!.senderId == '1', fromOther: message!.senderId != '1'}"
+     [ngClass]="{fromMe: message!.senderId == user!.id, fromOther: message!.senderId != user!.id}"
 >
   <div id="myMessage">
-    <span class="senderName">Vous</span>
+    <span *ngIf='message!.senderId == user!.id' class="senderName">Vous</span>
+    <span *ngIf='message!.senderId != user!.id' class="senderName">{{sender}}</span>
+
 
     <div class="bubble">
       <span>{{message!.content!}}</span>
