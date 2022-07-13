@@ -13,4 +13,5 @@ export interface ProviderProps {
   readonly profile_title: string;
   readonly profile_desc: string;
   readonly userId: string;
+  readonly animalType: string[];
 }

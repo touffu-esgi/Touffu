@@ -13,6 +13,7 @@ export class ProviderData {
   profile_title: string;
   profile_desc: string;
   userId: string;
+  animalType: string[];
 
   constructor(providerProps: ProviderProps) {
     this.id = providerProps.id;
@@ -27,5 +28,24 @@ export class ProviderData {
     this.profile_title = providerProps.profile_title;
     this.profile_desc = providerProps.profile_desc;
     this.userId = providerProps.userId;
+    this.animalType = providerProps.animalType;
+  }
+
+  public static newEmptyProvider () {
+    return new ProviderData({
+      address: '',
+      base_tariff: 0,
+      email: '',
+      id: '',
+      name: '',
+      password: '',
+      phone: '',
+      profile_desc: '',
+      profile_title: '',
+      radius: 0,
+      surname: '',
+      userId: '',
+      animalType: []
+    })
   }
 }

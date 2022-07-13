@@ -13,6 +13,7 @@ import { AuthService } from '../services/auth/auth.service';
 export class ProviderProfileComponent implements OnInit {
   bills: Bill[] = []
   provider?: ProviderData;
+  allAnimals: string[] = []
   constructor(
     private billService: BillService,
     private authService: AuthService,
@@ -22,6 +23,7 @@ export class ProviderProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getProvider();
     this.getBills();
+    console.log(this.allAnimals)
   }
 
   private getBills() {
@@ -38,6 +40,29 @@ export class ProviderProfileComponent implements OnInit {
   private getProvider() {
     this.providerService.getOneProviderByUrl(this.authService?.user?.userReference!).subscribe(provider => {
       this.provider = provider
+      this.initPossibleAnimals();
     })
+  }
+
+  private initPossibleAnimals() {
+    this.allAnimals = ["chat", "chien", "chameau", "cheval"]
+    this.provider!.animalType.forEach(animal => {
+      const indexOfAnimal = this.allAnimals.indexOf(animal)
+      if (indexOfAnimal !== -1) this.allAnimals.splice(indexOfAnimal, 1)
+      console.log(animal, indexOfAnimal)
+    })
+  }
+
+  unsetAnimal(animal: string) {
+    const indexOfAnimal = this.provider!.animalType.indexOf(animal)
+    if (indexOfAnimal !== -1) this.provider!.animalType.splice(indexOfAnimal, 1)
+    this.allAnimals.push(animal)
+  }
+
+  setAnimal(animal: string) {
+    const indexOfAnimal = this.allAnimals.indexOf(animal)
+    if (indexOfAnimal !== -1) this.allAnimals.splice(indexOfAnimal, 1)
+    this.provider!.animalType.push(animal)
+    console.log(this.provider?.animalType)
   }
 }

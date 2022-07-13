@@ -12,20 +12,7 @@ import { UserService } from '../../services/user/user.service';
 export class PersonalProviderComponentComponent implements OnInit {
   reportSendOk: boolean | null = null;
   message: string = '';
-  provider: ProviderData = new ProviderData({
-    address: '',
-    base_tariff: 0,
-    email: '',
-    id: '',
-    name: '',
-    password: '',
-    phone: '',
-    profile_desc: '',
-    profile_title: '',
-    radius: 0,
-    surname: '',
-    userId: ''
-  })
+  provider: ProviderData = ProviderData.newEmptyProvider()
 
   constructor(private providerService: ProviderService, private userService: UserService, private authService: AuthService) { }
 

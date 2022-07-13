@@ -2,7 +2,24 @@
 
 
 <div id='billParentContainer'>
-  <app-provider-description-card-details-container [base_tarif]="provider?.base_tariff" [id]="provider?.id" [name]="provider?.name"></app-provider-description-card-details-container>
+  <div>
+    <app-provider-description-card-details-container [base_tarif]="provider?.base_tariff" [id]="provider?.id" [name]="provider?.name"></app-provider-description-card-details-container>
+    <div id='animalSelector'>
+      <h1>Animaux que je promène</h1>
+      <select #addAnimalType (change)='setAnimal(addAnimalType.value)'>
+        <option>Sélectionner</option>
+        <option *ngFor='let possibleAnimal of allAnimals'>
+          {{possibleAnimal}}
+        </option>
+      </select>
+      <ul id='"listOfAnimals'>
+        <li *ngFor='let animal of provider!.animalType'>
+          {{animal}}
+          <button (click)='unsetAnimal(animal)'>X</button>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <div id='cardContainer'>
     <div id='cardBill' *ngFor='let bill of bills'>

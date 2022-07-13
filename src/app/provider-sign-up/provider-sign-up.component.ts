@@ -12,20 +12,7 @@ import { User } from '../domaine/user/user';
   styleUrls: ['./provider-sign-up.component.scss']
 })
 export class ProviderSignUpComponent implements OnInit {
-  newProvider: ProviderData = new ProviderData({
-    address: '',
-    base_tariff: 0,
-    email: '',
-    id: '',
-    name: '',
-    password: '',
-    phone: '',
-    profile_desc: '',
-    profile_title: '',
-    radius: -1,
-    surname: '',
-    userId: ''
-  });
+  newProvider: ProviderData = ProviderData.newEmptyProvider()
   newAddress: Address = new Address({
     addr1: '',
     addr2: '',
