@@ -42,8 +42,9 @@ export class BillService {
     const billdata: [[string, string, string]] = [["", "", ""]]
     const recipientData: [[string, string, string, string]] = [["", "", "", ""]]
     this.getOneBillByProviderId(id, userId).subscribe(bill => {
-      this.recipientService.getOne(bill[0].recipientRef).subscribe(recipient => {
-        billdata.push([bill[0].dateBill, bill[0].onePaymentValue.toString(), bill[0].total.toString()])
+      const currentBill = bill[0];
+      this.recipientService.getOne(currentBill.recipientRef).subscribe(recipient => {
+        billdata.push([currentBill.dateBill, currentBill.onePaymentValue.toString(), currentBill.total.toString()])
         recipientData.push([recipient.name, recipient.surname, recipient.phoneNumber, recipient.email])
         var doc = new jsPDF();
         (doc as any).autoTable({
@@ -57,7 +58,7 @@ export class BillService {
           body: recipientData,
           theme: 'plain'
         })
-        doc.save(`${bill[0].dateBill}-${bill[0].id}.pdf`);
+        doc.save(`${currentBill.dateBill}-${currentBill.id}.pdf`);
       })
     });
   }
