@@ -1,6 +1,6 @@
 #containerAnimalCard{
-  width: 375px;
-  height: 183px;
+  width: 300px;
+  height: 120px;
   border-radius: 15px;
   background-color: #FBC95C;
   align-items: center;
@@ -10,6 +10,19 @@
   font-size: 32px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+}
+
+#animalName{
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+}
+
+#animalType{
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
 }
 
 .isOnWalk {

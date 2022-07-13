@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Bill } from '../domaine/bill/bill';
-import { ProviderData } from '../domaine/providerData';
 import { BillService } from '../services/bill/bill.service';
 import { AuthService } from '../services/auth/auth.service';
-import { ProviderService } from '../services/provider/provider.service';
+import { RecipientService } from '../services/recipient/recipient.service';
+import { Recipient } from '../domaine/recipient/recipient';
+import { Router } from '@angular/router';
+import {ProviderData} from "../domaine/providerData";
 
 @Component({
   selector: 'app-recipient-profile',
