@@ -16,7 +16,6 @@
       <label>Mot de passe</label>
       <input type='password' id='mdp' minlength='1' required name='mdp' value='{{provider?.password}}' [(ngModel)]='provider!.password'>
     </div>
-    <button id='modifyButton' [hidden]='informationForm.invalid' type='submit'>Mettre à jour</button>
   </form>
 </div>
 <div id='animalSelector'>
@@ -35,6 +34,9 @@
       </li>
     </ul>
   </div>
+</div>
+<div id='buttonMajContainer'>
+  <button id='modifyButton' [hidden]='informationForm.invalid' type='submit'>Mettre à jour</button>
 </div>
 
 <div id='messageContainer'>
