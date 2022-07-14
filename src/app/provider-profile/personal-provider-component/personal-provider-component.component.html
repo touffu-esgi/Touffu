@@ -27,12 +27,14 @@
       {{possibleAnimal}}
     </option>
   </select>
-  <ul id='"listOfAnimals'>
-    <li *ngFor='let animal of provider!.animalType'>
-      {{animal}}
-      <button (click)='unsetAnimal(animal)'>X</button>
-    </li>
-  </ul>
+  <div id='containerListOfAnimals'>
+    <ul id='listOfAnimals'>
+      <li *ngFor='let animal of provider!.animalType'>
+        {{animal}}
+        <button (click)='unsetAnimal(animal)'>X</button>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <div id='messageContainer'>

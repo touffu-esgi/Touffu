@@ -98,3 +98,35 @@ select:focus{
   padding-left: 25px;
 
 }
+
+#listOfAnimals{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  gap: 25px;
+  padding-left: 0 !important;
+  li{
+    display: flex;
+    justify-content: space-around;
+
+    button{
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+}
+
+#containerListOfAnimals{
+  width: 227px;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+
+  border: transparent;
+  border-radius: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+
+}
