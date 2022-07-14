@@ -18,10 +18,10 @@
   </div>
 </div>
 <div class='messageContainer'>
-  <div class="alertMsg errorMsg" *ngIf="this.reportSendOk === false">
-    <p>{{this.message}}</p>
+  <div class="alertMsg errorMsg" *ngIf="this.reportAddressOk === false">
+    <p>{{this.messageAddress}}</p>
   </div>
-  <div class="alertMsg successMsg" *ngIf="this.reportSendOk === true">
-    <p>{{this.message}}</p>
+  <div class="alertMsg successMsg" *ngIf="this.reportAddressOk === true">
+    <p>{{this.messageAddress}}</p>
   </div>
 </div>
