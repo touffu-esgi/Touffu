@@ -19,6 +19,7 @@ export class UserCalendarPageComponent extends CalendarComponent {
   calendarDateFrom: Date = new Date();
   calendarDateTo: Date = new Date()
   calendarWeekDates: string[] = []
+  refsToAgreements: {day: string, hour: number, agreementId: string}[] = []
 
   override ngOnInit(): void {
     this.getAgreements();
@@ -51,6 +52,7 @@ export class UserCalendarPageComponent extends CalendarComponent {
     this.calendarDateTo = addToDate(weekStart, 6);
     this.selectedTimeframes = []
     this.calendarWeekDates = []
+    this.refsToAgreements = []
     for (let day = this.calendarDateFrom ; day <= this.calendarDateTo ; day = addToDate(day, 1)) {
       this.calendarWeekDates.push(this.displayDate(day))
       let fittingAgreements = this.getValidAgreementsAtDate(day)
@@ -59,18 +61,21 @@ export class UserCalendarPageComponent extends CalendarComponent {
       )
       fittingAgreements.forEach(agreement =>
         this.pushBlockToTimeframes(
-          new Date(agreement.beginningDate), agreement.duration,
-          this.WEEKDAYS[day.getDay()]
+          new Date(agreement.beginningDate),
+          agreement.duration,
+          this.WEEKDAYS[day.getDay()],
+          agreement.id!
         )
       )
     }
   }
 
-  pushBlockToTimeframes (start: Date, duration: number, day: string) {
+  pushBlockToTimeframes (start: Date, duration: number, day: string, agreementId: string) {
     const startTime = start.getHours() + start.getMinutes() / 60;
     const endTime = startTime + duration / 60;
     for (let time = startTime ; time < endTime ; time += 0.25) {
       this.selectedTimeframes.push(new Timeframe(day, time))
+      this.refsToAgreements.push({day: day, hour: time, agreementId: agreementId})
     }
   }
 
@@ -114,6 +119,12 @@ export class UserCalendarPageComponent extends CalendarComponent {
 
   displayDate(date: Date): string {
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+  }
+
+  goToAgreement(day: string, hour: number): string {
+    const ref = this.refsToAgreements.filter(ref => ref.day === day && ref.hour === hour)
+    if (ref.length > 0) return ref[0].agreementId
+    return ""
   }
 }
 

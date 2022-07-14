@@ -48,7 +48,6 @@ export class AgreementUpdatePageComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       if (params["agreementId"] && params["recipientId"]){
         this.getAgreement(params["agreementId"], params["recipientId"]);
-
       }
     })
   }

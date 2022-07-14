@@ -34,7 +34,10 @@ export class AgreementDetailComponent implements OnInit {
   private getAgreement() {
     this.activeRoute.queryParams.subscribe(params => {
       if (params["agreementId"]){
-        this.agreementService.getAgreementByAgreementAndRecipientId(params["agreementId"], this.authService.user!.userReference!.split("/")[4]).subscribe(agreement => {
+        this.agreementService.getAgreementWithFilters([
+          `id=${params["agreementId"]}`,
+          `${this.authService.user!.userType}Ref=${this.authService.user!.userReference?.split('/').pop()}`
+        ]).subscribe(agreement => {
           this.agreement = agreement[0];
           this.getProvider(this.agreement.providerRef)
           this.getPosition(params["agreementId"]);
@@ -45,7 +48,6 @@ export class AgreementDetailComponent implements OnInit {
 
   private getProvider(providerUrl: string) {
     this.providerService.getOneProviderByUrl(providerUrl).subscribe(provider => {
-
       this.provider = provider;
     })
   }

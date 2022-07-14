@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Agreement } from '../../domaine/agreement/agreement';
 import { Observable } from 'rxjs';
 import { HttpUtils } from '../../utils/http.utils';
+import {AuthService} from "../auth/auth.service";
 
 
 
@@ -11,7 +12,7 @@ import { HttpUtils } from '../../utils/http.utils';
 })
 export class AgreementService{
 
-  constructor(private http: HttpClient, private httpUtils: HttpUtils) { }
+  constructor(private http: HttpClient, private httpUtils: HttpUtils, private authService: AuthService) { }
 
   private baseUrl: string = this.httpUtils.fullUrl();
 
@@ -24,11 +25,12 @@ export class AgreementService{
     return this.http.get<Agreement[]>(`${this.baseUrl}/agreement?recipientRef=${recipientId}`);
   }
 
-  getAgreementByAgreementAndRecipientId(agreementId:string, recipientId:string): Observable<Agreement[]> {
+  getAgreementByAgreementAndRecipientId(agreementId:string, recipientId: string): Observable<Agreement[]> {
     return this.http.get<Agreement[]>(`${this.baseUrl}/agreement?recipientRef=${recipientId}&id=${agreementId}`);
   }
 
   getAgreementWithFilters(filters: string[]): Observable<Agreement[]>{
+    console.log(`${this.baseUrl}/agreement?${filters.join('&')}`)
     return this.http.get<Agreement[]>(`${this.baseUrl}/agreement?${filters.join('&')}`);
   }
 
