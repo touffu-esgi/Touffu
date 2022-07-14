@@ -3,6 +3,8 @@ import { ProviderData } from '../../domaine/providerData';
 import { ProviderService } from '../../services/provider/provider.service';
 import { AuthService } from '../../services/auth/auth.service';
 import { UserService } from '../../services/user/user.service';
+import { AddressService } from '../../services/address/address.service';
+import { Address } from '../../domaine/address/address';
 
 @Component({
   selector: 'app-personal-provider-component',
@@ -14,12 +16,15 @@ export class PersonalProviderComponentComponent implements OnInit {
   message: string = '';
   provider: ProviderData = ProviderData.newEmptyProvider()
   allAnimals: string[] = []
+  address: Address = Address.newEmptyAddress();
 
-  constructor(private providerService: ProviderService, private userService: UserService, private authService: AuthService) { }
+  constructor(private providerService: ProviderService, private userService: UserService, private addressService: AddressService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.providerService.getOneProviderByUrl(this.authService.user?.userReference!).subscribe(provider => {
+
       this.provider = provider;
+      this.getAddress();
       this.initPossibleAnimals()
     })
   }
@@ -44,7 +49,6 @@ export class PersonalProviderComponentComponent implements OnInit {
     this.provider!.animalType.forEach(animal => {
       const indexOfAnimal = this.allAnimals.indexOf(animal)
       if (indexOfAnimal !== -1) this.allAnimals.splice(indexOfAnimal, 1)
-      console.log(animal, indexOfAnimal)
     })
   }
 
@@ -59,5 +63,12 @@ export class PersonalProviderComponentComponent implements OnInit {
     if (indexOfAnimal !== -1) this.allAnimals.splice(indexOfAnimal, 1)
     this.provider!.animalType.push(animal)
     console.log(this.provider?.animalType)
+  }
+
+  private getAddress() {
+    this.addressService.getOneAddress(this.provider.address).subscribe(address => {
+      this.address = address;
+      console.log(this.address);
+    })
   }
 }

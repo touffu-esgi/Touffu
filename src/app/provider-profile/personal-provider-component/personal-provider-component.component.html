@@ -1,5 +1,5 @@
 <form (submit)='updateInformation()' novalidate #informationForm="ngForm">
-  <div id='mainContainerInformation'>
+  <div class='mainContainerInformation'>
       <div>
         <label>prénom</label>
         <input type='text' id='name' minlength='1' required name='name' value='{{provider?.name}}' [(ngModel)]='provider!.name'>
@@ -16,8 +16,8 @@
         <label>Mot de passe</label>
         <input type='password' id='mdp' minlength='1' required name='mdp' value='{{provider?.password}}' [(ngModel)]='provider!.password'>
       </div>
-
   </div>
+
   <div id='animalSelector'>
     <h1>Animaux que je promène</h1>
     <select #addAnimalType id='animalSelect' (change)='setAnimal(addAnimalType.value)'>

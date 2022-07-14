@@ -82,6 +82,7 @@ import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.compon
 import { PersonalRecipientInformationComponent } from './recipient-profile/personal-recipient-information/personal-recipient-information.component';
 import { ProviderSignUpComponent } from './provider-sign-up/provider-sign-up.component';
 import { PersonalProviderComponentComponent } from './provider-profile/personal-provider-component/personal-provider-component.component';
+import { UpdateAddressComponent } from './update-address/update-address.component';
 
 
 
@@ -165,6 +166,7 @@ import { PersonalProviderComponentComponent } from './provider-profile/personal-
     PersonalRecipientInformationComponent,
     ProviderSignUpComponent,
     PersonalProviderComponentComponent,
+    UpdateAddressComponent,
   ],
   imports: [
     BrowserModule,
