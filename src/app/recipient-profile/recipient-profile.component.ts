@@ -6,6 +6,7 @@ import { RecipientService } from '../services/recipient/recipient.service';
 import { Recipient } from '../domaine/recipient/recipient';
 import { Router } from '@angular/router';
 import {ProviderData} from "../domaine/providerData";
+import { Address } from '../domaine/address/address';
 
 @Component({
   selector: 'app-recipient-profile',
@@ -17,6 +18,7 @@ export class RecipientProfileComponent implements OnInit {
   bills: Bill[] = []
   provider?: ProviderData;
   message: string | null = 'Aucune facture';
+
   constructor(
     private billService: BillService,
     private authService: AuthService,

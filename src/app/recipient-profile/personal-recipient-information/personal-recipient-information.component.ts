@@ -4,6 +4,7 @@ import { RecipientService } from '../../services/recipient/recipient.service';
 import { Router } from '@angular/router';
 import { Recipient } from '../../domaine/recipient/recipient';
 import { UserService } from '../../services/user/user.service';
+import { Address } from '../../domaine/address/address';
 
 @Component({
   selector: 'app-personal-recipient-information',
@@ -15,6 +16,8 @@ export class PersonalRecipientInformationComponent implements OnInit {
   recipient?: Recipient;
   message = "";
   reportSendOk: boolean | null = null;
+  address: Address = Address.newEmptyAddress();
+
   constructor(
     private authService: AuthService,
     private recipientService: RecipientService,
@@ -30,6 +33,7 @@ export class PersonalRecipientInformationComponent implements OnInit {
     if(this.authService.user?.userType === 'recipient'){
       this.recipientService.getRecipient(this.authService.user?.userReference!).subscribe(recipient => {
         this.recipient = recipient;
+        this.getAddress();
       })
     }else{
       this.router.navigate(["/"])
@@ -49,5 +53,9 @@ export class PersonalRecipientInformationComponent implements OnInit {
         }
       })
     })
+  }
+
+  private getAddress() {
+    console.log(this.recipient?.address);
   }
 }
