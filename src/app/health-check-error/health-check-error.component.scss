@@ -1,0 +1,47 @@
+*{
+  font-family: 'Montserrat bold', sans-serif;
+}
+
+h1{
+  padding: 0;
+  margin: 0;
+  font-size: 500px;
+}
+
+#error500Container{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 150px;
+  margin-left: 10vw ;
+}
+
+img{
+  position: relative;
+  bottom: 250px;
+  right: 150px;
+}
+
+#textErrorContainer{
+  padding-bottom: 175px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  span{
+    display: inline-block;
+    font-family: 'Montserrat bold', sans-serif;
+    font-size: 50px;
+  }
+
+  :first-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  :nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

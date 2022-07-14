@@ -11,10 +11,8 @@ export class AppComponent {
 
   constructor(private healthService: HealthService, private router: Router) {
     this.healthService.isAlive().subscribe(isAlive => {
-      console.log(isAlive);
-      if (!isAlive) {
-        this.router.navigate(['/'])
-      }
+    }, error => {
+      this.router.navigate(['/isNotAlive'])
     })
   }
 
