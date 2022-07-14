@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class SearchBarContainerComponent implements OnInit {
   animalType: string = '';
+  city: string = '';
 
   constructor() { }
 
@@ -15,5 +16,9 @@ export class SearchBarContainerComponent implements OnInit {
 
   saveCurrentAnimalType(animalType: string) {
     this.animalType = animalType;
+  }
+
+  saveCurrentCity(city: string) {
+    this.city = city;
   }
 }

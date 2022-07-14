@@ -7,9 +7,16 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
   @Input() animalType: string = "";
-  constructor() { }
+  @Input() city: string = "";
 
-  ngOnInit(): void {
+  constructor() {
   }
 
+  ngOnInit(): void {
+    console.log(this.city)
+  }
+
+  setCity(value: string) {
+    this.city = value;
+  }
 }

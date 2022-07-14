@@ -23,13 +23,20 @@ export class SearchProviderPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(param => {
-      if(param["t"] && param["t"].split(",").length > 0){
-        this.getProviders(param["t"].split(","))
-      }else{
-        this.getProviders()
-      }
+      this.getProviders(this.setFilters(param))
     })
 
+  }
+
+  setFilters (param: {t?: string, c?: string}): string[] {
+    const filters: string[] = []
+    if (param['t'] && param['t']?.length > 0) {
+      filters.push(`animalType=${param['t']}`)
+    }
+    if (param['c'] && param['c']?.length > 0) {
+      filters.push(`city=${param['c']}`)
+    }
+    return filters;
   }
 
   displayProvider(providers: ProviderData[]){
@@ -41,8 +48,8 @@ export class SearchProviderPageComponent implements OnInit {
     this.subscribeServiceProvider!.unsubscribe()
   }
 
-  getProviders(filter?: string[]) {
-    this.subscribeServiceProvider = this.serviceProvider.getAllProviders(filter)
+  getProviders(filters: string[]) {
+    this.subscribeServiceProvider = this.serviceProvider.getAllProviders(filters)
       .subscribe(providers => {
         this.displayProvider(providers)
       })
