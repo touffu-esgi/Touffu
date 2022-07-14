@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Recipient } from '../../domaine/recipient/recipient';
 import { UserService } from '../../services/user/user.service';
 import { Address } from '../../domaine/address/address';
+import { AddressService } from '../../services/address/address.service';
 
 @Component({
   selector: 'app-personal-recipient-information',
@@ -16,6 +17,9 @@ export class PersonalRecipientInformationComponent implements OnInit {
   recipient?: Recipient;
   message = "";
   reportSendOk: boolean | null = null;
+
+  messageAddress = "";
+  reportAddressOk: boolean | null = null;
   address: Address = Address.newEmptyAddress();
 
   constructor(
@@ -23,6 +27,7 @@ export class PersonalRecipientInformationComponent implements OnInit {
     private recipientService: RecipientService,
     private router: Router,
     private userService: UserService,
+    private addressService: AddressService,
     ) { }
 
   ngOnInit(): void {
@@ -41,6 +46,13 @@ export class PersonalRecipientInformationComponent implements OnInit {
   }
 
   updateInformation() {
+    this.addressService.update(this.address).subscribe(reponse => {
+      this.messageAddress = "Mise à jour de votre address effectuée"
+      this.reportAddressOk = true;
+    },error => {
+      this.messageAddress = "une erreur est survenue lors de la mise à jour de votre address"
+      this.reportAddressOk = false;
+    })
     this.recipientService.update(this.recipient!).subscribe(response => {
       // @ts-ignore
       this.userService.update(this.recipient!.userId, this.recipient!.email).subscribe(response => {
@@ -56,6 +68,9 @@ export class PersonalRecipientInformationComponent implements OnInit {
   }
 
   private getAddress() {
-    console.log(this.recipient?.address);
+    // @ts-ignore
+    this.addressService.getOneAddress(this.recipient!.address!).subscribe(address => {
+      this.address = address;
+    })
   }
 }

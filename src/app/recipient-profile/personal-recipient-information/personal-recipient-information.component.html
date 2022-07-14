@@ -9,12 +9,19 @@
 </div>
 
 <app-update-address [address]='address'></app-update-address>
-<div id='messageContainer'>
-  <div class="alertMsg" id="errorMsg" *ngIf="this.reportSendOk === false">
+<div class='messageContainer'>
+  <div class="alertMsg errorMsg" *ngIf="this.reportSendOk === false">
     <p>{{this.message}}</p>
   </div>
-  <div class="alertMsg" id="successMsg" *ngIf="this.reportSendOk === true">
+  <div class="alertMsg successMsg" *ngIf="this.reportSendOk === true">
     <p>{{this.message}}</p>
   </div>
 </div>
-
+<div class='messageContainer'>
+  <div class="alertMsg errorMsg" *ngIf="this.reportSendOk === false">
+    <p>{{this.message}}</p>
+  </div>
+  <div class="alertMsg successMsg" *ngIf="this.reportSendOk === true">
+    <p>{{this.message}}</p>
+  </div>
+</div>
