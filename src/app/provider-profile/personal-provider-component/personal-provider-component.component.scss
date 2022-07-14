@@ -1,14 +1,3 @@
-form{
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  width: 100%;
-  padding-top: 25px;
-  div{
-    display: flex;
-    flex-direction: column;
-  }
-}
 
 #mainContainerInformation{
   box-sizing: border-box;
@@ -19,6 +8,16 @@ form{
   display: flex;
   align-items: center;
   justify-content: space-around;
+  div{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#containerProfile{
+  display: flex;
+  justify-content: space-around;
+  gap: 50px;
 }
 
 input{
@@ -50,7 +49,33 @@ input{
 #buttonMajContainer{
   display: flex;
   justify-content: end;
+  padding-top: 25px;
 }
+
+.profileComment {
+  width: 600px;
+  height: 200px;
+  border-radius: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 25px;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.profileCommentInput {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  border-style: none;
+  height: 150px;
+  text-align: justify;
+  &:focus {
+    outline: none;
+  }
+}
+
 
 .alertMsg {
   display: flex;
