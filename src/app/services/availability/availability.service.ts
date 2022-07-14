@@ -21,10 +21,12 @@ enum WeekDays {
 })
 export class AvailabilityService implements AvailabilityInterface{
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private httpUtils: HttpUtils) { }
+
+  private baseUrl: string = this.httpUtils.fullUrl()
 
   getWeeklyAvailability(providerId: string, dateFrom: string): Observable<Availability[]> {
-    return this.http.get<Availability[]>(`http://localhost:3000/availability/${providerId}?dateFrom=${dateFrom}`);
+    return this.http.get<Availability[]>(`${this.baseUrl}/availability/${providerId}?dateFrom=${dateFrom}`);
   }
 
   getDayFromDate(date: Date): string {
@@ -34,10 +36,10 @@ export class AvailabilityService implements AvailabilityInterface{
   }
 
   addAvailability(availability: Availability): Observable<Availability> {
-    return this.http.post<Availability>(`http://localhost:3000/availability`, availability)
+    return this.http.post<Availability>(`${this.baseUrl}/availability`, availability)
   }
 
   updateAvailability(availability: Availability): Observable<Availability> {
-    return this.http.put<Availability>(`http://localhost:3000/availability`, availability)
+    return this.http.put<Availability>(`${this.baseUrl}/availability`, availability)
   }
 }

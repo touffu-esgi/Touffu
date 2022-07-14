@@ -69,6 +69,3 @@ export class ProviderAvailabilityPageComponent extends CalendarComponent {
     })
   }
 }
-
-class ProviderAvailabilityPageComponentImpl extends ProviderAvailabilityPageComponent {
-}

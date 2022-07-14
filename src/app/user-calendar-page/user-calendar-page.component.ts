@@ -127,6 +127,3 @@ export class UserCalendarPageComponent extends CalendarComponent {
     return ""
   }
 }
-
-class UserCalendarPageComponentImpl extends ProviderAvailabilityPageComponent {
-}
