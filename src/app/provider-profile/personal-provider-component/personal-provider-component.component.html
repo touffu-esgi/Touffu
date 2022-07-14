@@ -21,7 +21,7 @@
 </div>
 <div id='animalSelector'>
   <h1>Animaux que je promène</h1>
-  <select #addAnimalType (change)='setAnimal(addAnimalType.value)'>
+  <select #addAnimalType id='animalSelect' (change)='setAnimal(addAnimalType.value)'>
     <option>Sélectionner</option>
     <option *ngFor='let possibleAnimal of allAnimals'>
       {{possibleAnimal}}
