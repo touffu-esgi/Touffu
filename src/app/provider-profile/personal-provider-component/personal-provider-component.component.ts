@@ -12,8 +12,11 @@ import { Address } from '../../domaine/address/address';
   styleUrls: ['./personal-provider-component.component.scss']
 })
 export class PersonalProviderComponentComponent implements OnInit {
-  reportSendOk: boolean | null = null;
+  updateSendOk: boolean | null = null;
   message: string = '';
+
+  updateAddressOk: boolean | null = null;
+  messageAddress: string = '';
   provider: ProviderData = ProviderData.newEmptyProvider()
   allAnimals: string[] = []
   address: Address = Address.newEmptyAddress();
@@ -32,15 +35,23 @@ export class PersonalProviderComponentComponent implements OnInit {
   updateInformation() {
     this.providerService.update(this.provider).subscribe(provider => {
       this.userService.update(this.provider.userId.split('/').pop()!, this.provider.email).subscribe(user => {
-        this.reportSendOk = true;
-        this.message = 'Mise à jour effectuée'
+        this.updateSendOk = true;
+        this.message = 'Mise à jour effectuée de vos informations personnels effectuée'
       }, error => {
-        this.message = 'Une erreur est survenue'
-        this.reportSendOk = false;
+        this.message = 'Une erreur est survenue lors de la mise à jour de vos informations personnels effectuée'
+        this.updateSendOk = false;
       })
     }, error => {
       this.message = 'Une erreur est survenue'
-      this.reportSendOk = false;
+      this.updateSendOk = false;
+    })
+
+    this.addressService.update(this.address).subscribe(url => {
+      this.updateAddressOk = true;
+      this.messageAddress = 'En attente des mises à jours'
+    }, error => {
+      this.messageAddress = 'Une erreur est survenue lors de la mise à jour de votre address'
+      this.updateAddressOk = false;
     })
   }
 

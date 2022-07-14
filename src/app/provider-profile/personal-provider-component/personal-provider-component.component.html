@@ -1,5 +1,6 @@
 <form (submit)='updateInformation()' novalidate #informationForm="ngForm">
-  <div class='mainContainerInformation'>
+  <div id='parentContainerInformation'>
+    <div class='mainContainerInformation'>
       <div>
         <label>prénom</label>
         <input type='text' id='name' minlength='1' required name='name' value='{{provider?.name}}' [(ngModel)]='provider!.name'>
@@ -16,6 +17,8 @@
         <label>Mot de passe</label>
         <input type='password' id='mdp' minlength='1' required name='mdp' value='{{provider?.password}}' [(ngModel)]='provider!.password'>
       </div>
+    </div>
+    <app-update-address [address]='address'></app-update-address>
   </div>
 
   <div id='animalSelector'>
@@ -55,11 +58,18 @@
 
 </form>
 <div id='messageContainer'>
-  <div class="alertMsg" id="errorMsg" *ngIf="this.reportSendOk === false">
+  <div class="alertMsg errorMsg" *ngIf="this.updateSendOk === false">
     <p>{{this.message}}</p>
   </div>
-  <div class="alertMsg" id="successMsg" *ngIf="this.reportSendOk === true">
+  <div class="alertMsg successMsg" *ngIf="this.updateSendOk === true">
     <p>{{this.message}}</p>
+  </div>
+
+  <div class="alertMsg errorMsg" *ngIf="this.updateAddressOk === false">
+    <p>{{this.messageAddress}}</p>
+  </div>
+  <div class="alertMsg successMsg"  *ngIf="this.updateAddressOk === true">
+    <p>{{this.messageAddress}}</p>
   </div>
 </div>
 
