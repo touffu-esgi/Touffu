@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  imageToShow?: string | ArrayBuffer | null;
 
   constructor(private http: HttpClient, private httpUtils: HttpUtils) { }
 
@@ -15,4 +16,13 @@ export class UserService {
     return this.http.put<never>(`${this.httpUtils.fullUrl()}/user/${id}`, body, {headers: {'Content-Type': 'application/json'}})
   }
 
+
+  getFile(): Observable<object>{
+    // @ts-ignore
+    return this.http.get<object>(`${this.httpUtils.fullUrl()}/user/profileImage`, { responseType: 'blob' })
+  }
+
+  uploadProfileImage(formData: FormData): Observable<{ url: string }>{
+    return this.http.post<{ url: string }>(`${this.httpUtils.fullUrl()}/user/image/profile`, formData);
+  }
 }
