@@ -26,7 +26,6 @@ export class SearchProviderPageComponent implements OnInit {
 
   displayProvider(providers: ProviderData[]){
     this.providers = providers
-
   }
 
   ngOnDestroy() {
