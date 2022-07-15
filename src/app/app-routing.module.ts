@@ -24,14 +24,17 @@ const routes: Routes = [
   {
     path: 'description-component',
     component: ProviderDescriptionPageComponent,
-    data: ProviderData},
+    data: ProviderData
+  },
   {
     path: 'search-page',
-    component: SearchProviderPageComponent},
+    component: SearchProviderPageComponent
+  },
   {
     path: 'message',
     component: MessagePageComponent,
-    canActivate: [AuthGuard]},
+    canActivate: [AuthGuard]
+  },
   {
     path: 'connection',
     component: ConnectionPageComponent
