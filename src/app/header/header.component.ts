@@ -9,7 +9,7 @@ import { User } from '../domaine/user/user';
 })
 export class HeaderComponent implements OnInit {
 
-  user: User = new User("", "", "", "", "");
+  user: User = new User("", "", "", "", "", "");
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {

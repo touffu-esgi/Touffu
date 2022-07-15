@@ -43,7 +43,8 @@ export class ProviderSignUpComponent implements OnInit {
             this.newProvider.email,
             userReference,
             'provider',
-            this.newProvider.password
+            this.newProvider.password,
+            imagePath.url
           )).subscribe(user => {
             console.log(user);
           })
