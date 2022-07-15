@@ -10,7 +10,8 @@ import { AuthService } from '../../../services/auth/auth.service';
 export class ProviderDescriptionCardDetailsImageComponent implements OnInit {
 
 
-  @Input() image?: string | ArrayBuffer | null;
+  @Input() image?: string | ArrayBuffer | null = null;
+  @Input() imagePath: string | null = null;
   constructor(private userService: UserService, private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -19,7 +20,8 @@ export class ProviderDescriptionCardDetailsImageComponent implements OnInit {
 
 
   private getProfileImage() {
-    this.userService.getFile(this.authService!.user!.profilePic!).subscribe(image => {
+    const imagePath = this.imagePath ? this.imagePath : "default.png";
+    this.userService.getFile(imagePath).subscribe(image => {
       let reader = new FileReader();
       reader.addEventListener(
         "load",
