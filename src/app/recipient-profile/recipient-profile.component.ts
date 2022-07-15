@@ -20,9 +20,13 @@ export class RecipientProfileComponent implements OnInit {
   constructor(
     private billService: BillService,
     private authService: AuthService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
+        if(this.authService.user?.userType != "recipient"){
+      this.router.navigate(['/'])
+    }
     this.getBills();
   }
 
