@@ -40,11 +40,6 @@ const routes: Routes = [
     component: ConnectionPageComponent
   },
   {
-    path: 'list-animal',
-    component: ListAnimalPageComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'add-animal',
     component: AddAnimalPageComponent,
     canActivate: [AuthGuard]
