@@ -19,13 +19,10 @@ export class ProviderProfileComponent implements OnInit {
   agreementToDisplay?: Agreement;
   displayList: boolean = true;
 
-  image?: string | ArrayBuffer | null;
-
   constructor(
     private billService: BillService,
     private authService: AuthService,
-    private providerService: ProviderService,
-    private userService: UserService
+    private providerService: ProviderService
   ) {
   }
 
@@ -49,8 +46,6 @@ export class ProviderProfileComponent implements OnInit {
   private getProvider() {
     this.providerService.getOneProviderByUrl(this.authService?.user?.userReference!).subscribe(provider => {
       this.provider = provider
-      console.log(this.provider);
-      this.getProfileImage();
     })
   }
 
@@ -59,19 +54,5 @@ export class ProviderProfileComponent implements OnInit {
     this.displayList = false;
   }
 
-  private getProfileImage() {
-    this.userService.getFile(this.provider!.profile_pic!).subscribe(image => {
-      let reader = new FileReader();
-      reader.addEventListener(
-        "load",
-        () => {
-          this.image = reader.result;
-        }, false
-      );
-      if (image) {
-        // @ts-ignore
-        reader.readAsDataURL(image);
-      }
-    });
-  }
+
 }
