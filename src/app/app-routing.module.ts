@@ -19,6 +19,7 @@ import {ReportProviderComponent} from "./report-provider/report-provider.compone
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { ProviderSignUpComponent } from './provider-sign-up/provider-sign-up.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,8 @@ const routes: Routes = [
   {path: 'agreement-update', component: AgreementUpdatePageComponent},
   {path: 'provider-detail', component: ProviderDetailPageComponent},
   {path: 'signup-recipient', component: RecipientSignUpComponent},
+  {path: 'signup-provider', component: ProviderSignUpComponent},
+  {path: 'connection', component: ConnectionPageComponent},
   {path: 'report', component: ReportProviderComponent},
   {path: 'provider-profile', component: ProviderProfileComponent},
   {path: 'recipient-profile', component: RecipientProfileComponent},

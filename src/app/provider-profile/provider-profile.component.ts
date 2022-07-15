@@ -5,6 +5,7 @@ import { AuthService } from '../services/auth/auth.service';
 import { ProviderData } from '../domaine/providerData';
 import { ProviderService } from '../services/provider/provider.service';
 import { Agreement } from '../domaine/agreement/agreement';
+import { UserService } from '../services/user/user.service';
 
 @Component({
   selector: 'app-provider-profile',
@@ -18,13 +19,18 @@ export class ProviderProfileComponent implements OnInit {
   agreementToDisplay?: Agreement;
   displayList: boolean = true;
 
+  image?: string | ArrayBuffer | null;
+
   constructor(
     private billService: BillService,
     private authService: AuthService,
-    private providerService: ProviderService
-) { }
+    private providerService: ProviderService,
+    private userService: UserService
+  ) {
+  }
 
   ngOnInit(): void {
+
     this.getProvider();
     this.getBills();
   }
@@ -43,11 +49,29 @@ export class ProviderProfileComponent implements OnInit {
   private getProvider() {
     this.providerService.getOneProviderByUrl(this.authService?.user?.userReference!).subscribe(provider => {
       this.provider = provider
+      console.log(this.provider);
+      this.getProfileImage();
     })
   }
 
   displayAgreement(agreement: Agreement) {
     this.agreementToDisplay = agreement;
     this.displayList = false;
+  }
+
+  private getProfileImage() {
+    this.userService.getFile(this.provider!.profile_pic!).subscribe(image => {
+      let reader = new FileReader();
+      reader.addEventListener(
+        "load",
+        () => {
+          this.image = reader.result;
+        }, false
+      );
+      if (image) {
+        // @ts-ignore
+        reader.readAsDataURL(image);
+      }
+    });
   }
 }

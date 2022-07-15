@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-provider-description-card-details-image',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProviderDescriptionCardDetailsImageComponent implements OnInit {
 
+
+  @Input() image?: string | ArrayBuffer | null;
   constructor() { }
 
   ngOnInit(): void {

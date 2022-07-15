@@ -19,6 +19,7 @@ export class SearchProviderPageComponent implements OnInit {
   ngOnInit(): void {
     this.subscribeServiceProvider = this.serviceProvider.getAllProviders()
       .subscribe(providers => {
+        console.log(providers);
         this.displayProvider(providers)
       })
   }

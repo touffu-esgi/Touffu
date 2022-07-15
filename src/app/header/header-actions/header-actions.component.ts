@@ -11,11 +11,9 @@ export class HeaderActionsComponent implements OnInit {
   @Input() userId: string | null = null;
   @Input() userEmail: string | null = null;
   @Input() userType: string | null = null;
-  image?: string | ArrayBuffer | null;
   constructor(private authService: AuthService, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.getProfileImage();
   }
 
   signOut(){
@@ -25,19 +23,5 @@ export class HeaderActionsComponent implements OnInit {
     this.userType = null;
   }
 
-  private getProfileImage() {
-    this.userService.getFile().subscribe(image=> {
-      let reader = new FileReader();
-      reader.addEventListener(
-        "load",
-        () => {
-          this.image = reader.result;
-        }, false
-      );
-      if (image) {
-        // @ts-ignore
-        reader.readAsDataURL(image);
-      }
-    });
-  }
+
 }

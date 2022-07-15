@@ -34,17 +34,9 @@ export class RecipientSignUpComponent implements OnInit {
   onFormSubmit(): void {
     this.addressService.addAddress(this.newRecipient.address!).subscribe(addressUrl => {
       this.newRecipient.address!.id = addressUrl.url.split("/").pop()!;
-      this.userService.uploadProfileImage(this.formData).subscribe(imagePath => {
-        this.recipientService.signUp(this.newRecipient).subscribe(url => {})
-      });
+      this.recipientService.signUp(this.newRecipient).subscribe(url => {})
     })
   }
 
-  onFileSelected(event: Event) {
-    // @ts-ignore
-    const file: File = event!.target!.files[0];
-    if (file) {
-      this.formData.append("file", file);
-    }
-  }
+
 }
