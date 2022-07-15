@@ -57,10 +57,15 @@ export class PersonalProviderComponentComponent implements OnInit {
 
   private initPossibleAnimals() {
     this.allAnimals = ["chat", "chien", "chameau", "cheval"]
-    this.provider!.animalType.forEach(animal => {
-      const indexOfAnimal = this.allAnimals.indexOf(animal)
-      if (indexOfAnimal !== -1) this.allAnimals.splice(indexOfAnimal, 1)
-    })
+    if (this.provider!.animalType){
+      this.provider!.animalType.forEach(animal => {
+        const indexOfAnimal = this.allAnimals.indexOf(animal)
+        if (indexOfAnimal !== -1) this.allAnimals.splice(indexOfAnimal, 1)
+      })
+    }else{
+      this.provider!.animalType = [];
+    }
+
   }
 
   unsetAnimal(animal: string) {
