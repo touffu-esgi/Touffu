@@ -64,6 +64,8 @@ export class AgreementPageComponent implements OnInit {
         this.providerService.getOneProviders(params["id"]).subscribe(provider => {
           this.provider = provider;
           this.agreements.providerRef = provider.id
+        }, error => {
+          this.router.navigate(['/'])
         });
       }else{
         this.router.navigate(['/'])
