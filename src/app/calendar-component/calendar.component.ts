@@ -12,6 +12,9 @@ import {Timeframe} from "../domaine/availability/timeframe";
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
+  private minBeginHour = 6;
+  private maxEndHour = 22;
+  private hourlyStep = 0.25;
 
   constructor(
     protected availabilityService: AvailabilityService,
@@ -29,8 +32,8 @@ export class CalendarComponent implements OnInit {
     this.initHour()
   }
 
-  protected initHour(beginHour: number = 6, endHour: number = 22) {
-    for (let i = beginHour; i < endHour; i += 0.25){
+  protected initHour(beginHour: number = this.minBeginHour, endHour: number = this.maxEndHour) {
+    for (let i = beginHour; i < endHour; i += this.hourlyStep){
       this.dailyHours.push(i);
     }
   }
