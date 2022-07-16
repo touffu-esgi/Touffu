@@ -24,40 +24,83 @@ const routes: Routes = [
   {
     path: 'description-component',
     component: ProviderDescriptionPageComponent,
-    data: ProviderData},
+    data: ProviderData
+  },
   {
     path: 'search-page',
-    component: SearchProviderPageComponent},
+    component: SearchProviderPageComponent
+  },
   {
     path: 'message',
     component: MessagePageComponent,
-    canActivate: [AuthGuard]},
+    canActivate: [AuthGuard]
+  },
   {
     path: 'connection',
     component: ConnectionPageComponent
-  },
-  {
-    path: 'list-animal',
-    component: ListAnimalPageComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'add-animal',
     component: AddAnimalPageComponent,
     canActivate: [AuthGuard]
   },
-  {path: 'agreement', component: AgreementPageComponent},
-  {path: 'list-agreement', component: ListAgreementComponent},
-  {path: 'agreement-detail', component: AgreementDetailComponent},
-  {path: 'agreement-update', component: AgreementUpdatePageComponent},
-  {path: 'provider-detail', component: ProviderDetailPageComponent},
-  {path: 'signup-recipient', component: RecipientSignUpComponent},
-  {path: 'report', component: ReportProviderComponent},
-  {path: 'provider-profile', component: ProviderProfileComponent},
-  {path: 'recipient-profile', component: RecipientProfileComponent},
-  {path: 'bill-payment', component: PaymentPageComponent},
-  {path: '', component: HomeComponent},
-  {path: '**', component: HomeComponent},
+  {
+    path: 'agreement',
+    component: AgreementPageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'list-agreement',
+    component: ListAgreementComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'agreement-detail',
+    component: AgreementDetailComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'agreement-update',
+    component: AgreementUpdatePageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'provider-detail',
+    component: ProviderDetailPageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'signup-recipient',
+    component: RecipientSignUpComponent
+  },
+  {
+    path: 'report',
+    component: ReportProviderComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'provider-profile',
+    component: ProviderProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'recipient-profile',
+    component: RecipientProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'bill-payment',
+    component: PaymentPageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: '**',
+    component: HomeComponent
+  },
 ];
 
 @NgModule({

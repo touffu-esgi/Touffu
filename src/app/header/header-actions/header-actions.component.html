@@ -5,9 +5,13 @@
     <button routerLink='/connection'>Connexion</button>
   </div>
   <div *ngIf='userId' >
-    <button>{{userEmail}}</button>
+    <a *ngIf='userType == "provider"' routerLink='/provider-profile'><button>{{userEmail}}</button></a>
+    <a *ngIf='userType == "recipient"' routerLink='/recipient-profile'><button>{{userEmail}}</button></a>
+    <a routerLink='/list-agreement'><button>Contrats</button></a>
     <button (click)='signOut()'>SignOut</button>
+
   </div>
+
 </div>
 
 <router-outlet></router-outlet>
