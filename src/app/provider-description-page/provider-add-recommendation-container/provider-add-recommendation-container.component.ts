@@ -1,7 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AuthService} from "../../services/auth/auth.service";
 import {Recommendation} from "../../domaine/recommendation/recommendation";
-import {RecommandationService} from "../../services/recommandation/recommandation.service";
+import {RecommendationService} from "../../services/recommendation/recommendation.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-provider-add-recommendation-container',
@@ -14,10 +15,24 @@ export class ProviderAddRecommendationContainerComponent implements OnInit {
   @Output() hasSentRecommendation: EventEmitter<string> = new EventEmitter()
 
   constructor(
-    private recommendationService: RecommandationService
+    private recommendationService: RecommendationService,
+    private authService: AuthService,
+    private activeRoute: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
+    this.recommendationInit()
+  }
+
+  private recommendationInit() {
+    this.activeRoute.queryParams.subscribe(params => {
+      if (params['provider']) {
+        this.sendRecommendation = new Recommendation({
+          providerId: params['provider'],
+          recipientId: this.authService.user!.id
+        })
+      }
+    })
   }
 
   sendReco() {

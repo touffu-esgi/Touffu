@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {ProviderData} from "../domaine/providerData";
 import {Address} from "../domaine/address/address";
 import {AddressService} from "../services/address/address.service";
-import { RecommandationService } from '../services/recommandation/recommandation.service';
+import { RecommendationService } from '../services/recommendation/recommendation.service';
 import { Recommendation } from '../domaine/recommendation/recommendation';
 import { AuthService } from '../services/auth/auth.service';
 import {ProviderService} from "../services/provider/provider.service";
@@ -20,11 +20,12 @@ export class ProviderDescriptionPageComponent implements OnInit {
   provider?: ProviderData;
   address?: Address;
   recommendations?: Recommendation[];
-  sendRecommandation: Recommendation = new Recommendation({})
+  sendRecommendation: Recommendation = new Recommendation({})
+  average: boolean = false;
 
   constructor(
     private activeRoute: ActivatedRoute,
-    private recommandationService: RecommandationService,
+    private recommendationService: RecommendationService,
     private addressService: AddressService,
     private authService: AuthService,
     private providerService: ProviderService
@@ -37,8 +38,8 @@ export class ProviderDescriptionPageComponent implements OnInit {
           this.provider = provider
             this.fetchAddress(this.provider!)
             this.fetchRecommendation();
-            this.sendRecommandation.providerId = this.provider!.id;
-            this.sendRecommandation.recipientId = this.authService.user!.id!;
+            this.sendRecommendation.providerId = this.provider!.id;
+            this.sendRecommendation.recipientId = this.authService.user!.id!;
         })
       }
     })
@@ -51,16 +52,17 @@ export class ProviderDescriptionPageComponent implements OnInit {
     })
   }
 
-  addRecoInCurrentState(recoText: string) {
+  newRecommendationAdded(recoText: string) {
     this.recommendations?.push(new Recommendation({
       providerId: this.provider!.id,
       recipientId: this.authService.user!.id!,
       review: recoText
     }))
+    this.average = !this.average
   }
 
   private fetchRecommendation() {
-    this.recommandationService.getRecommendations(this.provider!.id!).subscribe(recommendations => {
+    this.recommendationService.getRecommendations(this.provider!.id!).subscribe(recommendations => {
       this.recommendations = recommendations;
     });
   }
