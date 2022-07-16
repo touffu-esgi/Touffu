@@ -4,6 +4,7 @@ import {Conversation} from "../domaine/message/conversation";
 import {Message} from "../domaine/message/message";
 import { AuthService } from '../services/auth/auth.service';
 import { HttpUtils } from '../utils/http.utils';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-message-page',
@@ -16,26 +17,33 @@ export class MessagePageComponent implements OnInit {
   public messages: Message[] = [];
   public id_receiver: string = "";
   public id_sender: string = "";
-  constructor(private messageService: MessageService, private authService: AuthService, private httpUtils: HttpUtils) { }
+  constructor(private messageService: MessageService, private authService: AuthService, private httpUtils: HttpUtils, private activatedRoute: ActivatedRoute) { }
   public sender: string = "";
 
   ngOnInit(): void {
-    this.getConversations();
+    this.activatedRoute.queryParams.subscribe(params => {
+      if(params["name"]){
+        this.getConversations(params["name"]);
+      }else{
+        this.getConversations();
+      }
+    })
+
   }
 
-  private getConversations() {
-    this.messageService.getConversation(this.authService.user!.id!).subscribe(conversations => {
+  private getConversations(reciverName?: string) {
+    this.messageService.getConversation(this.authService.user!.userReference!.split('/').pop()!).subscribe(conversations => {
       this.conversations = conversations;
       if (history.state && history.state[0]){
         this.id_receiver = history.state[0];
         this.id_sender = this.authService.user!.id!;
-        this.createNewConversation()
+        this.createNewConversation(reciverName)
       }
     })
   }
 
-  private createNewConversation() {
-    this.conversations!.push(new Conversation(`${this.httpUtils.fullUrl()}/message/${this.id_sender}/${this.id_receiver}`,"","",[]))
+  private createNewConversation(reciverName: string = "") {
+    this.conversations!.push(new Conversation(`${this.httpUtils.fullUrl()}/message/${this.id_sender}/${this.id_receiver}`,"Aucun message envoyé",reciverName,[]))
   }
 
   displayMessages(messages: [Message[], string, string, string]) {
