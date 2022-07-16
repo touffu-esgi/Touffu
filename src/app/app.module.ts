@@ -86,6 +86,7 @@ import { AnimalCardComponent } from './list-animal-page/animal-card/animal-card.
 import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
 import { PersonalRecipientInformationComponent } from './recipient-profile/personal-recipient-information/personal-recipient-information.component';
 import {MessagePageComponent} from "./message-page/message-page.component";
+import { HealthCheckErrorComponent } from './health-check-error/health-check-error.component';
 
 
 
@@ -170,6 +171,7 @@ import {MessagePageComponent} from "./message-page/message-page.component";
     PaidBillComponent,
     PaymentPageComponent,
     PersonalRecipientInformationComponent,
+    HealthCheckErrorComponent,
   ],
   imports: [
     BrowserModule,

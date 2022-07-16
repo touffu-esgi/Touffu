@@ -19,6 +19,7 @@ import {ReportProviderComponent} from "./report-provider/report-provider.compone
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { HealthCheckErrorComponent } from './health-check-error/health-check-error.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,7 @@ const routes: Routes = [
   {path: 'provider-profile', component: ProviderProfileComponent},
   {path: 'recipient-profile', component: RecipientProfileComponent},
   {path: 'bill-payment', component: PaymentPageComponent},
+  {path: 'isNotAlive', component: HealthCheckErrorComponent},
   {path: '', component: HomeComponent},
   {path: '**', component: HomeComponent},
 ];
