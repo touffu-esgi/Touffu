@@ -5,6 +5,8 @@ import { AuthService } from '../services/auth/auth.service';
 import { ProviderData } from '../domaine/providerData';
 import { ProviderService } from '../services/provider/provider.service';
 import { Agreement } from '../domaine/agreement/agreement';
+import { RecipientService } from '../services/recipient/recipient.service';
+
 
 @Component({
   selector: 'app-provider-profile',
@@ -20,8 +22,9 @@ export class ProviderProfileComponent implements OnInit {
 
   constructor(
     private billService: BillService,
-    private authService: AuthService,
-    private providerService: ProviderService
+    private authService: AuthServiceMockImplementation,
+    private providerService: ProviderService,
+    private recipientService: RecipientService
 ) { }
 
   ngOnInit(): void {
@@ -49,5 +52,15 @@ export class ProviderProfileComponent implements OnInit {
   displayAgreement(agreement: Agreement) {
     this.agreementToDisplay = agreement;
     this.displayList = false;
+  }
+
+  generateBills(id: string) {
+    const providerId = this.authService.user?.userReference!.split('/').pop()!
+    this.billService.getOneBillByProviderId(id, providerId).subscribe(bill => {
+      const currentBill = bill[0];
+      this.recipientService.getOne(currentBill.recipientRef).subscribe(recipient => {
+        this.billService.generateBill(id, providerId, bill, recipient)
+      })
+    })
   }
 }
