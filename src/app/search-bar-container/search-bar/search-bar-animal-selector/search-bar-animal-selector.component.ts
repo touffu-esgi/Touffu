@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./search-bar-animal-selector.component.scss']
 })
 export class SearchBarAnimalSelectorComponent implements OnInit {
-  @Input() animalType: string = "test";
+  @Input() animalType: string = "";
   constructor() { }
 
   ngOnInit(): void {

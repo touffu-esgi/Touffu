@@ -15,7 +15,6 @@ export class SelectAnimalsItemComponent implements OnInit {
 
 
   selectAnimalType(type: string){
-    //TODO vérification de type
     this.selected.emit(type);
   }
 }

@@ -12,9 +12,7 @@ export class SearchBarComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit(): void {
-    console.log(this.city)
-  }
+  ngOnInit(): void { }
 
   setCity(value: string) {
     this.city = value;
