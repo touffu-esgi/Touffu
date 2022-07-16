@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Animal} from "../animal/animal";
-import {AnnimalService} from "../../../services/anmialService/annimal.service";
+import {AnimalService} from "../../services/animal/animal.service";
 
 
 
@@ -15,9 +15,7 @@ export class FindProviderSelectorComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.animals = new AnnimalService().fetchAllAnnimal();
-  }
+  ngOnInit(): void { }
 
   enableList() {
     this.isListEnable = true;
