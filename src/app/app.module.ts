@@ -48,7 +48,7 @@ import { ConversationComponent } from './message-page/conversation/conversation.
 import { MessageComponent } from './message-page/conversation/message/message.component';
 import { MessageInputComponent } from './message-page/conversation/message-input/message-input.component';
 import { SendMessageButtonComponent } from './message-page/conversation/send-message-button/send-message-button.component';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from "@angular/common/http";
 import {ProviderService} from "./services/provider/provider.service";
 import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-service-provider.component";
 import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
@@ -88,6 +88,9 @@ import { PersonalRecipientInformationComponent } from './recipient-profile/perso
 import {MessagePageComponent} from "./message-page/message-page.component";
 import { HealthCheckErrorComponent } from './health-check-error/health-check-error.component';
 import { UpdateAddressComponent } from './update-address/update-address.component';
+import { ProviderDescriptionCardDetailsAvailabilityComponent } from './provider-description-page/provider-description-card-details-availability/provider-description-card-details-availability.component';
+import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
+import { CalendarComponent } from './calendar-component/calendar.component';
 
 
 
@@ -168,12 +171,15 @@ import { UpdateAddressComponent } from './update-address/update-address.componen
     ReportProviderButtonSendComponent,
     ProviderDescriptionTitleReportImageComponent,
     ProviderProfileComponent,
+    ProviderDescriptionCardDetailsAvailabilityComponent,
+    ProviderAvailabilityPageComponent,
     RecipientProfileComponent,
     PaidBillComponent,
     PaymentPageComponent,
     PersonalRecipientInformationComponent,
     HealthCheckErrorComponent,
     UpdateAddressComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,

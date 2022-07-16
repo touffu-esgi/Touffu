@@ -17,6 +17,7 @@ import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.compon
 import { AuthGuard } from './auth-guard';
 import {ReportProviderComponent} from "./report-provider/report-provider.component";
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
+import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { HealthCheckErrorComponent } from './health-check-error/health-check-error.component';
@@ -92,6 +93,11 @@ const routes: Routes = [
   {
     path: 'bill-payment',
     component: PaymentPageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'availabilities', 
+    component: ProviderAvailabilityPageComponent,
     canActivate: [AuthGuard]
   },
   {

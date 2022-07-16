@@ -1,0 +1,18 @@
+table {
+  border-collapse: collapse;
+  border: dotted grey 1px;
+}
+
+th, td {
+  border: dotted grey 1px;
+  min-width: 9vw;
+  text-align: center;
+}
+
+.selected {
+  background-color: #FBDDA0;
+}
+
+*{
+  font-family: 'Montserrat', sans-serif;
+}

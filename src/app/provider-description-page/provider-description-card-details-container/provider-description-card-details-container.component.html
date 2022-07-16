@@ -3,7 +3,8 @@
   <p id="providerName">{{name}}</p>
   <app-provider-description-card-details-grades></app-provider-description-card-details-grades>
   <app-provider-description-card-details-price [base_tarif]="base_tarif" ></app-provider-description-card-details-price>
-  <app-provider-description-card-details-contact [id]="id" [providerName]='name'></app-provider-description-card-details-contact>
+  <app-provider-description-card-details-contact *ngIf='isNotInProfile' [id]="id" [providerName]='name'></app-provider-description-card-details-contact>
+  <app-provider-description-card-details-availability *ngIf='!isNotInProfile'></app-provider-description-card-details-availability>
 </div>
 <a routerLink='/agreement' [queryParams]='{"id": id}'><button id='createAgreement'>Passer un accord</button></a>
 <router-outlet></router-outlet>
