@@ -50,7 +50,7 @@ export class PersonalProviderComponentComponent implements OnInit {
       this.updateAddressOk = true;
       this.messageAddress = 'En attente des mises à jours'
     }, error => {
-      this.messageAddress = 'Une erreur est survenue lors de la mise à jour de votre address'
+      this.messageAddress = 'Une erreur est survenue lors de la mise à jour de votre adresse'
       this.updateAddressOk = false;
     })
   }

@@ -2,7 +2,7 @@
   <div id='parentContainerInformation'>
     <div class='mainContainerInformation'>
       <div>
-        <label>prénom</label>
+        <label>Prénom</label>
         <input type='text' id='name' minlength='1' required name='name' value='{{provider?.name}}' [(ngModel)]='provider!.name'>
       </div>
       <div>
@@ -10,7 +10,7 @@
         <input type='text' id='surname' minlength='1' required name='surnmae' value='{{provider?.surname}}' [(ngModel)]='provider!.surname'>
       </div>
       <div>
-        <label>email</label>
+        <label>Email</label>
         <input type='text' id='email' minlength='1' required name='email' value='{{provider?.email}}' [(ngModel)]='provider!.email'>
       </div>
       <div>
@@ -46,7 +46,7 @@
     </div>
 
     <div class='profileComment'>
-      <h3>titre de votre profile </h3>
+      <h3>Titre de votre profil</h3>
       <textarea class='profileCommentInput' name='profile_title' [(ngModel)]='provider.profile_title' placeholder="Mettez un titre à votre proposition"></textarea>
     </div>
   </div>
