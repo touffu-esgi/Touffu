@@ -6,6 +6,7 @@ import {AddressService} from "../services/address/address.service";
 import { RecommandationService } from '../services/recommandation/recommandation.service';
 import { Recommendation } from '../domaine/recommendation/recommendation';
 import { AuthService } from '../services/auth/auth.service';
+import { User } from '../domaine/user/user';
 
 
 
@@ -21,12 +22,15 @@ export class ProviderDescriptionPageComponent implements OnInit {
   address?: Address;
   recommendations?: Recommendation[];
   sendRecommandation: Recommendation = new Recommendation({})
-
+  user?: User;
   constructor(private recommandationService: RecommandationService,
               private addressService: AddressService,
               private authService: AuthService) {}
 
   ngOnInit(): void {
+    if (this.authService.user){
+      this.user = this.authService.user
+    }
     this.provider = history.state[0]
     this.fetchAddress(this.provider!)
     this.fetchRecommendation();

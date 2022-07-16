@@ -87,6 +87,7 @@ import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.compon
 import { PersonalRecipientInformationComponent } from './recipient-profile/personal-recipient-information/personal-recipient-information.component';
 import {MessagePageComponent} from "./message-page/message-page.component";
 import { HealthCheckErrorComponent } from './health-check-error/health-check-error.component';
+import { UpdateAddressComponent } from './update-address/update-address.component';
 
 
 
@@ -172,6 +173,7 @@ import { HealthCheckErrorComponent } from './health-check-error/health-check-err
     PaymentPageComponent,
     PersonalRecipientInformationComponent,
     HealthCheckErrorComponent,
+    UpdateAddressComponent,
   ],
   imports: [
     BrowserModule,

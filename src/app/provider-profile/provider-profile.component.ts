@@ -5,8 +5,8 @@ import { AuthService } from '../services/auth/auth.service';
 import { ProviderData } from '../domaine/providerData';
 import { ProviderService } from '../services/provider/provider.service';
 import { Agreement } from '../domaine/agreement/agreement';
+import { Router } from '@angular/router';
 import { RecipientService } from '../services/recipient/recipient.service';
-
 
 @Component({
   selector: 'app-provider-profile',
@@ -22,12 +22,16 @@ export class ProviderProfileComponent implements OnInit {
 
   constructor(
     private billService: BillService,
-    private authService: AuthServiceMockImplementation,
+    private authService: AuthService,
     private providerService: ProviderService,
+    private router: Router,
     private recipientService: RecipientService
 ) { }
 
   ngOnInit(): void {
+    if(this.authService.user?.userType != "provider"){
+      this.router.navigate(['/'])
+    }
     this.getProvider();
     this.getBills();
   }
