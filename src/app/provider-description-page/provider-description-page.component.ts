@@ -6,6 +6,7 @@ import {AddressService} from "../services/address/address.service";
 import { RecommandationService } from '../services/recommandation/recommandation.service';
 import { Recommendation } from '../domaine/recommendation/recommendation';
 import { AuthService } from '../services/auth/auth.service';
+import {ProviderService} from "../services/provider/provider.service";
 
 
 
@@ -16,33 +17,38 @@ import { AuthService } from '../services/auth/auth.service';
   styleUrls: ['./provider-description-page.component.scss']
 })
 export class ProviderDescriptionPageComponent implements OnInit {
-
   provider?: ProviderData;
   address?: Address;
   recommendations?: Recommendation[];
   sendRecommandation: Recommendation = new Recommendation({})
 
-  constructor(private recommandationService: RecommandationService,
-              private addressService: AddressService,
-              private authService: AuthService) {}
+  constructor(
+    private activeRoute: ActivatedRoute,
+    private recommandationService: RecommandationService,
+    private addressService: AddressService,
+    private authService: AuthService,
+    private providerService: ProviderService
+  ) {}
 
   ngOnInit(): void {
-    this.provider = history.state[0]
-    this.fetchAddress(this.provider!)
-    this.fetchRecommendation();
-    this.sendRecommandation.providerId = this.provider!.id;
-    this.sendRecommandation.recipientId = this.authService.user!.id!;
+    this.activeRoute.queryParams.subscribe(params => {
+      if (params['provider']) {
+          this.providerService.getOneProviders(params['provider']).subscribe(provider => {
+          this.provider = provider
+            this.fetchAddress(this.provider!)
+            this.fetchRecommendation();
+            this.sendRecommandation.providerId = this.provider!.id;
+            this.sendRecommandation.recipientId = this.authService.user!.id!;
+        })
+      }
+    })
+
   }
 
   fetchAddress(provider: ProviderData) {
     this.addressService.getOneAddress(provider!.address).subscribe(address => {
       this.address = address
     })
-  }
-
-  sendReco() {
-    this.addRecoInCurrentState(this.sendRecommandation.review!);
-    this.recommandationService.addRecommendation(this.sendRecommandation);
   }
 
   addRecoInCurrentState(recoText: string) {

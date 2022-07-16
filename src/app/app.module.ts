@@ -69,7 +69,6 @@ import { PaidBillComponent } from './feature/paid-bill/paid-bill.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { ReportProviderComponent } from './report-provider/report-provider.component';
 import { ReportProviderCardTitleContainerComponent } from './report-provider/report-provider-card-title-container/report-provider-card-title-container.component';
-import { ReportProviderCardDetailsContainerComponent } from './report-provider/report-provider-card-details-container/report-provider-card-details-container.component';
 import { ReportProviderCardCommentContainerComponent } from './report-provider/report-provider-card-comment-container/report-provider-card-comment-container.component';
 import { ReportProviderButtonSendComponent } from './report-provider/report-provider-button-send/report-provider-button-send.component';
 import { ProviderDescriptionTitleReportImageComponent } from './provider-description-page/provider-description-title-container/provider-description-title-report-image/provider-description-title-report-image.component';
@@ -86,6 +85,7 @@ import { AnimalCardComponent } from './list-animal-page/animal-card/animal-card.
 import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
 import { PersonalRecipientInformationComponent } from './recipient-profile/personal-recipient-information/personal-recipient-information.component';
 import {MessagePageComponent} from "./message-page/message-page.component";
+import { ProviderAddRecommendationContainerComponent } from './provider-description-page/provider-add-recommendation-container/provider-add-recommendation-container.component';
 
 
 
@@ -161,7 +161,6 @@ import {MessagePageComponent} from "./message-page/message-page.component";
     AgreementDetailComponentProvider,
     ReportProviderComponent,
     ReportProviderCardTitleContainerComponent,
-    ReportProviderCardDetailsContainerComponent,
     ReportProviderCardCommentContainerComponent,
     ReportProviderButtonSendComponent,
     ProviderDescriptionTitleReportImageComponent,
@@ -170,6 +169,7 @@ import {MessagePageComponent} from "./message-page/message-page.component";
     PaidBillComponent,
     PaymentPageComponent,
     PersonalRecipientInformationComponent,
+    ProviderAddRecommendationContainerComponent,
   ],
   imports: [
     BrowserModule,
