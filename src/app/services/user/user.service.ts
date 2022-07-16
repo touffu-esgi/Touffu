@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpUtils } from '../../utils/http.utils';
 import { Observable } from 'rxjs';
+import { User } from '../../domaine/user/user';
 
 @Injectable({
   providedIn: 'root'
@@ -15,4 +16,10 @@ export class UserService {
     return this.http.put<never>(`${this.httpUtils.fullUrl()}/user/${id}`, body, {headers: {'Content-Type': 'application/json'}})
   }
 
+  addUser(user: User): Observable<string>{
+    const body = JSON.stringify(user);
+    return this.http.post<string>(`${this.httpUtils.fullUrl()}/user`, body, {headers: {'Content-Type': 'application/json'}})
+  }
+
 }
+

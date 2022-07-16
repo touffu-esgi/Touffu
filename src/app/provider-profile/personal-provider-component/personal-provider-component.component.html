@@ -1,0 +1,75 @@
+<form (submit)='updateInformation()' novalidate #informationForm="ngForm">
+  <div id='parentContainerInformation'>
+    <div class='mainContainerInformation'>
+      <div>
+        <label>Prénom</label>
+        <input type='text' id='name' minlength='1' required name='name' value='{{provider?.name}}' [(ngModel)]='provider!.name'>
+      </div>
+      <div>
+        <label>Nom</label>
+        <input type='text' id='surname' minlength='1' required name='surnmae' value='{{provider?.surname}}' [(ngModel)]='provider!.surname'>
+      </div>
+      <div>
+        <label>Email</label>
+        <input type='text' id='email' minlength='1' required name='email' value='{{provider?.email}}' [(ngModel)]='provider!.email'>
+      </div>
+      <div>
+        <label>Mot de passe</label>
+        <input type='password' id='mdp' minlength='1' required name='mdp' value='{{provider?.password}}' [(ngModel)]='provider!.password'>
+      </div>
+    </div>
+    <app-update-address [address]='address'></app-update-address>
+  </div>
+
+  <div id='animalSelector'>
+    <h1>Animaux que je promène</h1>
+    <select #addAnimalType id='animalSelect' (change)='setAnimal(addAnimalType.value)'>
+      <option>Sélectionner</option>
+      <option *ngFor='let possibleAnimal of allAnimals'>
+        {{possibleAnimal}}
+      </option>
+    </select>
+    <div id='containerListOfAnimals'>
+      <ul id='listOfAnimals'>
+        <li *ngFor='let animal of provider!.animalType'>
+          {{animal}}
+          <button (click)='unsetAnimal(animal)'>X</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id='containerProfile'>
+    <div class='profileComment'>
+      <h3>Description de votre profile </h3>
+      <textarea class='profileCommentInput' name='profile_desc' [(ngModel)]='provider.profile_desc' placeholder="Décrivez-vous pour les utilisateurs"></textarea>
+    </div>
+
+    <div class='profileComment'>
+      <h3>Titre de votre profil</h3>
+      <textarea class='profileCommentInput' name='profile_title' [(ngModel)]='provider.profile_title' placeholder="Mettez un titre à votre proposition"></textarea>
+    </div>
+  </div>
+
+
+  <div id='buttonMajContainer'>
+    <button id='modifyButton' [hidden]='informationForm.invalid' type='submit'>Mettre à jour</button>
+  </div>
+
+</form>
+<div id='messageContainer'>
+  <div class="alertMsg errorMsg" *ngIf="this.updateSendOk === false">
+    <p>{{this.message}}</p>
+  </div>
+  <div class="alertMsg successMsg" *ngIf="this.updateSendOk === true">
+    <p>{{this.message}}</p>
+  </div>
+
+  <div class="alertMsg errorMsg" *ngIf="this.updateAddressOk === false">
+    <p>{{this.messageAddress}}</p>
+  </div>
+  <div class="alertMsg successMsg"  *ngIf="this.updateAddressOk === true">
+    <p>{{this.messageAddress}}</p>
+  </div>
+</div>
+

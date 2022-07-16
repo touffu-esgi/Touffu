@@ -1,11 +1,20 @@
 form{
   display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 25px;
+  div{
+    display: flex;
+    flex-direction: column;
+
+  }
 }
 
 #mainContainerInformation{
   box-sizing: border-box;
-  width: 871px;
-  height: 89px;
+  width: 65vw ;
+  height: 10vh;
   box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
   border-radius: 30px;
   display: flex;
@@ -20,6 +29,7 @@ input{
   font-weight: bold;
   background-color: transparent;
   height: 50px;
+  display: inline-block;
 }
 
 #modifyButton{

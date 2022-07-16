@@ -24,6 +24,22 @@ export class ProviderService {
     return this.http.get<ProviderData>(url);
   }
 
+  signUp(newProvider: ProviderData): Observable<{ url: string }> {
+    const body = JSON.stringify(newProvider);
+    return this.http.post<{ url: string }>(
+      `${this.httpUtils.fullUrl()}/provider`,
+      body,
+      {headers: {'Content-Type': 'application/json'}}
+    )
+  }
+
+  update(provider: ProviderData): Observable<void> {
+    provider.address = provider.address.split("/").pop()!;
+    console.log(provider);
+    const body = JSON.stringify(provider);
+    return this.http.put<void>(`${this.httpUtils.fullUrl()}/provider/${provider.id}`, body, {headers: {'Content-Type': 'application/json'}})
+  }
+
   getOneByUrl(url: string): Observable<ProviderData | Recipient>{
     return this.http.get<ProviderData | Recipient>(url);
   }
