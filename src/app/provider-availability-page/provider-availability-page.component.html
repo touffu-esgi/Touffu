@@ -2,6 +2,7 @@
 <div id='containerAvailabilities'>
   <div id='header'>
     <h1>Mes disponibilités hebdomadaires</h1>
+    <app-message-box [displaySuccess]="successMsg.length > 0" [successMsg]="successMsg" [errorMsg]="errorMsg" [displayError]="errorMsg.length > 0"></app-message-box>
     <button id='saveAvailability' (click)='updateAvailabilies()'>Sauvegarder</button>
   </div>
 
