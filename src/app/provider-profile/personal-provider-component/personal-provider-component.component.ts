@@ -36,9 +36,9 @@ export class PersonalProviderComponentComponent implements OnInit {
     this.providerService.update(this.provider).subscribe(provider => {
       this.userService.update(this.provider.userId.split('/').pop()!, this.provider.email).subscribe(user => {
         this.updateSendOk = true;
-        this.message = 'Mise à jour effectuée de vos informations personnels effectuée'
+        this.message = 'Mise à jour effectuée de vos informations personnelles effectuée'
       }, error => {
-        this.message = 'Une erreur est survenue lors de la mise à jour de vos informations personnels effectuée'
+        this.message = 'Une erreur est survenue lors de la mise à jour de vos informations personnelles'
         this.updateSendOk = false;
       })
     }, error => {

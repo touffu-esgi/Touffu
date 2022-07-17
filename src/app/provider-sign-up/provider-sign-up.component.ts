@@ -13,14 +13,7 @@ import { User } from '../domaine/user/user';
 })
 export class ProviderSignUpComponent implements OnInit {
   newProvider: ProviderData = ProviderData.newEmptyProvider()
-  newAddress: Address = new Address({
-    addr1: '',
-    addr2: '',
-    city: '',
-    country: '',
-    id: '',
-    zipcode: ''
-  });
+  newAddress: Address = Address.newEmptyAddress();
 
   constructor(private addressService: AddressService,
               private providerService: ProviderService,

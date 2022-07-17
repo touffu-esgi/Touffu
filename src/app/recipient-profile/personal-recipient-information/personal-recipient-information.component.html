@@ -1,7 +1,7 @@
 <div id='mainContainerInformation'>
   <form (submit)='updateInformation()' novalidate #informationForm="ngForm">
     <div>
-      <label>prénom</label>
+      <label>Prénom</label>
       <input type='text' id='name' minlength='1' required name='name' value='{{recipient?.name}}' [(ngModel)]='recipient!.name'>
     </div>
     <div>
