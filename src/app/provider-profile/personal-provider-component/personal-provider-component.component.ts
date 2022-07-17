@@ -41,7 +41,7 @@ export class PersonalProviderComponentComponent implements OnInit {
 
   updateInformation() {
     this.providerService.update(this.provider).subscribe(provider => {
-      this.userService.update(this.provider.userId.split('/').pop()!, this.provider.email).subscribe(user => {
+      this.userService.update(this.provider.userId, this.provider.email).subscribe(user => {
         this.updateSendOk = true;
         this.message = 'Mise à jour effectuée de vos informations personnelles effectuée'
       }, error => {

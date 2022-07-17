@@ -5,6 +5,7 @@ import { AddressService } from '../services/address/address.service';
 import { ProviderService } from '../services/provider/provider.service';
 import { UserService } from '../services/user/user.service';
 import { User } from '../domaine/user/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-provider-sign-up',
@@ -16,9 +17,11 @@ export class ProviderSignUpComponent implements OnInit {
   newAddress: Address = Address.newEmptyAddress();
   formData: FormData = new FormData();
 
-  constructor(private addressService: AddressService,
-              private providerService: ProviderService,
-              private userService: UserService
+  constructor(
+    private addressService: AddressService,
+    private providerService: ProviderService,
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -37,8 +40,11 @@ export class ProviderSignUpComponent implements OnInit {
             userReference,
             'provider',
             this.newProvider.password,
-            imagePath.url
-          )).subscribe(user => {})
+            imagePath.url,
+            "active"
+          )).subscribe(user => {
+            this.router.navigate(['/connection'])
+          })
         });
       });
 
