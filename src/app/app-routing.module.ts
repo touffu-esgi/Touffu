@@ -12,7 +12,6 @@ import { ListAgreementComponent } from './list-agreement/list-agreement.componen
 import { AgreementDetailComponent } from './agreement-detail/agreement-detail.component';
 import { AgreementUpdatePageComponent } from './agreement-update-page/agreement-update-page.component';
 import { ProviderDetailPageComponent } from './provider-detail-page/provider-detail-page.component';
-import { ListAnimalPageComponent } from './list-animal-page/list-animal-page.component';
 import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
 import { AuthGuard } from './auth-guard';
 import {ReportProviderComponent} from "./report-provider/report-provider.component";
@@ -20,6 +19,7 @@ import { ProviderProfileComponent } from './provider-profile/provider-profile.co
 import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { ProviderSignUpComponent } from './provider-sign-up/provider-sign-up.component';
 import { HealthCheckErrorComponent } from './health-check-error/health-check-error.component';
 import {UserCalendarPageComponent} from "./user-calendar-page/user-calendar-page.component";
 
@@ -73,6 +73,10 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'signup-provider',
+    component: ProviderSignUpComponent
+  },
+  {
     path: 'signup-recipient',
     component: RecipientSignUpComponent
   },
@@ -97,7 +101,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'availabilities', 
+    path: 'availabilities',
     component: ProviderAvailabilityPageComponent,
     canActivate: [AuthGuard]
   },
@@ -109,7 +113,10 @@ const routes: Routes = [
     path: '**',
     component: HomeComponent
   },
-  {path: 'isNotAlive', component: HealthCheckErrorComponent},
+  {
+    path: 'isNotAlive',
+    component: HealthCheckErrorComponent
+  },
   {
     path: 'user-calendar', 
     component: UserCalendarPageComponent,

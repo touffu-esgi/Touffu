@@ -25,7 +25,6 @@ export class AuthService implements authServiceInterface{
     this.http.post<User>(`${this.baseUrl}/user/login`, body, {headers: {'Content-Type': 'application/json'}}).subscribe(user => {
       this.user = user;
       localStorage.setItem('user', JSON.stringify(user));
-      window.location.replace('/');
     })
   }
 

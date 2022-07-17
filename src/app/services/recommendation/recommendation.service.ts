@@ -7,7 +7,7 @@ import { HttpUtils } from '../../utils/http.utils';
 @Injectable({
   providedIn: 'root'
 })
-export class RecommandationService {
+export class RecommendationService {
 
   constructor(private http: HttpClient, private httpUtils: HttpUtils) { }
 
@@ -17,14 +17,17 @@ export class RecommandationService {
       "providerId": recommendation.providerId,
       "recipientId": recommendation.recipientId,
       "review": recommendation.review,
-      "score": recommendation.score,
-      "dateReview": new Date()
+      "score": recommendation.score
     })
     this.http.post(this.httpUtils.fullUrl() + "/recommendation", body, {headers: {'Content-Type': 'application/json'}}).subscribe()
   }
 
   getRecommendations(providerId: string): Observable<Recommendation[]>{
     return this.http.get<Recommendation[]>(this.httpUtils.fullUrl() + `/recommendation/${providerId}`)
+  }
+
+  getAverage (providerId: string): Observable<{average: number}>{
+    return this.http.get<{average: number}>(this.httpUtils.fullUrl() + `/recommendation/average/${providerId}`)
   }
 
 }
