@@ -24,11 +24,11 @@ export class ConversationsListComponent implements OnInit {
         message.senderId = message.senderId.split("/").pop()!;
         message.recipientId = message.recipientId.split("/").pop()!;
       })
-      const messagesAndReciver: [Message[], string, string, string] = [messages, conversation.split("/").pop()!, conversation.split("/").pop()!, sender]
+      const messagesAndReciver: [Message[], string, string, string] = [messages, conversation.split("/").pop()!, conversation.split("/")[4], sender]
       this.onMessagePicked.emit(messagesAndReciver);
     },
       error => {
-        const messagesAndReciver: [Message[], string, string, string] = [[], conversation.split("/").pop()!, conversation.split("/").pop()!, sender]
+        const messagesAndReciver: [Message[], string, string, string] = [[], conversation.split("/").pop()!, conversation.split("/")[4], sender]
         this.onMessagePicked.emit(messagesAndReciver);
       });
   }
