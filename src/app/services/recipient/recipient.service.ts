@@ -12,10 +12,10 @@ export class RecipientService implements RecipientServiceInterface{
 
   constructor(private http: HttpClient, private httpUtils: HttpUtils) { }
 
-  signUp(recipient: Recipient): Observable<Object> {
+  signUp(recipient: Recipient): Observable<{ url: string }> {
     const body = JSON.stringify(recipient);
     const url = this.httpUtils.fullUrl() + "/recipient";
-    return this.http.post(url, body, {headers: {'Content-Type': 'application/json'}})
+    return this.http.post<{ url: string }>(url, body, {headers: {'Content-Type': 'application/json'}})
   }
 
   getRecipient(url: string): Observable<Recipient>{
