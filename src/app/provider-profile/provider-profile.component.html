@@ -24,12 +24,14 @@
         <img src='assets/contract.png' alt=''>
         <p>{{bill.agreementRef}}</p>
       </div>
-      <div id='file' class='field'>
-        <img src='assets/file.png' alt=''>
-      </div>
+      <button (click)='generateBills(bill!.id!)'>
+        <div id='file' class='field'>
+          <img src='assets/file.png' alt=''>
+        </div>
+      </button>
+
     </div>
   </div>
-  <app-provider-detail-page></app-provider-detail-page>
 </div>
 <div id='personalInformation'>
   <app-personal-provider-component></app-personal-provider-component>

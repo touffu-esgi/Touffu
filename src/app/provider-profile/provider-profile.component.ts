@@ -6,6 +6,8 @@ import { ProviderData } from '../domaine/providerData';
 import { ProviderService } from '../services/provider/provider.service';
 import { Agreement } from '../domaine/agreement/agreement';
 import { UserService } from '../services/user/user.service';
+import { Router } from '@angular/router';
+import { RecipientService } from '../services/recipient/recipient.service';
 
 @Component({
   selector: 'app-provider-profile',
@@ -22,12 +24,15 @@ export class ProviderProfileComponent implements OnInit {
   constructor(
     private billService: BillService,
     private authService: AuthService,
-    private providerService: ProviderService
-  ) {
-  }
+    private providerService: ProviderService,
+    private router: Router,
+    private recipientService: RecipientService
+) { }
 
   ngOnInit(): void {
-
+    if(this.authService.user?.userType != "provider"){
+      this.router.navigate(['/'])
+    }
     this.getProvider();
     this.getBills();
   }
@@ -54,5 +59,13 @@ export class ProviderProfileComponent implements OnInit {
     this.displayList = false;
   }
 
-
+  generateBills(id: string) {
+    const providerId = this.authService.user?.userReference!.split('/').pop()!
+    this.billService.getOneBillByProviderId(id, providerId).subscribe(bill => {
+      const currentBill = bill[0];
+      this.recipientService.getOne(currentBill.recipientRef).subscribe(recipient => {
+        this.billService.generateBill(id, providerId, bill, recipient)
+      })
+    })
+  }
 }

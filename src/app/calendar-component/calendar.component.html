@@ -1,0 +1,14 @@
+<table id='calendar'>
+  <thead>
+  <tr>
+    <th>Heures</th>
+    <th *ngFor="let day of WEEKDAYS">{{translateDay(day)}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let hour of dailyHours">
+    <td>{{computeDisplayHour(hour)}}</td>
+    <td *ngFor="let day of WEEKDAYS" (click)='updateTimeframes(day, hour)' [ngClass]="getClass(day, hour)"></td>
+  </tr>
+  </tbody>
+</table>

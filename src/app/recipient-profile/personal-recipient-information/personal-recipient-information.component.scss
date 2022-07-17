@@ -58,19 +58,19 @@ input{
 
 }
 
-#errorMsg {
+.errorMsg {
   background: rgba(255, 0, 0, 0.1);
   color: rgba(255, 0, 0, 0.5);
   border: 2px rgba(255, 0, 0, 0.5) solid;
 }
 
-#successMsg {
+.successMsg {
   background: rgba(35,180,27, 0.1);
   color: rgba(35,180,27, 0.5);
   border: 2px rgba(35,180,27, 0.5) solid;
 }
 
-#messageContainer{
+.messageContainer{
   display: flex;
   align-items: center;
   justify-content: center;

@@ -5,6 +5,7 @@ import {ProviderData} from "../../domaine/providerData";
 import { Agreement } from '../../domaine/agreement/agreement';
 import { Recipient } from '../../domaine/recipient/recipient';
 import { HttpUtils } from '../../utils/http.utils';
+import { Availability } from '../../domaine/availability/availability';
 
 @Injectable()
 export class ProviderService {
@@ -44,5 +45,9 @@ export class ProviderService {
     provider.address = provider.address.split("/").pop()!;
     const body = JSON.stringify(provider);
     return this.http.put<void>(`${this.httpUtils.fullUrl()}/provider/${provider.id}`, body, {headers: {'Content-Type': 'application/json'}})
+  }
+
+  getProviderAvailability(providerId: string): Observable<Availability[]>{
+    return this.http.get<Availability[]>(`${this.httpUtils.fullUrl()}/availability/${providerId}`);
   }
 }
