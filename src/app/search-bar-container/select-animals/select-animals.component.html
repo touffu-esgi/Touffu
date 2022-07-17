@@ -1,4 +1,4 @@
-<div id="animal" class="fade" [class.show]="true">
+<div id="animal" class="fade" [class.show]="selectSearchBarEventService.focus">
   <div id="containerAnimals">
     <div *ngFor='let animal of animals'>
       <app-select-animals-item [animal]='animal' (selected)="pushAnimalType($event)"></app-select-animals-item>

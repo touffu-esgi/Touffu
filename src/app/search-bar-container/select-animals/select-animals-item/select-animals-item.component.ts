@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class SelectAnimalsItemComponent implements OnInit {
   @Output() selected: EventEmitter<string> = new EventEmitter<string>()
   @Input() animal: string = "";
+  @Input() animalType?: string;
   constructor() { }
 
   ngOnInit(): void {

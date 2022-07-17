@@ -11,6 +11,7 @@ import { AuthService } from '../services/auth/auth.service';
 })
 export class AddAnimalPageComponent implements OnInit {
   animal: Animal = new Animal("", "", "");
+  animalTypes: string[] = [];
   private animalAddSubscribe?: Subscription;
 
   constructor(private animalService: AnimalService, private router: Router, private authService: AuthService) { }
@@ -19,6 +20,7 @@ export class AddAnimalPageComponent implements OnInit {
     if (this.authService.user?.userType != "recipient"){
       this.router.navigate(['/']);
     }
+    this.getAnimalType();
   }
 
   addAnimal() {
@@ -27,5 +29,9 @@ export class AddAnimalPageComponent implements OnInit {
 
   ngDestroy(){
     this.animalAddSubscribe!.unsubscribe();
+  }
+
+  private getAnimalType() {
+    return this.animalService.getAnimalType().subscribe(animalTypes => this.animalTypes = animalTypes)
   }
 }
