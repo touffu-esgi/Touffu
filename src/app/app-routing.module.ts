@@ -12,7 +12,6 @@ import { ListAgreementComponent } from './list-agreement/list-agreement.componen
 import { AgreementDetailComponent } from './agreement-detail/agreement-detail.component';
 import { AgreementUpdatePageComponent } from './agreement-update-page/agreement-update-page.component';
 import { ProviderDetailPageComponent } from './provider-detail-page/provider-detail-page.component';
-import { ListAnimalPageComponent } from './list-animal-page/list-animal-page.component';
 import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
 import { AuthGuard } from './auth-guard';
 import {ReportProviderComponent} from "./report-provider/report-provider.component";
@@ -113,7 +112,10 @@ const routes: Routes = [
     path: '**',
     component: HomeComponent
   },
-  {path: 'isNotAlive', component: HealthCheckErrorComponent},
+  {
+    path: 'isNotAlive',
+    component: HealthCheckErrorComponent
+  },
 ];
 
 @NgModule({

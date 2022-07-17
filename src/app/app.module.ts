@@ -48,7 +48,7 @@ import { ConversationComponent } from './message-page/conversation/conversation.
 import { MessageComponent } from './message-page/conversation/message/message.component';
 import { MessageInputComponent } from './message-page/conversation/message-input/message-input.component';
 import { SendMessageButtonComponent } from './message-page/conversation/send-message-button/send-message-button.component';
-import { HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import {ProviderService} from "./services/provider/provider.service";
 import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-service-provider.component";
 import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
@@ -64,7 +64,6 @@ import { AgmCoreModule } from '@agm/core';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
-import { PaidBillComponent } from './paid-bill/paid-bill.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { ReportProviderComponent } from './report-provider/report-provider.component';
 import { ReportProviderCardTitleContainerComponent } from './report-provider/report-provider-card-title-container/report-provider-card-title-container.component';
@@ -92,6 +91,7 @@ import { ProviderAvailabilityPageComponent } from './provider-availability-page/
 import { ProviderDescriptionCardDetailsAvailabilityComponent } from './provider-description-page/provider-description-card-details-availability/provider-description-card-details-availability.component';
 import { CalendarComponent } from './calendar-component/calendar.component';
 import { ProviderAddRecommendationContainerComponent } from './provider-description-page/provider-add-recommendation-container/provider-add-recommendation-container.component';
+import { PaidBillComponent } from './paid-bill/paid-bill.component';
 
 @NgModule({
   declarations: [
@@ -174,14 +174,14 @@ import { ProviderAddRecommendationContainerComponent } from './provider-descript
     ProviderDescriptionCardDetailsAvailabilityComponent,
     ProviderAvailabilityPageComponent,
     RecipientProfileComponent,
-    PaidBillComponent,
     PaymentPageComponent,
     PersonalRecipientInformationComponent,
     HealthCheckErrorComponent,
+    UpdateAddressComponent,
     CalendarComponent,
     ProviderSignUpComponent,
     PersonalProviderComponentComponent,
-    UpdateAddressComponent,
+    PaidBillComponent,
     ProviderAddRecommendationContainerComponent,
   ],
   imports: [
