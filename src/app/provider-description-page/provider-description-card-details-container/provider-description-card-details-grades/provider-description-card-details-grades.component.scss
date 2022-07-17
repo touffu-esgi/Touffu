@@ -2,6 +2,13 @@
   display: flex;
   flex-direction: row;
   gap: 4px;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+}
+
+#starImg {
+  max-width: 3vh;
 }
 
 #starContainer > p {
