@@ -12,8 +12,12 @@ export class ProviderService {
 
   constructor(private http: HttpClient, private httpUtils: HttpUtils) { }
 
-  getAllProviders(): Observable<ProviderData[]>{
-    return this.http.get<ProviderData[]>(this.httpUtils.fullUrl() + "/provider");
+  getAllProviders(filter: string[]): Observable<ProviderData[]>{
+    if (filter.length > 0){
+      return this.http.get<ProviderData[]>(this.httpUtils.fullUrl() + "/provider?" + filter.join('&'));
+    }else{
+      return this.http.get<ProviderData[]>(this.httpUtils.fullUrl() + "/provider");
+    }
   }
 
   getOneProviders(providerId: string): Observable<ProviderData>{
@@ -30,6 +34,21 @@ export class ProviderService {
 
   getAgreementOfOneProvider(providerId: string): Observable<Agreement[]>{
     return this.http.get<Agreement[]>(`${this.httpUtils.fullUrl()}/agreement?providerRef=${providerId}`, {headers: {'Content': 'application/json'}})
+  }
+
+  signUp(newProvider: ProviderData): Observable<{ url: string }> {
+    const body = JSON.stringify(newProvider);
+    return this.http.post<{ url: string }>(
+      `${this.httpUtils.fullUrl()}/provider`,
+      body,
+      {headers: {'Content-Type': 'application/json'}}
+    )
+  }
+
+  update(provider: ProviderData): Observable<void> {
+    provider.address = provider.address.split("/").pop()!;
+    const body = JSON.stringify(provider);
+    return this.http.put<void>(`${this.httpUtils.fullUrl()}/provider/${provider.id}`, body, {headers: {'Content-Type': 'application/json'}})
   }
 
   getProviderAvailability(providerId: string): Observable<Availability[]>{

@@ -14,3 +14,12 @@ button{
   text-align: center;
   min-width: 255px;
 }
+
+img{
+  width: 100px;
+  clip-path: circle();
+}
+
+#actions{
+  display: flex;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar-find-button',
@@ -6,10 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-bar-find-button.component.scss']
 })
 export class SearchBarFindButtonComponent implements OnInit {
-
+  @Input() animalType: string = "";
+  @Input() city: string = '';
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  setQueryParams (): {t?: string, c?: string} {
+    const queryParams: {t?: string, c?: string} = {};
+    if (this.animalType.length > 0) {
+      queryParams.t = this.animalType;
+    }
+    if (this.city.length > 0) {
+      queryParams.c = this.city
+    }
+    return queryParams;
   }
 
+  setCity(value: string) {
+    this.city = value
+  }
 }

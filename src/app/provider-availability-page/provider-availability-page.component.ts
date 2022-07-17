@@ -14,6 +14,7 @@ export class ProviderAvailabilityPageComponent extends CalendarComponent {
 
   availabilities: Availability[] = [];
   newAvailabilities: Availability[] = [];
+  userReference: string = this.authService.user!.userReference!.split('/').pop()!;
 
   override ngOnInit(): void {
     this.getAvailability();
@@ -21,7 +22,7 @@ export class ProviderAvailabilityPageComponent extends CalendarComponent {
   }
 
   private getAvailability() {
-    this.providerService.getProviderAvailability(this.authService.user!.id!).subscribe(availabilities => {
+    this.providerService.getProviderAvailability(this.userReference).subscribe(availabilities => {
       this.availabilities = availabilities;
       this.availabilities.forEach(availability => {
         if (availability.dailyAvailability)
@@ -52,9 +53,9 @@ export class ProviderAvailabilityPageComponent extends CalendarComponent {
         tf => tf.day === day
       )
       if (a.length === 0) {
-        availability = new Availability('', day, [], this.authService.user!.id!)
+        availability = new Availability('', day, [], this.userReference)
       } else {
-        availability = new Availability(a[0].id!, a[0].day!, [], this.authService.user!.id!)
+        availability = new Availability(a[0].id!, a[0].day!, [], this.userReference)
       }
       availability.dailyAvailability = Timeframe.buildTimeBlock(selectedTimeframes)
       this.newAvailabilities.push(availability)
@@ -68,7 +69,4 @@ export class ProviderAvailabilityPageComponent extends CalendarComponent {
       }
     })
   }
-}
-
-class ProviderAvailabilityPageComponentImpl extends ProviderAvailabilityPageComponent {
 }

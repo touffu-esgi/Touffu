@@ -10,6 +10,7 @@ export class ProviderContainerImageComponent implements OnInit {
 
 
   @Input() name: string = "";
+  @Input() imagePath?: string;
   @Input() placement?: Address;
   constructor() { }
 

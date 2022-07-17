@@ -5,6 +5,7 @@ import { AuthService } from '../services/auth/auth.service';
 import { ProviderData } from '../domaine/providerData';
 import { ProviderService } from '../services/provider/provider.service';
 import { Agreement } from '../domaine/agreement/agreement';
+import { UserService } from '../services/user/user.service';
 import { Router } from '@angular/router';
 import { RecipientService } from '../services/recipient/recipient.service';
 
