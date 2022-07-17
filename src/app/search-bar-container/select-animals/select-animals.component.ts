@@ -12,7 +12,7 @@ export class SelectAnimalsComponent implements OnInit {
   @Output() animalType: EventEmitter<string> = new EventEmitter<string>()
   constructor(private animalService: AnimalService, public selectSearchBarEventService: SelectSearchBarEventService) { }
 
-  animalTypes: string[] = [];
+  animals: string[] = [];
   focus: boolean = false;
   ngOnInit(): void {
     this.focus = this.selectSearchBarEventService.focus;
@@ -20,7 +20,7 @@ export class SelectAnimalsComponent implements OnInit {
   }
 
   private getAnimalTypes() {
-    this.animalService.getAnimalType().subscribe(animalTypes => this.animalTypes = animalTypes);
+    this.animalService.getAnimalType().subscribe(animalTypes => this.animals = animalTypes);
   }
   pushAnimalType(type: string){
     this.animalType.emit(type);
