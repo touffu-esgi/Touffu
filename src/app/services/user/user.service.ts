@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http: HttpClient, private httpUtils: HttpUtils) { }
 
   update(id: string, email: string): Observable<never> {
-    const body = JSON.stringify({"email": email})
+    const body = JSON.stringify({"email": email, "status": "active"})
     return this.http.put<never>(`${this.httpUtils.fullUrl()}/user/${id}`, body, {headers: {'Content-Type': 'application/json'}})
   }
 

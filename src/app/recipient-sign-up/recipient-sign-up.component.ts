@@ -7,6 +7,7 @@ import {AddressService} from "../services/address/address.service";
 import { HttpClient } from '@angular/common/http';
 import { UserService } from '../services/user/user.service';
 import {User} from "../domaine/user/user";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipient-sign-up',
@@ -27,7 +28,12 @@ export class RecipientSignUpComponent implements OnInit {
   formData: FormData = new FormData();
 
 
-  constructor(private recipientService: RecipientService, private addressService: AddressService, private userService: UserService) { }
+  constructor(
+    private recipientService: RecipientService,
+    private addressService: AddressService,
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -43,8 +49,11 @@ export class RecipientSignUpComponent implements OnInit {
           userReference,
           'recipient',
           this.newRecipient.password,
-          ""
-        )).subscribe(user => {})
+          "",
+          "active"
+        )).subscribe(user => {
+          this.router.navigate(['/connection'])
+        })
       })
     })
   }

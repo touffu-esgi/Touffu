@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./connection-page.component.scss']
 })
 export class ConnectionPageComponent implements OnInit {
-  user: User = new User("", "", "", "", "", "");
+  user: User = new User("", "", "", "", "", "", "");
   connectionSendOk: boolean | null = null;
   errorMsg: string = "";
 
