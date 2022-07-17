@@ -1,7 +1,5 @@
 <div id="animal" class="fade" [class.show]="true">
   <div id="containerAnimals">
-    <app-select-animals-item></app-select-animals-item>
-    <app-select-animals-item></app-select-animals-item>
-    <app-select-animals-item></app-select-animals-item>
+    <app-select-animals-item *ngFor='let animalType of animalTypes' [animalType]='animalType'></app-select-animals-item>
   </div>
 </div>
