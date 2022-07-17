@@ -11,22 +11,7 @@ import { AuthService } from '../services/auth/auth.service';
   styleUrls: ['./provider-detail-page.component.scss']
 })
 export class ProviderDetailPageComponent implements OnInit {
-  provider: ProviderData = new ProviderData({
-    animalType: [],
-    userId: '',
-    id: "",
-    name: "",
-    surname: "",
-    email: "",
-    password: "",
-    phone: "",
-    address: "",
-    base_tariff: 0,
-    radius: 0,
-    profile_title: "",
-    profile_desc: "",
-    profile_pic: ""
-  });
+  provider: ProviderData = ProviderData.newEmptyProvider()
   agreements: Agreement[] = [];
   agreementToDisplay?: Agreement;
   displayList: boolean = true;

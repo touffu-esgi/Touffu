@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar-container',
@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-bar-container.component.scss']
 })
 export class SearchBarContainerComponent implements OnInit {
+  animalType: string = '';
+  city: string = '';
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  saveCurrentAnimalType(animalType: string) {
+    this.animalType = animalType;
+  }
+
+  saveCurrentCity(city: string) {
+    this.city = city;
+  }
 }

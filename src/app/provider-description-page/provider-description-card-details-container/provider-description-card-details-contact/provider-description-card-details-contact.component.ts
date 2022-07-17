@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ProviderDescriptionCardDetailsContactComponent implements OnInit {
 
   @Input() id?: string;
+  @Input() providerName?: string;
   constructor() { }
 
   ngOnInit(): void {

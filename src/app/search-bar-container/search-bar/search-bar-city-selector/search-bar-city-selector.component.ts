@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-search-bar-city-selector',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBarCitySelectorComponent implements OnInit {
 
+  @Input() city: string = ""
+  @Output() cityEmitter: EventEmitter<string> = new EventEmitter<string>()
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeCity(city: string) {
+    this.cityEmitter.emit(city)
   }
 
 }

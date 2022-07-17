@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AgreementService } from '../services/agreement/agreement.service';
 import { Agreement } from '../domaine/agreement/agreement';
 import { ProviderService } from '../services/provider/provider.service';
@@ -23,7 +23,8 @@ export class AgreementDetailComponent implements OnInit {
     private authService: AuthService,
     private agreementService: AgreementService,
     private providerService: ProviderService,
-    private positionService: PositionService
+    private positionService: PositionService,
+    private router: Router,
   ) { }
   agreement?: Agreement;
   provider?: ProviderData;
@@ -34,18 +35,24 @@ export class AgreementDetailComponent implements OnInit {
   private getAgreement() {
     this.activeRoute.queryParams.subscribe(params => {
       if (params["agreementId"]){
-        this.agreementService.getAgreementByAgreementAndRecipientId(params["agreementId"], this.authService.user!.userReference!.split("/")[4]).subscribe(agreement => {
+        this.agreementService.getAgreementWithFilters([
+          `id=${params["agreementId"]}`,
+          `${this.authService.user!.userType}Ref=${this.authService.user!.userReference?.split('/').pop()}`
+        ]).subscribe(agreement => {
           this.agreement = agreement[0];
           this.getProvider(this.agreement.providerRef)
           this.getPosition(params["agreementId"]);
         })
+      }else{
+        this.router.navigate(["/"])
       }
+    }, error => {
+      this.router.navigate(["/"])
     })
   }
 
   private getProvider(providerUrl: string) {
     this.providerService.getOneProviderByUrl(providerUrl).subscribe(provider => {
-
       this.provider = provider;
     })
   }

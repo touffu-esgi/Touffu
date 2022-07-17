@@ -1,0 +1,57 @@
+#inputAndButtonReco {
+  width: 726px;
+  min-height: 200px;
+  border-radius: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 25px;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 5vh;
+}
+
+#recoInput {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  border-style: none;
+  height: 150px;
+  text-align: justify;
+  &:focus {
+    outline: none;
+  }
+}
+
+#score {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  border-style: none;
+  text-align: justify;
+  width: 30%;
+  &:focus {
+    outline: none;
+  }
+}
+
+#addRecoButton {
+  text-align: center;
+  border: unset;
+  outline: unset;
+  appearance: unset;
+  position: relative;
+  top: 22px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #FFFFFF;
+  border-radius: 30px;
+  display: inline-block;
+  width: 330px;
+  height: 50px;
+  align-content: center;
+  background-color: #FBC95C;
+  align-self: center;
+  margin-bottom: 2vh;
+}
+

@@ -4,11 +4,14 @@
     <button>Inscription</button>
     <button routerLink='/connection'>Connexion</button>
   </div>
-  <div id='actions' *ngIf='userId' >
-    <button>{{userEmail}}</button>
-    <button (click)='signOut()'>Se déconnecter</button>
-    <img [src]='image' alt=''>
+  <div *ngIf='userId' >
+    <a *ngIf='userType == "provider"' routerLink='/provider-profile'><button>{{userEmail}}</button></a>
+    <a *ngIf='userType == "recipient"' routerLink='/recipient-profile'><button>{{userEmail}}</button></a>
+    <a routerLink='/list-agreement'><button>Contrats</button></a>
+    <button (click)='signOut()'>SignOut</button>
+
   </div>
+
 </div>
 
 <router-outlet></router-outlet>

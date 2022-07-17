@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { SelectSearchBarEventService } from '../../../services/focus/select-search-bar-event.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar-animal-selector',
@@ -7,6 +7,7 @@ import { SelectSearchBarEventService } from '../../../services/focus/select-sear
   styleUrls: ['./search-bar-animal-selector.component.scss']
 })
 export class SearchBarAnimalSelectorComponent implements OnInit {
+  @Input() animalType: string = "";
 
   constructor(private selectSearchBarEventService: SelectSearchBarEventService) { }
 

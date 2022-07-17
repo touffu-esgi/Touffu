@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { UserService } from '../../services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-actions',
@@ -12,7 +13,8 @@ export class HeaderActionsComponent implements OnInit {
   @Input() userEmail: string | null = null;
   @Input() userType: string | null = null;
   image?: string | ArrayBuffer | null;
-  constructor(private authService: AuthService, private userService: UserService) { }
+  
+  constructor(private authService: AuthService, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
     this.getProfileImage();
@@ -23,6 +25,7 @@ export class HeaderActionsComponent implements OnInit {
     this.userId = null;
     this.userEmail = null;
     this.userType = null;
+    this.router.navigate(['/'])
   }
 
   private getProfileImage() {

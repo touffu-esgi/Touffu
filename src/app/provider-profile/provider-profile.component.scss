@@ -23,6 +23,13 @@
   box-sizing: border-box;
 }
 
+button{
+  background-color: transparent;
+  outline: transparent;
+  border: none;
+  height: 0;
+}
+
 img{
   width: 50px;
 }

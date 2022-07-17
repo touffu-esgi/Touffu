@@ -1,30 +1,39 @@
 <div id='mainContainerInformation'>
   <form (submit)='updateInformation()' novalidate #informationForm="ngForm">
     <div>
-      <label>prénom</label>
+      <label>Prénom</label>
       <input type='text' id='name' minlength='1' required name='name' value='{{recipient?.name}}' [(ngModel)]='recipient!.name'>
     </div>
     <div>
       <label>Nom</label>
-      <input type='text' id='surname' minlength='1' required name='surnmae' value='{{recipient?.surname}}' [(ngModel)]='recipient!.surname'>
+      <input type='text' id='surname' minlength='1' required name='surname' value='{{recipient?.surname}}' [(ngModel)]='recipient!.surname'>
     </div>
     <div>
-      <label>email</label>
+      <label>Email</label>
       <input type='text' id='email' minlength='1' required name='email' value='{{recipient?.email}}' [(ngModel)]='recipient!.email'>
     </div>
     <div>
-      <label>phoneNumber</label>
+      <label>Numéro de téléphone</label>
       <input type='text' id='phoneNumber' minlength='1' pattern='[0-9]{10}' required name='phoneNumber' value='{{recipient?.phoneNumber}}' [(ngModel)]='recipient!.phoneNumber'>
     </div>
     <button id='modifyButton' [hidden]='informationForm.invalid' type='submit'>Mettre à jour</button>
   </form>
 </div>
-<div id='messageContainer'>
-  <div class="alertMsg" id="errorMsg" *ngIf="this.reportSendOk === false">
+
+<app-update-address [address]='address'></app-update-address>
+<div class='messageContainer'>
+  <div class="alertMsg errorMsg" *ngIf="this.reportSendOk === false">
     <p>{{this.message}}</p>
   </div>
-  <div class="alertMsg" id="successMsg" *ngIf="this.reportSendOk === true">
+  <div class="alertMsg successMsg" *ngIf="this.reportSendOk === true">
     <p>{{this.message}}</p>
   </div>
 </div>
-
+<div class='messageContainer'>
+  <div class="alertMsg errorMsg" *ngIf="this.reportAddressOk === false">
+    <p>{{this.messageAddress}}</p>
+  </div>
+  <div class="alertMsg successMsg" *ngIf="this.reportAddressOk === true">
+    <p>{{this.messageAddress}}</p>
+  </div>
+</div>
