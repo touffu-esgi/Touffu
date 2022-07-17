@@ -91,7 +91,6 @@ import { HealthCheckErrorComponent } from './health-check-error/health-check-err
 import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
 import { ProviderDescriptionCardDetailsAvailabilityComponent } from './provider-description-page/provider-description-card-details-availability/provider-description-card-details-availability.component';
 import { CalendarComponent } from './calendar-component/calendar.component';
-import {FindProviderSelectorComponent} from "./homePage/provider-selector/find-provider-selector.component";
 import { ProviderAddRecommendationContainerComponent } from './provider-description-page/provider-add-recommendation-container/provider-add-recommendation-container.component';
 
 @NgModule({
@@ -169,7 +168,6 @@ import { ProviderAddRecommendationContainerComponent } from './provider-descript
     ProviderDescriptionTitleReportImageComponent,
     ReportProviderComponent,
     ReportProviderCardTitleContainerComponent,
-    ReportProviderCardDetailsContainerComponent,
     ReportProviderCardCommentContainerComponent,
     ReportProviderButtonSendComponent,
     ProviderProfileComponent,
@@ -181,7 +179,6 @@ import { ProviderAddRecommendationContainerComponent } from './provider-descript
     PersonalRecipientInformationComponent,
     HealthCheckErrorComponent,
     CalendarComponent,
-    FindProviderSelectorComponent,
     ProviderSignUpComponent,
     PersonalProviderComponentComponent,
     UpdateAddressComponent,

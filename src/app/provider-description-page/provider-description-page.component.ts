@@ -40,7 +40,7 @@ export class ProviderDescriptionPageComponent implements OnInit {
             this.fetchAddress(this.provider!)
             this.fetchRecommendation();
             this.sendRecommendation.providerId = this.provider!.id;
-            this.sendRecommendation.recipientId = this.authService.user!.id!;
+            this.sendRecommendation.recipientId = this.authService.user!.userReference!.split("/").pop()!;
         })
       }
     })
