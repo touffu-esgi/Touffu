@@ -12,6 +12,8 @@ export interface ProviderProps {
   readonly radius: number;
   readonly profile_title: string;
   readonly profile_desc: string;
+  readonly profile_pic: string;
   readonly userId: string;
   readonly animalType: string[];
+
 }

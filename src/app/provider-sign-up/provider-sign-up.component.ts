@@ -14,6 +14,7 @@ import { User } from '../domaine/user/user';
 export class ProviderSignUpComponent implements OnInit {
   newProvider: ProviderData = ProviderData.newEmptyProvider()
   newAddress: Address = Address.newEmptyAddress();
+  formData: FormData = new FormData();
 
   constructor(private addressService: AddressService,
               private providerService: ProviderService,
@@ -26,18 +27,29 @@ export class ProviderSignUpComponent implements OnInit {
   onFormSubmit() {
     this.addressService.addAddress(this.newAddress).subscribe(addressUrl => {
       this.newProvider.address = addressUrl.url.split("/").pop()!;
-      this.providerService.signUp(this.newProvider).subscribe(provider => {
-        const userReference = provider.url.split("/").pop()!
-        this.userService.addUser(new User(
-          '',
-          this.newProvider.email,
-          userReference,
-          'provider',
-          this.newProvider.password
-        )).subscribe(user => {
-          console.log(user);
-        })
+      this.userService.uploadProfileImage(this.formData).subscribe(imagePath => {
+        this.newProvider.profile_pic = imagePath.url;
+        this.providerService.signUp(this.newProvider).subscribe(provider => {
+          const userReference = provider.url.split("/").pop()!
+          this.userService.addUser(new User(
+            '',
+            this.newProvider.email,
+            userReference,
+            'provider',
+            this.newProvider.password,
+            imagePath.url
+          )).subscribe(user => {})
+        });
       });
+
     })
+  }
+
+  onFileSelected(event: Event) {
+    // @ts-ignore
+    const file: File = event!.target!.files[0];
+    if (file) {
+      this.formData.append("file", file);
+    }
   }
 }

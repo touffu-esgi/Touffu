@@ -12,8 +12,10 @@ export class ProviderData {
   radius: number;
   profile_title: string;
   profile_desc: string;
+  profile_pic: string;
   userId: string;
   animalType: string[];
+
 
   constructor(providerProps: ProviderProps) {
     this.id = providerProps.id;
@@ -27,6 +29,7 @@ export class ProviderData {
     this.radius = providerProps.radius;
     this.profile_title = providerProps.profile_title;
     this.profile_desc = providerProps.profile_desc;
+    this.profile_pic = providerProps.profile_pic;
     this.userId = providerProps.userId;
     this.animalType = providerProps.animalType;
   }
@@ -45,7 +48,8 @@ export class ProviderData {
       radius: 0,
       surname: '',
       userId: '',
-      animalType: []
+      animalType: [],
+      profile_pic: ""
     })
   }
 }

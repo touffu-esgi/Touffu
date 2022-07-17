@@ -48,8 +48,14 @@
           <input name="country" [(ngModel)]="newAddress.country" placeholder="Pays" type="text">
         </div>
       </div>
+      <div class="largeInput">
+        <div>
+          <input name="file" (change)="onFileSelected($event)" placeholder="Pays" type="file">
+        </div>
+      </div>
     </div>
   </div>
+
   <div id="submitButtonContainer">
     <button id="submitButton">S'inscrire</button>
   </div>

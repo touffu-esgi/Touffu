@@ -19,6 +19,7 @@ import { ProviderProfileComponent } from './provider-profile/provider-profile.co
 import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { ProviderSignUpComponent } from './provider-sign-up/provider-sign-up.component';
 import { HealthCheckErrorComponent } from './health-check-error/health-check-error.component';
 
 const routes: Routes = [
@@ -69,6 +70,10 @@ const routes: Routes = [
     path: 'provider-detail',
     component: ProviderDetailPageComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'signup-provider',
+    component: ProviderSignUpComponent
   },
   {
     path: 'signup-recipient',

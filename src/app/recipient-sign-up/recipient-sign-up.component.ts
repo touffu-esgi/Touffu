@@ -4,6 +4,8 @@ import {Recipient} from "../domaine/recipient/recipient";
 import {Address} from "../domaine/address/address";
 import {RecipientService} from "../services/recipient/recipient.service";
 import {AddressService} from "../services/address/address.service";
+import { HttpClient } from '@angular/common/http';
+import { UserService } from '../services/user/user.service';
 
 @Component({
   selector: 'app-recipient-sign-up',
@@ -21,8 +23,10 @@ export class RecipientSignUpComponent implements OnInit {
     phoneNumber: "",
     surname: ""
   });
+  formData: FormData = new FormData();
 
-  constructor(private recipientService: RecipientService, private addressService: AddressService) { }
+
+  constructor(private recipientService: RecipientService, private addressService: AddressService, private userService: UserService) { }
 
   ngOnInit(): void {
   }
@@ -30,8 +34,9 @@ export class RecipientSignUpComponent implements OnInit {
   onFormSubmit(): void {
     this.addressService.addAddress(this.newRecipient.address!).subscribe(addressUrl => {
       this.newRecipient.address!.id = addressUrl.url.split("/").pop()!;
-      this.recipientService.signUp(this.newRecipient).subscribe();
+      this.recipientService.signUp(this.newRecipient).subscribe(url => {})
     })
   }
+
 
 }

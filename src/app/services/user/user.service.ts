@@ -8,6 +8,7 @@ import { User } from '../../domaine/user/user';
   providedIn: 'root'
 })
 export class UserService {
+  imageToShow?: string | ArrayBuffer | null;
 
   constructor(private http: HttpClient, private httpUtils: HttpUtils) { }
 
@@ -21,5 +22,14 @@ export class UserService {
     return this.http.post<string>(`${this.httpUtils.fullUrl()}/user`, body, {headers: {'Content-Type': 'application/json'}})
   }
 
+
+  getFile(imagePath: string): Observable<object>{
+    // @ts-ignore
+    return this.http.get<object>(`${this.httpUtils.fullUrl()}/user/profileImage/${imagePath}`, { responseType: 'blob' })
+  }
+
+  uploadProfileImage(formData: FormData): Observable<{ url: string }>{
+    return this.http.post<{ url: string }>(`${this.httpUtils.fullUrl()}/user/image/profile`, formData);
+  }
 }
 
