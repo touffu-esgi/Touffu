@@ -1,7 +1,7 @@
 <div id="actionsContainer">
   <div *ngIf='!userId'>
-    <button id="becomeProvider">Devenir prestataire</button>
-    <button>Inscription</button>
+    <a routerLink='/signup-provider'><button id="becomeProvider">Devenir prestataire</button></a>
+    <a routerLink='/signup-recipient'><button>Inscription</button></a>
     <button routerLink='/connection'>Connexion</button>
   </div>
   <div *ngIf='userId' >
