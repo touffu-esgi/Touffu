@@ -5,6 +5,7 @@ import {ProviderData} from "../../domaine/providerData";
 import { Agreement } from '../../domaine/agreement/agreement';
 import { Recipient } from '../../domaine/recipient/recipient';
 import { HttpUtils } from '../../utils/http.utils';
+import { Availability } from '../../domaine/availability/availability';
 
 @Injectable()
 export class ProviderService {
@@ -33,5 +34,24 @@ export class ProviderService {
 
   getAgreementOfOneProvider(providerId: string): Observable<Agreement[]>{
     return this.http.get<Agreement[]>(`${this.httpUtils.fullUrl()}/agreement?providerRef=${providerId}`, {headers: {'Content': 'application/json'}})
+  }
+
+  signUp(newProvider: ProviderData): Observable<{ url: string }> {
+    const body = JSON.stringify(newProvider);
+    return this.http.post<{ url: string }>(
+      `${this.httpUtils.fullUrl()}/provider`,
+      body,
+      {headers: {'Content-Type': 'application/json'}}
+    )
+  }
+
+  update(provider: ProviderData): Observable<void> {
+    provider.address = provider.address.split("/").pop()!;
+    const body = JSON.stringify(provider);
+    return this.http.put<void>(`${this.httpUtils.fullUrl()}/provider/${provider.id}`, body, {headers: {'Content-Type': 'application/json'}})
+  }
+
+  getProviderAvailability(providerId: string): Observable<Availability[]>{
+    return this.http.get<Availability[]>(`${this.httpUtils.fullUrl()}/availability/${providerId}`);
   }
 }

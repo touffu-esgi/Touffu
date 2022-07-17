@@ -7,28 +7,16 @@
     <app-provider-description-card-about-container [name]="provider!.name" [description]="provider!.profile_desc"></app-provider-description-card-about-container>
   </div>
   <div></div>
-  <app-provider-description-card-details-container [base_tarif]="provider!.base_tariff" [id]="provider!.id" [name]="provider!.name"></app-provider-description-card-details-container>
+  <app-provider-description-card-details-container [imagePath]='provider!.profile_pic' [base_tarif]="provider!.base_tariff" [id]="provider!.id" [name]="provider!.name" [updateAverageTrigger]="average"></app-provider-description-card-details-container>
 </div>
 <div id="containerRecommendations">
   <div id="recommendations">
     <app-provider-description-recommendations-title></app-provider-description-recommendations-title>
-    <app-provider-description-recommendations-card *ngFor='let recommendation of recommendations' [recommendation]='recommendation'></app-provider-description-recommendations-card>
+    <app-provider-add-recommendation-container (hasSentRecommendation)="newRecommendationAdded($event)"></app-provider-add-recommendation-container>
+    <app-provider-description-recommendations-card *ngFor='let recommendation of recommendations?.reverse()' [recommendation]='recommendation'></app-provider-description-recommendations-card>
   </div>
   <div style="width: 353px;"></div>
 
-</div>
-<div id='containerInputReco'>
-  <div id='inputAndButtonReco'>
-    <textarea [(ngModel)]='sendRecommandation.review' required type='text' id='recoInput'></textarea>
-    <input type='number' [(ngModel)]='sendRecommandation.score' max='5' step='0.1' name='score' id='score' required placeholder='Score'>
-    <button *ngIf='sendRecommandation!.review &&
-            sendRecommandation!.review!.length >= 0 &&
-            sendRecommandation!.score &&
-            sendRecommandation!.score! >= 0 &&
-            sendRecommandation!.score! <= 5'
-            (click)='sendReco()'>Envoyer</button>
-  </div>
-  <div style="width: 353px;"></div>
 </div>
 
 

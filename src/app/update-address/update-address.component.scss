@@ -1,0 +1,24 @@
+.mainContainerInformation{
+  box-sizing: border-box;
+  width: 65vw ;
+  height: 10vh;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  div{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+input{
+  border: unset;
+  outline: unset;
+  appearance: unset;
+  font-weight: bold;
+  background-color: transparent;
+  height: 50px;
+  display: inline-block;
+}

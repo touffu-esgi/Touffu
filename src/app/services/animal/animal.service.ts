@@ -14,11 +14,11 @@ export class AnimalService {
   constructor(private http: HttpClient, private auth: AuthService, private httpUtils: HttpUtils) {}
 
   getAnimalsByRecipientId(recipientId: string): Observable<Animal[]>{
-    return this.http.get<Animal[]>(this.httpUtils.fullUrl() + `/animals/${recipientId}`);
+    return this.http.get<Animal[]>(this.httpUtils.fullUrl() + `/animals/recipient/${recipientId}`);
   }
 
   addAnimal(animal: Animal): Observable<string>{
-    animal.recipientId = this.auth.user!.id!;
+    animal.recipientId = this.auth.user!.userReference!.split("/").pop()!;
     const body = JSON.stringify(animal);
     return this.http.post<string>(this.httpUtils.fullUrl() +  `/animals`, body, {headers: {'Content-Type': 'application/json'}});
   }
@@ -28,6 +28,6 @@ export class AnimalService {
   }
 
   getAnimalsByUrl(url: string): Observable<Animal>{
-    return this.http.get<Animal>(`${url}/one`);
+    return this.http.get<Animal>(`${url}`);
   }
 }

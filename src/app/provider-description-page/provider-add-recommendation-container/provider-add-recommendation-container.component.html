@@ -1,0 +1,12 @@
+<div id='inputAndButtonReco'>
+  <h3>Commentaire</h3>
+  <textarea [(ngModel)]='sendRecommendation.review' required type='text' id='recoInput' placeholder="Parlez de votre expérience avec cet utilisateur"></textarea>
+  <h3>Score</h3>
+  <input type='number' [(ngModel)]='sendRecommendation.score' max='5' step='1' name='score' id='score' required placeholder='Score de 1 à 5'>
+  <button *ngIf='sendRecommendation!.review &&
+              sendRecommendation!.review!.length >= 0 &&
+              sendRecommendation!.score &&
+              sendRecommendation!.score! >= 0 &&
+              sendRecommendation!.score! <= 5'
+          (click)='sendReco()' id="addRecoButton">Envoyer</button>
+</div>

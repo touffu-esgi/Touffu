@@ -1,5 +1,6 @@
 <a [href]="!animal!.isOnWalk ? '' : '/agreement-detail?agreementId=' + animal!.isOnWalk">
-  <button id='containerAnimalCard' [ngClass]="!animal!.isOnWalk ? '' : 'isOnWalk'">
-    {{animal!.name}}
-  </button>
+  <div id='containerAnimalCard' [ngClass]="!animal!.isOnWalk ? '' : 'isOnWalk'">
+    <div id='animalName'>{{animal!.name}}</div>
+    <div id='animalType'>{{animal!.type}}</div>
+  </div>
 </a>
