@@ -91,6 +91,7 @@ import { UpdateAddressComponent } from './update-address/update-address.componen
 import { ProviderDescriptionCardDetailsAvailabilityComponent } from './provider-description-page/provider-description-card-details-availability/provider-description-card-details-availability.component';
 import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
 import { CalendarComponent } from './calendar-component/calendar.component';
+import {FindProviderSelectorComponent} from "./homePage/provider-selector/find-provider-selector.component";
 
 
 
@@ -180,6 +181,7 @@ import { CalendarComponent } from './calendar-component/calendar.component';
     HealthCheckErrorComponent,
     UpdateAddressComponent,
     CalendarComponent,
+    FindProviderSelectorComponent
   ],
   imports: [
     BrowserModule,
