@@ -18,7 +18,7 @@ input:focus{
   outline: transparent;
 }
 
-.recurrence{
+.selectInput{
   width: 227px;
   height: 89px;
 
@@ -32,6 +32,9 @@ input:focus{
 
 }
 
+select {
+  background-color: unset;
+}
 
 #secondLine{
   display: flex;
@@ -49,7 +52,17 @@ input:focus{
   flex-wrap: wrap;
 }
 
+#body {
+  max-width: 80vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+}
+
 #updateBtn {
+  display: inline-block;
   text-align: center;
   border: unset;
   outline: unset;
@@ -57,20 +70,13 @@ input:focus{
   position: relative;
   font-weight: bold;
   font-size: 20px;
-  top: 2vh;
+  top: 10vh;
   color: #FFFFFF;
   border-radius: 30px;
-  display: inline-block;
   width: 330px;
   height: 50px;
-  align-content: center;
+  align-self: center;
   background-color: #FBC95C;
-}
-
-#body {
-  max-width: 80vw;
-  margin: auto;
-  align-items: center;
 }
 
 *{

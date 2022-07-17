@@ -1,8 +1,10 @@
 .alertMsg {
   display: flex;
+  box-sizing: border-box;
   justify-content: center;
   width: 330px;
   border-radius: 15px;
+  padding: 2vh;
 }
 
 #errorMsg {

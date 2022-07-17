@@ -70,7 +70,6 @@ export class AgreementUpdatePageComponent implements OnInit {
       this.setAgreementParams();
       this.getProvider(agreement[0].providerRef);
       this.getRecipient(agreement[0].recipientRef);
-      this.setWeeklyDate(this.agreement!.beginningDate!);
       this.getAnimals();
     }, error => {
       this.router.navigate(["/"])
@@ -89,6 +88,7 @@ export class AgreementUpdatePageComponent implements OnInit {
   private getProvider(providerUrl: string) {
     this.providerService.getOneProviderByUrl(providerUrl).subscribe(provider => {
       this.provider = provider;
+      this.setWeeklyDate(this.agreement!.beginningDate!);
     }, error => {
       this.router.navigate(['/'])
     });
@@ -136,7 +136,11 @@ export class AgreementUpdatePageComponent implements OnInit {
   setMaxDuration(hour: string) {
     this.durations = []
     const h = parseFloat(hour)
-    this.selectedAvailability!.dailyAvailability?.forEach((timeframe) => {
+    if (!this.selectedAvailability || this.selectedAvailability.dailyAvailability?.length === 0) {
+      this.logError = "Le prestataire n'a pas de disponibilités sur ces plages horaires"
+      return
+    }
+    this.selectedAvailability?.dailyAvailability?.forEach((timeframe) => {
       if (timeframe.beginAt <= h && h < timeframe.endAt) {
         const maxDuration = timeframe.endAt - h;
         for (let i = 0.25 ; i < maxDuration ; i += 0.25) {

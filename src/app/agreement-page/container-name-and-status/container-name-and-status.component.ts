@@ -13,10 +13,8 @@ export class ContainerNameAndStatusComponent implements OnInit, OnChanges {
   @Input() provider?: ProviderData;
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  ngOnChanges(changes: SimpleChanges) {
-  }
+  ngOnChanges(changes: SimpleChanges) { }
 
 }
