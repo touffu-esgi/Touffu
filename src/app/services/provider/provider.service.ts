@@ -42,7 +42,6 @@ export class ProviderService {
 
   update(provider: ProviderData): Observable<void> {
     provider.address = provider.address.split("/").pop()!;
-    console.log(provider);
     const body = JSON.stringify(provider);
     return this.http.put<void>(`${this.httpUtils.fullUrl()}/provider/${provider.id}`, body, {headers: {'Content-Type': 'application/json'}})
   }

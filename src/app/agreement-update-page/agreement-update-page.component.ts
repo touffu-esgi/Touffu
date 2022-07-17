@@ -136,7 +136,7 @@ export class AgreementUpdatePageComponent implements OnInit {
 
   private getAnimals() {
     if(this.authService.user?.userType == "recipient"){
-      this.animalService.getAnimalsByRecipientId(this.user!.userReference!.split("/")[4]).subscribe(animals => {
+      this.animalService.getAnimalsByRecipientId(this.user!.userReference!.split("/").pop()!).subscribe(animals => {
         this.recipientAnimal = animals;
       })
     }else{

@@ -78,13 +78,11 @@ export class PersonalProviderComponentComponent implements OnInit {
     const indexOfAnimal = this.allAnimals.indexOf(animal)
     if (indexOfAnimal !== -1) this.allAnimals.splice(indexOfAnimal, 1)
     this.provider!.animalType.push(animal)
-    console.log(this.provider?.animalType)
   }
 
   private getAddress() {
     this.addressService.getOneAddress(this.provider.address).subscribe(address => {
       this.address = address;
-      console.log(this.address);
     })
   }
 }

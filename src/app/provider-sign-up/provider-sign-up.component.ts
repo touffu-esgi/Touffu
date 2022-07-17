@@ -45,9 +45,7 @@ export class ProviderSignUpComponent implements OnInit {
             'provider',
             this.newProvider.password,
             imagePath.url
-          )).subscribe(user => {
-            console.log(user);
-          })
+          )).subscribe(user => {})
         });
       });
 
