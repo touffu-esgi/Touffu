@@ -9,7 +9,7 @@
       </div>
       <div style="max-width: 672px">
         <app-search-bar [animalType]='animalType'></app-search-bar>
-        <app-select-animals (animalType)='saveCurrentAnimalType($event)'></app-select-animals>
+        <app-select-animals (selected)='saveCurrentAnimalType($event)'></app-select-animals>
       </div>
     </div>
     <div id="containerImage">

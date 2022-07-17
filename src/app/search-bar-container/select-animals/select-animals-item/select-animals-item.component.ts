@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { SelectSearchBarEventService } from '../../../services/focus/select-search-bar-event.service';
 
 @Component({
   selector: 'app-select-animals-item',
