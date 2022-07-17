@@ -71,3 +71,10 @@ export function newUTCDate(dateStr: string, endDay: boolean = false): Date {
   if (endDay) date.setHours(23, 59)
   return date
 }
+
+export function fromStringToNumber (time: string): number {
+  const timeSplit = time.split(':')
+  const hour = parseInt(timeSplit[0])
+  const minutes = parseInt(timeSplit[1])
+  return hour + minutes / 60;
+}

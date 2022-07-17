@@ -30,7 +30,6 @@ export class AgreementService{
   }
 
   getAgreementWithFilters(filters: string[]): Observable<Agreement[]>{
-    console.log(`${this.baseUrl}/agreement?${filters.join('&')}`)
     return this.http.get<Agreement[]>(`${this.baseUrl}/agreement?${filters.join('&')}`);
   }
 

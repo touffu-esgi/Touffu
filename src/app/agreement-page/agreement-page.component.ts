@@ -12,6 +12,7 @@ import {AvailabilityService} from "../services/availability/availability.service
 import {AuthService} from "../services/auth/auth.service";
 import { Animal } from '../homePage/animal/animal';
 import { AnimalService } from '../services/animal/animal.service';
+import {fromStringToNumber} from "../utils/date-time.utils";
 
 @Component({
   selector: 'app-agreement-page',
@@ -103,8 +104,9 @@ export class AgreementPageComponent implements OnInit {
 
   setMaxDuration(hour: string) {
     this.durations = []
-    const h = parseFloat(hour)
-    this.selectedAvailability!.dailyAvailability?.forEach((timeframe) => {
+    const h = fromStringToNumber(hour)
+    this.selectedAvailability!.dailyAvailability!.forEach(
+      (timeframe) => {
       if (timeframe.beginAt <= h && h < timeframe.endAt) {
         const maxDuration = timeframe.endAt - h;
         for (let i = 0.25 ; i < maxDuration ; i += 0.25) {
