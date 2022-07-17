@@ -2,7 +2,10 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ProviderData} from "../../domaine/providerData";
+import { Agreement } from '../../domaine/agreement/agreement';
+import { Recipient } from '../../domaine/recipient/recipient';
 import { HttpUtils } from '../../utils/http.utils';
+import { Availability } from '../../domaine/availability/availability';
 
 @Injectable()
 export class ProviderService {
@@ -14,10 +17,10 @@ export class ProviderService {
   }
 
   getOneProviders(providerId: string): Observable<ProviderData>{
-    return this.http.get<ProviderData>(`http://localhost:3000/provider/${providerId}`);
+    return this.http.get<ProviderData>(`${this.httpUtils.fullUrl()}/provider/${providerId}`);
   }
 
-  getOneProviderByUrl(url: string): Observable<ProviderData>{
+  getOneProviderByUrl(url: string): Observable<ProviderData> {
     return this.http.get<ProviderData>(url);
   }
 
@@ -35,5 +38,17 @@ export class ProviderService {
     console.log(provider);
     const body = JSON.stringify(provider);
     return this.http.put<void>(`${this.httpUtils.fullUrl()}/provider/${provider.id}`, body, {headers: {'Content-Type': 'application/json'}})
+  }
+
+  getOneByUrl(url: string): Observable<ProviderData | Recipient>{
+    return this.http.get<ProviderData | Recipient>(url);
+  }
+
+  getAgreementOfOneProvider(providerId: string): Observable<Agreement[]>{
+    return this.http.get<Agreement[]>(`${this.httpUtils.fullUrl()}/agreement?providerRef=${providerId}`, {headers: {'Content': 'application/json'}})
+  }
+
+  getProviderAvailability(providerId: string): Observable<Availability[]>{
+    return this.http.get<Availability[]>(`${this.httpUtils.fullUrl()}/availability/${providerId}`);
   }
 }

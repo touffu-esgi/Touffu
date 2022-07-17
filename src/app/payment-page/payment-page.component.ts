@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../services/auth/auth.service';
 import { BillService } from '../services/bill/bill.service';
 import { Bill } from '../domaine/bill/bill';
 import { Card } from '../domaine/card/card';
-import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-payment-page',

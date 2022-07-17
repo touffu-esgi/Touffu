@@ -42,14 +42,13 @@ import { ProviderDescriptionRecommendationsCardAuthorContainerComponent } from '
 import { ProviderDescriptionRecommendationsCardContentComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-content/provider-description-recommendations-card-content.component';
 import { ProviderDescriptionRecommendationsCardAuthorNameComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-name/provider-description-recommendations-card-author-name.component';
 import { ProviderDescriptionRecommendationsCardAuthorImageComponent } from './provider-description-page/provider-description-recommendations-container/provider-description-recommendations-card/provider-description-recommendations-card-author-container/provider-description-recommendations-card-author-image/provider-description-recommendations-card-author-image.component';
-import { MessagePageComponent } from './message-page/message-page.component';
 import { ConversationsListComponent } from './message-page/conversations-list/conversations-list.component';
 import { ConversationCardComponent } from './message-page/conversations-list/conversation-card/conversation-card.component';
 import { ConversationComponent } from './message-page/conversation/conversation.component';
 import { MessageComponent } from './message-page/conversation/message/message.component';
 import { MessageInputComponent } from './message-page/conversation/message-input/message-input.component';
 import { SendMessageButtonComponent } from './message-page/conversation/send-message-button/send-message-button.component';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import {ProviderService} from "./services/provider/provider.service";
 import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-service-provider.component";
 import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
@@ -63,26 +62,36 @@ import { StartDateComponent } from './agreement-page/start-date/start-date.compo
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
+import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
+import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { ReportProviderComponent } from './report-provider/report-provider.component';
 import { ReportProviderCardTitleContainerComponent } from './report-provider/report-provider-card-title-container/report-provider-card-title-container.component';
 import { ReportProviderCardDetailsContainerComponent } from './report-provider/report-provider-card-details-container/report-provider-card-details-container.component';
 import { ReportProviderCardCommentContainerComponent } from './report-provider/report-provider-card-comment-container/report-provider-card-comment-container.component';
 import { ReportProviderButtonSendComponent } from './report-provider/report-provider-button-send/report-provider-button-send.component';
 import { ProviderDescriptionTitleReportImageComponent } from './provider-description-page/provider-description-title-container/provider-description-title-report-image/provider-description-title-report-image.component';
-import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
-import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
-import { PaidBillComponent } from './paid-bill/paid-bill.component';
-import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { ListAgreementComponent } from './list-agreement/list-agreement.component';
 import { AgreementDetailComponent } from './agreement-detail/agreement-detail.component';
 import { AgreementUpdatePageComponent } from './agreement-update-page/agreement-update-page.component';
+import { ProviderDetailPageComponent } from './provider-detail-page/provider-detail-page.component';
+import { AgreementCardComponent } from './provider-detail-page/agreement-card/agreement-card.component';
+import {
+  AgreementDetailComponentProvider
+} from './provider-detail-page/agreement-detail/agreement-detail-component-provider.component';
 import { ListAnimalPageComponent } from './list-animal-page/list-animal-page.component';
 import { AnimalCardComponent } from './list-animal-page/animal-card/animal-card.component';
 import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
 import { PersonalRecipientInformationComponent } from './recipient-profile/personal-recipient-information/personal-recipient-information.component';
+import {MessagePageComponent} from "./message-page/message-page.component";
+import { HealthCheckErrorComponent } from './health-check-error/health-check-error.component';
+import { UpdateAddressComponent } from './update-address/update-address.component';
+import { ProviderDescriptionCardDetailsAvailabilityComponent } from './provider-description-page/provider-description-card-details-availability/provider-description-card-details-availability.component';
+import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
+import { CalendarComponent } from './calendar-component/calendar.component';
 import { ProviderSignUpComponent } from './provider-sign-up/provider-sign-up.component';
 import { PersonalProviderComponentComponent } from './provider-profile/personal-provider-component/personal-provider-component.component';
-import { UpdateAddressComponent } from './update-address/update-address.component';
+import {PaidBillComponent} from "./paid-bill/paid-bill.component";
 
 
 
@@ -131,10 +140,10 @@ import { UpdateAddressComponent } from './update-address/update-address.componen
     ProviderDescriptionRecommendationsCardAuthorNameComponent,
     ProviderDescriptionRecommendationsCardAuthorImageComponent,
     MessagePageComponent,
+    MessageComponent,
     ConversationsListComponent,
     ConversationCardComponent,
     ConversationComponent,
-    MessageComponent,
     MessageInputComponent,
     SendMessageButtonComponent,
     HomeComponent,
@@ -153,6 +162,9 @@ import { UpdateAddressComponent } from './update-address/update-address.componen
     ListAgreementComponent,
     AgreementDetailComponent,
     AgreementUpdatePageComponent,
+    ProviderDetailPageComponent,
+    AgreementCardComponent,
+    AgreementDetailComponentProvider,
     ReportProviderComponent,
     ReportProviderCardTitleContainerComponent,
     ReportProviderCardDetailsContainerComponent,
@@ -160,13 +172,18 @@ import { UpdateAddressComponent } from './update-address/update-address.componen
     ReportProviderButtonSendComponent,
     ProviderDescriptionTitleReportImageComponent,
     ProviderProfileComponent,
+    ProviderDescriptionCardDetailsAvailabilityComponent,
+    ProviderAvailabilityPageComponent,
     RecipientProfileComponent,
-    PaidBillComponent,
     PaymentPageComponent,
     PersonalRecipientInformationComponent,
+    HealthCheckErrorComponent,
+    UpdateAddressComponent,
+    CalendarComponent,
     ProviderSignUpComponent,
     PersonalProviderComponentComponent,
     UpdateAddressComponent,
+    PaidBillComponent
   ],
   imports: [
     BrowserModule,

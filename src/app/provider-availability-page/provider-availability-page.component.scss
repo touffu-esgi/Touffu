@@ -1,0 +1,43 @@
+#containerAvailabilities{
+  margin: auto;
+  width: 75vw;
+}
+
+table {
+  border-collapse: collapse;
+  border: dotted grey 1px;
+}
+
+th, td {
+  border: dotted grey 1px;
+  min-width: 9vw;
+  text-align: center;
+}
+
+.selected {
+  background-color: #FBDDA0;
+}
+
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  margin: auto;
+}
+
+#saveAvailability {
+  width: 8vw;
+  height: 5vh;
+  background-color: #FBC95C;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  min-height: 30px;
+}
+
+
+*{
+  font-family: 'Montserrat', sans-serif;
+}

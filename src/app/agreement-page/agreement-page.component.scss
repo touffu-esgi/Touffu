@@ -1,5 +1,5 @@
 
-#firstSelectLine{
+.line{
   display: flex;
   gap: 65px;
   margin-left: 161px;
@@ -7,14 +7,6 @@
   flex-wrap: wrap;
 }
 
-
-#secondLine{
-  display: flex;
-  gap: 65px;
-  margin-left: 161px;
-  margin-top: 80px;
-  flex-wrap: wrap;
-}
 
 #mainContainerAgreement{
   display: flex;

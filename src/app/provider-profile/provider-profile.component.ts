@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { BillService } from '../services/bill/bill.service';
 import { Bill } from '../domaine/bill/bill';
+import { AuthService } from '../services/auth/auth.service';
 import { ProviderData } from '../domaine/providerData';
 import { ProviderService } from '../services/provider/provider.service';
-import { AuthService } from '../services/auth/auth.service';
+import { Agreement } from '../domaine/agreement/agreement';
+import { Router } from '@angular/router';
+import { RecipientService } from '../services/recipient/recipient.service';
 
 @Component({
   selector: 'app-provider-profile',
@@ -13,13 +16,22 @@ import { AuthService } from '../services/auth/auth.service';
 export class ProviderProfileComponent implements OnInit {
   bills: Bill[] = []
   provider?: ProviderData;
+  agreements: Agreement[] = [];
+  agreementToDisplay?: Agreement;
+  displayList: boolean = true;
+
   constructor(
     private billService: BillService,
     private authService: AuthService,
-    private providerService: ProviderService
+    private providerService: ProviderService,
+    private router: Router,
+    private recipientService: RecipientService
 ) { }
 
   ngOnInit(): void {
+    if(this.authService.user?.userType != "provider"){
+      this.router.navigate(['/'])
+    }
     this.getProvider();
     this.getBills();
   }
@@ -38,6 +50,21 @@ export class ProviderProfileComponent implements OnInit {
   private getProvider() {
     this.providerService.getOneProviderByUrl(this.authService?.user?.userReference!).subscribe(provider => {
       this.provider = provider
+    })
+  }
+
+  displayAgreement(agreement: Agreement) {
+    this.agreementToDisplay = agreement;
+    this.displayList = false;
+  }
+
+  generateBills(id: string) {
+    const providerId = this.authService.user?.userReference!.split('/').pop()!
+    this.billService.getOneBillByProviderId(id, providerId).subscribe(bill => {
+      const currentBill = bill[0];
+      this.recipientService.getOne(currentBill.recipientRef).subscribe(recipient => {
+        this.billService.generateBill(id, providerId, bill, recipient)
+      })
     })
   }
 }

@@ -23,19 +23,19 @@
     <div id="containerAddress">
       <div class="largeInput">
         <div>
-          <input name="addr1" [(ngModel)]="newRecipient.address.addr1" placeholder="Addr 1" type="text">
+          <input name="addr1" [(ngModel)]="newRecipient!.address!.addr1!" placeholder="Addr 1" type="text">
         </div>
         <div>
-          <input name="Addr2" [(ngModel)]="newRecipient.address.addr2" placeholder="Addr 2" type="text">
+          <input name="Addr2" [(ngModel)]="newRecipient!.address!.addr2" placeholder="Addr 2" type="text">
         </div>
       </div>
       <div class="smallInputs">
-        <input name="zipCode" [(ngModel)]="newRecipient.address.zipcode" placeholder="Code postal" type="text">
-        <input name="city" [(ngModel)]="newRecipient.address.city" placeholder="Ville" type="text">
+        <input name="zipCode" [(ngModel)]="newRecipient!.address!.zipcode!" placeholder="Code postal" type="text">
+        <input name="city" [(ngModel)]="newRecipient!.address!.city!" placeholder="Ville" type="text">
       </div>
       <div class="largeInput">
         <div>
-          <input name="country" [(ngModel)]="newRecipient.address.country" placeholder="Pays" type="text">
+          <input name="country" [(ngModel)]="newRecipient!.address!.country!" placeholder="Pays" type="text">
         </div>
       </div>
     </div>

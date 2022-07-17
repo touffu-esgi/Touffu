@@ -12,10 +12,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 330px;
+  width: 400px;
   height: 50px;
   border-radius: 15px;
-
+  margin-top: 100px;
 }
 
 #errorMsg {
@@ -28,4 +28,61 @@
   background: rgba(35,180,27, 0.1);
   color: rgba(35,180,27, 0.5);
   border: 2px rgba(35,180,27, 0.5) solid;
+}
+
+
+ul{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  flex-wrap: wrap-reverse;
+  li{
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 30px;
+    width: 150px;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+#firstList{
+  padding-top: 45px;
+}
+
+#agreementContainer{
+  padding-top: 75px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#agreementDetail{
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.10);
+  border-radius: 30px;
+  width: 50vw;
+  height: 45vh;
+  display: flex;
+  flex-direction: column;
+}
+
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+#parent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

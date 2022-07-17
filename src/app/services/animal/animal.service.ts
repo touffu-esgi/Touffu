@@ -26,4 +26,8 @@ export class AnimalService {
   checkAnimalOnWalk(animalId: string): Observable<Agreement | null> {
     return this.http.get<Agreement | null>(this.httpUtils.fullUrl() + `/agreement/datetime?animal=${animalId}`, {headers: {'Content-Type': 'application/json'}})
   }
+
+  getAnimalsByUrl(url: string): Observable<Animal>{
+    return this.http.get<Animal>(`${url}/one`);
+  }
 }
