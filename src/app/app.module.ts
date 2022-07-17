@@ -53,7 +53,6 @@ import {ProviderService} from "./services/provider/provider.service";
 import {FindServiceProviderComponent} from "./homePage/image-and-text-home/find-service-provider.component";
 import {DescriptifIndexComponent} from "./homePage/descriptif-home/descriptif-index.component";
 import {HomeComponent} from "./homePage/home/home.component";
-import {RouterModule, Routes} from "@angular/router";
 import { RecipientSignUpComponent } from './recipient-sign-up/recipient-sign-up.component';
 import { AgreementPageComponent } from './agreement-page/agreement-page.component';
 import { NameAndStatusComponent } from './agreement-page/container-name-and-status/name-and-status/name-and-status.component';
@@ -65,7 +64,7 @@ import { AgmCoreModule } from '@agm/core';
 import { ConnectionPageComponent } from './connection-page/connection-page.component';
 import { ProviderProfileComponent } from './provider-profile/provider-profile.component';
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
-import { PaidBillComponent } from './feature/paid-bill/paid-bill.component';
+import { PaidBillComponent } from './paid-bill/paid-bill.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { ReportProviderComponent } from './report-provider/report-provider.component';
 import { ReportProviderCardTitleContainerComponent } from './report-provider/report-provider-card-title-container/report-provider-card-title-container.component';
@@ -86,16 +85,14 @@ import { AnimalCardComponent } from './list-animal-page/animal-card/animal-card.
 import { AddAnimalPageComponent } from './add-animal-page/add-animal-page.component';
 import { PersonalRecipientInformationComponent } from './recipient-profile/personal-recipient-information/personal-recipient-information.component';
 import {MessagePageComponent} from "./message-page/message-page.component";
-import { HealthCheckErrorComponent } from './health-check-error/health-check-error.component';
+import { ProviderSignUpComponent } from './provider-sign-up/provider-sign-up.component';
+import { PersonalProviderComponentComponent } from './provider-profile/personal-provider-component/personal-provider-component.component';
 import { UpdateAddressComponent } from './update-address/update-address.component';
-import { ProviderDescriptionCardDetailsAvailabilityComponent } from './provider-description-page/provider-description-card-details-availability/provider-description-card-details-availability.component';
+import { HealthCheckErrorComponent } from './health-check-error/health-check-error.component';
 import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
+import { ProviderDescriptionCardDetailsAvailabilityComponent } from './provider-description-page/provider-description-card-details-availability/provider-description-card-details-availability.component';
 import { CalendarComponent } from './calendar-component/calendar.component';
 import {FindProviderSelectorComponent} from "./homePage/provider-selector/find-provider-selector.component";
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -171,6 +168,11 @@ import {FindProviderSelectorComponent} from "./homePage/provider-selector/find-p
     ReportProviderCardCommentContainerComponent,
     ReportProviderButtonSendComponent,
     ProviderDescriptionTitleReportImageComponent,
+    ReportProviderComponent,
+    ReportProviderCardTitleContainerComponent,
+    ReportProviderCardDetailsContainerComponent,
+    ReportProviderCardCommentContainerComponent,
+    ReportProviderButtonSendComponent,
     ProviderProfileComponent,
     ProviderDescriptionCardDetailsAvailabilityComponent,
     ProviderAvailabilityPageComponent,
@@ -179,9 +181,11 @@ import {FindProviderSelectorComponent} from "./homePage/provider-selector/find-p
     PaymentPageComponent,
     PersonalRecipientInformationComponent,
     HealthCheckErrorComponent,
-    UpdateAddressComponent,
     CalendarComponent,
-    FindProviderSelectorComponent
+    FindProviderSelectorComponent,
+    ProviderSignUpComponent,
+    PersonalProviderComponentComponent,
+    UpdateAddressComponent,
   ],
   imports: [
     BrowserModule,

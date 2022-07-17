@@ -17,8 +17,7 @@ export class Address implements AddressProps {
     this.country = addressProps.country;
   }
 
-
-  public static newEmptyAddress(): Address{
+  public static newEmptyAddress () {
     return new Address({
       addr1: '',
       addr2: '',
@@ -28,4 +27,5 @@ export class Address implements AddressProps {
       zipcode: ''
     })
   }
+
 }

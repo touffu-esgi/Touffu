@@ -11,6 +11,7 @@ export class ProviderDescriptionCardDetailsContainerComponent implements OnInit 
   @Input() name?: string;
   @Input() id?: string;
   @Input() isNotInProfile: boolean = true;
+  @Input() imagePath: string | null = null;
   constructor() { }
 
   ngOnInit(): void {

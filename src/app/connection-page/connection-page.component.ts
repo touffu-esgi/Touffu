@@ -8,7 +8,7 @@ import { User } from '../domaine/user/user';
   styleUrls: ['./connection-page.component.scss']
 })
 export class ConnectionPageComponent implements OnInit {
-  user: User = new User("", "", "", "", "");
+  user: User = new User("", "", "", "", "", "");
 
   constructor(private authService: AuthService) { }
   ngOnInit(): void {
