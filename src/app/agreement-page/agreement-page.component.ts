@@ -36,7 +36,7 @@ export class AgreementPageComponent implements OnInit {
     endDate: '',
     providerRef: '2',
     recipientRef: '',
-    recurrence: '',
+    recurrence: 'None',
     recurring: false,
     remuneration: 1
   });
@@ -126,8 +126,13 @@ export class AgreementPageComponent implements OnInit {
   }
 
   setRecurrence(recurrence: string) {
-    this.agreements.recurrence = recurrence;
-    this.agreements.recurring = true;
+    if (recurrence === "None") {
+      this.agreements.recurrence = recurrence;
+      this.agreements.recurring = false;
+    } else {
+      this.agreements.recurrence = recurrence;
+      this.agreements.recurring = true;
+    }
   }
 
   concatHourWithBeginningDate(hour: string): void {
