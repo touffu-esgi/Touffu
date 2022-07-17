@@ -18,13 +18,9 @@ export class AuthService implements authServiceInterface{
     }
   }
 
-  getUser(user: User): void {
+  getUser(user: User): Observable<User> {
     const body = JSON.stringify(user);
-    this.http.post<User>(`http://localhost:3000/user/login`, body, {headers: {'Content-Type': 'application/json'}}).subscribe(user => {
-      this.user = user;
-      localStorage.setItem('user', JSON.stringify(user));
-      this.router.navigate([`/${this.user.userType}-profile`])
-    })
+    return this.http.post<User>(`http://localhost:3000/user/login`, body, {headers: {'Content-Type': 'application/json'}})
   }
 
   signOut() {

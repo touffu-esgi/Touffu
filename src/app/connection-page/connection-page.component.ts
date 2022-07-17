@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class ConnectionPageComponent implements OnInit {
   user: User = new User("", "", "", "", "", "");
+  reportSendOk: boolean | null = null;
+  errorMsg: string = "";
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -20,7 +22,15 @@ export class ConnectionPageComponent implements OnInit {
   }
 
   connected() {
-    this.authService.getUser(this.user);
+    this.authService.getUser(this.user).subscribe(user => {
+      this.user = user;
+      this.authService.user = user
+      localStorage.setItem('user', JSON.stringify(user));
+      this.router.navigate([`/${this.user.userType}-profile`])
+    },error => {
+      this.reportSendOk = false;
+      this.errorMsg = 'identifiants invalides'
+    })
   }
 
 
