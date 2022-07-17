@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SelectSearchBarEventService } from '../../../services/focus/select-search-bar-event.service';
 
 @Component({
   selector: 'app-search-bar-animal-selector',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBarAnimalSelectorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private selectSearchBarEventService: SelectSearchBarEventService) { }
 
   ngOnInit(): void {
   }
 
+  focus() {
+    this.selectSearchBarEventService.focus = true;
+  }
+
+  focusOut() {
+    this.selectSearchBarEventService.focus = false;
+  }
 }

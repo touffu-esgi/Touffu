@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnimalService } from '../../services/animal/animal.service';
+import { SelectSearchBarEventService } from '../../services/focus/select-search-bar-event.service';
 
 
 @Component({
@@ -9,11 +10,12 @@ import { AnimalService } from '../../services/animal/animal.service';
 })
 export class SelectAnimalsComponent implements OnInit {
 
-  constructor(private animalService: AnimalService) { }
+  constructor(private animalService: AnimalService, public selectSearchBarEventService: SelectSearchBarEventService) { }
 
   animalTypes: string[] = [];
-
+  focus: boolean = false;
   ngOnInit(): void {
+    this.focus = this.selectSearchBarEventService.focus;
     this.getAnimalTypes();
   }
 
