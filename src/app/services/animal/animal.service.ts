@@ -30,4 +30,8 @@ export class AnimalService {
   getAnimalsByUrl(url: string): Observable<Animal>{
     return this.http.get<Animal>(`${url}/one`);
   }
+
+  getAnimalType(): Observable<string[]>{
+    return this.http.get<string[]>(`${this.httpUtils.fullUrl()}/animals/animalType`);
+  }
 }

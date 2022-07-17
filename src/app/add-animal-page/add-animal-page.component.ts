@@ -10,11 +10,13 @@ import { Router } from '@angular/router';
 })
 export class AddAnimalPageComponent implements OnInit {
   animal: Animal = new Animal("", "", "");
+  animalTypes: string[] = [];
   private animalAddSubscribe?: Subscription;
 
   constructor(private animalService: AnimalService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getAnimalType();
   }
 
   addAnimal() {
@@ -23,5 +25,9 @@ export class AddAnimalPageComponent implements OnInit {
 
   ngDestroy(){
     this.animalAddSubscribe!.unsubscribe();
+  }
+
+  private getAnimalType() {
+    return this.animalService.getAnimalType().subscribe(animalTypes => this.animalTypes = animalTypes)
   }
 }
