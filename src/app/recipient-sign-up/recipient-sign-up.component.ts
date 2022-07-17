@@ -6,6 +6,7 @@ import {RecipientService} from "../services/recipient/recipient.service";
 import {AddressService} from "../services/address/address.service";
 import { HttpClient } from '@angular/common/http';
 import { UserService } from '../services/user/user.service';
+import {User} from "../domaine/user/user";
 
 @Component({
   selector: 'app-recipient-sign-up',
@@ -34,7 +35,17 @@ export class RecipientSignUpComponent implements OnInit {
   onFormSubmit(): void {
     this.addressService.addAddress(this.newRecipient.address!).subscribe(addressUrl => {
       this.newRecipient.address!.id = addressUrl.url.split("/").pop()!;
-      this.recipientService.signUp(this.newRecipient).subscribe(url => {})
+      this.recipientService.signUp(this.newRecipient).subscribe(recipient => {
+        const userReference = recipient.url.split("/").pop()!
+        this.userService.addUser(new User(
+          '',
+          this.newRecipient.email,
+          userReference,
+          'recipient',
+          this.newRecipient.password,
+          ""
+        )).subscribe(user => {})
+      })
     })
   }
 

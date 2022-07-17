@@ -1,3 +1,3 @@
 <div id="CitySelector">
-  <input type="text"  class="inputIndex" id="cityInput" placeholder='Adresse ou ville'>
+  <input #cityInput type="text"  class="inputIndex" placeholder='Adresse ou ville' [value]="city" (keyup)="changeCity(cityInput.value)">
 </div>

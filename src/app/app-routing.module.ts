@@ -21,6 +21,7 @@ import { RecipientProfileComponent } from './recipient-profile/recipient-profile
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { ProviderSignUpComponent } from './provider-sign-up/provider-sign-up.component';
 import { HealthCheckErrorComponent } from './health-check-error/health-check-error.component';
+import {UserCalendarPageComponent} from "./user-calendar-page/user-calendar-page.component";
 
 const routes: Routes = [
   {
@@ -115,6 +116,11 @@ const routes: Routes = [
   {
     path: 'isNotAlive',
     component: HealthCheckErrorComponent
+  },
+  {
+    path: 'user-calendar', 
+    component: UserCalendarPageComponent,
+    canActivate: [AuthGuard]
   },
 ];
 

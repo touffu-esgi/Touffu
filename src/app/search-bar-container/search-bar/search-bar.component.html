@@ -1,5 +1,5 @@
 <div id="parentSelector">
-  <app-search-bar-animal-selector></app-search-bar-animal-selector>
-  <app-search-bar-city-selector></app-search-bar-city-selector>
-  <app-search-bar-find-button></app-search-bar-find-button>
+  <app-search-bar-animal-selector [animalType]='animalType'></app-search-bar-animal-selector>
+  <app-search-bar-city-selector [city]='city' (cityEmitter)="setCity($event)"></app-search-bar-city-selector>
+  <app-search-bar-find-button [animalType]='animalType' [city]="city"></app-search-bar-find-button>
 </div>

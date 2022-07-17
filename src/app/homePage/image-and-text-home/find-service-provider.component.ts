@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./find-service-provider.component.scss']
 })
 export class FindServiceProviderComponent implements OnInit {
-
+  animalType: string = '';
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  saveCurrentAnimalType(animalType: string) {
+    this.animalType = animalType;
+  }
 }

@@ -33,7 +33,9 @@ export class MessagePageComponent implements OnInit {
 
   private getConversations(reciverName?: string) {
     this.messageService.getConversation(this.authService.user!.userReference!.split('/').pop()!).subscribe(conversations => {
-      this.conversations = conversations;
+      if (conversations){
+        this.conversations = conversations;
+      }
       if (history.state && history.state[0]){
         this.id_receiver = history.state[0];
         this.id_sender = this.authService.user!.id!;
