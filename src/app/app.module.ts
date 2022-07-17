@@ -90,6 +90,7 @@ import { HealthCheckErrorComponent } from './health-check-error/health-check-err
 import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
 import { ProviderDescriptionCardDetailsAvailabilityComponent } from './provider-description-page/provider-description-card-details-availability/provider-description-card-details-availability.component';
 import { CalendarComponent } from './calendar-component/calendar.component';
+import {UserCalendarPageComponent} from "./user-calendar-page/user-calendar-page.component";
 import { ProviderAddRecommendationContainerComponent } from './provider-description-page/provider-add-recommendation-container/provider-add-recommendation-container.component';
 import { PaidBillComponent } from './paid-bill/paid-bill.component';
 
@@ -175,6 +176,7 @@ import { PaidBillComponent } from './paid-bill/paid-bill.component';
     ProviderAvailabilityPageComponent,
     RecipientProfileComponent,
     PaymentPageComponent,
+    UserCalendarPageComponent,
     PersonalRecipientInformationComponent,
     HealthCheckErrorComponent,
     UpdateAddressComponent,

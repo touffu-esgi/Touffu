@@ -22,7 +22,8 @@ enum WeekDays {
 export class AvailabilityService implements AvailabilityInterface{
 
   constructor(private http: HttpClient, private httpUtils: HttpUtils) { }
-  private baseUrl = this.httpUtils.fullUrl()
+
+  private baseUrl: string = this.httpUtils.fullUrl()
 
   getWeeklyAvailability(providerId: string, dateFrom: string): Observable<Availability[]> {
     return this.http.get<Availability[]>(`${this.baseUrl}/availability/${providerId}?dateFrom=${dateFrom}`);
