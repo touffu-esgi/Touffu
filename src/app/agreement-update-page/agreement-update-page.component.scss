@@ -18,7 +18,7 @@ input:focus{
   outline: transparent;
 }
 
-.recurrence{
+.selectInput{
   width: 227px;
   height: 89px;
 
@@ -32,6 +32,9 @@ input:focus{
 
 }
 
+select {
+  background-color: unset;
+}
 
 #secondLine{
   display: flex;
@@ -47,4 +50,35 @@ input:focus{
   margin-left: 161px;
   margin-top: 80px;
   flex-wrap: wrap;
+}
+
+#body {
+  max-width: 80vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+}
+
+#updateBtn {
+  display: inline-block;
+  text-align: center;
+  border: unset;
+  outline: unset;
+  appearance: unset;
+  position: relative;
+  font-weight: bold;
+  font-size: 20px;
+  top: 5vh;
+  color: #FFFFFF;
+  border-radius: 30px;
+  width: 330px;
+  height: 50px;
+  align-self: center;
+  background-color: #FBC95C;
+}
+
+*{
+  font-family: 'Montserrat', sans-serif;
 }

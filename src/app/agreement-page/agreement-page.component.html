@@ -1,39 +1,39 @@
 <app-header></app-header>
 
 <div id='mainContainerAgreement'>
-  <app-container-name-and-status [provider]='provider!' [user]='user' ></app-container-name-and-status>
+  <app-container-name-and-status [provider]='provider!' [recipient]='recipient' ></app-container-name-and-status>
   <div class='line'>
     <app-select-recurency (recurrence)='setRecurrence($event)'></app-select-recurency>
     <app-start-date (weekly)='setWeeklyDate($event)' [providerId]='provider!.id'  [agreement]='this.agreements'></app-start-date>
-    <div class='recurrenceContainer'>
+    <div class='inputsContainer'>
       <img src='assets/checkBox.svg' alt=''>
       <input class='recurrence' type='date' name='endDate' [(ngModel)]='this.agreements.endDate'>
     </div>
 
   </div>
   <div class='line'>
-    <div class='recurrenceContainer'>
+    <div class='inputsContainer'>
       <select name='startHour' class='recurrence' #startHour (change)='setMaxDuration(startHour.value)'>
         <option value=''>Start hour</option>
         <option *ngFor='let hour of hours' value='{{computeHourDisplay(hour)}}'>{{computeHourDisplay(hour)}}</option>
       </select>
    </div>
 
-    <div class='recurrenceContainer'>
+    <div class='inputsContainer'>
       <select name='duration' class='recurrence' [(ngModel)]='this.agreements.duration'>
         <option>Duration</option>
         <option *ngFor='let duration of durations' value='{{duration}}'>{{computeHourDisplay(duration)}}</option>
       </select>
     </div>
 
-    <div class='recurrenceContainer'>
+    <div class='inputsContainer'>
       <input type='number' name='remuneration' class='recurrence' [(ngModel)]='this.agreements.remuneration'>
     </div>
   </div>
 </div>
 
 <div class='line'>
-  <div class='recurrenceContainer'>
+  <div class='inputsContainer'>
     <select name='duration' class='recurrence' (change)='formatAnimalsRef()' [(ngModel)]='this.agreements.animalsRefs'>
       <option value=''>Animaux</option>
       <option *ngFor='let animal of recipientAnimal' [value]='[animal.id]'>{{animal.name}}</option>
