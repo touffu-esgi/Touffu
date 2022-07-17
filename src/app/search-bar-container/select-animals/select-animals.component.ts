@@ -9,11 +9,12 @@ import { SelectSearchBarEventService } from '../../services/focus/select-search-
   styleUrls: ['./select-animals.component.scss']
 })
 export class SelectAnimalsComponent implements OnInit {
-  @Output() animalType: EventEmitter<string> = new EventEmitter<string>()
+  @Output() selected: EventEmitter<string> = new EventEmitter<string>()
   constructor(private animalService: AnimalService, public selectSearchBarEventService: SelectSearchBarEventService) { }
 
   animals: string[] = [];
   focus: boolean = false;
+
   ngOnInit(): void {
     this.focus = this.selectSearchBarEventService.focus;
     this.getAnimalTypes();
@@ -22,8 +23,9 @@ export class SelectAnimalsComponent implements OnInit {
   private getAnimalTypes() {
     this.animalService.getAnimalType().subscribe(animalTypes => this.animals = animalTypes);
   }
+
   pushAnimalType(type: string){
-    this.animalType.emit(type);
+    this.selected.emit(type);
   }
 
 }
