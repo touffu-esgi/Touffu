@@ -14,6 +14,7 @@ export class ProviderDescriptionCardDetailsContainerComponent implements OnInit,
   @Input() isNotInProfile: boolean = true;
   @Input() imagePath: string | null = null;
   @Input() updateAverageTrigger: boolean = false;
+  @Input() userReference: string = "";
   average: number = 5;
   constructor(private recommendationService: RecommendationService) { }
 
