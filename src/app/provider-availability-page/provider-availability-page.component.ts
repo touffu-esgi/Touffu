@@ -33,6 +33,7 @@ export class ProviderAvailabilityPageComponent extends CalendarComponent {
               this.selectedTimeframes.push(new Timeframe(availability.day!, time))
             }
           })
+        this.sortSelectedTimeframes()
       })
     })
   }
@@ -43,7 +44,12 @@ export class ProviderAvailabilityPageComponent extends CalendarComponent {
       this.selectedTimeframes.splice(index, 1)
     } else {
       this.selectedTimeframes.push(new Timeframe(day, hour))
+      this.sortSelectedTimeframes()
     }
+  }
+
+  private sortSelectedTimeframes () {
+    this.selectedTimeframes = this.selectedTimeframes.sort((tf1, tf2) => tf1.hour - tf2.hour)
   }
 
   updateAvailabilies() {
@@ -59,10 +65,12 @@ export class ProviderAvailabilityPageComponent extends CalendarComponent {
       } else {
         availability = new Availability(a[0].id!, a[0].day!, [], this.userReference)
       }
+      console.log(selectedTimeframes)
       availability.dailyAvailability = Timeframe.buildTimeBlock(selectedTimeframes)
       this.newAvailabilities.push(availability)
     })
     this.newAvailabilities.forEach(a => {
+      console.log(a)
       if (a.id === '') {
         delete a.id
         this.availabilityService.addAvailability(a).subscribe(success => {

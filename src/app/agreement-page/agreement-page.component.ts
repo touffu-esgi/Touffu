@@ -47,6 +47,9 @@ export class AgreementPageComponent implements OnInit {
   private addAgreementSubscribe?: Subscription;
   provider?: ProviderData;
   recipient?: Recipient;
+  public logError: string = "";
+  public logSuccess: string = "";
+  public confirm: boolean = false;
 
   constructor(
     private agreementService: AgreementService,
@@ -114,10 +117,15 @@ export class AgreementPageComponent implements OnInit {
   setMaxDuration(hour: string) {
     this.durations = []
     const h = fromStringToNumber(hour)
-    this.selectedAvailability!.dailyAvailability!.forEach(
-      (timeframe) => {
+    if (!this.selectedAvailability || this.selectedAvailability.dailyAvailability?.length === 0) {
+      this.logError = "Le prestataire n'a pas de disponibilités sur ces plages horaires"
+      return
+    }
+    this.selectedAvailability?.dailyAvailability?.forEach((timeframe) => {
       if (timeframe.beginAt <= h && h < timeframe.endAt) {
+        console.log(timeframe)
         const maxDuration = timeframe.endAt - h;
+        console.log(maxDuration)
         for (let i = 0.25 ; i < maxDuration ; i += 0.25) {
           this.durations.push(i)
         }
@@ -146,7 +154,13 @@ export class AgreementPageComponent implements OnInit {
 
     this.agreements.duration = parseFloat(this.agreements.duration.toString())
     this.agreements.recipientRef = this.authService.user!.id!;
-    this.addAgreementSubscribe = this.agreementService.addAgreement(this.agreements).subscribe();
+    this.addAgreementSubscribe = this.agreementService.addAgreement(this.agreements).subscribe(res => {
+      this.logError = ""
+      this.logSuccess = "Contrat mis à jour"
+    }, error => {
+      this.logSuccess = ""
+      this.logError = "Une erreur est survenue : " + error.message
+    });
     this.messageService.sendMessage("Le contrat a été mis à jour", this.authService.user!.id!, this.provider!.id).subscribe();
   }
 

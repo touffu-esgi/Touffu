@@ -41,6 +41,9 @@
     </select>
   </div>
 </div>
-<button id="updateBtn" (click)='sendAgreement(startHour.value)'>Click me</button>
+  <div class="line">
+    <button id="updateBtn" (click)='sendAgreement(startHour.value)'>Click me</button>
+    <app-message-box [errorMsg]="logError" [displayError]="logError.length > 0" [successMsg]="logSuccess" [displaySuccess]="logSuccess.length > 0"></app-message-box>
+  </div>
 </div>
 <app-footer></app-footer>
