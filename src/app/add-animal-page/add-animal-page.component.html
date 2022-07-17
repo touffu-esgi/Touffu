@@ -8,8 +8,8 @@
       <div>
         <select name='type' id='type' [(ngModel)]='animal.type' required>
           <option [value]='""'>Type</option>
-          <option [value]='"dog"'>chien</option>
-          <option [value]='"cat"'>cat</option>
+          <option *ngFor='let animalType of animalTypes' [value]='animalType'>{{animalType}}</option>
+
         </select>
       </div>
       <div>
