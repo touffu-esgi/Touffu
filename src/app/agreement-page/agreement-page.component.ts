@@ -78,7 +78,7 @@ export class AgreementPageComponent implements OnInit {
         this.router.navigate(['/'])
       }
     })
-    this.recipientService.getRecipient(`${this.httpUtils.fullUrl()}/recipient/${this.user?.userReference}`).subscribe(recipient => {
+    this.recipientService.getRecipient(this.user?.userReference!).subscribe(recipient => {
       this.recipient = recipient
     })
   }
@@ -141,6 +141,7 @@ export class AgreementPageComponent implements OnInit {
   }
 
   sendAgreement(hour: string) {
+    this.agreements.agreedByRecipient = true;
     this.concatHourWithBeginningDate(hour);
 
     this.agreements.duration = parseFloat(this.agreements.duration.toString())
