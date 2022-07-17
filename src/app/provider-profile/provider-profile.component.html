@@ -2,7 +2,9 @@
 
 
 <div id='billParentContainer'>
-  <app-provider-description-card-details-container [base_tarif]="provider?.base_tariff" [id]="provider?.id" [name]="provider?.name"></app-provider-description-card-details-container>
+  <div>
+    <app-provider-description-card-details-container [imagePath]='provider!.profile_pic' [base_tarif]="provider?.base_tariff" [id]="provider?.id" [name]="provider?.name"></app-provider-description-card-details-container>
+  </div>
 
   <div id='cardContainer'>
     <div id='cardBill' *ngFor='let bill of bills'>
@@ -29,6 +31,8 @@
   </div>
   <app-provider-detail-page></app-provider-detail-page>
 </div>
-
+<div id='personalInformation'>
+  <app-personal-provider-component></app-personal-provider-component>
+</div>
 
 <app-footer></app-footer>

@@ -12,6 +12,8 @@ import { AuthService } from '../services/auth/auth.service';
 })
 export class ProviderDetailPageComponent implements OnInit {
   provider: ProviderData = new ProviderData({
+    animalType: [],
+    userId: '',
     id: "",
     name: "",
     surname: "",
@@ -23,6 +25,7 @@ export class ProviderDetailPageComponent implements OnInit {
     radius: 0,
     profile_title: "",
     profile_desc: "",
+    profile_pic: ""
   });
   agreements: Agreement[] = [];
   agreementToDisplay?: Agreement;

@@ -1,4 +1,4 @@
-#actionsContainer > div >button{
+button{
   font-size: 20px;
   font-family: 'Montserrat', sans-serif;
   margin-right: 50px;
@@ -13,4 +13,13 @@
   min-height: 41px;
   text-align: center;
   min-width: 255px;
+}
+
+img{
+  width: 100px;
+  clip-path: circle();
+}
+
+#actions{
+  display: flex;
 }

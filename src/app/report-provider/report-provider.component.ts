@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ReportService} from "../services/report/report.service";
 import {Report} from "../domaine/report/report";
 import {ActivatedRoute} from "@angular/router";
-import {AuthService} from "../services/auth/auth.service";
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-report-provider',

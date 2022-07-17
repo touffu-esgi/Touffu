@@ -5,6 +5,7 @@ import { AuthService } from '../services/auth/auth.service';
 import { ProviderData } from '../domaine/providerData';
 import { ProviderService } from '../services/provider/provider.service';
 import { Agreement } from '../domaine/agreement/agreement';
+import { UserService } from '../services/user/user.service';
 
 @Component({
   selector: 'app-provider-profile',
@@ -22,9 +23,11 @@ export class ProviderProfileComponent implements OnInit {
     private billService: BillService,
     private authService: AuthService,
     private providerService: ProviderService
-) { }
+  ) {
+  }
 
   ngOnInit(): void {
+
     this.getProvider();
     this.getBills();
   }
@@ -50,4 +53,6 @@ export class ProviderProfileComponent implements OnInit {
     this.agreementToDisplay = agreement;
     this.displayList = false;
   }
+
+
 }
