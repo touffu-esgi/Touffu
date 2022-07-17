@@ -68,7 +68,6 @@ import { PaidBillComponent } from './paid-bill/paid-bill.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { ReportProviderComponent } from './report-provider/report-provider.component';
 import { ReportProviderCardTitleContainerComponent } from './report-provider/report-provider-card-title-container/report-provider-card-title-container.component';
-import { ReportProviderCardDetailsContainerComponent } from './report-provider/report-provider-card-details-container/report-provider-card-details-container.component';
 import { ReportProviderCardCommentContainerComponent } from './report-provider/report-provider-card-comment-container/report-provider-card-comment-container.component';
 import { ReportProviderButtonSendComponent } from './report-provider/report-provider-button-send/report-provider-button-send.component';
 import { ProviderDescriptionTitleReportImageComponent } from './provider-description-page/provider-description-title-container/provider-description-title-report-image/provider-description-title-report-image.component';
@@ -92,7 +91,7 @@ import { HealthCheckErrorComponent } from './health-check-error/health-check-err
 import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
 import { ProviderDescriptionCardDetailsAvailabilityComponent } from './provider-description-page/provider-description-card-details-availability/provider-description-card-details-availability.component';
 import { CalendarComponent } from './calendar-component/calendar.component';
-import {FindProviderSelectorComponent} from "./homePage/provider-selector/find-provider-selector.component";
+import { ProviderAddRecommendationContainerComponent } from './provider-description-page/provider-add-recommendation-container/provider-add-recommendation-container.component';
 
 @NgModule({
   declarations: [
@@ -164,13 +163,11 @@ import {FindProviderSelectorComponent} from "./homePage/provider-selector/find-p
     AgreementDetailComponentProvider,
     ReportProviderComponent,
     ReportProviderCardTitleContainerComponent,
-    ReportProviderCardDetailsContainerComponent,
     ReportProviderCardCommentContainerComponent,
     ReportProviderButtonSendComponent,
     ProviderDescriptionTitleReportImageComponent,
     ReportProviderComponent,
     ReportProviderCardTitleContainerComponent,
-    ReportProviderCardDetailsContainerComponent,
     ReportProviderCardCommentContainerComponent,
     ReportProviderButtonSendComponent,
     ProviderProfileComponent,
@@ -182,10 +179,10 @@ import {FindProviderSelectorComponent} from "./homePage/provider-selector/find-p
     PersonalRecipientInformationComponent,
     HealthCheckErrorComponent,
     CalendarComponent,
-    FindProviderSelectorComponent,
     ProviderSignUpComponent,
     PersonalProviderComponentComponent,
     UpdateAddressComponent,
+    ProviderAddRecommendationContainerComponent,
   ],
   imports: [
     BrowserModule,
