@@ -39,6 +39,8 @@ export class PersonalRecipientInformationComponent implements OnInit {
       this.recipientService.getRecipient(this.authService.user?.userReference!).subscribe(recipient => {
         this.recipient = recipient;
         this.getAddress();
+      }, error => {
+        this.authService.signOut()
       })
     }else{
       this.router.navigate(["/"])

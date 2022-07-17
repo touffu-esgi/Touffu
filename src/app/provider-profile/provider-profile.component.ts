@@ -51,6 +51,8 @@ export class ProviderProfileComponent implements OnInit {
   private getProvider() {
     this.providerService.getOneProviderByUrl(this.authService?.user?.userReference!).subscribe(provider => {
       this.provider = provider
+    }, error => {
+      this.authService.signOut()
     })
   }
 
