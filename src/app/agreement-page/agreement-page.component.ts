@@ -12,6 +12,9 @@ import {AvailabilityService} from "../services/availability/availability.service
 import {AuthService} from "../services/auth/auth.service";
 import { Animal } from '../homePage/animal/animal';
 import { AnimalService } from '../services/animal/animal.service';
+import {Recipient} from "../domaine/recipient/recipient";
+import {RecipientService} from "../services/recipient/recipient.service";
+import {HttpUtils} from "../utils/http.utils";
 
 @Component({
   selector: 'app-agreement-page',
@@ -42,16 +45,19 @@ export class AgreementPageComponent implements OnInit {
 
   private addAgreementSubscribe?: Subscription;
   provider?: ProviderData;
+  recipient?: Recipient;
 
   constructor(
     private agreementService: AgreementService,
     private providerService: ProviderService,
+    private recipientService: RecipientService,
     private authService: AuthService,
     private activeRoute: ActivatedRoute,
     private messageService: MessageService,
     private availabilityService: AvailabilityService,
     private animalService: AnimalService,
     private router: Router,
+    private httpUtils: HttpUtils,
   ) {}
 
   ngOnInit(): void {
@@ -70,6 +76,9 @@ export class AgreementPageComponent implements OnInit {
       }else{
         this.router.navigate(['/'])
       }
+    })
+    this.recipientService.getRecipient(`${this.httpUtils.fullUrl()}/recipient/${this.user?.userReference}`).subscribe(recipient => {
+      this.recipient = recipient
     })
   }
 

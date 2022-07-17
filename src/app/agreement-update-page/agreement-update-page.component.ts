@@ -10,6 +10,8 @@ import { AvailabilityService } from '../services/availability/availability.servi
 import {AuthService} from "../services/auth/auth.service";
 import { Animal } from '../homePage/animal/animal';
 import { AnimalService } from '../services/animal/animal.service';
+import {RecipientService} from "../services/recipient/recipient.service";
+import {Recipient} from "../domaine/recipient/recipient";
 
 
 
@@ -25,6 +27,7 @@ export class AgreementUpdatePageComponent implements OnInit {
     private authService: AuthService,
     private agreementService: AgreementService,
     private providerService: ProviderService,
+    private recipientService: RecipientService,
     private activatedRoute: ActivatedRoute,
     private animalService: AnimalService,
     private availabilityService: AvailabilityService,
@@ -34,10 +37,13 @@ export class AgreementUpdatePageComponent implements OnInit {
   public availabilities: Availability[] = [];
   public hours: number[] = [];
   public durations: number[] = [];
+  public logError: string = "";
+  public logSuccess: string = "";
 
   public selectedAvailability?: Availability;
   agreement?: Agreement;
   provider?: ProviderData;
+  recipient?: Recipient;
   user?: User;
   day?: number | string;
   animals: Animal[] = [];
@@ -47,30 +53,51 @@ export class AgreementUpdatePageComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.authService.user;
     this.activatedRoute.queryParams.subscribe(params => {
-      if (params["agreementId"] && params["recipientId"]){
-        this.getAgreement(params["agreementId"], params["recipientId"]);
+      if (params['agreementId']) {
+        this.getAgreement(params['agreementId']);
       }else{
         this.router.navigate(["/"])
       }
     })
   }
 
-  private getAgreement(agreementId: string, recipientId: string) {
-    this.agreementService.getAgreementByAgreementAndRecipientId(agreementId, recipientId).subscribe(agreement => {
+  private getAgreement(agreementId: string) {
+    this.agreementService.getAgreementWithFilters([
+      `id=${agreementId}`,
+      `${this.user?.userType!}Ref=${this.user?.userReference!.split('/').pop()}`
+    ]).subscribe(agreement => {
       this.agreement = agreement[0];
-      this.agreement.duration = this.agreement.duration / 60;
-      this.startHourComponent = this.agreement.beginningDate.split("T")[1].split(".")[0].substr(0,5)
-      this.agreement.endDate = this.agreement.endDate.split("T")[0];
-      if(this.agreement.beginningDate)
-        this.agreement.beginningDate = this.agreement.beginningDate.split("T")[0]
-      this.providerService.getOneProviderByUrl(agreement[0].providerRef).subscribe(provider => {
-        this.provider = provider;
-        this.setWeeklyDate(this.agreement!.beginningDate!);
-        this.getAnimals();
-      });
+      this.setAgreementParams();
+      this.getProvider(agreement[0].providerRef);
+      this.getRecipient(agreement[0].recipientRef);
+      this.setWeeklyDate(this.agreement!.beginningDate!);
+      this.getAnimals();
     }, error => {
       this.router.navigate(["/"])
     });
+  }
+
+  private setAgreementParams () {
+    this.agreement!.duration = this.agreement!.duration / 60;
+    this.startHourComponent = this.agreement!.beginningDate.split("T")[1].split(".")[0].substr(0,5)
+    this.agreement!.endDate = this.agreement!.endDate.split("T")[0];
+    if (this.agreement!.beginningDate) {
+      this.agreement!.beginningDate = this.agreement!.beginningDate.split("T")[0]
+    }
+  }
+
+  private getProvider(providerUrl: string) {
+    this.providerService.getOneProviderByUrl(providerUrl).subscribe(provider => {
+      this.provider = provider;
+    }, error => {
+      this.router.navigate(['/'])
+    });
+  }
+
+  private getRecipient (recipientUrl: string) {
+    this.recipientService.getRecipient(recipientUrl).subscribe(recipient => {
+      this.recipient = recipient;
+    })
   }
 
 
@@ -80,6 +107,9 @@ export class AgreementUpdatePageComponent implements OnInit {
       const beginningDayString = this.availabilityService.getDayFromDate(new Date(this.agreement!.beginningDate))
       this.getStartHour(beginningDayString)
       this.setMaxDuration(this.startHourComponent!)
+    }, error => {
+      this.logError = "Le prestataire n'a pas de disponibilités sur ces plages horaires"
+      console.log(this.logError)
     });
   }
 

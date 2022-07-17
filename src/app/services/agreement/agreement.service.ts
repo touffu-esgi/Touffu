@@ -23,7 +23,14 @@ export class AgreementService{
   }
 
   getAgreementByAgreementAndRecipientId(agreementId:string, recipientId:string): Observable<Agreement[]> {
-    return this.http.get<Agreement[]>(`${this.httpUtils.fullUrl()}/agreement?recipientRef=${recipientId}&id=${agreementId}`);
+    return this.getAgreementWithFilters([
+      `id=${agreementId}`,
+      `recipientRef=${recipientId}`
+    ])
+  }
+
+  getAgreementWithFilters(filters: string[]) {
+    return this.http.get<Agreement[]>(`${this.httpUtils.fullUrl()}/agreement?${filters.join('&')}`)
   }
 
   update(agreement: Agreement) {

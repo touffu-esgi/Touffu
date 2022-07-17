@@ -1,6 +1,6 @@
 <app-header></app-header>
-<app-container-name-and-status [user]='user' [provider]='provider'></app-container-name-and-status>
-
+<div id="body">
+<app-container-name-and-status [recipient]='recipient' [provider]='provider'></app-container-name-and-status>
   <div id='containerUpdate'>
     <div id='firstLine'>
       <select class='recurrence' name='recurrence' [(ngModel)]='agreement!.recurrence'>
@@ -33,16 +33,19 @@
     </div>
   </div>
 
-<div class='line'>
-  <div *ngIf='this.animals.length == 0' class='recurrenceContainer'>
-    <select name='duration' class='recurrence' (change)='formatAnimalsRef()' [(ngModel)]='this.agreement!.animalsRefs'>
-      <option value=''>Animaux</option>
-      <option *ngFor='let animal of recipientAnimal' [value]='[animal.id]'>{{animal.name}}</option>
-    </select>
+  <div class='line'>
+    <div *ngIf='this.animals.length == 0' class='recurrenceContainer'>
+      <select name='duration' class='recurrence' (change)='formatAnimalsRef()' [(ngModel)]='this.agreement!.animalsRefs'>
+        <option value=''>Animaux</option>
+        <option *ngFor='let animal of recipientAnimal' [value]='[animal.id]'>{{animal.name}}</option>
+      </select>
+    </div>
+    <div *ngIf='this.animals.length > 0' class='recurrenceContainer'>
+      <div *ngFor='let animal of animals'> {{animal.name}} </div>
+    </div>
   </div>
-  <div *ngIf='this.animals.length > 0' class='recurrenceContainer'>
-    <div *ngFor='let animal of animals'> {{animal.name}} </div>
-  </div>
+  <button id="updateBtn" (click)='send()'>Mettre a jour la proposition</button>
+
+  <app-message-box [errorMsg]="logError" [displayError]="logError.length > 0" [successMsg]="logSuccess" [displaySuccess]="logSuccess.length > 0"></app-message-box>
 </div>
-  <button (click)='send()'>Mettre a jour la proposition</button>
 <app-footer></app-footer>
