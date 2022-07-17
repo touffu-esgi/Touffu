@@ -10,4 +10,6 @@ export interface AgreementProps {
   duration: number;
   remuneration: number;
   status?: string;
+  agreedByProvider?: boolean;
+  agreedByRecipient?: boolean;
 }

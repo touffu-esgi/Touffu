@@ -1,5 +1,11 @@
+#msgBlock {
+  display: flex;
+  align-self: center;
+}
+
 .alertMsg {
   display: flex;
+  margin: auto;
   box-sizing: border-box;
   justify-content: center;
   width: 330px;

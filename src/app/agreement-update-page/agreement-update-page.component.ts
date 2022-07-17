@@ -39,6 +39,7 @@ export class AgreementUpdatePageComponent implements OnInit {
   public durations: number[] = [];
   public logError: string = "";
   public logSuccess: string = "";
+  public confirm: boolean = false;
 
   public selectedAvailability?: Availability;
   agreement?: Agreement;
@@ -161,8 +162,23 @@ export class AgreementUpdatePageComponent implements OnInit {
   }
 
   send() {
+    if (!this.confirm) {
+      this.logError = "Vous devez confirmer vos modifications"
+      return;
+    }
+    if (this.user!.userType === "provider") {
+      this.agreement!.agreedByProvider = true;
+    } else {
+      this.agreement!.agreedByRecipient = true;
+    }
     this.concatHourWithBeginningDate(this.startHourComponent!)
-    this.agreementService.update(this.agreement!).subscribe()
+    this.agreementService.update(this.agreement!).subscribe(res => {
+      this.logError = ""
+      this.logSuccess = "Contrat mis à jour"
+    }, error => {
+      this.logSuccess = ""
+      this.logError = "Une erreur est survenue : " + error
+    })
   }
 
   formatAnimalsRef() {

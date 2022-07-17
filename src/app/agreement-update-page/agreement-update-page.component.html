@@ -43,10 +43,18 @@
     <div *ngIf='this.animals.length > 0' class='inputsContainer'>
       <div *ngFor='let animal of animals'> {{animal.name}}</div>
     </div>
-    <app-message-box [errorMsg]="logError" [displayError]="logError.length > 0" [successMsg]="logSuccess" [displaySuccess]="logSuccess.length > 0"></app-message-box>
-
   </div>
-  <button id="updateBtn" (click)='send()'>Mettre a jour la proposition</button>
+  <div class="line">
+    <div>
+      <input type="checkbox" id="validate" value="confirm" [(ngModel)]="confirm">
+      <label for="validate">Confirmer mes modifications</label>
+    </div>
+  </div>
+
+  <div class="line">
+    <button id="updateBtn" (click)='send()'>Mettre a jour la proposition</button>
+    <app-message-box [errorMsg]="logError" [displayError]="logError.length > 0" [successMsg]="logSuccess" [displaySuccess]="logSuccess.length > 0"></app-message-box>
+  </div>
 
 </div>
 <app-footer></app-footer>

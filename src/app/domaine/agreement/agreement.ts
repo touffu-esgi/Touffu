@@ -12,6 +12,8 @@ export class Agreement implements AgreementProps{
   duration: number;
   remuneration: number;
   status?: string;
+  agreedByProvider?: boolean;
+  agreedByRecipient?: boolean;
 
   constructor(agreementProps: AgreementProps) {
     this.id = agreementProps.id;

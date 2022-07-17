@@ -1,6 +1,8 @@
-<div class="alertMsg" id="errorMsg" *ngIf="this.displayError">
-  <p>{{this.errorMsg}}</p>
-</div>
-<div class="alertMsg" id="successMsg" *ngIf="this.displaySuccess">
-  <p>{{this.successMsg}}</p>
+<div id="msgBlock">
+  <div class="alertMsg" id="errorMsg" *ngIf="this.displayError">
+    <p>{{this.errorMsg}}</p>
+  </div>
+  <div class="alertMsg" id="successMsg" *ngIf="this.displaySuccess">
+    <p>{{this.successMsg}}</p>
+  </div>
 </div>
