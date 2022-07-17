@@ -195,10 +195,11 @@ export class AgreementUpdatePageComponent implements OnInit {
         this.recipientAnimal = animals;
       })
     }else{
+      console.log("test")
       // @ts-ignore
-      this.animalService.getAnimalsByUrl(this.agreement!.animals[0]).subscribe(animal => {
+      this.animalService.getAnimalById(this.agreement!.animals[0].split('/').pop()).subscribe(animal => {
         this.animals.push(animal)
-
+        console.log(this.animals)
       })
     }
   }
