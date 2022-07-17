@@ -20,4 +20,9 @@ export class AddressService {
     const body = JSON.stringify(address);
     return this.http.post<{url: string}>(this.httpUtils.fullUrl() + "/address", body, {headers: {'Content-Type': 'application/json'}});
   }
+
+  update(address: Address): Observable<void> {
+    const body = JSON.stringify(address);
+    return this.http.put<void>(`${this.httpUtils.fullUrl()}/address/${address.id}`, body, {headers: {'Content-Type': 'application/json'}});
+  }
 }

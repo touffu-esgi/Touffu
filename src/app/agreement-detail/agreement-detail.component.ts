@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AgreementService } from '../services/agreement/agreement.service';
 import { Agreement } from '../domaine/agreement/agreement';
 import { ProviderService } from '../services/provider/provider.service';
@@ -23,7 +23,8 @@ export class AgreementDetailComponent implements OnInit {
     private authService: AuthService,
     private agreementService: AgreementService,
     private providerService: ProviderService,
-    private positionService: PositionService
+    private positionService: PositionService,
+    private router: Router,
   ) { }
   agreement?: Agreement;
   provider?: ProviderData;
@@ -42,7 +43,11 @@ export class AgreementDetailComponent implements OnInit {
           this.getProvider(this.agreement.providerRef)
           this.getPosition(params["agreementId"]);
         })
+      }else{
+        this.router.navigate(["/"])
       }
+    }, error => {
+      this.router.navigate(["/"])
     })
   }
 

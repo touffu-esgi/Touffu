@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AgreementService } from '../services/agreement/agreement.service';
 import { ProviderService } from '../services/provider/provider.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Agreement } from '../domaine/agreement/agreement';
 import { ProviderData } from '../domaine/providerData';
 import { User } from '../domaine/user/user';
@@ -27,7 +27,8 @@ export class AgreementUpdatePageComponent implements OnInit {
     private providerService: ProviderService,
     private activatedRoute: ActivatedRoute,
     private animalService: AnimalService,
-    private availabilityService: AvailabilityService
+    private availabilityService: AvailabilityService,
+    private router: Router,
   ){}
 
   public availabilities: Availability[] = [];
@@ -48,6 +49,8 @@ export class AgreementUpdatePageComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       if (params["agreementId"] && params["recipientId"]){
         this.getAgreement(params["agreementId"], params["recipientId"]);
+      }else{
+        this.router.navigate(["/"])
       }
     })
   }
@@ -65,6 +68,8 @@ export class AgreementUpdatePageComponent implements OnInit {
         this.setWeeklyDate(this.agreement!.beginningDate!);
         this.getAnimals();
       });
+    }, error => {
+      this.router.navigate(["/"])
     });
   }
 

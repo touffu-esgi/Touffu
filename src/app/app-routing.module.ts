@@ -20,48 +20,101 @@ import { ProviderProfileComponent } from './provider-profile/provider-profile.co
 import { ProviderAvailabilityPageComponent } from './provider-availability-page/provider-availability-page.component';
 import { RecipientProfileComponent } from './recipient-profile/recipient-profile.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { HealthCheckErrorComponent } from './health-check-error/health-check-error.component';
 import {UserCalendarPageComponent} from "./user-calendar-page/user-calendar-page.component";
 
 const routes: Routes = [
   {
     path: 'description-component',
     component: ProviderDescriptionPageComponent,
-    data: ProviderData},
+    data: ProviderData
+  },
   {
     path: 'search-page',
-    component: SearchProviderPageComponent},
+    component: SearchProviderPageComponent
+  },
   {
     path: 'message',
     component: MessagePageComponent,
-    canActivate: [AuthGuard]},
+    canActivate: [AuthGuard]
+  },
   {
     path: 'connection',
     component: ConnectionPageComponent
-  },
-  {
-    path: 'list-animal',
-    component: ListAnimalPageComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'add-animal',
     component: AddAnimalPageComponent,
     canActivate: [AuthGuard]
   },
-  {path: 'agreement', component: AgreementPageComponent},
-  {path: 'list-agreement', component: ListAgreementComponent},
-  {path: 'agreement-detail', component: AgreementDetailComponent},
-  {path: 'agreement-update', component: AgreementUpdatePageComponent},
-  {path: 'provider-detail', component: ProviderDetailPageComponent},
-  {path: 'signup-recipient', component: RecipientSignUpComponent},
-  {path: 'report', component: ReportProviderComponent},
-  {path: 'provider-profile', component: ProviderProfileComponent},
-  {path: 'availabilities', component: ProviderAvailabilityPageComponent},
-  {path: 'recipient-profile', component: RecipientProfileComponent},
-  {path: 'bill-payment', component: PaymentPageComponent},
-  {path: 'user-calendar', component: UserCalendarPageComponent},
-  {path: '', component: HomeComponent},
-  {path: '**', component: HomeComponent},
+  {
+    path: 'agreement',
+    component: AgreementPageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'list-agreement',
+    component: ListAgreementComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'agreement-detail',
+    component: AgreementDetailComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'agreement-update',
+    component: AgreementUpdatePageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'provider-detail',
+    component: ProviderDetailPageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'signup-recipient',
+    component: RecipientSignUpComponent
+  },
+  {
+    path: 'report',
+    component: ReportProviderComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'provider-profile',
+    component: ProviderProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'recipient-profile',
+    component: RecipientProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'bill-payment',
+    component: PaymentPageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'availabilities', 
+    component: ProviderAvailabilityPageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: '**',
+    component: HomeComponent
+  },
+  {path: 'isNotAlive', component: HealthCheckErrorComponent},
+  {
+    path: 'user-calendar', 
+    component: UserCalendarPageComponent,
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({
