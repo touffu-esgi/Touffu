@@ -32,7 +32,7 @@ export class MessagePageComponent implements OnInit {
   }
 
   private getConversations(reciverName?: string) {
-    this.messageService.getConversation(this.authService.user!.userReference!.split('/').pop()!).subscribe(conversations => {
+    this.messageService.getConversation(this.authService.user!.id!).subscribe(conversations => {
       if (conversations){
         this.conversations = conversations;
       }
