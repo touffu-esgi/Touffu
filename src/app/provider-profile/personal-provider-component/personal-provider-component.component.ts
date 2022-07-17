@@ -5,6 +5,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { UserService } from '../../services/user/user.service';
 import { AddressService } from '../../services/address/address.service';
 import { Address } from '../../domaine/address/address';
+import { AnimalService } from '../../services/animal/animal.service';
 
 @Component({
   selector: 'app-personal-provider-component',
@@ -21,7 +22,13 @@ export class PersonalProviderComponentComponent implements OnInit {
   allAnimals: string[] = []
   address: Address = Address.newEmptyAddress();
 
-  constructor(private providerService: ProviderService, private userService: UserService, private addressService: AddressService, private authService: AuthService) { }
+  constructor(
+    private providerService: ProviderService,
+    private userService: UserService,
+    private addressService: AddressService,
+    private authService: AuthService,
+    private animalService: AnimalService
+  ) { }
 
   ngOnInit(): void {
     this.providerService.getOneProviderByUrl(this.authService.user?.userReference!).subscribe(provider => {
@@ -56,15 +63,18 @@ export class PersonalProviderComponentComponent implements OnInit {
   }
 
   private initPossibleAnimals() {
-    this.allAnimals = ["chat", "chien", "chameau", "cheval"]
-    if (this.provider!.animalType){
-      this.provider!.animalType.forEach(animal => {
-        const indexOfAnimal = this.allAnimals.indexOf(animal)
-        if (indexOfAnimal !== -1) this.allAnimals.splice(indexOfAnimal, 1)
-      })
-    }else{
-      this.provider!.animalType = [];
-    }
+    this.animalService.getAnimalType().subscribe(animalTypes => {
+      this.allAnimals = animalTypes
+      if (this.provider!.animalType){
+        this.provider!.animalType.forEach(animal => {
+          const indexOfAnimal = this.allAnimals.indexOf(animal)
+          if (indexOfAnimal !== -1) this.allAnimals.splice(indexOfAnimal, 1)
+        })
+      }else{
+        this.provider!.animalType = [];
+      }
+    })
+
 
   }
 
