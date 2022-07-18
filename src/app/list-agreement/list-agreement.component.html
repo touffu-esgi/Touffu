@@ -1,19 +1,24 @@
 <app-header></app-header>
+<body>
+<h2>Mes contrats</h2>
 <div id='header'>
-  <p>recurrence</p>
-  <p>remunération</p>
-  <p>status</p>
-  <p>duration</p>
-  <p>actions</p>
+  <p>Récurrence</p>
+  <p>Rémunération</p>
+  <p>Statut</p>
+  <p>Date de début</p>
+  <p>Durée</p>
+  <p>Action</p>
 </div>
-  <div id='value' *ngFor='let agreement of Agreements'>
-    <p>{{agreement.recurrence}}</p>
-    <p>{{agreement.remuneration}}</p>
-    <p>{{agreement.status}}</p>
-    <p>{{agreement.duration}}</p>
-    <a *ngIf='agreement.status === "InDiscussion"' routerLink='/agreement-update' [queryParams]='{"agreementId": agreement.id, "recipientId": agreement.recipientRef.split("/")[4]}'>Mettre à jour</a>
-    <a *ngIf='agreement.status === "Agreed"' routerLink='/agreement-detail' [queryParams]='{"agreementId": agreement.id}'>Détail</a>
-  </div>
+<div id='value' *ngFor='let agreement of Agreements'>
+  <p>{{agreement.recurrence}}</p>
+  <p>{{agreement.remuneration}} €</p>
+  <p>{{agreement.status === "InDiscussion" ? "En discussion" : "Validé"}}</p>
+  <p>{{formatDate(agreement.beginningDate)}}</p>
+  <p>{{formatDuration(agreement.duration)}}</p>
+  <a *ngIf='agreement.status === "InDiscussion"' routerLink='/agreement-update' [queryParams]='{"agreementId": agreement.id, "recipientId": agreement.recipientRef.split("/")[4]}'>Mettre à jour</a>
+  <a *ngIf='agreement.status === "Agreed"' routerLink='/agreement-detail' [queryParams]='{"agreementId": agreement.id}'>Détail</a>
+</div>
+</body>
 <app-footer></app-footer>
 
 <router-outlet></router-outlet>
