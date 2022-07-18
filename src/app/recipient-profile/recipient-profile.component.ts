@@ -17,7 +17,7 @@ export class RecipientProfileComponent implements OnInit {
 
   bills: Bill[] = []
   provider?: ProviderData;
-  message: string | null = 'Aucune facture';
+  message: string | null = null;
 
   constructor(
     private billService: BillService,
