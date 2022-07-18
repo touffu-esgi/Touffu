@@ -78,3 +78,7 @@ export function fromStringToNumber (time: string): number {
   const minutes = parseInt(timeSplit[1])
   return hour + minutes / 60;
 }
+
+export function displayDate(date: Date): string {
+  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+}
