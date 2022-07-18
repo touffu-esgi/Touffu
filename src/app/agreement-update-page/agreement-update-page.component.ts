@@ -70,8 +70,8 @@ export class AgreementUpdatePageComponent implements OnInit {
     ]).subscribe(agreement => {
       this.agreement = agreement[0];
       this.setAgreementParams();
-      this.getProvider(agreement[0].providerRef);
-      this.getRecipient(agreement[0].recipientRef);
+      this.getProvider(this.agreement.providerRef);
+      this.getRecipient(this.agreement.recipientRef);
       this.getAnimals();
     }, error => {
       this.router.navigate(["/"])
@@ -90,6 +90,7 @@ export class AgreementUpdatePageComponent implements OnInit {
   private getProvider(providerUrl: string) {
     this.providerService.getOneProviderByUrl(providerUrl).subscribe(provider => {
       this.provider = provider;
+      this.agreement!.providerRef = provider.id
       this.setWeeklyDate(this.agreement!.beginningDate!);
     }, error => {
       this.router.navigate(['/'])
@@ -99,6 +100,7 @@ export class AgreementUpdatePageComponent implements OnInit {
   private getRecipient (recipientUrl: string) {
     this.recipientService.getRecipient(recipientUrl).subscribe(recipient => {
       this.recipient = recipient;
+      this.agreement!.recipientRef = recipient.id!
     })
   }
 
@@ -111,7 +113,6 @@ export class AgreementUpdatePageComponent implements OnInit {
       this.setMaxDuration(this.startHourComponent!)
     }, error => {
       this.logError = "Le prestataire n'a pas de disponibilités sur ces plages horaires"
-      console.log(this.logError)
     });
   }
 
@@ -184,7 +185,7 @@ export class AgreementUpdatePageComponent implements OnInit {
 
   formatAnimalsRef() {
     // @ts-ignore
-    this.agreement!.animals.pop();
+    this.agreement!.animals = [];
     // @ts-ignore
     this.agreement.animals.push(this.agreement?.animalsRefs)
   }
@@ -193,13 +194,19 @@ export class AgreementUpdatePageComponent implements OnInit {
     if(this.authService.user?.userType == "recipient"){
       this.animalService.getAnimalsByRecipientId(this.user!.userReference!.split("/").pop()!).subscribe(animals => {
         this.recipientAnimal = animals;
+        // @ts-ignore
+        this.agreement!.animals! = []
+        // @ts-ignore
+        this.recipientAnimal.forEach(animal => this.agreement!.animals.push(animal.id!))
       })
     }else{
-      console.log("test")
       // @ts-ignore
       this.animalService.getAnimalById(this.agreement!.animals[0].split('/').pop()).subscribe(animal => {
         this.animals.push(animal)
-        console.log(this.animals)
+        // @ts-ignore
+        this.agreement!.animals! = []
+        // @ts-ignore
+        this.animals.forEach(animal => this.agreement!.animals.push(animal.id!))
       })
     }
   }
