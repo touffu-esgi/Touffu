@@ -15,6 +15,8 @@ export class ProviderAvailabilityPageComponent extends CalendarComponent {
   availabilities: Availability[] = [];
   newAvailabilities: Availability[] = [];
   userReference: string = this.authService.user!.userReference!.split('/').pop()!;
+  successMsg: string = ""
+  errorMsg: string = ""
 
   override ngOnInit(): void {
     this.getAvailability();
@@ -31,6 +33,7 @@ export class ProviderAvailabilityPageComponent extends CalendarComponent {
               this.selectedTimeframes.push(new Timeframe(availability.day!, time))
             }
           })
+        this.sortSelectedTimeframes()
       })
     })
   }
@@ -41,7 +44,12 @@ export class ProviderAvailabilityPageComponent extends CalendarComponent {
       this.selectedTimeframes.splice(index, 1)
     } else {
       this.selectedTimeframes.push(new Timeframe(day, hour))
+      this.sortSelectedTimeframes()
     }
+  }
+
+  private sortSelectedTimeframes () {
+    this.selectedTimeframes = this.selectedTimeframes.sort((tf1, tf2) => tf1.hour - tf2.hour)
   }
 
   updateAvailabilies() {
@@ -63,9 +71,17 @@ export class ProviderAvailabilityPageComponent extends CalendarComponent {
     this.newAvailabilities.forEach(a => {
       if (a.id === '') {
         delete a.id
-        this.availabilityService.addAvailability(a).subscribe()
+        this.availabilityService.addAvailability(a).subscribe(success => {
+          this.successMsg = "Disponibilités mises à jour"
+        }, error => {
+          this.errorMsg = "Une erreur est survenue"
+        })
       } else {
-        this.availabilityService.updateAvailability(a).subscribe()
+        this.availabilityService.updateAvailability(a).subscribe(success => {
+          this.successMsg = "Disponibilités mises à jour"
+        }, error => {
+          this.errorMsg = "Une erreur est survenue"
+        })
       }
     })
   }

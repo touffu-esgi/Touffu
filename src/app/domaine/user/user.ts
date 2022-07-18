@@ -5,6 +5,7 @@ export class User{
   userType?: string;
   password?: string;
   profilePic?: string;
+  status?: string;
 
   constructor(
     id: string,
@@ -13,6 +14,7 @@ export class User{
     userType: string,
     password: string,
     profilePic: string,
+    status: string,
   ) {
     this.email = email;
     this.userReference = userReference;
@@ -20,5 +22,6 @@ export class User{
     this.userType = userType;
     this.password = password;
     this.profilePic = profilePic;
+    this.status = status;
   }
 }

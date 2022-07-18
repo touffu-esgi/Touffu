@@ -31,6 +31,10 @@ export class AnimalService {
     return this.http.get<Animal>(`${url}`);
   }
 
+  getAnimalById(animalId: string): Observable<Animal>{
+    return this.http.get<Animal>(`${this.httpUtils.fullUrl()}/animals/${animalId}`);
+  }
+
   getAnimalType(): Observable<string[]>{
     return this.http.get<string[]>(`${this.httpUtils.fullUrl()}/animals/animalType`);
   }

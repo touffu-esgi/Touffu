@@ -106,21 +106,21 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'isNotAlive',
+    component: HealthCheckErrorComponent
+  },
+  {
+    path: 'user-calendar',
+    component: UserCalendarPageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: '',
     component: HomeComponent
   },
   {
     path: '**',
     component: HomeComponent
-  },
-  {
-    path: 'isNotAlive',
-    component: HealthCheckErrorComponent
-  },
-  {
-    path: 'user-calendar', 
-    component: UserCalendarPageComponent,
-    canActivate: [AuthGuard]
   },
 ];
 

@@ -18,6 +18,7 @@ export class MessageComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.authService.user;
+
   }
 
 }

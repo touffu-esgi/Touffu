@@ -17,7 +17,7 @@ export class RecipientProfileComponent implements OnInit {
 
   bills: Bill[] = []
   provider?: ProviderData;
-  message: string | null = 'Aucune facture';
+  message: string | null = null;
 
   constructor(
     private billService: BillService,
@@ -26,11 +26,12 @@ export class RecipientProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-        if(this.authService.user?.userType != "recipient"){
+    if(this.authService.user?.userType != "recipient") {
       this.router.navigate(['/'])
     }
     this.getBills();
   }
+
 
   private getBills(){
     if (this.authService.user?.userReference) {
