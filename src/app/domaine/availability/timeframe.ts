@@ -14,11 +14,9 @@ export class Timeframe {
     let end: number | null = null
     if (tfs.length === 0) return []
     tfs.forEach((tf) => {
-      console.log(begin, end)
       if (begin === null) {
         begin = tf.hour
         end = tf.hour + blockTimeUnit
-        console.log(begin, end)
       } else {
         if (tf.hour === end) {
           end += blockTimeUnit;
@@ -30,7 +28,6 @@ export class Timeframe {
       }
     })
     timeBlockList.push({beginAt: begin!, endAt: end!, duration: end! - begin!})
-    console.log(timeBlockList)
     return timeBlockList;
   }
 }

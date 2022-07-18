@@ -65,12 +65,10 @@ export class ProviderAvailabilityPageComponent extends CalendarComponent {
       } else {
         availability = new Availability(a[0].id!, a[0].day!, [], this.userReference)
       }
-      console.log(selectedTimeframes)
       availability.dailyAvailability = Timeframe.buildTimeBlock(selectedTimeframes)
       this.newAvailabilities.push(availability)
     })
     this.newAvailabilities.forEach(a => {
-      console.log(a)
       if (a.id === '') {
         delete a.id
         this.availabilityService.addAvailability(a).subscribe(success => {

@@ -123,9 +123,7 @@ export class AgreementPageComponent implements OnInit {
     }
     this.selectedAvailability?.dailyAvailability?.forEach((timeframe) => {
       if (timeframe.beginAt <= h && h < timeframe.endAt) {
-        console.log(timeframe)
         const maxDuration = timeframe.endAt - h;
-        console.log(maxDuration)
         for (let i = 0.25 ; i < maxDuration ; i += 0.25) {
           this.durations.push(i)
         }
