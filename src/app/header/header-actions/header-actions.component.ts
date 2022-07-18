@@ -13,7 +13,7 @@ export class HeaderActionsComponent implements OnInit {
   @Input() userEmail: string | null = null;
   @Input() userType: string | null = null;
   image?: string | ArrayBuffer | null;
-  
+
   constructor(private authService: AuthService, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class HeaderActionsComponent implements OnInit {
   }
 
   private getProfileImage() {
-    this.userService.getFile(this.authService.user?.profilePic!).subscribe(image=> {
+    this.userService.getFileFromUrl(this.authService.user?.profilePic!).subscribe(image=> {
       this.transformImage(image)
     });
   }

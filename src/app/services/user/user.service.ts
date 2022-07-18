@@ -28,6 +28,11 @@ export class UserService {
     return this.http.get<object>(`${this.httpUtils.fullUrl()}/user/profileImage/${imagePath}`, { responseType: 'blob' })
   }
 
+  getFileFromUrl(url: string): Observable<object>{
+    // @ts-ignore
+    return this.http.get<object>(url, { responseType: 'blob' })
+  }
+
   uploadProfileImage(formData: FormData): Observable<{ url: string }>{
     return this.http.post<{ url: string }>(`${this.httpUtils.fullUrl()}/user/image/profile`, formData);
   }

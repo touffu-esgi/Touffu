@@ -12,6 +12,7 @@ import { Animal } from '../homePage/animal/animal';
 import { AnimalService } from '../services/animal/animal.service';
 import {RecipientService} from "../services/recipient/recipient.service";
 import {Recipient} from "../domaine/recipient/recipient";
+import {fromStringToNumber} from "../utils/date-time.utils";
 
 
 
@@ -136,7 +137,7 @@ export class AgreementUpdatePageComponent implements OnInit {
 
   setMaxDuration(hour: string) {
     this.durations = []
-    const h = parseFloat(hour)
+    const h = fromStringToNumber(hour)
     if (!this.selectedAvailability || this.selectedAvailability.dailyAvailability?.length === 0) {
       this.logError = "Le prestataire n'a pas de disponibilités sur ces plages horaires"
       return
@@ -177,7 +178,7 @@ export class AgreementUpdatePageComponent implements OnInit {
       this.logSuccess = "Contrat mis à jour"
     }, error => {
       this.logSuccess = ""
-      this.logError = "Une erreur est survenue : " + error
+      this.logError = "Une erreur est survenue : " + error.message
     })
   }
 
@@ -194,10 +195,11 @@ export class AgreementUpdatePageComponent implements OnInit {
         this.recipientAnimal = animals;
       })
     }else{
+      console.log("test")
       // @ts-ignore
-      this.animalService.getAnimalsByUrl(this.agreement!.animals[0]).subscribe(animal => {
+      this.animalService.getAnimalById(this.agreement!.animals[0].split('/').pop()).subscribe(animal => {
         this.animals.push(animal)
-
+        console.log(this.animals)
       })
     }
   }
