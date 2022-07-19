@@ -143,18 +143,18 @@ export class AgreementPageComponent implements OnInit {
 
   concatHourWithBeginningDate(hour: string): void {
     this.agreements.beginningDate = this.agreements.beginningDate.split("T")[0];
-    this.agreements.beginningDate += `T${hour}`;
+    this.agreements.beginningDate += `T${hour}:00.000Z`;
   }
 
   sendAgreement(hour: string) {
     this.agreements.agreedByRecipient = true;
-    this.concatHourWithBeginningDate(hour);
+    this.concatHourWithBeginningDate(hour)
 
     this.agreements.duration = parseFloat(this.agreements.duration.toString())
     this.agreements.recipientRef = this.authService.user!.id!;
     this.addAgreementSubscribe = this.agreementService.addAgreement(this.agreements).subscribe(res => {
       this.logError = ""
-      this.logSuccess = "Contrat mis à jour"
+      this.logSuccess = "Proposition de contrat envoyée au prestataire"
     }, error => {
       this.logSuccess = ""
       this.logError = "Une erreur est survenue : " + error.message
