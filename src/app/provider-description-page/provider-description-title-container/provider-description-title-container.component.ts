@@ -9,6 +9,7 @@ export class ProviderDescriptionTitleContainerComponent implements OnInit {
 
   @Input() description_title: string = "";
   @Input() placement: string = "";
+  @Input() providerId?: string;
   constructor() { }
 
   ngOnInit(): void {

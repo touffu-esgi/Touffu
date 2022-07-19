@@ -3,7 +3,7 @@
 
 <div id="containerTitleAndCardDescription">
   <div id="containerProfileCards">
-    <app-provider-description-title-container [placement]="address!.addr1" [description_title]="provider!.profile_title"></app-provider-description-title-container>
+    <app-provider-description-title-container [providerId]='provider!.id!' [placement]="address!.addr1" [description_title]="provider!.profile_title"></app-provider-description-title-container>
     <app-provider-description-card-about-container [name]="provider!.name" [description]="provider!.profile_desc"></app-provider-description-card-about-container>
   </div>
   <div></div>

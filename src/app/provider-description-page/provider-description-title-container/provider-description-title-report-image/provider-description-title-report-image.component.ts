@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { AuthService } from '../../../services/auth/auth.service';
 })
 export class ProviderDescriptionTitleReportImageComponent implements OnInit {
 
-
+  @Input() providerId?: string;
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
