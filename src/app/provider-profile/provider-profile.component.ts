@@ -39,7 +39,7 @@ export class ProviderProfileComponent implements OnInit {
 
   private getBills() {
     if (this.authService.user?.id) {
-      this.billService.getProviderBills(this.authService.user?.id).subscribe(bills => {
+      this.billService.getProviderBills(this.authService.user?.userReference?.split("/").pop()!).subscribe(bills => {
         this.bills = bills;
         this.bills.forEach(bill => {
           bill.dateBill = bill.dateBill.split('T')[0]
