@@ -1,0 +1,17 @@
+#starContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+}
+
+#starImg {
+  max-width: 3vh;
+}
+
+#starContainer > p {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 12px;
+}

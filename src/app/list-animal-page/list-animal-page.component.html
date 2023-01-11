@@ -1,0 +1,5 @@
+<div id='animals'>
+  <app-animal-card *ngFor='let animal of animals' [animal]='animal'></app-animal-card>
+  <button routerLink='/add-animal'>Ajouter un animal</button>
+</div>
+<router-outlet></router-outlet>

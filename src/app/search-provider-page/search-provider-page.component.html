@@ -1,0 +1,7 @@
+<app-header></app-header>
+<app-search-bar-container></app-search-bar-container>
+  <div id="cardContainer">
+      <app-card-provider  *ngFor="let provider of providers" [provider]="provider" routerLink="/description-component" [queryParams]='{provider: provider!.id!}' [state]="[provider, address]"></app-card-provider>
+  </div>
+<app-footer></app-footer>
+<router-outlet></router-outlet>

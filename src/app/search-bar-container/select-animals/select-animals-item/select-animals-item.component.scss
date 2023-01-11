@@ -1,0 +1,19 @@
+.animals{
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  padding: 8px;
+}
+
+.hoverAnimal:hover{
+  border-radius: 30px;
+  max-width: 254px;
+  min-height: 34px;
+  background-color: #FFF4DE;
+}
+
+
+.hoverAnimal{
+  margin-left: 10px;
+}

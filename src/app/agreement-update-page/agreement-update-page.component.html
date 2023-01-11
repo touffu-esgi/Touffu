@@ -1,0 +1,60 @@
+<app-header></app-header>
+<div id="body">
+<app-container-name-and-status [recipient]='recipient' [provider]='provider'></app-container-name-and-status>
+  <div id='containerUpdate'>
+    <div id='firstLine'>
+      <select class='selectInput' name='recurrence' [(ngModel)]='agreement!.recurrence'>
+        <option value='None'>Aucun</option>
+        <option value='Daily'>Quotidien</option>
+        <option value='Weekly'>Hebdromadaire</option>
+        <option value='Monthly'>Mensuel</option>
+      </select>
+      <input class='selectInput' #date (focusout)='setWeeklyDate(date.value.toString())' name='beginningDate' type='date' [value]='agreement!.beginningDate' [(ngModel)]='agreement!.beginningDate'>
+      <input class='selectInput' name='endDate' type='date' [value]='agreement!.endDate' [(ngModel)]='agreement!.endDate'>
+
+    </div>
+
+    <div id='secondLine'>
+      <select name='startHour' class='selectInput' #startHour (change)='setMaxDuration(startHour.value)' [(ngModel)]='this.startHourComponent'>
+        <option value=''>Heure de début</option>
+        <option *ngFor='let hour of hours' value='{{computeHourDisplay(hour)}}'>{{computeHourDisplay(hour)}}</option>
+      </select>
+
+      <div class='inputsContainer'>
+        <select name='duration' class='selectInput' [(ngModel)]='this.agreement!.duration'>
+          <option>Durée</option>
+          <option *ngFor='let duration of durations' value='{{duration}}'>{{computeHourDisplay(duration)}}</option>
+        </select>
+      </div>
+
+      <div class='inputsContainer'>
+        <input type='number' name='remuneration' class='selectInput' [(ngModel)]='this.agreement!.remuneration' placeholder="Rémunération">
+      </div>
+    </div>
+  </div>
+
+  <div class='line'>
+    <div *ngIf='this.animals.length == 0' class='inputsContainer'>
+      <select name='duration' class='selectInput' (change)='formatAnimalsRef()' [(ngModel)]='this.agreement!.animalsRefs'>
+        <option value=''>Animaux</option>
+        <option *ngFor='let animal of recipientAnimal' [value]='[animal.id]'>{{animal.name}}</option>
+      </select>
+    </div>
+    <div *ngIf='this.animals.length > 0' class='inputsContainer'>
+      <div *ngFor='let animal of animals'> {{animal.name}}</div>
+    </div>
+  </div>
+  <div class="line">
+    <div>
+      <input type="checkbox" id="validate" value="confirm" [(ngModel)]="confirm">
+      <label for="validate">Confirmer mes modifications</label>
+    </div>
+  </div>
+
+  <div class="line">
+    <button id="updateBtn" (click)='send()'>Mettre a jour la proposition</button>
+    <app-message-box [errorMsg]="logError" [displayError]="logError.length > 0" [successMsg]="logSuccess" [displaySuccess]="logSuccess.length > 0"></app-message-box>
+  </div>
+
+</div>
+<app-footer></app-footer>

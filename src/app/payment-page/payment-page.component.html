@@ -1,0 +1,39 @@
+<app-header></app-header>
+<form (submit)='updateBill()' novalidate #cardForm="ngForm" >
+  <div id="mainContainer">
+    <div *ngIf="(this.reportSendOk == null || this.reportSendOk == false)">
+      <div class="largeInput">
+        <div class='littleInputs'>
+          <div>
+            <input name="nom" minlength='1' placeholder="nom" required [(ngModel)]='card.name' type="text">
+          </div>
+          <div>
+            <input name="prenom" minlength='1' required placeholder="prenom" [(ngModel)]='card.surname' type="text">
+          </div>
+        </div>
+        <div id="blueCardNumber">
+          <input name="cardNumber" #cardNumber [(ngModel)]='card.cardNumber' minlength='19' maxlength='19' (input)='formatCardNumber(cardNumber)' required placeholder="numéro de la carte" type="text">
+        </div>
+        <div class='littleInputs' id='secondLineOfLittleInput'>
+          <div>
+            <input name="endDate" #endDate (input)='formatEndDate(endDate)' pattern='((0[1-9])|([0-1][0-2]))\/(([0-2][0-9])|3[0-1])' maxlength='5' required [(ngModel)]='card.endDate' [placeholder]="date()" type="text">
+          </div>
+          <div>
+            <input name="CVV" required pattern='[0-9][0-9][0-9]' minlength='3' maxlength='3' [(ngModel)]='card.cvv' placeholder="000" type="text">
+          </div>
+        </div>
+        <div>
+          <button [hidden]='cardForm.invalid' type='submit' class="inputIndex" id="SearchInput">Payer</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="alertMsg" id="errorMsg" *ngIf="this.reportSendOk === false">
+      <p>{{this.errorMsg}}</p>
+    </div>
+    <div class="alertMsg" id="successMsg" *ngIf="this.reportSendOk === true">
+      <p>Le paiement a bien été effectué</p>
+    </div>
+  </div>
+</form>
+<app-footer></app-footer>

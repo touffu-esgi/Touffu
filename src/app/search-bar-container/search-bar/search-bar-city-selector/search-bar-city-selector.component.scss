@@ -1,0 +1,27 @@
+.inputIndex{
+  border: unset;
+  outline: unset;
+  appearance: unset;
+  position: relative;
+  top: 22px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: transparent;
+}
+
+.inputIndex::placeholder{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  color: #C4C4C4;
+}
+
+#CitySelector:before{
+  content: url("../../../../assets/position.svg");
+  position: relative;
+  top: 31px;
+}
+
+#cityInput{
+  max-width: 150px;
+}

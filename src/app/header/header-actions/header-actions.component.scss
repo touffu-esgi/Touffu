@@ -1,0 +1,25 @@
+button{
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  margin-right: 50px;
+  background-color: transparent;
+  border-color: transparent;
+
+}
+
+#becomeProvider{
+  border-color: #411013 !important;
+  border-radius: 30px;
+  min-height: 41px;
+  text-align: center;
+  min-width: 255px;
+}
+
+img{
+  width: 100px;
+  clip-path: circle();
+}
+
+#actions{
+  display: flex;
+}

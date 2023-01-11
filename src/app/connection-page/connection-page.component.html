@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div id="mainContainer">
+  <div>
+    <div class="largeInput">
+      <div id="emailContainer">
+        <input name="email" placeholder="Email" type="text" [(ngModel)]='user.email'>
+      </div>
+      <div>
+        <input name="password" placeholder="Password" type="password" [(ngModel)]='user.password'>
+      </div>
+      <div>
+        <button class="inputIndex" id="SearchInput" (click)='connected()'>Me connecter</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id='errorContainer'>
+  <div class="alertMsg" id="errorMsg" *ngIf="this.connectionSendOk === false">
+    <p>{{this.errorMsg}}</p>
+  </div>
+</div>
+
+<app-footer></app-footer>

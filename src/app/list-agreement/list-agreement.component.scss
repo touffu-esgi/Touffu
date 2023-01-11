@@ -1,0 +1,27 @@
+#header {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  font-weight: bold;
+  text-align: left;
+}
+#value{
+  display: flex;
+  justify-content: space-evenly;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 30px;
+  height: 10vh;
+  align-items: center;
+  text-align: left;
+  flex-wrap: wrap;
+  margin: 3vh;
+}
+
+body {
+  max-width: 75vw;
+  margin: auto;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}

@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div id='userCalendar'>
+  <div id='header'>
+    <h1>Calendrier</h1>
+    <button id="goBefore" class='moveButton' (click)='toWeekBefore()'>< Précédent</button>
+    <span>{{displayDate(this.calendarDateFrom)}} à {{displayDate(this.calendarDateTo)}}</span>
+    <button id="goNow" class='moveButton' (click)='toNow()'>Aujourd'hui</button>
+    <button id="goAfter" class='moveButton' (click)='toWeekAfter()'>Suivant ></button>
+  </div>
+
+  <table id='availabilitiesTable'>
+    <thead>
+    <tr>
+      <th></th>
+      <th *ngFor="let day of WEEKDAYS">{{translateDay(day)}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th>Heures</th>
+      <td *ngFor="let day of calendarWeekDates">{{day}}</td>
+    </tr>
+    <tr *ngFor="let hour of dailyHours">
+      <td>{{computeDisplayHour(hour)}}</td>
+      <td *ngFor="let day of WEEKDAYS" [ngClass]="getIndex(day, hour) !== -1 ? 'selected' : ''" routerLink="/agreement-detail" [queryParams]='{"agreementId":goToAgreement(day, hour)}'></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<app-footer></app-footer>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div id='containerAvailabilities'>
+  <div id='header'>
+    <h1>Mes disponibilités hebdomadaires</h1>
+    <app-message-box [displaySuccess]="successMsg.length > 0" [successMsg]="successMsg" [errorMsg]="errorMsg" [displayError]="errorMsg.length > 0"></app-message-box>
+    <button id='saveAvailability' (click)='updateAvailabilies()'>Sauvegarder</button>
+  </div>
+
+  <table id='availabilitiesTable'>
+    <thead>
+    <tr>
+      <th>Heures</th>
+      <th *ngFor="let day of WEEKDAYS">{{translateDay(day)}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let hour of dailyHours">
+      <td>{{computeDisplayHour(hour)}}</td>
+      <td *ngFor="let day of WEEKDAYS" (click)='updateTimeframes(day, hour)' [ngClass]="getIndex(day, hour) !== -1 ? 'selected' : ''"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<app-footer></app-footer>

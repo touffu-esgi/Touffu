@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+
+<div id='billParentContainer'>
+  <div>
+    <app-provider-description-card-details-container [isNotInProfile]='false' [imagePath]='provider!.profile_pic' [base_tarif]="provider?.base_tariff" [id]="provider?.id" [name]="provider?.name"></app-provider-description-card-details-container>
+  </div>
+
+  <div id='cardContainer'>
+    <div id='cardBill' *ngFor='let bill of bills'>
+      <div>
+        <img *ngIf='bill.datePaid' src='assets/paid.png' alt=''>
+        <img *ngIf='!bill.datePaid' src='assets/clock.png' alt=''>
+      </div>
+      <div id='dateBill' class='field'>
+        <img src='assets/calendar.png' alt=''>
+        <p>{{bill.dateBill}}</p>
+      </div>
+      <div id='hand'  class='field'>
+        <img src='assets/hand.png' alt=''>
+        <p>{{bill.total}} €</p>
+      </div>
+      <div id='contract' class='field'>
+        <img src='assets/contract.png' alt=''>
+        <p>{{bill.agreementRef}}</p>
+      </div>
+      <button (click)='generateBills(bill!.id!)'>
+        <div id='file' class='field'>
+          <img src='assets/file.png' alt=''>
+        </div>
+      </button>
+
+    </div>
+  </div>
+</div>
+<div id='personalInformation'>
+  <app-personal-provider-component></app-personal-provider-component>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,11 @@
+body{
+  margin: 0;
+}
+
+#cardContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+}
